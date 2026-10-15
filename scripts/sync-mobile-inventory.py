@@ -40,14 +40,17 @@ def main():
     for card in re.findall(r"<article\b.*?</article>", document, re.S | re.I):
         title_match = re.search(r"<h3\b[^>]*>(.*?)</h3>", card, re.S | re.I)
         price_match = re.search(r'data-testid="price-label"[^>]*>(.*?)</span>', card, re.S | re.I)
-        image_match = re.search(r"<img\b[^>]*data-testid=\"listing-\d+-image\"[^>]*>", card, re.S | re.I)
-        if not title_match or not image_match:
+        image_matches = re.findall(r"<img\b[^>]*data-testid=\"listing-\d+-image(?:-[^\"]+)?\"[^>]*>", card, re.S | re.I)
+        if not title_match or not image_matches:
             continue
-        image_tag = image_match.group(0)
+        # Some listings use a large main image plus thumbnail images. Prefer the main image.
+        image_tag = next((tag for tag in image_matches if re.search(r'data-testid=\"listing-\d+-image-large\"', tag, re.I)), image_matches[0])
         title = plain(title_match.group(1))
         image = attr(image_tag, "src")
         price = plain(price_match.group(1)) if price_match else "Preis auf Anfrage"
-        if not image or not title:
+        if not image or not title or "placeholder" in image.lower() or "no-image" in image.lower():
+            continue
+        if not image.startswith("https://img.classistatic.de/api/v1/mo-prod/images/"):
             continue
         vehicles.append({"title": title, "price": price, "image": image})
 

@@ -68,3 +68,60 @@
 @media(max-width:1000px){.staff-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.about-page-intro{gap:35px}.staff-portrait{height:215px}}
 @media(max-width:720px){.staff-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.staff-copy{padding:15px 13px}.staff-copy h2{font-size:17px}.staff-portrait{height:190px}.about-page-intro{grid-template-columns:1fr;gap:25px}.about-page-intro img{height:260px}.team-section{padding:50px 0 60px}.reviews{padding:48px 0 38px}.contact{padding:45px 0 32px}.footer{font-size:13px}.legal-page{padding:42px 0 60px}}
 @media(max-width:430px){.staff-grid{grid-template-columns:1fr}.staff-card{display:grid;grid-template-columns:105px 1fr}.staff-portrait{height:100%;min-height:185px}.staff-copy .eyebrow{min-height:0}.staff-copy h2{font-size:16px}.staff-copy>p:not(.eyebrow){min-height:0}}
+
+/* Shared mobile header, icon set, model hero, and service booking highlight */
+.site-header{z-index:40}
+.site-header .nav{position:relative}
+.brand-link{flex:0 1 auto;min-width:0}
+.mobile-contacts{display:none}
+.menu-toggle{width:42px;height:42px;border:0;padding:8px;display:none;align-items:center;justify-content:center;cursor:pointer}
+.burger-lines{width:25px;height:20px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.burger-lines i{display:block;width:25px;height:2px;background:#fff;transform-origin:center;transition:transform .24s ease,opacity .18s ease}
+.menu-toggle.is-open .burger-lines i:first-child{transform:translateY(9px) rotate(45deg)}
+.menu-toggle.is-open .burger-lines i:nth-child(2){opacity:0}
+.menu-toggle.is-open .burger-lines i:last-child{transform:translateY(-9px) rotate(-45deg)}
+.icon svg,.side-rail svg,.mobile-contacts svg,.booking-icon svg{fill:none;stroke:currentColor;stroke-width:1.45;stroke-linecap:round;stroke-linejoin:round}
+.side-rail a{width:62px}
+.side-rail a:hover,.side-rail a:focus-visible{width:280px}
+.model-card strong{font-size:31px;line-height:1.2;margin:8px 0 14px;font-weight:600;display:block}
+.offer-card{display:block;color:inherit;text-decoration:none}
+.offer-card .offer-link{display:flex}
+.vehicle-card{position:relative;cursor:pointer}
+.vehicle-card .vehicle-actions{position:relative;z-index:2}
+.vehicle-card .model-link{position:static}
+.vehicle-card .model-link:after{content:"";position:absolute;inset:0;z-index:1}
+.hero-slide-link{position:absolute;inset:0;z-index:1}
+.hero-slide .hero-caption{z-index:2;pointer-events:none}
+.hero-slide .hero-caption a{pointer-events:auto;position:relative;z-index:2}
+.hero-slide .hero-caption .eyebrow{pointer-events:none}
+.model-page-hero{min-height:min(610px,calc(88vh - 92px))}
+.model-page-hero .hero-caption h1{font-size:clamp(38px,5.5vw,72px)}
+.service-hero{min-height:min(600px,calc(88vh - 92px))}
+.service-hero .hero-slide img{object-position:center 45%}
+.booking-highlight{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start;padding:25px 27px;margin:28px 0 4px;border:1px solid #8c2523;border-left:5px solid var(--red);background:linear-gradient(125deg,#321716,#211a1a 72%);box-shadow:0 12px 32px #0004}
+.booking-icon{width:56px;height:56px;display:grid;place-items:center;color:#ff7772;background:#532220}
+.booking-icon svg{width:31px;height:31px}
+.booking-status{display:inline-block;color:#fff;background:var(--red);padding:4px 9px;text-transform:uppercase;font-size:10px;letter-spacing:.15em;font-weight:700}
+.booking-highlight h3{font-size:24px;line-height:1.2;margin:9px 0 8px;color:#fff}
+.booking-highlight p{font-size:14px;line-height:1.65;color:#ddd;margin:0 0 10px}
+.booking-highlight a{font-weight:700;color:#fff;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:720px){
+ .site-header{height:72px}
+ .site-header .nav{height:72px;gap:8px;justify-content:space-between}
+ .logo{width:135px}
+ .mobile-contacts{display:flex;align-items:center;gap:5px;margin-left:auto}
+ .mobile-contacts a{display:grid;place-items:center;width:36px;height:40px;color:#fff}
+ .mobile-contacts svg{width:21px;height:21px}
+ .menu-toggle{display:flex;flex:0 0 40px;background:transparent;color:#fff}
+ .navlinks{top:72px}
+ .side-rail{top:auto;bottom:16px;right:10px;transform:none;gap:5px}
+ .side-rail a{width:48px;height:48px;padding:0 10px;gap:11px}
+ .side-rail a:hover,.side-rail a:focus-visible{width:245px}
+ .side-rail svg{width:27px;height:27px;flex-basis:27px}
+ .side-rail span{font-size:12px}
+ .model-page-hero,.service-hero{min-height:520px}
+ .booking-highlight{grid-template-columns:48px 1fr;padding:19px 16px;gap:14px}
+ .booking-icon{width:45px;height:45px}
+ .booking-highlight h3{font-size:20px}
+}
+@media(max-width:420px){.logo{width:115px}.mobile-contacts{gap:0}.mobile-contacts a{width:31px}.menu-toggle{width:36px;flex-basis:36px;padding:5px}.site-header .nav{gap:5px}}

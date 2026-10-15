@@ -1,6 +1,6 @@
 {
   "source": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-10-15T09:15:47.628666+00:00",
+  "updated": "2026-10-15T14:06:16.768507+00:00",
   "vehicles": [
     {
       "title": "Subaru Outback 2.5i Exclusive Cross Lineartronic",
@@ -46,6 +46,11 @@
       "title": "Citroën C4 Lim. Shine",
       "price": "25.700 € ¹",
       "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1600"
+    },
+    {
+      "title": "Citroën E-C4 FeelPack | RCam - TW - SH - Nav - Headup",
+      "price": "17.990 €",
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/05/0502b268-aced-477d-9621-e9b610bd7367?rule=mo-1600"
     },
     {
       "title": "Citroën C3 PT110 EAT6 Max | RCam - Nav - TMP - LED",
