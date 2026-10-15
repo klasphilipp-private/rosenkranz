@@ -5,10 +5,11 @@
   <meta name="description" content="Aktuelle Fahrzeugangebote von Automobile Rosenkranz in Recklinghausen.">
   <title>Unsere Angebote · Automobile Rosenkranz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header"><div class="wrap nav"><a href="index.html#start" aria-label="Automobile Rosenkranz Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz · Citroën · Subaru · Peugeot"></a><nav class="navlinks" aria-label="Hauptnavigation"><a href="index.html#angebote">Unsere Angebote</a><a href="modelle.html">Neuwagen</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="index.html#service">Service</a><a href="index.html#ueber-uns">Über uns</a><a href="index.html#kontakt">Kontakt</a></nav><button class="menu-toggle" aria-expanded="false" aria-label="Navigation öffnen">Menü</button></div></header>
+  <header class="site-header"><div class="wrap nav"><a href="index.html#start" aria-label="Automobile Rosenkranz Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz · Citroën · Subaru · Peugeot"></a><nav class="navlinks" aria-label="Hauptnavigation"><a href="index.html#angebote">Unsere Angebote</a><a href="modelle.html">Neuwagen</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="index.html#service">Service</a><a href="ueber-uns.html">Über uns</a><a href="index.html#kontakt">Kontakt</a></nav><button class="menu-toggle" aria-expanded="false" aria-label="Navigation öffnen">Menü</button></div></header>
   <main>
     <section class="offer-section" style="min-height:75vh;padding-top:72px"><div class="wrap">
       <span class="eyebrow">Fahrzeuge mit Rosenkranz Beratung</span><div class="section-head"><div><h1 class="section-title">Unsere Angebote</h1><p class="section-intro">Neue und junge Gebrauchte aus unserem aktuellen Fahrzeugbestand.</p></div><a class="btn btn-red" href="https://home.mobile.de/AUTOMOBILE-ROSENKRANZ" target="_blank" rel="noopener">Zum Händlerprofil bei mobile.de ↗</a></div>
@@ -17,7 +18,7 @@
       <p class="notice">Die Angebotsübersicht wird regelmäßig mit dem öffentlichen Händlerbestand bei mobile.de abgeglichen. Fahrzeugverfügbarkeit und Ausstattungsangaben bitte beim Verkaufsteam bestätigen lassen.</p>
     </div></section>
   </main>
-  <footer class="footer"><div class="wrap footer-row"><span>Automobile Rosenkranz © 2026</span><span><a href="index.html#kontakt">Kontakt</a> · <a href="index.html#kontakt">Impressum</a> · <a href="index.html#kontakt">Datenschutz</a></span><span><a href="index.html">Zur Startseite ↑</a></span></div></footer>
+  <div id="shared-footer"></div>
   <script>
     const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
     const grid=document.querySelector('#offer-grid'),filter=document.querySelector('#offer-filter'),sort=document.querySelector('#offer-sort');
@@ -27,4 +28,5 @@
     function render(){let list=inventory.filter(x=>filter.value==='all'||(filter.value==='citroen'&&/citroën|citroen/i.test(x.title))||(filter.value==='subaru'&&/subaru/i.test(x.title))||(filter.value==='other'&&!/citroën|citroen|subaru/i.test(x.title)));if(sort.value==='price-low')list.sort((a,b)=>amount(a.price)-amount(b.price));if(sort.value==='price-high')list.sort((a,b)=>amount(b.price)-amount(a.price));if(sort.value==='name')list.sort((a,b)=>a.title.localeCompare(b.title,'de'));grid.innerHTML=list.map(x=>`<article class="offer-card"><div class="offer-photo"><img src="${x.image}" alt="${escapeHtml(x.title)}" loading="lazy"></div><div class="offer-copy"><h2>${escapeHtml(x.title)}</h2><div class="offer-meta">Aktuell bei Automobile Rosenkranz</div><div class="offer-price">${escapeHtml(x.price||'Preis auf Anfrage')}</div><a class="offer-link" href="https://home.mobile.de/AUTOMOBILE-ROSENKRANZ" target="_blank" rel="noopener">Fahrzeug bei mobile.de ansehen <span>↗</span></a></div></article>`).join('')||'<p>Für diesen Filter sind aktuell keine Fahrzeuge gelistet.</p>'}
     filter.addEventListener('change',render);sort.addEventListener('change',render);render();fetch('inventory.json').then(r=>r.ok?r.json():Promise.reject()).then(data=>{if(Array.isArray(data.vehicles)&&data.vehicles.length){inventory=data.vehicles;document.querySelector('#inventory-note').textContent=`${inventory.length} Fahrzeuge · zuletzt aktualisiert ${new Date(data.updated).toLocaleDateString('de-DE')}`;render()}}).catch(()=>{document.querySelector('#inventory-note').textContent='Aktuelle Beispielauswahl · alle Inserate bei mobile.de'})
   </script>
+  <script src="footer.js"></script>
 </body></html>

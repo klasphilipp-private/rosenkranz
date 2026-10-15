@@ -9,22 +9,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header"><div class="wrap nav">
     <a href="index.html#start" aria-label="Automobile Rosenkranz Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz · Citroën · Subaru"></a>
     <button class="menu-toggle" aria-expanded="false" aria-label="Navigation öffnen">Menü</button>
-    <nav class="navlinks" aria-label="Hauptnavigation"><a href="angebote.html">Unsere Angebote</a><a href="modelle.html">Neuwagen</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="index.html#service">Service</a><a href="index.html#ueber-uns">Über uns</a><a href="index.html#kontakt">Kontakt</a></nav>
+    <nav class="navlinks" aria-label="Hauptnavigation"><a href="angebote.html">Unsere Angebote</a><a href="modelle.html">Neuwagen</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="index.html#service">Service</a><a href="ueber-uns.html">Über uns</a><a href="index.html#kontakt">Kontakt</a></nav>
   </div></header>
   <main class="model-detail"><div class="wrap">
     <p><a class="text-link" id="back-link" href="modelle.html">← Zur Modellübersicht</a></p>
     <div class="detail-layout"><div class="detail-photo"><img id="model-image" alt="" fetchpriority="high"></div><div class="detail-copy"><span class="eyebrow" id="model-brand"></span><h1 id="model-title">Modell wird geladen …</h1><p class="detail-intro" id="model-description"></p><div id="model-features"></div><a class="btn btn-red" id="drive-link" href="index.html#probefahrt">Probefahrt anfragen ↗</a></div></div>
   </div></main>
-  <footer class="footer"><div class="wrap footer-row"><span>Automobile Rosenkranz © 2026</span><span><a href="index.html#kontakt">Kontakt</a> · <a href="index.html#bewertungen">Google Bewertungen</a></span><span><a href="index.html">Zur Startseite ↑</a></span></div></footer>
+  <div id="shared-footer"></div>
   <script>
     const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
     const slug=new URLSearchParams(location.search).get('modell');fetch('models.json').then(r=>r.json()).then(models=>{const m=models.find(x=>x.slug===slug);if(!m){document.querySelector('#model-title').textContent='Modell nicht gefunden';document.querySelector('#model-description').textContent='Bitte wählen Sie ein Fahrzeug aus unserer Modellübersicht.';return}document.title=`${m.name} · Automobile Rosenkranz`;document.querySelector('#model-brand').textContent=m.brand+(m.commercial?' · Nutzfahrzeuge':'');document.querySelector('#model-title').textContent=m.title;document.querySelector('#model-description').textContent=m.description;const image=document.querySelector('#model-image');image.src=m.image;image.alt=m.name;const detail=document.createElement('p');detail.textContent=m.details;document.querySelector('#model-features').append(detail);document.querySelector('#back-link').href=`modelle.html?marke=${m.commercial?'gewerbe':m.brand==='Subaru'?'subaru':'citroen'}`;document.querySelector('#drive-link').href=`index.html?modell=${encodeURIComponent(m.slug)}#probefahrt`}).catch(()=>{document.querySelector('#model-title').textContent='Modellübersicht nicht erreichbar'});
   </script>
+  <script src="footer.js"></script>
 </body>
 </html>

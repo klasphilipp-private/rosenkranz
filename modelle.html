@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +21,7 @@
       <a href="modelle.html">Neuwagen</a>
       <a href="modelle.html?marke=gewerbe">Gewerbe</a>
       <a href="index.html#service">Service</a>
-      <a href="index.html#ueber-uns">Über uns</a>
+      <a href="ueber-uns.html">Über uns</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
   </div></header>
@@ -32,7 +33,7 @@
       <div class="catalog-grid" id="catalog-grid" aria-live="polite"></div>
     </div></section>
   </main>
-  <footer class="footer"><div class="wrap footer-row"><span>Automobile Rosenkranz © 2026</span><span><a href="index.html#kontakt">Kontakt</a> · <a href="index.html#bewertungen">Google Bewertungen</a></span><span><a href="index.html">Zur Startseite ↑</a></span></div></footer>
+  <div id="shared-footer"></div>
   <script>
     const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});
     const params=new URLSearchParams(location.search),filter=document.querySelector('#brand-filter'),grid=document.querySelector('#catalog-grid'),title=document.querySelector('#catalog-title'),intro=document.querySelector('#catalog-intro'),count=document.querySelector('#catalog-count');
@@ -40,5 +41,6 @@
     function renderCatalog(models){const choice=filter.value;const list=models.filter(m=>choice==='alle'||(choice==='citroen'&&m.brand==='Citroën'&&!m.commercial)||(choice==='subaru'&&m.brand==='Subaru')||(choice==='gewerbe'&&m.commercial));title.textContent=choice==='citroen'?'Citroën Modelle':choice==='subaru'?'Subaru Modelle':choice==='gewerbe'?'Gewerbefahrzeuge':'Unsere Neuwagen';intro.textContent=choice==='citroen'?'Entdecken Sie die Citroën Modelle – vom kompakten Stadtwagen bis zum vielseitigen Van.':choice==='subaru'?'Entdecken Sie die Subaru Modellwelt mit persönlicher Beratung und Probefahrt in Recklinghausen.':choice==='gewerbe'?'Nutzfahrzeuge für Handwerk, Service und Transport – wir beraten Sie zu Platz, Aufbau und Antrieb.':'Entdecken Sie die Citroën und Subaru Modellwelt – mit persönlicher Beratung in Recklinghausen.';count.textContent=`${list.length} Modelle`;grid.replaceChildren(...list.map(m=>{const card=document.createElement('article');card.className='vehicle-card';const image=document.createElement('img');image.src=m.image;image.alt=m.name;image.loading='lazy';const copy=document.createElement('div');copy.className='vehicle-card-copy';const brand=document.createElement('span');brand.className='eyebrow';brand.textContent=m.brand+(m.commercial?' · Gewerbe':'');const heading=document.createElement('h2');heading.textContent=m.name;const text=document.createElement('p');text.textContent=m.description;const actions=document.createElement('div');actions.className='vehicle-actions';const detail=document.createElement('a');detail.className='model-link';detail.href=`modell.html?modell=${encodeURIComponent(m.slug)}`;detail.textContent='Modell ansehen ↗';const drive=document.createElement('a');drive.className='text-link';drive.href=`index.html?modell=${encodeURIComponent(m.slug)}#probefahrt`;drive.textContent='Probefahrt anfragen';actions.append(detail,drive);copy.append(brand,heading,text,actions);card.append(image,copy);return card;}));}
     filter.addEventListener('change',()=>renderCatalog(modelData));fetch('models.json').then(r=>r.json()).then(models=>{modelData=models;renderCatalog(modelData)}).catch(()=>{grid.textContent='Die Modellübersicht konnte gerade nicht geladen werden.'});
   </script>
+  <script src="footer.js"></script>
 </body>
 </html>
