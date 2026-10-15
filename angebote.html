@@ -6,7 +6,7 @@
   <title>Unsere Angebote · Automobile Rosenkranz</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261015-4">
+  <link rel="stylesheet" href="styles.css?v=20261015-5">
 </head>
 <body>
   <!-- SITE HEADER START -->
@@ -14,8 +14,8 @@
   <div class="wrap nav">
     <a class="brand-link" href="index.html" aria-label="Automobile Rosenkranz – Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz"></a>
     <div class="mobile-contacts" aria-label="Direktkontakt">
-      <a href="tel:+49236191490" aria-label="Telefon: 02361 9149-0"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-4#contact"/></svg></a>
-      <a href="mailto:info@automobile-rosenkranz.de" aria-label="E-Mail: info@automobile-rosenkranz.de"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-4#contact"/></svg></a>
+      <a href="tel:+49236191490" aria-label="Telefon: 02361 9149-0"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-5#phone"/></svg></a>
+      <a href="mailto:info@automobile-rosenkranz.de" aria-label="E-Mail: info@automobile-rosenkranz.de"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-5#email"/></svg></a>
     </div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span class="burger-lines" aria-hidden="true"><i></i><i></i><i></i></span></button>
     <nav class="navlinks" aria-label="Hauptnavigation">
@@ -29,10 +29,10 @@
   </div>
 </header>
 <aside class="side-rail" aria-label="Schnellzugriff">
-  <a href="tel:+49236191490" aria-label="Jetzt anrufen"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-4#contact"/></svg><span>Jetzt anrufen · 02361 / 9149-0</span></a>
-  <a href="angebote.html" aria-label="Unsere Angebote"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-4#offer"/></svg><span>Aktuelle Angebote ansehen</span></a>
-  <a href="index.html#probefahrt" aria-label="Probefahrt anfragen"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-4#testdrive"/></svg><span>Probefahrt vereinbaren</span></a>
-  <a href="service.html" aria-label="Werkstatt und Service"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-4#service"/></svg><span>Service und Teileverkauf</span></a>
+  <a href="tel:+49236191490" aria-label="Jetzt anrufen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-5#contact"/></svg><span>Jetzt anrufen · 02361 / 9149-0</span></a>
+  <a href="angebote.html" aria-label="Unsere Angebote" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-5#offer"/></svg><span>Aktuelle Angebote ansehen</span></a>
+  <a href="index.html#probefahrt" aria-label="Probefahrt anfragen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-5#testdrive"/></svg><span>Probefahrt vereinbaren</span></a>
+  <a href="service.html" aria-label="Werkstatt und Service" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-5#service"/></svg><span>Service und Teileverkauf</span></a>
 </aside>
 <!-- SITE HEADER END -->
   <main>
@@ -53,5 +53,5 @@
     function render(){let list=inventory.filter(x=>filter.value==='all'||(filter.value==='citroen'&&/citroën|citroen/i.test(x.title))||(filter.value==='subaru'&&/subaru/i.test(x.title))||(filter.value==='other'&&!/citroën|citroen|subaru/i.test(x.title)));if(sort.value==='price-low')list.sort((a,b)=>amount(a.price)-amount(b.price));if(sort.value==='price-high')list.sort((a,b)=>amount(b.price)-amount(a.price));if(sort.value==='name')list.sort((a,b)=>a.title.localeCompare(b.title,'de'));grid.innerHTML=list.map(x=>`<a class="offer-card" href="https://home.mobile.de/AUTOMOBILE-ROSENKRANZ" target="_blank" rel="noopener"><div class="offer-photo"><img src="${x.image}" alt="${escapeHtml(x.title)}" loading="lazy"></div><div class="offer-copy"><h2>${escapeHtml(x.title)}</h2><div class="offer-meta">Aktuell bei Automobile Rosenkranz</div><div class="offer-price">${escapeHtml(x.price||'Preis auf Anfrage')}</div><span class="offer-link">Fahrzeug bei mobile.de ansehen <span>↗</span></span></div></a>`).join('')||'<p>Für diesen Filter sind aktuell keine Fahrzeuge gelistet.</p>'}
     filter.addEventListener('change',render);sort.addEventListener('change',render);render();fetch('inventory.json?v=20261015-3').then(r=>r.ok?r.json():Promise.reject()).then(data=>{if(Array.isArray(data.vehicles)&&data.vehicles.length){inventory=data.vehicles;document.querySelector('#inventory-note').textContent=`${inventory.length} Fahrzeuge · zuletzt aktualisiert ${new Date(data.updated).toLocaleDateString('de-DE')}`;render()}}).catch(()=>{document.querySelector('#inventory-note').textContent='Aktuelle Beispielauswahl · alle Inserate bei mobile.de'})
   </script>
-  <script src="site-shell.js?v=20261015-3"></script><script src="footer.js?v=20261015-2"></script>
+  <script src="site-shell.js?v=20261015-4"></script><script src="footer.js?v=20261015-2"></script>
 </body></html>
