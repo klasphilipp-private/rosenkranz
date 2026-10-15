@@ -2,15 +2,12 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="consent.js?v=20261015-1"></script>
   <meta name="robots" content="noindex,nofollow">
   <meta name="description" content="Modelle und persönliche Beratung bei Automobile Rosenkranz in Recklinghausen.">
   <title>Modell · Automobile Rosenkranz</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261015-6">
+  <link rel="stylesheet" href="styles.css?v=20261015-7">
 </head>
 <body>
   <!-- SITE HEADER START -->
@@ -48,6 +45,6 @@
 
     const slug=new URLSearchParams(location.search).get('modell');fetch('models.json?v=20261015-4').then(r=>r.json()).then(models=>{const m=models.find(x=>x.slug===slug);if(!m){document.querySelector('#model-title').textContent='Modell nicht gefunden';document.querySelector('#model-description').textContent='Bitte wählen Sie ein Fahrzeug aus unserer Modellübersicht.';return}document.title=`${m.name} · Automobile Rosenkranz`;document.querySelector('#model-brand').textContent=m.brand+(m.commercial?' · Nutzfahrzeuge':'');document.querySelector('#model-title').textContent=m.title;document.querySelector('#model-description').textContent=m.description;const image=document.querySelector('#model-image');image.src=m.image;image.alt=m.name;const detail=document.createElement('p');detail.textContent=m.details;document.querySelector('#model-features').append(detail);document.querySelector('#back-link').href=`modelle.html?marke=${m.commercial?'gewerbe':m.brand==='Subaru'?'subaru':'citroen'}`;document.querySelector('#drive-link').href=`index.html?modell=${encodeURIComponent(m.slug)}#probefahrt`}).catch(()=>{document.querySelector('#model-title').textContent='Modellübersicht nicht erreichbar'});
   </script>
-  <script src="model-hero.js?v=20261015-4"></script><script src="site-shell.js?v=20261015-4"></script><script src="footer.js?v=20261015-2"></script>
+  <script src="model-hero.js?v=20261015-4"></script><script src="site-shell.js?v=20261015-4"></script><script src="footer.js?v=20261015-3"></script>
 </body>
 </html>
