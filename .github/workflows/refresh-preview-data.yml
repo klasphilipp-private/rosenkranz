@@ -17,13 +17,13 @@ jobs:
         with:
           python-version: '3.x'
       - name: Refresh mobile.de inventory
-        run: python3 site/scripts/sync-mobile-inventory.py
+        run: python3 scripts/sync-mobile-inventory.py
       - name: Refresh Google Places reviews
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
         run: |
           if [ -n "$GOOGLE_PLACES_API_KEY" ]; then
-            python3 site/scripts/sync-google-reviews.py
+            python3 scripts/sync-google-reviews.py
           else
             echo 'Google reviews kept at the latest checked-in snapshot; add GOOGLE_PLACES_API_KEY to Actions secrets to refresh them.'
           fi
@@ -31,7 +31,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add site/inventory.json site/google-reviews.json
+          git add inventory.json google-reviews.json
           if git diff --cached --quiet; then
             echo 'Preview data is unchanged'
             exit 0

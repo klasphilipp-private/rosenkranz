@@ -1,9 +1,9 @@
 # Automobile Rosenkranz – öffentliche Designvorschau
 
-Diese GitHub-Pages-Seite ist eine öffentliche, nicht indexierte Vorschau für den Website-Relaunch.
+Diese GitHub-Pages-Seite ist eine öffentliche Vorschau für den Website-Relaunch. Die Seiten enthalten `noindex`-Metadaten.
 
-- Startseite: `site/index.html`
-- Angebote: `site/angebote.html`
+- Startseite: `index.html`
+- Angebote: `angebote.html`
 - Vorschau-URL: https://klasphilipp-private.github.io/rosenkranz/
 
 Die Angebotsdaten werden automatisch alle 12 Stunden aus dem öffentlichen mobile.de-Händlerprofil aktualisiert. Google-Rezensionen werden aktualisiert, sobald `GOOGLE_PLACES_API_KEY` als Actions-Repository-Secret in GitHub eingerichtet ist. Der Schlüssel gehört nicht in HTML oder JSON.
