@@ -1,11 +1,9 @@
-# Automobile Rosenkranz – öffentliche Designvorschau
+# Automobile Rosenkranz – öffentliche Website-Vorschau
 
-Diese GitHub-Pages-Seite ist eine öffentliche Vorschau für den Website-Relaunch. Die Seiten enthalten `noindex`-Metadaten.
+Öffentliche, nicht indexierte Vorschau: https://klasphilipp-private.github.io/rosenkranz/
 
-- Startseite: `index.html`
-- Angebote: `angebote.html`
-- Vorschau-URL: https://klasphilipp-private.github.io/rosenkranz/
+Die statische Website enthält die Startseite, mobile.de-Angebote, eine Filterliste mit 20 veröffentlichten Citroën- und Subaru-Modellen sowie gemeinsame Modell-Detailseiten. Die Modelltexte und zugehörigen Bilder wurden aus dem bereitgestellten WordPress-Export übernommen.
 
-Die Angebotsdaten werden automatisch alle 12 Stunden aus dem öffentlichen mobile.de-Händlerprofil aktualisiert. Google-Rezensionen werden aktualisiert, sobald `GOOGLE_PLACES_API_KEY` als Actions-Repository-Secret in GitHub eingerichtet ist. Der Schlüssel gehört nicht in HTML oder JSON.
+Die Angebotsdaten aktualisieren sich automatisch alle 12 Stunden. Google Places-Rezensionen aktualisieren sich nur, wenn `GOOGLE_PLACES_API_KEY` als Actions-Repository-Secret in diesem Repo gesetzt ist. Formulare sind Demos und übermitteln keine Anfragen.
 
-Formulare auf dieser Vorschau sind Demonstrationen und versenden keine Daten. Impressum und Datenschutz sind noch nicht die freigegebenen Rechtstexte.
+Aus Datenschutzgründen ist die vollständige WordPress-Datenbank nicht Teil dieses öffentlichen Repos.

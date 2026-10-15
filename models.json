@@ -1,0 +1,222 @@
+[
+  {
+    "slug": "citroen-holiday",
+    "name": "Citroën Holidays",
+    "title": "Citroën Holidays: Camper Van für Reise und Alltag",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-holidays.png",
+    "description": "Der Citroën Holidays verbindet die Alltagstauglichkeit eines Vans mit der Freiheit eines kompakten Campers. Auf Basis des SpaceTourer bietet er eine komplette Reisemobil-Ausstattung, bleibt dabei aber handlich genug für viele tägliche Wege. So eignet er sich für spontane Wochenenden ebenso wie für längere Touren.",
+    "details": "Das Aufstelldach schafft zusätzlichen Schlafraum, während sich der Innenraum mit umbaubarer Sitzbank zu einer weiteren Liegefläche verwandeln lässt. Eine herausnehmbare Küche mit Kochstelle, Spüle und Kühlmöglichkeit unterstützt die Versorgung unterwegs. Drehbare Vordersitze und ein flexibel nutzbarer Tisch machen aus dem Fahrzeug einen kleinen Wohnraum. Wird mehr Transportfläche benötigt, lassen sich einzelne Campingelemente entfernen. Je nach Ausstattung ergänzen Lösungen wie Außendusche, mobile Toilette oder Solarpanel das Reisekonzept.",
+    "commercial": false,
+    "formOption": "Citroën Holidays"
+  },
+  {
+    "slug": "spacetourer",
+    "name": "Citroën SpaceTourer",
+    "title": "Citroën SpaceTourer: flexibler Van mit viel Platz",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-spacetourer.png",
+    "description": "Der Citroën SpaceTourer ist ein Großraum-Van für Familien, Freizeitaktive und professionelle Personentransporte. Sein variabler Innenraum nimmt je nach Konfiguration bis zu neun Personen auf und bleibt dabei angenehm zugänglich. Zwei Karosserielängen erleichtern die Abstimmung auf Parkplatz, Passagierzahl und Gepäckbedarf.",
+    "details": "Verschiebbare und herausnehmbare Sitze schaffen eine Vielzahl möglicher Raumaufteilungen – von der Reisegruppe bis zum Transport sperriger Sportausrüstung. Breite Schiebetüren erleichtern den Einstieg, die erhöhte Sitzposition verbessert die Übersicht. Das modernisierte Cockpit verbindet praktische Ablagen mit Touchscreen, digitaler Anzeige und Smartphone-Einbindung. Je nach Ausstattung ergänzen Assistenzsysteme und ein Glasdach den Reise- und Bedienkomfort. Der SpaceTourer wird mit elektrischem oder konventionellem Antrieb angeboten.",
+    "commercial": false,
+    "formOption": "Citroën SpaceTourer"
+  },
+  {
+    "slug": "berlingo",
+    "name": "Citroën Berlingo",
+    "title": "Citroën Berlingo: vielseitiger Familien-Van",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-berlingo.png",
+    "description": "Der Citroën Berlingo ist ein vielseitiger Familien-Van für alle, die im Alltag mehr Raum und Flexibilität benötigen. Ob Kinder, Hobbyausrüstung oder Reisegepäck: Die hohe Karosserie, die großen seitlichen Schiebetüren und der gut zugängliche Gepäckraum machen viele Transportaufgaben angenehm unkompliziert.",
+    "details": "Drei einzeln umklappbare Sitze in der zweiten Reihe helfen dabei, Personen und Gepäck passend zu kombinieren. Je nach Version ist eine weitere Sitzreihe verfügbar, während sich auch der Beifahrersitz für besonders lange Gegenstände in die Ladefläche einbeziehen lässt. Zahlreiche Ablagen, die niedrige Ladekante und die separat zu öffnende Heckscheibe erhöhen den Nutzwert. Das überarbeitete Cockpit bietet moderne Vernetzung und verfügbare Assistenzsysteme; Citroën Advanced Comfort Sitze fördern entspanntes Reisen. Die Baureihe umfasst elektrische und konventionelle Antriebsvarianten.",
+    "commercial": false,
+    "formOption": "Citroën Berlingo"
+  },
+  {
+    "slug": "ami",
+    "name": "Citroën Ami",
+    "title": "Citroën Ami: elektrische Mobilität für die Stadt",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-ami.jpg",
+    "description": "Der Citroën Ami bringt elektrische Mobilität auf ein besonders kompaktes Format. Das wendige Leichtfahrzeug ist für kurze Wege in der Stadt gemacht und bietet zwei Personen einen geschützten, unkomplizierten Platz im urbanen Alltag. Sein freundliches Design macht ihn sofort erkennbar – vom täglichen Weg zur Schule oder Arbeit bis zur spontanen Fahrt durch die Innenstadt.",
+    "details": "Typisch Ami sind die klare, nahezu symmetrische Form und ein Innenraum, der bewusst einfach und praktisch gehalten ist. Große Glasflächen unterstützen die gute Übersicht, clevere Ablagen erleichtern den Alltag und das Smartphone übernimmt auf Wunsch zentrale Funktionen für Navigation und Unterhaltung. In Deutschland kann der Ami unter den geltenden Voraussetzungen bereits ab 15 Jahren mit der Fahrerlaubnisklasse AM gefahren werden. Neben der geschlossenen Variante setzt der Ami Buggy mit offenerem Charakter einen besonders freizeitorientierten Akzent.",
+    "commercial": false,
+    "formOption": "Citroën Ami"
+  },
+  {
+    "slug": "der-neue-c5-aircross",
+    "name": "Citroën C5 Aircross",
+    "title": "Neuer Citroën C5 Aircross: SUV-Komfort für Familien",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c5-aircross.png",
+    "description": "Der neue Citroën C5 Aircross ist das großzügige SUV-Modell der Marke für Familie, Beruf und Reise. Ein klar gezeichnetes, kraftvolles Exterieur trifft auf einen wohnlichen Innenraum, der den Komfortgedanken von Citroën konsequent fortführt. Hybrid-, Plug-in-Hybrid- und Elektrovarianten eröffnen unterschiedliche Wege zur elektrifizierten Mobilität.",
+    "details": "Das Interieur ist als Lounge gestaltet: besonders komfortable Sitze, viel Bewegungsfreiheit und ein flexibler Gepäckraum schaffen gute Voraussetzungen für lange Tage unterwegs. Die Federung mit progressivem hydraulischem Anschlag unterstützt das ruhige Fahrgefühl. Im Cockpit fällt der hochformatige Waterfall-Touchscreen ins Auge; eine erweiterte Head-up-Anzeige bringt wichtige Informationen ins Sichtfeld. Je nach Ausstattung ergänzen moderne Lichttechnik, Rundumsicht und Assistenzfunktionen das Fahrzeug. Die aerodynamisch ausgearbeitete Form und die vielseitige Antriebsauswahl verbinden zeitgemäße Technik mit dem typischen Citroën Komfort.",
+    "commercial": false,
+    "formOption": "Citroën C5 Aircross"
+  },
+  {
+    "slug": "c4x",
+    "name": "Citroën C4 X",
+    "title": "Citroën C4 X: elegantes Fastback mit viel Komfort",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c4x.png",
+    "description": "Der Citroën C4 X verbindet die fließende Linie eines Fastbacks mit der Präsenz eines Crossovers und dem Komfort einer geräumigen Limousine. Damit richtet er sich an Fahrerinnen und Fahrer, die einen eigenständigen Auftritt ebenso schätzen wie entspanntes Reisen und einen vom Innenraum getrennten Gepäckbereich.",
+    "details": "Die coupéartig abfallende Dachlinie prägt das elegante Profil, während der lange Kofferraum den C4 X besonders reisetauglich macht. Im Innenraum schaffen Citroën Advanced Comfort Sitze und die komfortorientierte Federung eine ruhige Atmosphäre. Mit digitaler Anzeige, Touchscreen, Smartphone-Einbindung und verfügbaren Assistenzsystemen ist das Bedienkonzept zeitgemäß aufgestellt. Auch die Fondpassagiere profitieren von einer auf Komfort ausgerichteten Sitzposition. Der C4 X ist mit elektrischen und hybriden Antriebsvarianten erhältlich und lässt sich so passend zum individuellen Alltag konfigurieren.",
+    "commercial": false,
+    "formOption": "Citroën C4 X"
+  },
+  {
+    "slug": "c4",
+    "name": "Citroën C4",
+    "title": "Citroën C4: komfortable Kompaktlimousine mit Stil",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c4.jpg",
+    "description": "Der Citroën C4 verbindet die Dynamik eines Coupés mit dem Komfort einer Kompaktlimousine und dezenten SUV-Anklängen. Sein geschärftes Design wirkt eigenständig und modern, ohne die Alltagstauglichkeit aus dem Blick zu verlieren. Je nach persönlichem Fahrprofil stehen elektrifizierte und konventionelle Antriebsarten zur Wahl.",
+    "details": "Im Mittelpunkt steht das entspannte Fahrerlebnis. Citroën Advanced Comfort Sitze und die Federung mit progressivem hydraulischem Anschlag filtern viele Unebenheiten angenehm heraus. Ein klar gegliedertes digitales Cockpit, ein zentraler Touchscreen und die Smartphone-Einbindung unterstützen eine intuitive Bedienung. Je nach Ausstattung sorgen Head-up-Anzeige und verschiedene Assistenzsysteme für zusätzliche Übersicht. Die weit öffnende Heckklappe und die variabel nutzbare Rückbank machen den C4 zugleich zu einem praktischen Begleiter für Einkauf, Beruf und Reise.",
+    "commercial": false,
+    "formOption": "Citroën C4"
+  },
+  {
+    "slug": "c3",
+    "name": "Citroën C3",
+    "title": "Citroën C3: komfortabler Kleinwagen für den Alltag",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c3.jpg",
+    "description": "Der Citroën C3 ist ein moderner Kleinwagen für Menschen, die im Alltag kompakte Abmessungen und spürbaren Komfort verbinden möchten. Seine aufrechte, von SUV-Elementen inspirierte Silhouette sorgt für einen selbstbewussten Auftritt. Je nach Wunsch ist der C3 mit elektrischem, hybridem oder konventionellem Antrieb erhältlich.",
+    "details": "Im Innenraum verfolgt der C3 das Citroën Advanced Comfort Konzept. Bequeme Sitze und die komfortorientierte Federung unterstützen entspanntes Fahren auf kurzen wie längeren Strecken. Das C-Zen Lounge Cockpit reduziert Ablenkung und ordnet wichtige Informationen in der natürlichen Blickachse an. Je nach Ausstattung ergänzen ein zentraler Touchscreen, kabellose Smartphone-Einbindung und zeitgemäße Assistenzsysteme das Bedienkonzept. Der gut nutzbare Innenraum und die alltagstaugliche Gepäcklösung machen den C3 zu einem vielseitigen Begleiter für Stadt, Pendelstrecke und Wochenende.",
+    "commercial": false,
+    "formOption": "Citroën C3"
+  },
+  {
+    "slug": "c3-aircross",
+    "name": "Citroën C3 Aircross",
+    "title": "Citroën C3 Aircross: flexibler SUV für Familien",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c3-aircross.jpg",
+    "description": "Der Citroën C3 Aircross ist ein kompakter SUV mit viel Raum für Familie, Freizeit und Alltag. Sein aufrechtes Design, die erhöhte Sitzposition und die klare Linienführung schaffen einen robusten Auftritt. Neben Varianten mit fünf Sitzplätzen ist er – abhängig vom Antrieb – auch mit einer zusätzlichen dritten Sitzreihe erhältlich.",
+    "details": "Die große Stärke des C3 Aircross liegt in seiner Anpassungsfähigkeit. Die hinteren Sitzreihen lassen sich flexibel nutzen, sodass sich der Innenraum schnell auf Mitfahrende oder Gepäck einstellen lässt. Citroën Advanced Comfort Sitze und die komfortorientierte Federung fördern entspanntes Reisen. Das übersichtlich gestaltete C-Zen Lounge Cockpit verbindet wichtige Fahrinformationen mit moderner Vernetzung; je nach Ausstattung kommen Touchscreen, kabellose Smartphone-Einbindung und Fahrerassistenz hinzu. Die Auswahl aus elektrischem, hybridem und konventionellem Antrieb erleichtert die Abstimmung auf das persönliche Nutzungsprofil.",
+    "commercial": false,
+    "formOption": "Citroën C3 Aircross"
+  },
+  {
+    "slug": "berlingo-kastenwagen",
+    "name": "Citroën Berlingo Kastenwagen",
+    "title": "Citroën Berlingo Kastenwagen: flexibel im Business",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-berlingo-kastenwagen.jpg",
+    "description": "Der Citroën Berlingo Kastenwagen ist ein kompakter Transporter für Handwerk, Service und Lieferverkehr. Er verbindet gut nutzbaren Laderaum mit stadttauglicher Wendigkeit und einer komfortabel eingerichteten Kabine. Verschiedene Längen und elektrische wie konventionelle Antriebsvarianten erleichtern die Anpassung an den Betrieb.",
+    "details": "Breite Schiebetüren und weit öffnende Hecktüren unterstützen das Be- und Entladen. Je nach Konfiguration lässt sich der Beifahrerbereich in die Laderaumnutzung einbeziehen oder als mobiler Arbeitsplatz verwenden. Praktische Ablagen halten Unterlagen und Arbeitsmittel griffbereit. Das moderne Cockpit bietet digitale Anzeigen, Smartphone-Einbindung und verfügbare Assistenzsysteme; die Citroën Advanced Comfort Sitze entlasten auf vielen täglichen Etappen. Für besondere Aufgaben stehen unterschiedliche Karosserie- und Innenraumlösungen zur Verfügung.",
+    "commercial": true,
+    "formOption": "Citroën Berlingo Kastenwagen"
+  },
+  {
+    "slug": "c3-van",
+    "name": "Citroën ë-C3 Van",
+    "title": "Citroën ë-C3 Van: kompakter Elektro-Transporter",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-e-c3-van.jpeg",
+    "description": "Der Citroën ë-C3 Van überträgt die handliche Idee des C3 auf den gewerblichen Stadtverkehr. Statt einer Rücksitzbank bietet der rein elektrische Zweisitzer einen abgetrennten Laderaum und richtet sich damit an Servicebetriebe, Lieferdienste und Selbstständige mit kompaktem Transportbedarf.",
+    "details": "Seine übersichtliche Karosserie erleichtert das Rangieren in engen Straßen und auf kleinen Stellflächen. Gleichzeitig bleibt der für den C3 typische Komfort erhalten: Citroën Advanced Comfort Sitze und die komfortorientierte Federung unterstützen einen entspannten Arbeitstag. Eine feste Trennwand schützt den vorderen Bereich, während Verzurrmöglichkeiten dabei helfen, Arbeitsmaterial sicher zu organisieren. Je nach Ausstattung sorgen Smartphone-Vernetzung, Navigation und moderne Assistenzfunktionen für zusätzliche Alltagshilfe. Das emissionsfreie Fahren vor Ort passt besonders gut zu regelmäßigen Einsätzen in Stadt und Umland.",
+    "commercial": true,
+    "formOption": "Citroën ë-C3 Van"
+  },
+  {
+    "slug": "jumper",
+    "name": "Citroën Jumper",
+    "title": "Citroën Jumper: großer Transporter für Ihr Business",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-jumper.jpg",
+    "description": "Der Citroën Jumper ist das große Nutzfahrzeug der Marke für anspruchsvolle Transport- und Aufbauaufgaben. Mit mehreren Karosserielängen, Dachhöhen und Aufbauformen lässt er sich auf Handwerk, Logistik, Service oder individuelle Branchenlösungen abstimmen. Auch eine elektrische Variante gehört zur Modellfamilie.",
+    "details": "Der geradlinig ausgelegte Laderaum und die großen Türöffnungen erleichtern den täglichen Warenumschlag. Neben dem klassischen Kastenwagen sind je nach Programm weitere Aufbau- und Fahrgestelllösungen möglich. In der Kabine verbindet der Jumper eine ergonomische Fahrposition mit zahlreichen Ablagen und einer praktischen Arbeitsfläche, die sich aus dem mittleren Sitzbereich bilden lässt. Digitale Instrumente, modernes Infotainment und verfügbare Assistenzsysteme unterstützen Fahrerinnen und Fahrer bei langen Strecken, Rangiermanövern und im dichten Berufsverkehr.",
+    "commercial": true,
+    "formOption": "Citroën Jumper"
+  },
+  {
+    "slug": "jumpy",
+    "name": "Citroën Jumpy",
+    "title": "Citroën Jumpy: vielseitiger Transporter für Profis",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-jumpy.jpg",
+    "description": "Der Citroën Jumpy ist der vielseitige Transporter für Betriebe, die mehr Raum benötigen und zugleich im Stadtverkehr beweglich bleiben möchten. Unterschiedliche Längen, Aufbau- und Sitzkonzepte decken Aufgaben vom Materialtransport bis zur kombinierten Beförderung von Team und Ausrüstung ab.",
+    "details": "Der gut zugängliche Laderaum lässt sich über seitliche Schiebetüren und die Heckpartie bequem beladen. Je nach Ausführung erweitert eine Durchlademöglichkeit den nutzbaren Bereich für lange Gegenstände; Varianten mit zusätzlicher Sitzreihe bringen Mitarbeitende und Material gemeinsam ans Ziel. Das überarbeitete Cockpit bietet praktische Ablagen, digitale Bedienung, Smartphone-Anbindung und verfügbare Assistenzfunktionen. Komfortable Sitze und die Pkw-nahe Fahrposition unterstützen lange Arbeitstage. Der Jumpy ist mit elektrischem oder konventionellem Antrieb erhältlich.",
+    "commercial": true,
+    "formOption": "Citroën Jumpy"
+  },
+  {
+    "slug": "subaru-forester-vielseitiger-suv-mit-allrad",
+    "name": "Subaru Forester",
+    "title": "Subaru Forester: vielseitiger SUV mit Allrad",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-forester.jpg",
+    "description": "Der Subaru Forester ist ein geräumiger SUV für Familie, Freizeit und anspruchsvolle Alltagswege. Die aktuelle Generation tritt mit markantem Design und einem neu gestalteten Innenraum an. Das Subaru e-BOXER Hybridsystem arbeitet mit dem permanenten Symmetrical AWD zusammen und bewahrt damit den typischen Charakter der Baureihe.",
+    "details": "Die hohe Sitzposition, große Fensterflächen und weit öffnende Türen erleichtern Übersicht und Einstieg. Im variablen Innenraum lassen sich Rückbank und Gepäckbereich flexibel für Reise, Sport oder Einkauf nutzen. Auf wechselndem Untergrund unterstützt das Allrad-Assistenzsystem X-MODE, während die erhöhte Bodenfreiheit zusätzliche Reserven abseits befestigter Wege bietet. Ein großer zentraler Touchscreen mit Smartphone-Einbindung bündelt wichtige Funktionen. Das weiterentwickelte EyeSight System und weitere verfügbare Assistenzlösungen setzen einen klaren Schwerpunkt auf Sicherheit.",
+    "commercial": false,
+    "formOption": "Subaru Forester"
+  },
+  {
+    "slug": "subaru-crosstrek-kompakter-suv-mit-allrad",
+    "name": "Subaru Crosstrek",
+    "title": "Subaru Crosstrek: kompakter SUV mit Allrad",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-crosstrek.jpg",
+    "description": "Der Subaru Crosstrek ist ein kompakter Crossover-SUV für Menschen, die sich in der Stadt ebenso zu Hause fühlen wie auf der Zufahrt zum nächsten Outdoor-Ziel. Sein robustes Design verbindet kurze, übersichtliche Proportionen mit einem alltagstauglichen Innenraum. e-BOXER Hybrid und permanenter Symmetrical AWD gehören zum charakteristischen Antriebskonzept.",
+    "details": "Die erhöhte Bodenfreiheit und X-MODE unterstützen auf losem oder rutschigem Untergrund. Gleichzeitig sorgen die steife Fahrzeugplattform und die ausgewogene Sitzposition für ein kontrolliertes Fahrgefühl auf der Straße. Die Rücksitzlehnen lassen sich geteilt umklappen, sodass Freizeitgepäck flexibel Platz findet. Im Cockpit übernimmt ein großer Touchscreen die Vernetzung mit kompatiblen Smartphones. EyeSight und weitere Assistenzsysteme beobachten das Verkehrsumfeld und unterstützen in vielen Alltagssituationen. Schutzverkleidungen und Dachreling unterstreichen den aktiven Charakter.",
+    "commercial": false,
+    "formOption": "Subaru Crosstrek"
+  },
+  {
+    "slug": "subaru-impreza-kompakter-allradler-mit-hybrid",
+    "name": "Subaru Impreza",
+    "title": "Subaru Impreza: kompakter Allradler mit Hybrid",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-impreza.jpg",
+    "description": "Der Subaru Impreza verbindet die handliche Form eines Kompaktwagens mit einem in dieser Klasse ungewöhnlichen Antriebskonzept: e-BOXER Hybrid und permanenter Symmetrical AWD sind serienmäßig miteinander kombiniert. Damit eignet sich der fünftürige Allrounder für Stadt, Pendelstrecke und wechselnde Wetterbedingungen.",
+    "details": "Die aktuelle Generation wirkt sportlich und klar gezeichnet. Im Innenraum unterstützt eine niedrige Ladekante den Alltag; die geteilt umklappbare Rückbank schafft bei Bedarf zusätzlichen Platz für Gepäck. Ein zentraler Touchscreen integriert Navigation, Medien und kompatible Smartphones in einer übersichtlichen Bedienoberfläche. Die Subaru Global Platform fördert Stabilität und Komfort, während das weiterentwickelte EyeSight System zusammen mit weiteren Assistenzfunktionen das Verkehrsgeschehen im Blick behält. So verbindet der Impreza kompakte Abmessungen mit Allrad-Souveränität und praktischem Nutzwert.",
+    "commercial": false,
+    "formOption": "Subaru Impreza"
+  },
+  {
+    "slug": "subaru-outback-crossover-fuer-alltag-und-abenteuer",
+    "name": "Subaru Outback",
+    "title": "Subaru Outback: Crossover für Alltag und Abenteuer",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-outback.jpg",
+    "description": "Der Subaru Outback verbindet die Langstreckenqualitäten eines geräumigen Kombis mit der Bodenfreiheit und Robustheit eines SUV. Als Crossover-Flaggschiff der Marke richtet er sich an Reisende, Familien und Freizeitaktive, die viel Platz und Souveränität bei unterschiedlichen Straßen- und Wetterverhältnissen wünschen.",
+    "details": "Der permanente Symmetrical AWD und X-MODE unterstützen Traktion auf nasser Fahrbahn, Schnee oder unbefestigten Wegen. Im großzügigen Innenraum stehen komfortable Sitzplätze und ein flexibel erweiterbarer Gepäckbereich bereit. Eine robuste Dachreling erleichtert die Mitnahme sperriger Freizeitausrüstung. Das hochformatige Zentraldisplay bündelt Navigation, Infotainment und Smartphone-Einbindung. EyeSight sowie weitere verfügbare Assistenzsysteme helfen beim Abstandhalten, Spurführen und Beobachten des Umfelds. Hochwertige Materialien und eine ruhige Abstimmung machen den Outback auch auf langen Strecken angenehm.",
+    "commercial": false,
+    "formOption": "Subaru Outback"
+  },
+  {
+    "slug": "subaru-solterra-vollelektrischer-suv-mit-allrad",
+    "name": "Subaru SOLTERRA",
+    "title": "Subaru SOLTERRA: vollelektrischer SUV mit Allrad",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-solterra.jpg",
+    "description": "Der Subaru SOLTERRA ist der vollelektrische SUV der Marke und verbindet lokal emissionsfreies Fahren mit typischer Subaru Allradkompetenz. Die umfassend weiterentwickelte Generation tritt mit geschärftem Design, modernem Cockpit und mehr Komfort für Alltag und Reise an.",
+    "details": "Die für Elektrofahrzeuge entwickelte Plattform schafft einen niedrigen Schwerpunkt und einen geräumigen Innenraum mit gut nutzbarem Gepäckbereich. Der elektrische Allradantrieb und X-MODE unterstützen auf wechselndem Untergrund, während die erhöhte Bodenfreiheit die SUV-Ausrichtung unterstreicht. Ein großes Zentraldisplay, die digitale Fahreranzeige und die Smartphone-Anbindung sorgen für zeitgemäße Bedienung. Über die Subaru Care App lassen sich ausgewählte Fahrzeug- und Ladefunktionen aus der Ferne nutzen. Umfassende Assistenz- und Sicherheitssysteme begleiten Fahrerinnen und Fahrer in vielen Verkehrssituationen.",
+    "commercial": false,
+    "formOption": "Subaru Solterra"
+  },
+  {
+    "slug": "subaru-uncharted-elektrischer-kompakt-suv",
+    "name": "Subaru UNCHARTED",
+    "title": "Subaru UNCHARTED: elektrischer Kompakt-SUV",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-uncharted.jpg",
+    "description": "Der Subaru UNCHARTED erweitert die elektrische Modellpalette um einen kompakten SUV mit dynamischer, coupéartig gezeichneter Silhouette. Er kombiniert stadttaugliche Abmessungen mit einem überraschend variablen Innenraum und ist je nach Variante mit Front- oder Allradantrieb erhältlich.",
+    "details": "Die weiterentwickelte e-Subaru Global Platform sorgt für einen flachen Innenraumboden und unterstützt ein ausgewogenes Fahrgefühl. Bei den Allradvarianten ergänzen X-MODE und eine erhöhte Bodenfreiheit den aktiven Charakter. Der klar gestaltete Innenraum bietet ein großes Zentraldisplay, digitale Vernetzung und einen flexibel nutzbaren Gepäckbereich. Über die Subaru Care App lassen sich ausgewählte Funktionen aus der Ferne steuern. Moderne Assistenzsysteme und eine auf Übersicht ausgerichtete Sitzposition machen den UNCHARTED zu einem vielseitigen Begleiter für Stadt, Pendelweg und Freizeit.",
+    "commercial": false,
+    "formOption": "Subaru Uncharted"
+  },
+  {
+    "slug": "subaru-e-outback-elektrischer-allrad-suv",
+    "name": "Subaru E-OUTBACK",
+    "title": "Subaru E-OUTBACK: elektrischer Allrad-SUV",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-e-outback.webp",
+    "description": "Der Subaru E-OUTBACK überträgt die Idee des vielseitigen Outback in ein vollelektrisches SUV-Flaggschiff. Sein robustes Design, der großzügige Innenraum und der praktische Gepäckbereich richten sich an Familien und Freizeitaktive. Der Marktstart in Deutschland ist nach aktuellem Herstellerstand für Oktober 2026 vorgesehen.",
+    "details": "Elektrischer Allradantrieb, X-MODE und eine erhöhte Bodenfreiheit bilden die Grundlage für typische Subaru Souveränität auf wechselndem Untergrund. Die robuste Dachreling nimmt Freizeitausrüstung in den Blick, während der Innenraum viel Platz für Passagiere und Reisegepäck bietet. Das horizontal ausgerichtete Cockpit verbindet digitale Anzeigen, ein großes Zentraldisplay und vernetzte Fahrzeugfunktionen. Moderne Assistenzsysteme unterstützen im dichten Verkehr ebenso wie auf langen Etappen. Damit verbindet der E-OUTBACK elektrisches Fahren mit dem Abenteuer- und Alltagsanspruch der Modellfamilie.",
+    "commercial": false,
+    "formOption": "Subaru E-OUTBACK"
+  }
+]
