@@ -1,1 +1,53 @@
-const frame=document.querySelector('#model-hero-slides'),dots=document.querySelector('#model-hero-dots');if(frame&&dots)fetch('models.json').then(r=>r.json()).then(models=>{const q=new URLSearchParams(location.search),brand=q.get('marke'),slug=q.get('modell');let list=models;if(brand==='citroen')list=models.filter(m=>m.brand==='Citroën'&&!m.commercial);else if(brand==='subaru')list=models.filter(m=>m.brand==='Subaru');else if(brand==='gewerbe')list=models.filter(m=>m.commercial);if(slug){const current=models.find(m=>m.slug===slug);if(current)list=[current,...models.filter(m=>m.brand===current.brand&&m.slug!==slug)]}list=list.slice(0,12);if(!list.length)return;frame.innerHTML=list.map((m,i)=>`<article class="hero-slide${i===0?' active':''}"><img src="${m.image}" alt="${m.name}" fetchpriority="${i?'low':'high'}"><div class="hero-caption"><span class="eyebrow">${m.brand}${m.commercial?' · Gewerbe':' · Modellwelt'}</span><h1>${m.name}</h1><p>${m.description}</p><a class="btn" href="modell.html?modell=${encodeURIComponent(m.slug)}">Modell entdecken <span aria-hidden="true">↗</span></a></div><a class="hero-slide-link" href="modell.html?modell=${encodeURIComponent(m.slug)}" aria-label="${m.name} entdecken"></a></article>`).join('');let slides=[...frame.querySelectorAll('.hero-slide')],current=0,timer;dots.replaceChildren(...slides.map((_,i)=>{const b=document.createElement('button');b.className='hero-dot'+(i===0?' active':'');b.setAttribute('aria-label',`Fahrzeug ${i+1} anzeigen`);b.addEventListener('click',()=>show(i));return b}));function show(i){current=(i+slides.length)%slides.length;slides.forEach((s,j)=>s.classList.toggle('active',j===current));[...dots.children].forEach((b,j)=>b.classList.toggle('active',j===current));clearInterval(timer);timer=setInterval(()=>show(current+1),6500)}document.querySelector('.previous')?.addEventListener('click',()=>show(current-1));document.querySelector('.next')?.addEventListener('click',()=>show(current+1));show(0)}).catch(()=>{});
+const frame=document.querySelector('#model-hero-slides');
+const dots=document.querySelector('#model-hero-dots');
+
+if(frame&&dots)fetch('models.json?v=20261015-4').then(r=>r.json()).then(models=>{
+  const params=new URLSearchParams(location.search);
+  const brand=params.get('marke');
+  const slug=params.get('modell');
+  const detailModel=slug?models.find(model=>model.slug===slug):null;
+  const isDetailPage=Boolean(detailModel);
+  let modelsToShow=models;
+
+  if(brand==='citroen')modelsToShow=models.filter(model=>model.brand==='Citroën'&&!model.commercial);
+  else if(brand==='subaru')modelsToShow=models.filter(model=>model.brand==='Subaru');
+  else if(brand==='gewerbe')modelsToShow=models.filter(model=>model.commercial);
+  if(isDetailPage)modelsToShow=[detailModel];
+
+  const slidesData=isDetailPage
+    ? (detailModel.gallery?.length?detailModel.gallery:[detailModel.image]).slice(0,8).map(image=>({model:detailModel,image}))
+    : modelsToShow.slice(0,12).map(model=>({model,image:model.image}));
+  if(!slidesData.length)return;
+
+  frame.innerHTML=slidesData.map(({model,image},index)=>{
+    const caption=`<div class="hero-caption"><span class="eyebrow">${model.brand}${model.commercial?' · Gewerbe':' · Modellwelt'}</span><h1>${model.name}</h1><p>${model.description}</p>${isDetailPage?'':`<a class="btn" href="modell.html?modell=${encodeURIComponent(model.slug)}">Modell entdecken <span aria-hidden="true">↗</span></a>`}</div>`;
+    const imageLink=isDetailPage?'':`<a class="hero-slide-link" href="modell.html?modell=${encodeURIComponent(model.slug)}" aria-label="${model.name} entdecken"></a>`;
+    return `<article class="hero-slide${index===0?' active':''}"><img src="${image}" alt="${model.name} · Ansicht ${index+1}" fetchpriority="${index?'low':'high'}">${caption}${imageLink}</article>`;
+  }).join('');
+
+  const slides=[...frame.querySelectorAll('.hero-slide')];
+  const controls=document.querySelector('.hero-controls');
+  if(controls)controls.hidden=slides.length<2;
+  if(slides.length<2)return;
+
+  let current=0,timer;
+  dots.replaceChildren(...slides.map((_,index)=>{
+    const button=document.createElement('button');
+    button.className=`hero-dot${index===0?' active':''}`;
+    button.setAttribute('aria-label',`Bild ${index+1} von ${slides.length} anzeigen`);
+    button.addEventListener('click',()=>show(index));
+    return button;
+  }));
+
+  function show(index){
+    current=(index+slides.length)%slides.length;
+    slides.forEach((slide,slideIndex)=>slide.classList.toggle('active',slideIndex===current));
+    [...dots.children].forEach((dot,dotIndex)=>dot.classList.toggle('active',dotIndex===current));
+    clearInterval(timer);
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(current+1),6500);
+  }
+
+  document.querySelector('.previous')?.addEventListener('click',()=>show(current-1));
+  document.querySelector('.next')?.addEventListener('click',()=>show(current+1));
+  show(0);
+}).catch(()=>{});

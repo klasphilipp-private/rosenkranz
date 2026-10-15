@@ -133,3 +133,12 @@
 .side-rail span{display:block;max-width:0;overflow:hidden;opacity:0;transition:max-width .22s ease,opacity .15s ease}
 .side-rail a:hover span,.side-rail a:focus-visible span{max-width:220px;opacity:1}
 @media(max-width:720px){.side-rail{align-items:flex-end}.side-rail a{width:48px;max-width:calc(100vw - 20px)}.side-rail a:hover,.side-rail a:focus-visible{width:min(245px,calc(100vw - 20px))}.side-rail a:hover span,.side-rail a:focus-visible span{max-width:190px}}
+
+/* Model galleries and consistent top alignment within section columns. */
+.section-head{align-items:flex-start}
+.quality-layout,.commercial-layout,.service-layout,.about-layout{align-items:start}
+.review-layout{align-items:flex-start}
+.model-detail .detail-layout{align-items:flex-start}
+.about-page-intro{align-items:flex-start}
+.hero-controls[hidden]{display:none}
+.icon svg,.side-rail svg,.mobile-contacts svg,.booking-icon svg{fill:currentColor;stroke:none;stroke-linecap:round;stroke-linejoin:round}
