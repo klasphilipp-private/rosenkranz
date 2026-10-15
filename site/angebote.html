@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Aktuelle Fahrzeugangebote von Automobile Rosenkranz in Recklinghausen.">
+  <title>Unsere Angebote · Automobile Rosenkranz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"><div class="wrap nav"><a href="index.html#start" aria-label="Automobile Rosenkranz Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz · Citroën · Subaru · Peugeot"></a><nav class="navlinks" aria-label="Hauptnavigation"><a href="index.html#angebote">Unsere Angebote</a><a href="index.html#neuwagen">Neuwagen</a><a href="index.html#gewerbe">Gewerbe</a><a href="index.html#service">Service</a><a href="index.html#ueber-uns">Über uns</a><a href="index.html#kontakt">Kontakt</a></nav><button class="menu-toggle" aria-expanded="false" aria-label="Navigation öffnen">Menü</button></div></header>
+  <main>
+    <section class="offer-section" style="min-height:75vh;padding-top:72px"><div class="wrap">
+      <span class="eyebrow">Fahrzeuge mit Rosenkranz Beratung</span><div class="section-head"><div><h1 class="section-title">Unsere Angebote</h1><p class="section-intro">Neue und junge Gebrauchte aus unserem aktuellen Fahrzeugbestand.</p></div><a class="btn btn-red" href="https://home.mobile.de/AUTOMOBILE-ROSENKRANZ" target="_blank" rel="noopener">Zum Händlerprofil bei mobile.de ↗</a></div>
+      <div class="filter-row"><label for="offer-filter">Fahrzeuge filtern</label><select id="offer-filter"><option value="all">Alle Marken</option><option value="citroen">Citroën</option><option value="subaru">Subaru</option><option value="other">Weitere</option></select><label for="offer-sort">Sortieren</label><select id="offer-sort"><option value="default">Aktuelle Angebote</option><option value="price-low">Preis aufsteigend</option><option value="price-high">Preis absteigend</option><option value="name">Modell A–Z</option></select><span class="inventory-note" id="inventory-note">Fahrzeugbestand wird geladen …</span></div>
+      <div class="offer-grid" id="offer-grid" aria-live="polite"></div>
+      <p class="notice">Die Angebotsübersicht wird regelmäßig mit dem öffentlichen Händlerbestand bei mobile.de abgeglichen. Fahrzeugverfügbarkeit und Ausstattungsangaben bitte beim Verkaufsteam bestätigen lassen.</p>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-row"><span>Automobile Rosenkranz © 2026</span><span><a href="index.html#kontakt">Kontakt</a> · <a href="index.html#kontakt">Impressum</a> · <a href="index.html#kontakt">Datenschutz</a></span><span><a href="index.html">Zur Startseite ↑</a></span></div></footer>
+  <script>
+    const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open))});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}));
+    const grid=document.querySelector('#offer-grid'),filter=document.querySelector('#offer-filter'),sort=document.querySelector('#offer-sort');
+    const fallback=[{title:'Subaru Outback 2.5i Exclusive Cross Lineartronic',price:'25.200 €',image:'https://img.classistatic.de/api/v1/mo-prod/images/e7/e71640bb-e247-4eb6-a396-63469d83ff3a?rule=mo-640'},{title:'Citroën C4 Shine 130PS – EAT8 Automatik, Vollausstattung',price:'18.800 €',image:'https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-640'},{title:'Subaru Forester 2.0ie Lineartronic Comfort',price:'24.990 €',image:'https://img.classistatic.de/api/v1/mo-prod/images/e5/e5b08da4-15f5-437b-9adf-2741e407d929?rule=mo-640'}];let inventory=fallback;
+    function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+    function amount(s=''){const n=String(s).replace(/[^0-9,]/g,'').replace(',','.');return parseFloat(n)||0}
+    function render(){let list=inventory.filter(x=>filter.value==='all'||(filter.value==='citroen'&&/citroën|citroen/i.test(x.title))||(filter.value==='subaru'&&/subaru/i.test(x.title))||(filter.value==='other'&&!/citroën|citroen|subaru/i.test(x.title)));if(sort.value==='price-low')list.sort((a,b)=>amount(a.price)-amount(b.price));if(sort.value==='price-high')list.sort((a,b)=>amount(b.price)-amount(a.price));if(sort.value==='name')list.sort((a,b)=>a.title.localeCompare(b.title,'de'));grid.innerHTML=list.map(x=>`<article class="offer-card"><div class="offer-photo"><img src="${x.image}" alt="${escapeHtml(x.title)}" loading="lazy"></div><div class="offer-copy"><h2>${escapeHtml(x.title)}</h2><div class="offer-meta">Aktuell bei Automobile Rosenkranz</div><div class="offer-price">${escapeHtml(x.price||'Preis auf Anfrage')}</div><a class="offer-link" href="https://home.mobile.de/AUTOMOBILE-ROSENKRANZ" target="_blank" rel="noopener">Fahrzeug bei mobile.de ansehen <span>↗</span></a></div></article>`).join('')||'<p>Für diesen Filter sind aktuell keine Fahrzeuge gelistet.</p>'}
+    filter.addEventListener('change',render);sort.addEventListener('change',render);render();fetch('inventory.json').then(r=>r.ok?r.json():Promise.reject()).then(data=>{if(Array.isArray(data.vehicles)&&data.vehicles.length){inventory=data.vehicles;document.querySelector('#inventory-note').textContent=`${inventory.length} Fahrzeuge · zuletzt aktualisiert ${new Date(data.updated).toLocaleDateString('de-DE')}`;render()}}).catch(()=>{document.querySelector('#inventory-note').textContent='Aktuelle Beispielauswahl · alle Inserate bei mobile.de'})
+  </script>
+</body></html>
