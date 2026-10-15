@@ -125,3 +125,11 @@
  .booking-highlight h3{font-size:20px}
 }
 @media(max-width:420px){.logo{width:115px}.mobile-contacts{gap:0}.mobile-contacts a{width:31px}.menu-toggle{width:36px;flex-basis:36px;padding:5px}.site-header .nav{gap:5px}}
+
+/* Independent quick access tabs: each tab expands left from the fixed right edge. */
+.side-rail{display:flex;flex-direction:column;align-items:flex-end;width:max-content}
+.side-rail a{flex:0 0 auto;width:62px;max-width:min(280px,calc(100vw - 20px));box-sizing:border-box;transition:width .22s ease;white-space:nowrap}
+.side-rail a:hover,.side-rail a:focus-visible{width:min(280px,calc(100vw - 20px))}
+.side-rail span{display:block;max-width:0;overflow:hidden;opacity:0;transition:max-width .22s ease,opacity .15s ease}
+.side-rail a:hover span,.side-rail a:focus-visible span{max-width:220px;opacity:1}
+@media(max-width:720px){.side-rail{align-items:flex-end}.side-rail a{width:48px;max-width:calc(100vw - 20px)}.side-rail a:hover,.side-rail a:focus-visible{width:min(245px,calc(100vw - 20px))}.side-rail a:hover span,.side-rail a:focus-visible span{max-width:190px}}

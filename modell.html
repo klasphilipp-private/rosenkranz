@@ -10,10 +10,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261015-2">
+  <link rel="stylesheet" href="styles.css?v=20261015-3">
 </head>
 <body>
-  <div id="shared-header"></div>
+  <!-- SITE HEADER START -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand-link" href="index.html" aria-label="Automobile Rosenkranz – Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz"></a>
+    <div class="mobile-contacts" aria-label="Direktkontakt">
+      <a href="tel:+49236191490" aria-label="Telefon: 02361 9149-0"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-3#phone"/></svg></a>
+      <a href="mailto:info@automobile-rosenkranz.de" aria-label="E-Mail: info@automobile-rosenkranz.de"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-3#mail"/></svg></a>
+    </div>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span class="burger-lines" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <nav class="navlinks" aria-label="Hauptnavigation">
+      <a href="index.html">Startseite</a>
+      <a href="angebote.html">Unsere Angebote</a>
+      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modell.html?marke=citroen">Citroën</a><a href="modell.html?marke=subaru">Subaru</a><a href="modell.html?marke=gewerbe">Gewerbe</a></div></div></div>
+      <a href="service.html">Service</a>
+      <a href="ueber-uns.html">Über uns</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+<aside class="side-rail" aria-label="Schnellzugriff">
+  <a href="tel:+49236191490" aria-label="Jetzt anrufen"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-3#phone"/></svg><span>Jetzt anrufen · 02361 / 9149-0</span></a>
+  <a href="angebote.html" aria-label="Unsere Angebote"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-3#offer"/></svg><span>Aktuelle Angebote ansehen</span></a>
+  <a href="index.html#probefahrt" aria-label="Probefahrt anfragen"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-3#car"/></svg><span>Probefahrt vereinbaren</span></a>
+  <a href="service.html" aria-label="Werkstatt und Service"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261015-3#service"/></svg><span>Service und Teileverkauf</span></a>
+</aside>
+<!-- SITE HEADER END -->
   <main><section class="hero model-page-hero" aria-label="Fahrzeuggalerie"><div class="hero-slides" id="model-hero-slides"></div><div class="hero-controls"><div class="hero-dots" id="model-hero-dots" aria-label="Fahrzeug auswählen"></div><button class="hero-arrow previous" aria-label="Vorheriges Fahrzeug">‹</button><button class="hero-arrow next" aria-label="Nächstes Fahrzeug">›</button></div></section><section class="model-detail"><div class="wrap">
     <p><a class="text-link" id="back-link" href="modelle.html">← Zur Modellübersicht</a></p>
     <div class="detail-layout"><div class="detail-photo"><img id="model-image" alt="" fetchpriority="high"></div><div class="detail-copy"><span class="eyebrow" id="model-brand"></span><h1 id="model-title">Modell wird geladen …</h1><p class="detail-intro" id="model-description"></p><div id="model-features"></div><a class="btn btn-red" id="drive-link" href="index.html#probefahrt">Probefahrt anfragen ↗</a></div></div>
@@ -23,6 +48,6 @@
 
     const slug=new URLSearchParams(location.search).get('modell');fetch('models.json').then(r=>r.json()).then(models=>{const m=models.find(x=>x.slug===slug);if(!m){document.querySelector('#model-title').textContent='Modell nicht gefunden';document.querySelector('#model-description').textContent='Bitte wählen Sie ein Fahrzeug aus unserer Modellübersicht.';return}document.title=`${m.name} · Automobile Rosenkranz`;document.querySelector('#model-brand').textContent=m.brand+(m.commercial?' · Nutzfahrzeuge':'');document.querySelector('#model-title').textContent=m.title;document.querySelector('#model-description').textContent=m.description;const image=document.querySelector('#model-image');image.src=m.image;image.alt=m.name;const detail=document.createElement('p');detail.textContent=m.details;document.querySelector('#model-features').append(detail);document.querySelector('#back-link').href=`modelle.html?marke=${m.commercial?'gewerbe':m.brand==='Subaru'?'subaru':'citroen'}`;document.querySelector('#drive-link').href=`index.html?modell=${encodeURIComponent(m.slug)}#probefahrt`}).catch(()=>{document.querySelector('#model-title').textContent='Modellübersicht nicht erreichbar'});
   </script>
-  <script src="model-hero.js?v=20261015-2"></script><script src="site-shell.js?v=20261015-2"></script><script src="footer.js?v=20261015-2"></script>
+  <script src="model-hero.js?v=20261015-2"></script><script src="site-shell.js?v=20261015-3"></script><script src="footer.js?v=20261015-2"></script>
 </body>
 </html>
