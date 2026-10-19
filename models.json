@@ -18,7 +18,8 @@
       "assets/models/gallery/citroen-holiday/06.webp",
       "assets/models/gallery/citroen-holiday/07.webp",
       "assets/models/gallery/citroen-holiday/08.webp"
-    ]
+    ],
+    "page": "citroen-holidays.html"
   },
   {
     "slug": "spacetourer",
@@ -31,8 +32,10 @@
     "commercial": false,
     "formOption": "Citroën SpaceTourer",
     "gallery": [
+      "assets/models/citroen-spacetourer.png",
       "assets/models/gallery/spacetourer/01.webp"
-    ]
+    ],
+    "page": "citroen-spacetourer.html"
   },
   {
     "slug": "berlingo",
@@ -53,7 +56,8 @@
       "assets/models/gallery/berlingo/06.webp",
       "assets/models/gallery/berlingo/07.webp",
       "assets/models/gallery/berlingo/08.webp"
-    ]
+    ],
+    "page": "citroen-berlingo.html"
   },
   {
     "slug": "ami",
@@ -74,7 +78,8 @@
       "assets/models/gallery/ami/06.webp",
       "assets/models/gallery/ami/07.webp",
       "assets/models/gallery/ami/08.webp"
-    ]
+    ],
+    "page": "citroen-ami.html"
   },
   {
     "slug": "der-neue-c5-aircross",
@@ -95,7 +100,8 @@
       "assets/models/gallery/der-neue-c5-aircross/06.webp",
       "assets/models/gallery/der-neue-c5-aircross/07.webp",
       "assets/models/gallery/der-neue-c5-aircross/08.webp"
-    ]
+    ],
+    "page": "citroen-c5-aircross.html"
   },
   {
     "slug": "c4x",
@@ -116,7 +122,8 @@
       "assets/models/gallery/c4x/06.webp",
       "assets/models/gallery/c4x/07.webp",
       "assets/models/gallery/c4x/08.webp"
-    ]
+    ],
+    "page": "citroen-c4-x.html"
   },
   {
     "slug": "c4",
@@ -137,7 +144,8 @@
       "assets/models/gallery/c4/06.webp",
       "assets/models/gallery/c4/07.webp",
       "assets/models/gallery/c4/08.webp"
-    ]
+    ],
+    "page": "citroen-c4.html"
   },
   {
     "slug": "c3",
@@ -158,7 +166,8 @@
       "assets/models/gallery/c3/06.webp",
       "assets/models/gallery/c3/07.webp",
       "assets/models/gallery/c3/08.webp"
-    ]
+    ],
+    "page": "citroen-c3.html"
   },
   {
     "slug": "c3-aircross",
@@ -179,7 +188,8 @@
       "assets/models/gallery/c3-aircross/06.webp",
       "assets/models/gallery/c3-aircross/07.webp",
       "assets/models/gallery/c3-aircross/08.webp"
-    ]
+    ],
+    "page": "citroen-c3-aircross.html"
   },
   {
     "slug": "berlingo-kastenwagen",
@@ -200,7 +210,8 @@
       "assets/models/gallery/berlingo-kastenwagen/legacy-4.webp",
       "assets/models/gallery/berlingo-kastenwagen/legacy-5.webp",
       "assets/models/gallery/berlingo-kastenwagen/legacy-6.webp"
-    ]
+    ],
+    "page": "citroen-berlingo-kastenwagen.html"
   },
   {
     "slug": "c3-van",
@@ -219,7 +230,8 @@
       "assets/models/gallery/c3-van/04.webp",
       "assets/models/gallery/c3-van/05.webp",
       "assets/models/gallery/c3-van/06.webp"
-    ]
+    ],
+    "page": "citroen-e-c3-van.html"
   },
   {
     "slug": "jumper",
@@ -240,7 +252,8 @@
       "assets/models/gallery/jumper/legacy-4.webp",
       "assets/models/gallery/jumper/legacy-5.webp",
       "assets/models/gallery/jumper/legacy-6.webp"
-    ]
+    ],
+    "page": "citroen-jumper.html"
   },
   {
     "slug": "jumpy",
@@ -255,7 +268,8 @@
     "gallery": [
       "assets/models/gallery/jumpy/01.webp",
       "assets/models/gallery/jumpy/02.webp"
-    ]
+    ],
+    "page": "citroen-jumpy.html"
   },
   {
     "slug": "subaru-forester-vielseitiger-suv-mit-allrad",
@@ -275,7 +289,8 @@
       "assets/models/gallery/subaru-forester-vielseitiger-suv-mit-allrad/05.webp",
       "assets/models/gallery/subaru-forester-vielseitiger-suv-mit-allrad/06.webp",
       "assets/models/gallery/subaru-forester-vielseitiger-suv-mit-allrad/07.webp"
-    ]
+    ],
+    "page": "subaru-forester.html"
   },
   {
     "slug": "subaru-crosstrek-kompakter-suv-mit-allrad",
@@ -296,7 +311,8 @@
       "assets/models/gallery/subaru-crosstrek-kompakter-suv-mit-allrad/06.webp",
       "assets/models/gallery/subaru-crosstrek-kompakter-suv-mit-allrad/07.webp",
       "assets/models/gallery/subaru-crosstrek-kompakter-suv-mit-allrad/08.webp"
-    ]
+    ],
+    "page": "subaru-crosstrek.html"
   },
   {
     "slug": "subaru-impreza-kompakter-allradler-mit-hybrid",
@@ -317,7 +333,8 @@
       "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/06.webp",
       "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/07.webp",
       "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/08.webp"
-    ]
+    ],
+    "page": "subaru-impreza.html"
   },
   {
     "slug": "subaru-outback-crossover-fuer-alltag-und-abenteuer",
@@ -336,7 +353,8 @@
       "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/04.webp",
       "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/05.webp",
       "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/06.webp"
-    ]
+    ],
+    "page": "subaru-outback.html"
   },
   {
     "slug": "subaru-solterra-vollelektrischer-suv-mit-allrad",
@@ -357,7 +375,8 @@
       "assets/models/gallery/subaru-solterra-vollelektrischer-suv-mit-allrad/06.webp",
       "assets/models/gallery/subaru-solterra-vollelektrischer-suv-mit-allrad/07.webp",
       "assets/models/gallery/subaru-solterra-vollelektrischer-suv-mit-allrad/08.webp"
-    ]
+    ],
+    "page": "subaru-solterra.html"
   },
   {
     "slug": "subaru-uncharted-elektrischer-kompakt-suv",
@@ -377,7 +396,8 @@
       "assets/models/gallery/subaru-uncharted-elektrischer-kompakt-suv/05.webp",
       "assets/models/gallery/subaru-uncharted-elektrischer-kompakt-suv/06.webp",
       "assets/models/gallery/subaru-uncharted-elektrischer-kompakt-suv/07.webp"
-    ]
+    ],
+    "page": "subaru-uncharted.html"
   },
   {
     "slug": "subaru-e-outback-elektrischer-allrad-suv",
@@ -398,6 +418,7 @@
       "assets/models/gallery/subaru-e-outback-elektrischer-allrad-suv/06.webp",
       "assets/models/gallery/subaru-e-outback-elektrischer-allrad-suv/07.webp",
       "assets/models/gallery/subaru-e-outback-elektrischer-allrad-suv/08.webp"
-    ]
+    ],
+    "page": "subaru-e-outback.html"
   }
 ]

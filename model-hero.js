@@ -1,7 +1,7 @@
 const frame=document.querySelector('#model-hero-slides');
 const dots=document.querySelector('#model-hero-dots');
 
-if(frame&&dots)fetch('models.json?v=20261019-4').then(r=>r.json()).then(models=>{
+if(frame&&dots)fetch('models.json?v=20261019-5').then(r=>r.json()).then(models=>{
   const params=new URLSearchParams(location.search);
   const brand=params.get('marke');
   const slug=params.get('modell');
@@ -21,8 +21,8 @@ if(frame&&dots)fetch('models.json?v=20261019-4').then(r=>r.json()).then(models=>
   if(!slidesData.length)return;
 
   frame.innerHTML=slidesData.map(({model,image},index)=>{
-    const caption=`<div class="hero-caption"><span class="eyebrow">${model.brand}${model.commercial?' · Gewerbe':' · Modellwelt'}</span><h1>${model.name}</h1><p>${model.description}</p>${isDetailPage?'':`<a class="btn" href="modell.html?modell=${encodeURIComponent(model.slug)}">Modell entdecken <span aria-hidden="true">↗</span></a>`}</div>`;
-    const imageLink=isDetailPage?'':`<a class="hero-slide-link" href="modell.html?modell=${encodeURIComponent(model.slug)}" aria-label="${model.name} entdecken"></a>`;
+    const caption=`<div class="hero-caption"><span class="eyebrow">${model.brand}${model.commercial?' · Gewerbe':' · Modellwelt'}</span><h1>${model.name}</h1><p>${model.description}</p>${isDetailPage?'':`<a class="btn" href="${model.page||`modell.html?modell=${encodeURIComponent(model.slug)}`}">Modell entdecken <span aria-hidden="true">↗</span></a>`}</div>`;
+    const imageLink=isDetailPage?'':`<a class="hero-slide-link" href="${model.page||`modell.html?modell=${encodeURIComponent(model.slug)}`}" aria-label="${model.name} entdecken"></a>`;
     return `<article class="hero-slide${index===0?' active':''}"><img src="${image}" alt="${model.name} · Ansicht ${index+1}" fetchpriority="${index?'low':'high'}">${caption}${imageLink}</article>`;
   }).join('');
 

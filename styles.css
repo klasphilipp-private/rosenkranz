@@ -97,7 +97,7 @@
 .hero-slide .hero-caption a{pointer-events:auto;position:relative;z-index:2}
 .hero-slide .hero-caption .eyebrow{pointer-events:none}
 .model-page-hero{min-height:min(610px,calc(88vh - 92px))}
-.model-page-hero .hero-caption h1{font-size:clamp(38px,5.5vw,72px)}
+.model-page-hero .hero-caption h1,.model-page-hero .hero-caption h2{font-size:clamp(38px,5.5vw,72px);line-height:1.03;letter-spacing:-.055em;max-width:740px;margin:14px 0 18px;font-weight:500}
 .service-hero{min-height:min(600px,calc(88vh - 92px))}
 .service-hero .hero-slide img{object-position:center 45%}
 .booking-highlight{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start;padding:25px 27px;margin:28px 0 4px;border:1px solid #8c2523;border-left:5px solid var(--red);background:linear-gradient(125deg,#321716,#211a1a 72%);box-shadow:0 12px 32px #0004}

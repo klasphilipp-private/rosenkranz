@@ -42,9 +42,9 @@
   </div></section></main>
   <div id="shared-footer"></div>
   <script>
-
-    const slug=new URLSearchParams(location.search).get('modell');fetch('models.json?v=20261019-4').then(r=>r.json()).then(models=>{const m=models.find(x=>x.slug===slug);if(!m){document.querySelector('#model-title').textContent='Modell nicht gefunden';document.querySelector('#model-description').textContent='Bitte wählen Sie ein Fahrzeug aus unserer Modellübersicht.';return}document.title=`${m.name} · Automobile Rosenkranz`;document.querySelector('#model-brand').textContent=m.brand+(m.commercial?' · Nutzfahrzeuge':'');document.querySelector('#model-title').textContent=m.title;document.querySelector('#model-description').textContent=m.description;const image=document.querySelector('#model-image');image.src=m.image;image.alt=m.name;const detail=document.createElement('p');detail.textContent=m.details;document.querySelector('#model-features').append(detail);document.querySelector('#back-link').href=`modelle.html?marke=${m.commercial?'gewerbe':m.brand==='Subaru'?'subaru':'citroen'}`;document.querySelector('#drive-link').href=`index.html?modell=${encodeURIComponent(m.slug)}#probefahrt`}).catch(()=>{document.querySelector('#model-title').textContent='Modellübersicht nicht erreichbar'});
+    const slug=new URLSearchParams(location.search).get('modell');
+    if(slug)fetch('models.json?v=20261019-5').then(r=>r.json()).then(models=>{const model=models.find(x=>x.slug===slug);if(model?.page)location.replace(model.page)}).catch(()=>{});
   </script>
-  <script src="model-hero.js?v=20261019-4"></script><script src="site-shell.js?v=20261019-4"></script><script src="footer.js?v=20261019-3"></script>
+  <script src="model-hero.js?v=20261019-5"></script><script src="site-shell.js?v=20261019-4"></script><script src="footer.js?v=20261019-3"></script>
 </body>
 </html>
