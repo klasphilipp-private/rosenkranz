@@ -31,14 +31,7 @@
     "commercial": false,
     "formOption": "Citroën SpaceTourer",
     "gallery": [
-      "assets/models/gallery/spacetourer/01.webp",
-      "assets/models/gallery/citroen-holiday/01.webp",
-      "assets/models/gallery/citroen-holiday/02.webp",
-      "assets/models/gallery/citroen-holiday/03.webp",
-      "assets/models/gallery/citroen-holiday/04.webp",
-      "assets/models/gallery/citroen-holiday/05.webp",
-      "assets/models/gallery/citroen-holiday/06.webp",
-      "assets/models/gallery/citroen-holiday/07.webp"
+      "assets/models/gallery/spacetourer/01.webp"
     ]
   },
   {

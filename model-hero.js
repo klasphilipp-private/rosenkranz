@@ -1,12 +1,13 @@
 const frame=document.querySelector('#model-hero-slides');
 const dots=document.querySelector('#model-hero-dots');
 
-if(frame&&dots)fetch('models.json?v=20261015-4').then(r=>r.json()).then(models=>{
+if(frame&&dots)fetch('models.json?v=20261019-4').then(r=>r.json()).then(models=>{
   const params=new URLSearchParams(location.search);
   const brand=params.get('marke');
   const slug=params.get('modell');
   const detailModel=slug?models.find(model=>model.slug===slug):null;
   const isDetailPage=Boolean(detailModel);
+  if(slug&&!detailModel){frame.innerHTML='<div class="model-not-found"><h1>Modell nicht gefunden</h1><p>Dieses Modell ist derzeit nicht verfügbar.</p><a class="btn" href="modelle.html">Zur Modellübersicht</a></div>';document.querySelector('.hero-controls')?.setAttribute('hidden','');return;}
   let modelsToShow=models;
 
   if(brand==='citroen')modelsToShow=models.filter(model=>model.brand==='Citroën'&&!model.commercial);
