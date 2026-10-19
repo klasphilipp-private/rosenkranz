@@ -32,8 +32,24 @@
     "commercial": false,
     "formOption": "Citroën SpaceTourer",
     "gallery": [
-      "assets/models/citroen-spacetourer.png",
-      "assets/models/gallery/spacetourer/01.webp"
+      "assets/models/gallery/spacetourer/01.webp",
+      "assets/models/gallery/spacetourer/02.webp",
+      "assets/models/gallery/spacetourer/03.webp",
+      "assets/models/gallery/spacetourer/04.webp",
+      "assets/models/gallery/spacetourer/05.webp",
+      "assets/models/gallery/spacetourer/06.webp",
+      "assets/models/gallery/spacetourer/07.webp",
+      "assets/models/gallery/spacetourer/08.webp"
+    ],
+    "galleryAlt": [
+      "Citroën SpaceTourer an einer Ladestation, Außenansicht",
+      "Citroën SpaceTourer mit geöffneter Schiebetür",
+      "Innenraum des Citroën SpaceTourer mit Passagieren",
+      "Cockpit und Armaturen des Citroën SpaceTourer",
+      "Sitzreihe im Innenraum des Citroën SpaceTourer",
+      "Ladeanschluss am Citroën SpaceTourer",
+      "Schriftzug SpaceTourer an der Fahrzeugseite",
+      "Detail des Frontscheinwerfers am Citroën SpaceTourer"
     ],
     "page": "citroen-spacetourer.html"
   },

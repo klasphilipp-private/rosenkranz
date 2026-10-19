@@ -39,11 +39,13 @@ def main():
         gallery = model.get("gallery") or [model["image"]]
         slides = []
         dots = []
+        gallery_alt = model.get("galleryAlt", [])
         for index, image in enumerate(gallery[:8]):
             active = " active" if index == 0 else ""
+            alt = escape(gallery_alt[index] if index < len(gallery_alt) else f"{name} – Ansicht {index + 1}", quote=True)
             slides.append(
                 f'<article class="hero-slide{active}"><img src="{escape(image, quote=True)}" '
-                f'alt="{safe_name} – Ansicht {index + 1}" fetchpriority="{"high" if index == 0 else "low"}" '
+                f'alt="{alt}" fetchpriority="{"high" if index == 0 else "low"}" '
                 f'loading="{"eager" if index == 0 else "lazy"}"><div class="hero-caption">'
                 f'<span class="eyebrow">{escape(brand)} · Modellwelt</span><h2>{safe_name}</h2>'
                 f'<p>{escape(model["description"])}</p></div></article>'
