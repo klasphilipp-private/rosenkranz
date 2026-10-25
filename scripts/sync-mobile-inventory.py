@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, quote
 from urllib.request import Request, urlopen
 import base64
 import html
@@ -44,7 +44,10 @@ def first_image(ad):
 
 def image_list(ad):
     result = []
-    for image in ad.get("images") or []:
+    images = ad.get("images") or []
+    if isinstance(images, dict):
+        images = [images] if any(key in images for key in ("xxl", "xxxl", "xl", "l")) else list(images.values())
+    for image in images:
         if not isinstance(image, dict):
             continue
         url = image.get("xxl") or image.get("xxxl") or image.get("xl") or image.get("l")
@@ -106,6 +109,27 @@ def fetch_page(username, password, page):
     return payload
 
 
+def fetch_ad_detail(username, password, ad_id):
+    token = base64.b64encode(f"{username}:{password}".encode()).decode()
+    request = Request(f"{ENDPOINT}/ad/{quote(str(ad_id), safe='')}", headers={
+        "Authorization": f"Basic {token}",
+        "Accept": "application/vnd.de.mobile.api+json",
+        "User-Agent": "Automobile-Rosenkranz-Preview/1.0",
+    })
+    try:
+        with urlopen(request, timeout=45) as response:
+            data = json.load(response)
+    except HTTPError as error:
+        if error.code == 404:
+            return None
+        if error.code in (401, 403):
+            raise RuntimeError(f"mobile.de ad detail access denied (HTTP {error.code}).") from None
+        raise RuntimeError(f"mobile.de ad detail request failed (HTTP {error.code}).") from None
+    except (URLError, TimeoutError, json.JSONDecodeError) as error:
+        raise RuntimeError(f"mobile.de ad detail request failed: {type(error).__name__}.") from None
+    return data if isinstance(data, dict) else None
+
+
 def main():
     username = os.environ.get("MOBILE_API_USERNAME", "").strip()
     password = os.environ.get("MOBILE_API_PASSWORD", "")
@@ -123,7 +147,14 @@ def main():
         ads.extend(result["ads"])
 
     vehicles = []
+    detail_responses = 0
     for ad in ads:
+        ad_id = str(ad.get("mobileAdId") or "")
+        if ad_id:
+            detail = fetch_ad_detail(username, password, ad_id)
+            if detail:
+                ad = {**ad, **detail}
+                detail_responses += 1
         images = image_list(ad)
         image = images[0] if images else first_image(ad)
         detail_url = ad.get("detailPageUrl")
@@ -135,7 +166,6 @@ def main():
         title = " ".join(part for part in (make, description or model) if part)
         if not title:
             continue
-        ad_id = str(ad.get("mobileAdId") or "")
         if not ad_id:
             continue
         raw_price = numeric_price(ad)
@@ -205,7 +235,11 @@ def main():
         old_page.unlink()
     for vehicle in vehicles:
         (DESTINATION.parent / f"fahrzeug-{vehicle['id']}.html").write_text(detail_page(vehicle), encoding="utf-8")
-    print(f"Updated inventory with {len(vehicles)} vehicles with photos (API reports {api_total} total).")
+    image_counts = {}
+    for vehicle in vehicles:
+        count = len(vehicle["images"])
+        image_counts[count] = image_counts.get(count, 0) + 1
+    print(f"Updated inventory with {len(vehicles)} vehicles with photos (API reports {api_total} total); fetched {detail_responses} full ads; gallery image counts: {image_counts}.")
 
 
 if __name__ == "__main__":

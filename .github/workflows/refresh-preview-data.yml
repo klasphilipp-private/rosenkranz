@@ -1,6 +1,11 @@
 name: Refresh Rosenkranz preview data
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-mobile-inventory.py'
+      - '.github/workflows/refresh-preview-data.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 */6 * * *'
