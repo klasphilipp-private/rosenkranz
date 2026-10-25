@@ -14,7 +14,8 @@ import re
 import tempfile
 
 
-ENDPOINT = "https://services.mobile.de/search-api/search"
+API_ROOT = "https://services.mobile.de/search-api"
+ENDPOINT = f"{API_ROOT}/search"
 DESTINATION = Path(__file__).resolve().parents[1] / "inventory.json"
 PAGE_SIZE = 100
 
@@ -111,7 +112,7 @@ def fetch_page(username, password, page):
 
 def fetch_ad_detail(username, password, ad_id):
     token = base64.b64encode(f"{username}:{password}".encode()).decode()
-    request = Request(f"{ENDPOINT}/ad/{quote(str(ad_id), safe='')}", headers={
+    request = Request(f"{API_ROOT}/ad/{quote(str(ad_id), safe='')}", headers={
         "Authorization": f"Basic {token}",
         "Accept": "application/vnd.de.mobile.api+json",
         "User-Agent": "Automobile-Rosenkranz-Preview/1.0",
