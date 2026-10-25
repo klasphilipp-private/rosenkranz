@@ -1,4 +1,5 @@
 (function () {
+  const APP_BASE = document.currentScript ? new URL('.', document.currentScript.src) : new URL('.', location.href);
   const STORAGE_KEY = 'rosenkranz-consent-v1';
   const POLICY_VERSION = 1;
   const safeRead = () => {
@@ -86,6 +87,7 @@
       </div>
       <div class="consent-actions"><button class="consent-button consent-reject" type="button" data-consent-reject>Nur notwendige</button><button class="consent-button consent-settings" type="button" data-consent-settings>Einstellungen</button><button class="consent-button consent-accept" type="button" data-consent-accept>Alle akzeptieren</button></div>
       <div class="consent-meta"><span>Ihre Auswahl wird nur auf diesem Gerät gespeichert.</span><a href="datenschutz/">Datenschutz</a></div>`;
+    panel.querySelector('.consent-meta a').href = new URL('datenschutz/', APP_BASE).href;
     document.body.append(panel);
     panel.querySelector('[data-consent-close]').addEventListener('click', () => choice ? closePanel() : window.RosenkranzConsent.save({ externalMedia: false }));
     panel.querySelector('[data-consent-reject]').addEventListener('click', () => window.RosenkranzConsent.save({ externalMedia: false }));

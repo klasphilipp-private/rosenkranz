@@ -12,6 +12,8 @@ import json
 import os
 import re
 import tempfile
+import shutil
+import unicodedata
 
 
 API_ROOT = "https://services.mobile.de/search-api"
@@ -64,6 +66,63 @@ def numeric_price(ad):
         return None
 
 
+def detail_slug(make, model, description, ad_id):
+    trim = re.sub(r"\bEAT\d+\b", "", description, flags=re.I).strip()
+    name = " ".join(part for part in (model, trim) if part)
+    if not name:
+        name = description or make
+    normalized = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")
+    return f"{slug or 'fahrzeug'}-{ad_id}"
+
+
+def format_description(value):
+    sections = re.split(r"\s+-\s+-\s*", str(value or ""))
+    headings = ("Außenausstattung", "Innenausstattung", "Technik & Infotainment", "Sicherheit & Assistenzsysteme")
+    output = []
+    for section in sections:
+        section = re.sub(r"\s+-\s+(?=(?:Herr|Frau|Mail:|Telefon:))", "\n", section).strip(" -\t\r\n")
+        if not section:
+            continue
+        heading = next((item for item in headings if section.casefold().startswith(item.casefold())), None)
+        if heading:
+            section = section[len(heading):].strip(" :-")
+            output.append(f"<h3>{html.escape(heading)}</h3>")
+        elif section.startswith("Ihre Ansprechpartner bei uns:"):
+            section = section[len("Ihre Ansprechpartner bei uns:"):].strip()
+            output.append("<h3>Ihre Ansprechpartner bei uns</h3>")
+        elif section.startswith("Neugierig geworden? Besuchen Sie uns!"):
+            section = section[len("Neugierig geworden? Besuchen Sie uns!"):].strip()
+            output.append("<h3>Neugierig geworden? Besuchen Sie uns!</h3>")
+        paragraphs = [part.strip(" -") for part in re.split(r"\n+", section) if part.strip(" -")]
+        output.extend(f"<p>{html.escape(part)}</p>" for part in paragraphs)
+    return "".join(output)
+
+
+def display_value(key, value):
+    translations = {
+        "condition": {"USED": "Gebrauchtfahrzeug", "NEW": "Neufahrzeug", "PRE_REGISTERED": "Tageszulassung", "DEMONSTRATION": "Vorführfahrzeug"},
+        "gearbox": {"AUTOMATIC_GEAR": "Automatik", "MANUAL_GEAR": "Schaltgetriebe", "SEMIAUTOMATIC_GEAR": "Halbautomatik"},
+        "fuel": {"PETROL": "Benzin", "DIESEL": "Diesel", "ELECTRICITY": "Elektro", "HYBRID": "Hybrid", "HYBRID_DIESEL": "Diesel/Hybrid", "HYBRID_PETROL": "Benzin/Hybrid", "LPG": "Autogas (LPG)", "CNG": "Erdgas (CNG)"},
+        "driveType": {"FRONT": "Frontantrieb", "REAR": "Heckantrieb", "ALL_WHEEL": "Allradantrieb"},
+        "category": {"SMALLCAR": "Kleinwagen", "ESTATECAR": "Kombi", "OFFROAD": "SUV/Geländewagen", "VAN": "Van", "COUPE": "Coupé", "CABRIO": "Cabrio", "LIMOUSINE": "Limousine", "COMPACT": "Kompaktklasse", "SUV": "SUV", "TRANSPORTER": "Transporter"},
+        "exteriorColor": {"BLUE": "Blau", "BLACK": "Schwarz", "WHITE": "Weiß", "GREY": "Grau", "GRAY": "Grau", "RED": "Rot", "GREEN": "Grün", "SILVER": "Silber", "BROWN": "Braun", "YELLOW": "Gelb", "ORANGE": "Orange"},
+    }
+    raw = str(value)
+    mapped = translations.get(key, {}).get(raw.upper())
+    if mapped:
+        return mapped
+    if key == "doors":
+        doors = {"TWO_OR_THREE": "2/3", "FOUR_OR_FIVE": "4/5", "SIX_OR_SEVEN": "6/7", "EIGHT_OR_NINE": "8/9"}
+        if raw.upper() in doors:
+            return doors[raw.upper()]
+    if key == "emissionClass" and raw.upper().startswith("EURO"):
+        return f"Euro {raw[4:]}"
+    if re.fullmatch(r"[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+", raw):
+        return raw.replace("_", " ").title()
+    return value
+
+
 def detail_page(vehicle):
     esc = lambda value: html.escape(str(value or ""), quote=True)
     images = vehicle["images"]
@@ -73,19 +132,24 @@ def detail_page(vehicle):
     )
     specs = vehicle.get("details", [])
     spec_html = "".join(f'<div><dt>{esc(item["label"])}</dt><dd>{esc(item["value"])}</dd></div>' for item in specs)
-    description = esc(vehicle.get("description") or "")
+    description = format_description(vehicle.get("description") or "")
+    prefix = "../../"
+    header = Path(__file__).resolve().parents[1].joinpath("header.html").read_text(encoding="utf-8")
+    header = header.replace('src="assets/', 'src="../../assets/').replace('href="assets/', 'href="../../assets/')
+    for page in ("index.html", "angebote.html", "modelle.html", "service.html", "ueber-uns.html"):
+        header = header.replace(f'href="{page}', f'href="../../{page}')
     detail_json = json.dumps({
         "@context": "https://schema.org", "@type": "Vehicle", "name": vehicle["title"],
         "image": images, "brand": vehicle.get("make"), "model": vehicle.get("model"),
         "mileageFromOdometer": {"@type": "QuantitativeValue", "value": vehicle.get("mileage"), "unitCode": "KMT"} if vehicle.get("mileage") else None,
-        "offers": {"@type": "Offer", "price": vehicle.get("priceAmount"), "priceCurrency": "EUR", "url": f"fahrzeug-{vehicle['id']}.html"},
+        "offers": {"@type": "Offer", "price": vehicle.get("priceAmount"), "priceCurrency": "EUR", "url": f"https://www.automobile-rosenkranz.de/{vehicle['detailPath']}"},
     }, ensure_ascii=False).replace("</", "<\\/")
     return f'''<!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(vehicle['title'])} | Automobile Rosenkranz</title><meta name="description" content="{esc(vehicle['title'])} bei Automobile Rosenkranz in Recklinghausen. Fahrzeugdetails, Bilder und Beratung anfragen."><link rel="canonical" href="https://www.automobile-rosenkranz.de/fahrzeug-{esc(vehicle['id'])}.html"><link rel="stylesheet" href="styles.css?v=20261023"><script type="application/ld+json">{detail_json}</script></head>
-<body><div id="shared-header">{Path(__file__).resolve().parents[1].joinpath('header.html').read_text(encoding='utf-8')}</div>
-<main><section class="vehicle-detail"><div class="wrap"><a class="vehicle-back" href="angebote.html">← Zur Angebotsübersicht</a><div class="vehicle-detail-layout"><div><div class="vehicle-gallery"><div class="vehicle-gallery-track" aria-label="Fahrzeugbilder">{gallery}</div><div class="vehicle-gallery-controls"><button type="button" class="vehicle-gallery-prev" aria-label="Vorheriges Bild">←</button><span class="vehicle-gallery-count">1 / {len(images)}</span><button type="button" class="vehicle-gallery-next" aria-label="Nächstes Bild">→</button></div></div><p class="vehicle-gallery-hint">Bilder nach rechts oder links wischen</p></div><div class="vehicle-summary"><span class="eyebrow">{esc(vehicle.get('make'))} · Fahrzeugangebot</span><h1>{esc(vehicle['title'])}</h1><p class="vehicle-price">{esc(vehicle['price'])}</p><p class="vehicle-location">Automobile Rosenkranz · Recklinghausen</p><a class="btn btn-red" href="index.html#kontakt">Beratung zu diesem Fahrzeug anfragen</a><a class="vehicle-phone" href="tel:+49236191490">Oder direkt anrufen: 02361 / 9149-0</a></div></div>
-<section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2><p>{description}</p></section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
-<script src="consent.js?v=20261023"></script><script src="site-shell.js?v=20261019-1"></script><script src="footer.js?v=20261019-1"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(vehicle['title'])} | Automobile Rosenkranz</title><meta name="description" content="{esc(vehicle['title'])} bei Automobile Rosenkranz in Recklinghausen. Fahrzeugdetails, Bilder und Beratung anfragen."><link rel="canonical" href="https://www.automobile-rosenkranz.de/{esc(vehicle['detailPath'])}"><link rel="stylesheet" href="{prefix}styles.css?v=20261025"><script type="application/ld+json">{detail_json}</script></head>
+<body><div id="shared-header">{header}</div>
+<main><section class="vehicle-detail"><div class="wrap"><a class="vehicle-back" href="{prefix}angebote.html">← Zur Angebotsübersicht</a><div class="vehicle-detail-layout"><div><div class="vehicle-gallery"><div class="vehicle-gallery-track" aria-label="Fahrzeugbilder">{gallery}</div><div class="vehicle-gallery-controls"><button type="button" class="vehicle-gallery-prev" aria-label="Vorheriges Bild">←</button><span class="vehicle-gallery-count">1 / {len(images)}</span><button type="button" class="vehicle-gallery-next" aria-label="Nächstes Bild">→</button></div></div><p class="vehicle-gallery-hint">Bilder nach rechts oder links wischen</p></div><div class="vehicle-summary"><span class="eyebrow">{esc(vehicle.get('make'))} · Fahrzeugangebot</span><h1>{esc(vehicle['title'])}</h1><p class="vehicle-price">{esc(vehicle['price'])}</p><p class="vehicle-location">Automobile Rosenkranz · Recklinghausen</p><a class="btn btn-red" href="{prefix}index.html#kontakt">Beratung zu diesem Fahrzeug anfragen</a><a class="vehicle-phone" href="tel:+49236191490">Oder direkt anrufen: 02361 / 9149-0</a></div></div>
+<section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2>{description}</section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
+<script src="{prefix}consent.js?v=20261025-1"></script><script src="{prefix}site-shell.js?v=20261019-1"></script><script src="{prefix}footer.js?v=20261025-1"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
 
 
 def fetch_page(username, password, page):
@@ -164,7 +228,10 @@ def main():
         make = str(ad.get("make") or "").strip()
         description = str(ad.get("modelDescription") or "").strip()
         model = str(ad.get("model") or "").strip()
-        title = " ".join(part for part in (make, description or model) if part)
+        display_make = {"CITROEN": "Citroën", "SUBARU": "Subaru"}.get(make.upper(), make.title())
+        trim = re.sub(r"\bEAT\d+\b", "", description, flags=re.I).strip()
+        model_part = "" if model and model.casefold() in trim.casefold() else model
+        title = " ".join(part for part in (display_make, model_part, trim or (model if not model_part else "")) if part)
         if not title:
             continue
         if not ad_id:
@@ -186,8 +253,8 @@ def main():
                     value = f"{int(value):,}".replace(",", ".") + " km"
                 elif key == "power":
                     value = f"{value} kW"
-                details.append({"label": label, "value": value})
-        title = " ".join(part for part in (make, description or model) if part)
+                details.append({"label": label, "value": display_value(key, value)})
+        slug = detail_slug(make, model, description, ad_id)
         vehicles.append({
             "id": ad_id,
             "title": title,
@@ -197,7 +264,7 @@ def main():
             "images": images or [image],
             "url": detail_url,
             "vehicleClass": str(ad.get("vehicleClass") or ""),
-            "make": make,
+            "make": display_make,
             "model": model,
             "modelDescription": description,
             "mileage": ad.get("mileage"),
@@ -210,7 +277,7 @@ def main():
             "power": ad.get("power"),
             "description": str(ad.get("plainTextDescription") or ""),
             "details": details,
-            "detailPath": f"fahrzeug-{ad_id}.html",
+            "detailPath": f"angebote/{slug}/",
         })
 
     if not vehicles:
@@ -234,8 +301,15 @@ def main():
     temp_path.replace(DESTINATION)
     for old_page in DESTINATION.parent.glob("fahrzeug-*.html"):
         old_page.unlink()
+    generated_dir = DESTINATION.parent / "angebote"
+    generated_dir.mkdir(parents=True, exist_ok=True)
+    for old_dir in generated_dir.iterdir():
+        if old_dir.is_dir() and re.search(r"-\d+$", old_dir.name):
+            shutil.rmtree(old_dir)
     for vehicle in vehicles:
-        (DESTINATION.parent / f"fahrzeug-{vehicle['id']}.html").write_text(detail_page(vehicle), encoding="utf-8")
+        page = DESTINATION.parent / vehicle["detailPath"] / "index.html"
+        page.parent.mkdir(parents=True, exist_ok=True)
+        page.write_text(detail_page(vehicle), encoding="utf-8")
     image_counts = {}
     for vehicle in vehicles:
         count = len(vehicle["images"])

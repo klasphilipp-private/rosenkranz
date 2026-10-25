@@ -125,6 +125,8 @@
 .vehicle-facts dl>div{padding:14px 12px;border-top:1px solid #e4e1de}
 .vehicle-facts dt{color:#6a6a6a;font-size:12px}.vehicle-facts dd{margin:3px 0 0;font-weight:700}
 .vehicle-description p{white-space:pre-line;color:#444}
+.vehicle-description h3{font-size:18px;line-height:1.3;margin:24px 0 7px;color:#191919}
+.vehicle-description h3:first-of-type{margin-top:8px}
 .vehicle-detail .notice{color:#666}
 @media(max-width:850px){.offer-filters{grid-template-columns:repeat(2,minmax(130px,1fr))}.offer-filters .inventory-note{grid-column:1/-1}.vehicle-detail-layout{grid-template-columns:1fr;gap:24px}.vehicle-summary{padding:0}.vehicle-gallery{height:65vw;min-height:280px}.vehicle-facts dl{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.offer-filters{grid-template-columns:1fr 1fr;padding:12px;gap:10px}.offer-filters label{font-size:11px}.offer-filters .filter-reset{grid-column:1/-1}.offer-gallery{height:230px}.vehicle-detail{padding:28px 0 54px}.vehicle-detail-layout{gap:14px}.vehicle-summary h1{font-size:34px}.vehicle-price{font-size:28px}.vehicle-facts,.vehicle-description{margin-top:28px;padding:18px}.vehicle-facts dl{grid-template-columns:1fr 1fr}.vehicle-facts dl>div{padding:11px 7px}.vehicle-gallery{height:72vw;min-height:240px}}
