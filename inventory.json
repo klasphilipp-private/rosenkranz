@@ -1,106 +1,2789 @@
 {
-  "source": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-10-15T14:06:16.768507+00:00",
+  "source": "https://services.mobile.de/search-api/search",
+  "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
+  "updated": "2026-10-25T11:38:20.906028+00:00",
+  "apiTotal": 36,
+  "vehiclesWithImages": 36,
   "vehicles": [
     {
-      "title": "Subaru Outback 2.5i Exclusive Cross Lineartronic",
-      "price": "25.200 €",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/e7/e71640bb-e247-4eb6-a396-63469d83ff3a?rule=mo-1600"
+      "id": "374815118",
+      "title": "CITROEN eC4 136 Shine | ACC - Nav - LED - RCam -",
+      "price": "30.690 €",
+      "priceAmount": 30690.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/4c/4c36af86-865e-4f6a-bcbe-35e34bfeb58e?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/4c/4c36af86-865e-4f6a-bcbe-35e34bfeb58e?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-ec4-136-shine-acc-nav-led-rcam-recklinghausen/374815118.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C4",
+      "modelDescription": "eC4 136 Shine | ACC - Nav - LED - RCam -",
+      "mileage": 5500,
+      "fuel": "ELECTRICITY",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "",
+      "firstRegistration": "202308",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "ELECTRICITY"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-374815118.html"
     },
     {
-      "title": "Subaru Forester 2.0ie Lineartronic Comfort",
+      "id": "38676823732768",
+      "title": "CITROEN Shine Pack EAT6",
+      "price": "18.900 €",
+      "priceAmount": 18900.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/cb/cb235a86-4ecb-4fb3-bdf8-38d91fb81dd5?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/cb/cb235a86-4ecb-4fb3-bdf8-38d91fb81dd5?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-aircross-shine-pack-eat6-recklinghausen/38676823732768.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3 Aircross",
+      "modelDescription": "Shine Pack EAT6",
+      "mileage": 37021,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202305",
+      "category": "SmallCar",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "05/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "37.021 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SmallCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLUE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6"
+        }
+      ],
+      "detailPath": "fahrzeug-38676823732768.html"
+    },
+    {
+      "id": "395616079",
+      "title": "SUBARU Subaru Crosstreck 2.0ie Comfort",
+      "price": "36.290 €",
+      "priceAmount": 36290.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/42/42eac19c-0087-456b-81b3-8fc617e5acc6?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/42/42eac19c-0087-456b-81b3-8fc617e5acc6?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-new-crosstrek-subaru-crosstreck-2-0ie-comfort-recklinghausen/395616079.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "New_Crosstrek",
+      "modelDescription": "Subaru Crosstreck 2.0ie Comfort",
+      "mileage": 9000,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202401",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "01/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "9.000 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "SILVER"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-395616079.html"
+    },
+    {
+      "id": "40773638513888",
+      "title": "CITROEN Berlingo M HDi130 Max | PDach - Navi - AHK",
+      "price": "31.535 €",
+      "priceAmount": 31535.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-max-pdach-navi-ahk-recklinghausen/40773638513888.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo M HDi130 Max | PDach - Navi - AHK",
+      "mileage": 5500,
+      "fuel": "DIESEL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202608",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "DIESEL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-40773638513888.html"
+    },
+    {
+      "id": "40787046422944",
+      "title": "CITROEN Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
+      "price": "34.330 €",
+      "priceAmount": 34330.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/13/13eceb40-52f6-485e-bd6c-1ecd461901c7?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/13/13eceb40-52f6-485e-bd6c-1ecd461901c7?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-eat8-max-pdach-ahk-nav-recklinghausen/40787046422944.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
+      "mileage": 5500,
+      "fuel": "DIESEL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202608",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "DIESEL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREEN"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-40787046422944.html"
+    },
+    {
+      "id": "40805707469152",
+      "title": "SUBARU Forester 2.0ie Lineartronic Comfort",
       "price": "24.990 €",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/e5/e5b08da4-15f5-437b-9adf-2741e407d929?rule=mo-1600"
+      "priceAmount": 24990.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/e5/e5b08da4-15f5-437b-9adf-2741e407d929?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/e5/e5b08da4-15f5-437b-9adf-2741e407d929?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0ie-lineartronic-comfort-recklinghausen/40805707469152.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0ie Lineartronic Comfort",
+      "mileage": 82800,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202202",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 110,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "02/2022"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "82.800 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "110 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BROWN"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D_TEMP"
+        }
+      ],
+      "detailPath": "fahrzeug-40805707469152.html"
     },
     {
-      "title": "Citroën C4 Shine 130PS - EAT8 Automatik, Vollausstattung",
-      "price": "18.800 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1600"
+      "id": "40930172025536",
+      "title": "CITROEN Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
+      "price": "34.330 €",
+      "priceAmount": 34330.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-eat8-max-pdach-ahk-nav-recklinghausen/40930172025536.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
+      "mileage": 5500,
+      "fuel": "DIESEL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202608",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "DIESEL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLUE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-40930172025536.html"
     },
     {
-      "title": "Citroën C4 PT 130 Shine | PDach - Nav - 360° Kamera",
-      "price": "16.300 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2b/2b029d6d-ad4d-4d4d-b4d7-2a2ac8723d2e?rule=mo-1600"
+      "id": "40971382007136",
+      "title": "CITROEN C3 Aircross Hybrid 145 Max | Winter-Paket",
+      "price": "28.280 €",
+      "priceAmount": 28280.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/fd/fd538bcc-09da-42dc-80a5-da08f3b7918d?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/fd/fd538bcc-09da-42dc-80a5-da08f3b7918d?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-aircross-hybrid-145-max-winter-paket-recklinghausen/40971382007136.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3",
+      "modelDescription": "C3 Aircross Hybrid 145 Max | Winter-Paket",
+      "mileage": 10,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "",
+      "category": "OffRoad",
+      "condition": "NEW",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "10 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "RED"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-40971382007136.html"
     },
     {
-      "title": "Citroën Shine Pack EAT6",
-      "price": "18.900 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/cb/cb235a86-4ecb-4fb3-bdf8-38d91fb81dd5?rule=mo-1600"
+      "id": "41100682049920",
+      "title": "CITROEN C3 Aircross Hybrid 145 Max | Winter-Paket",
+      "price": "28.280 €",
+      "priceAmount": 28280.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/fd/fd538bcc-09da-42dc-80a5-da08f3b7918d?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/fd/fd538bcc-09da-42dc-80a5-da08f3b7918d?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-aircross-hybrid-145-max-winter-paket-recklinghausen/41100682049920.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3 Aircross",
+      "modelDescription": "C3 Aircross Hybrid 145 Max | Winter-Paket",
+      "mileage": 10,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "",
+      "category": "OffRoad",
+      "condition": "NEW",
+      "power": 107,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "10 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "107 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "RED"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-41100682049920.html"
     },
     {
-      "title": "Citroën C3 Aircross Shine 110PS - Kältepaket",
-      "price": "17.900 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1600"
+      "id": "41642220093632",
+      "title": "SUBARU Outback 2.5i Exclusive Cross Lineartronic",
+      "price": "25.200 €",
+      "priceAmount": 25200.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/e7/e71640bb-e247-4eb6-a396-63469d83ff3a?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/e7/e71640bb-e247-4eb6-a396-63469d83ff3a?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-outback-outback-2-5i-exclusive-cross-lineartronic-recklinghausen/41642220093632.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "OUTBACK",
+      "modelDescription": "Outback 2.5i Exclusive Cross Lineartronic",
+      "mileage": 94200,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202107",
+      "category": "EstateCar",
+      "condition": "USED",
+      "power": 124,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "07/2021"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "94.200 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "124 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "EstateCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 2498
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLACK"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D_TEMP"
+        }
+      ],
+      "detailPath": "fahrzeug-41642220093632.html"
     },
     {
-      "title": "Citroën C4 Hybrid 136 Max | Winter-Pak. - RCam - Nav",
+      "id": "42360862313856",
+      "title": "CITROEN C4 PT 130 Shine | PDach - Nav - 360° Kamera",
+      "price": "16.300 €",
+      "priceAmount": 16300.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2b/2b029d6d-ad4d-4d4d-b4d7-2a2ac8723d2e?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/2b/2b029d6d-ad4d-4d4d-b4d7-2a2ac8723d2e?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-pt-130-shine-pdach-nav-360-kamera-recklinghausen/42360862313856.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C4",
+      "modelDescription": "C4 PT 130 Shine | PDach - Nav - 360° Kamera",
+      "mileage": 46300,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202208",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2022"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "46.300 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BROWN"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-42360862313856.html"
+    },
+    {
+      "id": "433197523",
+      "title": "CITROEN C3 Aircross PureTech 110 Stop&amp;Start PLUS",
+      "price": "17.790 €",
+      "priceAmount": 17790.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/24/24ab1ffb-933d-401f-996c-dc93fddcbdea?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/24/24ab1ffb-933d-401f-996c-dc93fddcbdea?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-aircross-puretech-110-stop-start-plus-recklinghausen/433197523.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3 Aircross",
+      "modelDescription": "C3 Aircross PureTech 110 Stop&amp;Start PLUS",
+      "mileage": 7600,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202406",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 81,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "06/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "7.600 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "81 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREY"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-433197523.html"
+    },
+    {
+      "id": "435838689",
+      "title": "SUBARU Outback Platinum | Nav - RCam - SD",
+      "price": "47.780 €",
+      "priceAmount": 47780.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/71/713b8bcc-575f-4909-816e-b4fb0fda3a26?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/71/713b8bcc-575f-4909-816e-b4fb0fda3a26?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-outback-outback-platinum-nav-rcam-sd-recklinghausen/435838689.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "OUTBACK",
+      "modelDescription": "Outback Platinum | Nav - RCam - SD",
+      "mileage": 10,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "",
+      "category": "EstateCar",
+      "condition": "NEW",
+      "power": 124,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "10 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "124 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "EstateCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 2498
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-435838689.html"
+    },
+    {
+      "id": "43611663290176",
+      "title": "CITROEN C3 Aircross PT130 EAT6 Max | Nav - RCam - SH",
+      "price": "20.440 €",
+      "priceAmount": 20440.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/b5/b5c7f7ef-3808-4205-80dd-cf8f23aa0a39?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/b5/b5c7f7ef-3808-4205-80dd-cf8f23aa0a39?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-aircross-pt130-eat6-max-nav-rcam-sh-recklinghausen/43611663290176.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3 Aircross",
+      "modelDescription": "C3 Aircross PT130 EAT6 Max | Nav - RCam - SH",
+      "mileage": 22950,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202408",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "22.950 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLACK"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-43611663290176.html"
+    },
+    {
+      "id": "436898476",
+      "title": "SUBARU XV 2.0e Hybrid Boxer Comfort",
+      "price": "29.000 €",
+      "priceAmount": 29000.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/5d/5dbfa2b3-50ae-437c-8ec2-2f34abc15461?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/5d/5dbfa2b3-50ae-437c-8ec2-2f34abc15461?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-xv-2-0e-hybrid-boxer-comfort-recklinghausen/436898476.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "XV",
+      "modelDescription": "XV 2.0e Hybrid Boxer Comfort",
+      "mileage": 2689,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202311",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 110,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "11/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "2.689 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "110 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-436898476.html"
+    },
+    {
+      "id": "438306766",
+      "title": "CITROEN C3 Turbo 100 MAX | Navi - RCam - DAB - TMP",
+      "price": "18.350 €",
+      "priceAmount": 18350.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/10/10a4a8eb-90ce-4c9e-a7f4-f72f4f750f4f?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/10/10a4a8eb-90ce-4c9e-a7f4-f72f4f750f4f?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-turbo-100-max-navi-rcam-dab-tmp-recklinghausen/438306766.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3",
+      "modelDescription": "C3 Turbo 100 MAX | Navi - RCam - DAB - TMP",
+      "mileage": 5500,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202506",
+      "category": "SmallCar",
+      "condition": "USED",
+      "power": 74,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "06/2025"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "74 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SmallCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREY"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-438306766.html"
+    },
+    {
+      "id": "44145244284352",
+      "title": "CITROEN VANDERER ONE inkl. Aufstelldach 100PS HDi",
+      "price": "55.595 €",
+      "priceAmount": 55595.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/b5/b56a0b29-0dd6-4a5f-9b57-2f29fdbc9c75?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/b5/b56a0b29-0dd6-4a5f-9b57-2f29fdbc9c75?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-vanderer-one-inkl-aufstelldach-100ps-hdi-recklinghausen/44145244284352.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "Berlingo",
+      "modelDescription": "VANDERER ONE inkl. Aufstelldach 100PS HDi",
+      "mileage": 23,
+      "fuel": "DIESEL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "",
+      "category": "Van",
+      "condition": "NEW",
+      "power": 75,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "23 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "75 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "DIESEL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-44145244284352.html"
+    },
+    {
+      "id": "445612020",
+      "title": "CITROEN C5 Aircross [&gt;&gt;NEU&lt;&lt; ]Hybrid 145 ë-DCS6 MAX",
+      "price": "42.800 €",
+      "priceAmount": 42800.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/fb/fb8f5efb-8f24-456a-860a-cc4f91d390c5?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/fb/fb8f5efb-8f24-456a-860a-cc4f91d390c5?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c5-aircross-neu-hybrid-145-e-dcs6-max-recklinghausen/445612020.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C5 Aircross",
+      "modelDescription": "C5 Aircross [&gt;&gt;NEU&lt;&lt; ]Hybrid 145 ë-DCS6 MAX",
+      "mileage": 5500,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202511",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 107,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "11/2025"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "107 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREEN"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-445612020.html"
+    },
+    {
+      "id": "448355737",
+      "title": "CITROEN C4 Shine 130PS - EAT8 Automatik, Vollausstattung",
+      "price": "18.800 €",
+      "priceAmount": 18800.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-shine-130ps-eat8-automatik-vollausstattung-recklinghausen/448355737.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C4",
+      "modelDescription": "C4 Shine 130PS - EAT8 Automatik, Vollausstattung",
+      "mileage": 42500,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202110",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "10/2021"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "42.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "RED"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6"
+        }
+      ],
+      "detailPath": "fahrzeug-448355737.html"
+    },
+    {
+      "id": "448364234",
+      "title": "CITROEN C3 Aircross Shine 110PS - Kältepaket",
+      "price": "17.900 €",
+      "priceAmount": 17900.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-aircross-shine-110ps-k%C3%A4ltepaket-recklinghausen/448364234.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3",
+      "modelDescription": "C3 Aircross Shine 110PS - Kältepaket",
+      "mileage": 44000,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202506",
+      "category": "Van",
+      "condition": "USED",
+      "power": 81,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "06/2025"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "44.000 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "81 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6"
+        }
+      ],
+      "detailPath": "fahrzeug-448364234.html"
+    },
+    {
+      "id": "451746928",
+      "title": "CITROEN Jumper DoKa Pritsche L3 HDI140 | AHK - LED",
+      "price": "41.412 €",
+      "priceAmount": 41412.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/f2/f2c2ffee-2a66-4990-b69b-e92e4bc99bdf?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/f2/f2c2ffee-2a66-4990-b69b-e92e4bc99bdf?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/lkw-inserat/citroen-jumper-doka-pritsche-l3-hdi140-ahk-led-recklinghausen/451746928.html?source=api",
+      "vehicleClass": "VanUpTo7500",
+      "make": "CITROEN",
+      "model": "",
+      "modelDescription": "Jumper DoKa Pritsche L3 HDI140 | AHK - LED",
+      "mileage": 10,
+      "fuel": "DIESEL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "",
+      "category": "StakeBodyVan",
+      "condition": "NEW",
+      "power": 103,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "10 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "103 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "DIESEL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "StakeBodyVan"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 2184
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 7
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-451746928.html"
+    },
+    {
+      "id": "451961815",
+      "title": "CITROEN Jumper DoKa Pritsche L3 HDI180 AT  | AHK - NAV",
+      "price": "44.982 €",
+      "priceAmount": 44982.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/65/65cfdece-48f8-4582-9ee3-248403d36ca9?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/65/65cfdece-48f8-4582-9ee3-248403d36ca9?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/lkw-inserat/citroen-jumper-doka-pritsche-l3-hdi180-at-ahk-nav-recklinghausen/451961815.html?source=api",
+      "vehicleClass": "VanUpTo7500",
+      "make": "CITROEN",
+      "model": "",
+      "modelDescription": "Jumper DoKa Pritsche L3 HDI180 AT  | AHK - NAV",
+      "mileage": 10,
+      "fuel": "DIESEL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "",
+      "category": "StakeBodyVan",
+      "condition": "NEW",
+      "power": 132,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "10 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "132 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "DIESEL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "StakeBodyVan"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 2184
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 7
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-451961815.html"
+    },
+    {
+      "id": "452434461",
+      "title": "FORD F150 Raptor - LuxuryPaket, Glasdach, Performance",
+      "price": "69.615 €",
+      "priceAmount": 69615.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/f9/f9fdd7c3-fafe-443e-b346-fd462ddc4291?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/f9/f9fdd7c3-fafe-443e-b346-fd462ddc4291?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/ford-f-150-f150-raptor-luxurypaket-glasdach-performance-recklinghausen/452434461.html?source=api",
+      "vehicleClass": "Car",
+      "make": "FORD",
+      "model": "F 150",
+      "modelDescription": "F150 Raptor - LuxuryPaket, Glasdach, Performance",
+      "mileage": 41000,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202002",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 336,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "02/2020"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "41.000 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "336 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 3496
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6"
+        }
+      ],
+      "detailPath": "fahrzeug-452434461.html"
+    },
+    {
+      "id": "453269663",
+      "title": "CITROEN C5 Aircross Hybird 145 ë-Series | PanoDach",
+      "price": "30.580 €",
+      "priceAmount": 30580.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/d6/d6c2bb47-9382-4496-aa07-8faba41c533e?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/d6/d6c2bb47-9382-4496-aa07-8faba41c533e?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c5-aircross-hybird-145-e-series-panodach-recklinghausen/453269663.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C5 Aircross",
+      "modelDescription": "C5 Aircross Hybird 145 ë-Series | PanoDach",
+      "mileage": 29800,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202403",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "03/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "29.800 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-453269663.html"
+    },
+    {
+      "id": "453407479",
+      "title": "CITROEN C3 Shine",
+      "price": "12.600 €",
+      "priceAmount": 12600.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-shine-recklinghausen/453407479.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3",
+      "modelDescription": "C3 Shine",
+      "mileage": 34310,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202302",
+      "category": "SmallCar",
+      "condition": "USED",
+      "power": 60,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "02/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "34.310 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "60 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SmallCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BEIGE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-453407479.html"
+    },
+    {
+      "id": "453461824",
+      "title": "CITROEN C4 Lim. Shine",
+      "price": "25.700 €",
+      "priceAmount": 25700.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-lim-shine-recklinghausen/453461824.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C4",
+      "modelDescription": "C4 Lim. Shine",
+      "mileage": 25871,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202401",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 96,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "01/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "25.871 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREY"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-453461824.html"
+    },
+    {
+      "id": "456701980",
+      "title": "CITROEN C3 PT110 EAT6 Max | RCam - Nav - TMP - LED",
+      "price": "17.700 €",
+      "priceAmount": 17700.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/f6/f6d3d2a9-671c-450a-bf79-e35f18068a0f?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/f6/f6d3d2a9-671c-450a-bf79-e35f18068a0f?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c3-pt110-eat6-max-rcam-nav-tmp-led-recklinghausen/456701980.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C3",
+      "modelDescription": "C3 PT110 EAT6 Max | RCam - Nav - TMP - LED",
+      "mileage": 24824,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202405",
+      "category": "SmallCar",
+      "condition": "USED",
+      "power": 81,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "05/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "24.824 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "81 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SmallCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREY"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-456701980.html"
+    },
+    {
+      "id": "457844804",
+      "title": "SUBARU Forester 2.0 ie Exclusive Hybrid",
+      "price": "42.400 €",
+      "priceAmount": 42400.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/19/197598fb-fca9-4541-b0e2-b0a0386a8ccd?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/19/197598fb-fca9-4541-b0e2-b0a0386a8ccd?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0-ie-exclusive-hybrid-recklinghausen/457844804.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0 ie Exclusive Hybrid",
+      "mileage": 8,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "",
+      "category": "OffRoad",
+      "condition": "NEW",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "8 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLACK"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-457844804.html"
+    },
+    {
+      "id": "457935838",
+      "title": "SUBARU Forester 2.0ie Platinum Hybrid",
+      "price": "42.660 €",
+      "priceAmount": 42660.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/31/3145dcc0-b5e0-40c1-86a5-a9c7fb4aef7c?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/31/3145dcc0-b5e0-40c1-86a5-a9c7fb4aef7c?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0ie-platinum-hybrid-recklinghausen/457935838.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0ie Platinum Hybrid",
+      "mileage": 14311,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202502",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "02/2025"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "14.311 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLUE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-457935838.html"
+    },
+    {
+      "id": "459126825",
+      "title": "SUBARU Forester 2.0 ie AWD Active Hybrid",
+      "price": "41.960 €",
+      "priceAmount": 41960.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/f7/f7f99310-3d4f-4c91-9e26-eebc3af71caf?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/f7/f7f99310-3d4f-4c91-9e26-eebc3af71caf?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0-ie-awd-active-hybrid-recklinghausen/459126825.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0 ie AWD Active Hybrid",
+      "mileage": 8,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "",
+      "category": "OffRoad",
+      "condition": "NEW",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "8 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-459126825.html"
+    },
+    {
+      "id": "461821618",
+      "title": "CITROEN C4 Hybrid 136 Max | Winter-Pak. - RCam - Nav",
       "price": "19.990 €",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/5a/5a64f5a9-69c4-4a64-a889-b0946ff2feff?rule=mo-1600"
+      "priceAmount": 19990.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/5a/5a64f5a9-69c4-4a64-a889-b0946ff2feff?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/5a/5a64f5a9-69c4-4a64-a889-b0946ff2feff?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-hybrid-136-max-winter-pak-rcam-nav-recklinghausen/461821618.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C4",
+      "modelDescription": "C4 Hybrid 136 Max | Winter-Pak. - RCam - Nav",
+      "mileage": 38600,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202503",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "03/2025"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "38.600 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "RED"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-461821618.html"
     },
     {
-      "title": "Citroën C3 Shine",
-      "price": "12.600 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1600"
+      "id": "462163164",
+      "title": "SUBARU Forester 2.0 ie Hybrid Trend",
+      "price": "38.250 €",
+      "priceAmount": 38250.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/c1/c172b979-b58a-4399-a001-9fe5f6c864d7?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/c1/c172b979-b58a-4399-a001-9fe5f6c864d7?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0-ie-hybrid-trend-recklinghausen/462163164.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0 ie Hybrid Trend",
+      "mileage": 8,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "",
+      "category": "OffRoad",
+      "condition": "NEW",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "8 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREY"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-462163164.html"
     },
     {
-      "title": "Citroën C4 Lim. Shine",
-      "price": "25.700 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1600"
+      "id": "462227296",
+      "title": "SUBARU Forester 2.0 ie Hybrid Trend",
+      "price": "38.250 €",
+      "priceAmount": 38250.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/6f/6f3d3aa3-ada5-4f17-8ac8-ffadc9f0640a?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/6f/6f3d3aa3-ada5-4f17-8ac8-ffadc9f0640a?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0-ie-hybrid-trend-recklinghausen/462227296.html?source=api",
+      "vehicleClass": "Car",
+      "make": "SUBARU",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0 ie Hybrid Trend",
+      "mileage": 8,
+      "fuel": "HYBRID",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "",
+      "category": "OffRoad",
+      "condition": "NEW",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Kilometerstand",
+          "value": "8 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "HYBRID"
+        },
+        {
+          "label": "Antrieb",
+          "value": "ALL_WHEEL"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "OffRoad"
+        },
+        {
+          "label": "Zustand",
+          "value": "NEW"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "GREEN"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-462227296.html"
     },
     {
-      "title": "Citroën E-C4 FeelPack | RCam - TW - SH - Nav - Headup",
+      "id": "48228407839840",
+      "title": "CITROEN Berlingo MPV PureTech 110 S&amp;S M PLUS",
+      "price": "19.970 €",
+      "priceAmount": 19970.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/ef/eff92985-3059-4fc7-8ebd-41bc8a37e24b?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/ef/eff92985-3059-4fc7-8ebd-41bc8a37e24b?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-mpv-puretech-110-s-s-m-plus-recklinghausen/48228407839840.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo MPV PureTech 110 S&amp;S M PLUS",
+      "mileage": 23500,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202410",
+      "category": "Van",
+      "condition": "USED",
+      "power": 81,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "10/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "23.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "81 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6E"
+        }
+      ],
+      "detailPath": "fahrzeug-48228407839840.html"
+    },
+    {
+      "id": "48229054990720",
+      "title": "CITROEN Berlingo MPV PureTech 110 S&amp;S M PLUS",
+      "price": "19.970 €",
+      "priceAmount": 19970.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/dc/dc2d1295-7dae-4726-be09-c8a51259b1d2?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/dc/dc2d1295-7dae-4726-be09-c8a51259b1d2?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/lkw-inserat/citroen-berlingo-mpv-puretech-110-s-s-m-plus-recklinghausen/48229054990720.html?source=api",
+      "vehicleClass": "VanUpTo7500",
+      "make": "CITROEN",
+      "model": "",
+      "modelDescription": "Berlingo MPV PureTech 110 S&amp;S M PLUS",
+      "mileage": 23500,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202410",
+      "category": "EstateMinibusUpTo9SeatsVan",
+      "condition": "USED",
+      "power": 81,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "10/2024"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "23.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "81 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "MANUAL_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "PETROL"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "EstateMinibusUpTo9SeatsVan"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1197
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "WHITE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D_TEMP"
+        }
+      ],
+      "detailPath": "fahrzeug-48229054990720.html"
+    },
+    {
+      "id": "49838028642656",
+      "title": "CITROEN E-C4 FeelPack | RCam - TW - SH - Nav - Headup",
       "price": "17.990 €",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/05/0502b268-aced-477d-9621-e9b610bd7367?rule=mo-1600"
-    },
-    {
-      "title": "Citroën C3 PT110 EAT6 Max | RCam - Nav - TMP - LED",
-      "price": "17.700 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/f6/f6d3d2a9-671c-450a-bf79-e35f18068a0f?rule=mo-1600"
-    },
-    {
-      "title": "Citroën C3 Aircross PT130 EAT6 Max | Nav - RCam - SH",
-      "price": "20.440 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/b5/b5c7f7ef-3808-4205-80dd-cf8f23aa0a39?rule=mo-1600"
-    },
-    {
-      "title": "Citroën Berlingo MPV PureTech 110 S&S M PLUS",
-      "price": "19.970 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/ef/eff92985-3059-4fc7-8ebd-41bc8a37e24b?rule=mo-1600"
-    },
-    {
-      "title": "Citroën C3 Aircross PureTech 110 Stop&Start PLUS",
-      "price": "17.790 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/24/24ab1ffb-933d-401f-996c-dc93fddcbdea?rule=mo-1600"
-    },
-    {
-      "title": "Citroën C3 Turbo 100 MAX | Navi - RCam - DAB - TMP",
-      "price": "18.350 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/10/10a4a8eb-90ce-4c9e-a7f4-f72f4f750f4f?rule=mo-1600"
-    },
-    {
-      "title": "Citroën C5 Aircross Hybrid 145 ë-Series | PanoDach",
-      "price": "30.580 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/d6/d6c2bb47-9382-4496-aa07-8faba41c533e?rule=mo-1600"
-    },
-    {
-      "title": "Citroën Berlingo M HDi130 Max | PDach - Navi - AHK",
-      "price": "31.535 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1600"
-    },
-    {
-      "title": "Citroën eC4 136 Shine | ACC - Nav - LED - RCam -",
-      "price": "30.690 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/4c/4c36af86-865e-4f6a-bcbe-35e34bfeb58e?rule=mo-1600"
-    },
-    {
-      "title": "Subaru XV 2.0e Hybrid Boxer Comfort",
-      "price": "29.000 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/5d/5dbfa2b3-50ae-437c-8ec2-2f34abc15461?rule=mo-1600"
-    },
-    {
-      "title": "Citroën Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
-      "price": "34.330 € ¹",
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1600"
+      "priceAmount": 17990.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/05/0502b268-aced-477d-9621-e9b610bd7367?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/05/0502b268-aced-477d-9621-e9b610bd7367?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-e-c4-feelpack-rcam-tw-sh-nav-headup-recklinghausen/49838028642656.html?source=api",
+      "vehicleClass": "Car",
+      "make": "CITROEN",
+      "model": "C4",
+      "modelDescription": "E-C4 FeelPack | RCam - TW - SH - Nav - Headup",
+      "mileage": 55800,
+      "fuel": "ELECTRICITY",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202207",
+      "category": "Limousine",
+      "condition": "USED",
+      "power": 100,
+      "description": "",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "07/2022"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "55.800 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "AUTOMATIC_GEAR"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "ELECTRICITY"
+        },
+        {
+          "label": "Antrieb",
+          "value": "FRONT"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Limousine"
+        },
+        {
+          "label": "Zustand",
+          "value": "USED"
+        },
+        {
+          "label": "Türen",
+          "value": "FOUR_OR_FIVE"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BLUE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "EURO6D"
+        }
+      ],
+      "detailPath": "fahrzeug-49838028642656.html"
     }
   ]
 }
