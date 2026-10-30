@@ -5,7 +5,7 @@
   <meta name="description" content="Aktuelle Fahrzeugangebote von Automobile Rosenkranz in Recklinghausen.">
   <title>Unsere Angebote · Automobile Rosenkranz</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261019-7">
+  <link rel="stylesheet" href="styles.css?v=20261030-comments">
 </head>
 <body>
   <!-- SITE HEADER START -->
@@ -63,5 +63,5 @@
     controls.forEach(el=>el.addEventListener('change',render));document.querySelector('#filter-reset').addEventListener('click',()=>{controls.forEach(el=>el.value=el.tagName==='SELECT'&&el.id==='offer-sort'?'default':el.tagName==='SELECT'?'all':'');render()});
     fetch('inventory.json?v=20261025-seo').then(r=>r.ok?r.json():Promise.reject()).then(data=>{if(!Array.isArray(data.vehicles))throw new Error('Keine Inserate');inventory=data.vehicles;const updated=new Date(data.updated);note.textContent=`Bestand vom ${updated.toLocaleDateString('de-DE')} · ${inventory.length} Fahrzeuge mit Foto`;render()}).catch(()=>{note.textContent='Bestand gerade nicht abrufbar';grid.innerHTML='<p>Die Fahrzeugauswahl kann gerade nicht geladen werden. Bitte versuchen Sie es später erneut.</p>'});
   </script>
-  <script defer src="consent.js?v=20261019-1"></script><script src="site-shell.js?v=20261019-1"></script><script src="footer.js?v=20261019-1"></script>
+  <script defer src="consent.js?v=20261019-1"></script><script src="site-shell.js?v=20261019-1"></script><script src="footer.js?v=20261030-comments"></script>
 </body></html>

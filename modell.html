@@ -7,7 +7,7 @@
   <meta name="description" content="Modelle und persönliche Beratung bei Automobile Rosenkranz in Recklinghausen.">
   <title>Modell · Automobile Rosenkranz</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261019-7">
+  <link rel="stylesheet" href="styles.css?v=20261030-comments">
 </head>
 <body>
   <!-- SITE HEADER START -->
@@ -45,6 +45,6 @@
     const slug=new URLSearchParams(location.search).get('modell');
     if(slug)fetch('models.json?v=20261019-5').then(r=>r.json()).then(models=>{const model=models.find(x=>x.slug===slug);if(model?.page)location.replace(model.page)}).catch(()=>{});
   </script>
-  <script src="model-hero.js?v=20261019-5"></script><script src="site-shell.js?v=20261019-4"></script><script src="footer.js?v=20261019-3"></script>
+  <script src="model-hero.js?v=20261019-5"></script><script src="site-shell.js?v=20261019-4"></script><script src="footer.js?v=20261030-comments"></script>
 </body>
 </html>
