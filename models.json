@@ -219,7 +219,6 @@
     "formOption": "Citroën Berlingo Kastenwagen",
     "gallery": [
       "assets/models/gallery/berlingo-kastenwagen/01.webp",
-      "assets/models/gallery/berlingo-kastenwagen/02.webp",
       "assets/models/gallery/berlingo-kastenwagen/legacy-1.webp",
       "assets/models/gallery/berlingo-kastenwagen/legacy-2.webp",
       "assets/models/gallery/berlingo-kastenwagen/legacy-3.webp",
@@ -244,8 +243,7 @@
       "assets/models/gallery/c3-van/02.webp",
       "assets/models/gallery/c3-van/03.webp",
       "assets/models/gallery/c3-van/04.webp",
-      "assets/models/gallery/c3-van/05.webp",
-      "assets/models/gallery/c3-van/06.webp"
+      "assets/models/gallery/c3-van/05.webp"
     ],
     "page": "citroen-e-c3-van.html"
   },
@@ -261,7 +259,6 @@
     "formOption": "Citroën Jumper",
     "gallery": [
       "assets/models/gallery/jumper/01.webp",
-      "assets/models/gallery/jumper/02.webp",
       "assets/models/gallery/jumper/legacy-1.webp",
       "assets/models/gallery/jumper/legacy-2.webp",
       "assets/models/gallery/jumper/legacy-3.webp",
@@ -282,8 +279,7 @@
     "commercial": true,
     "formOption": "Citroën Jumpy",
     "gallery": [
-      "assets/models/gallery/jumpy/01.webp",
-      "assets/models/gallery/jumpy/02.webp"
+      "assets/models/gallery/jumpy/01.webp"
     ],
     "page": "citroen-jumpy.html"
   },
@@ -366,9 +362,7 @@
       "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/01.webp",
       "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/02.webp",
       "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/03.webp",
-      "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/04.webp",
-      "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/05.webp",
-      "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/06.webp"
+      "assets/models/gallery/subaru-outback-crossover-fuer-alltag-und-abenteuer/04.webp"
     ],
     "page": "subaru-outback.html"
   },

@@ -1,6 +1,6 @@
 const footerScript = document.currentScript;
 const appBase = new URL('.', footerScript?.src || location.href);
-fetch(new URL('footer.html?v=20261030-1', appBase)).then(response => {
+fetch(new URL('footer.html?v=20261103-privacy-link', appBase)).then(response => {
   if (!response.ok) throw new Error('Footer konnte nicht geladen werden');
   return response.text();
 }).then(markup => {

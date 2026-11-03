@@ -7,7 +7,7 @@
   <meta name="description" content="Modelle und persönliche Beratung bei Automobile Rosenkranz in Recklinghausen.">
   <title>Modell · Automobile Rosenkranz</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261030-comments">
+  <link rel="stylesheet" href="styles.css?v=20261103-offer-fit">
 </head>
 <body>
   <!-- SITE HEADER START -->
@@ -22,7 +22,7 @@
     <nav class="navlinks" aria-label="Hauptnavigation">
       <a href="index.html">Startseite</a>
       <a href="angebote.html">Unsere Angebote</a>
-      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a></div></div></div>
+      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><div data-model-links aria-label="Einzelne Modelle"></div></div></div></div>
       <a href="service.html">Service</a>
       <a href="ueber-uns.html">Über uns</a>
       <a href="index.html#kontakt">Kontakt</a>
@@ -45,6 +45,6 @@
     const slug=new URLSearchParams(location.search).get('modell');
     if(slug)fetch('models.json?v=20261019-5').then(r=>r.json()).then(models=>{const model=models.find(x=>x.slug===slug);if(model?.page)location.replace(model.page)}).catch(()=>{});
   </script>
-  <script src="model-hero.js?v=20261019-5"></script><script src="site-shell.js?v=20261019-4"></script><script src="footer.js?v=20261030-comments"></script>
+  <script src="model-hero.js?v=20261019-5"></script><script src="site-shell.js?v=20261103-model-registry"></script><script src="footer.js?v=20261103-privacy-link"></script>
 </body>
 </html>
