@@ -134,14 +134,36 @@ def detail_page(vehicle):
     spec_html = "".join(f'<div><dt>{esc(item["label"])}</dt><dd>{esc(item["value"])}</dd></div>' for item in specs)
     description = format_description(vehicle.get("description") or "")
     prefix = "../../"
-    detail_json = json.dumps({
+    canonical = f"https://www.automobile-rosenkranz.de/{vehicle['detailPath']}"
+    condition = display_value("condition", vehicle.get("condition") or "")
+    facts = [condition] if condition else []
+    if vehicle.get("firstRegistration"):
+        registration = str(vehicle["firstRegistration"])
+        facts.append(f"Erstzulassung {registration[4:6]}/{registration[:4]}" if len(registration) == 6 else f"Erstzulassung {registration}")
+    if vehicle.get("mileage"):
+        facts.append(f"{int(vehicle['mileage']):,}".replace(",", ".") + " km")
+    if vehicle.get("fuel"):
+        facts.append(display_value("fuel", vehicle["fuel"]))
+    if vehicle.get("gearbox"):
+        facts.append(display_value("gearbox", vehicle["gearbox"]))
+    seo_description = f"{vehicle['title']} bei Automobile Rosenkranz in Recklinghausen"
+    if facts:
+        seo_description += ": " + ", ".join(facts)
+    seo_description += ". Fahrzeugdetails und Beratung anfragen."
+    if len(seo_description) > 160:
+        seo_description = seo_description[:157].rsplit(" ", 1)[0].rstrip(".,;:") + "…"
+    seo_title = f"{vehicle['title']} | Rosenkranz Recklinghausen"
+    detail_schema = {
         "@context": "https://schema.org", "@type": "Vehicle", "name": vehicle["title"],
-        "image": images, "brand": vehicle.get("make"), "model": vehicle.get("model"),
+        "image": images, "description": re.sub(r"<[^>]+>", " ", description),
+        "brand": vehicle.get("make"), "model": vehicle.get("model"),
         "mileageFromOdometer": {"@type": "QuantitativeValue", "value": vehicle.get("mileage"), "unitCode": "KMT"} if vehicle.get("mileage") else None,
-        "offers": {"@type": "Offer", "price": vehicle.get("priceAmount"), "priceCurrency": "EUR", "url": f"https://www.automobile-rosenkranz.de/{vehicle['detailPath']}"},
-    }, ensure_ascii=False).replace("</", "<\\/")
+    }
+    if vehicle.get("priceAmount"):
+        detail_schema["offers"] = {"@type": "Offer", "price": vehicle["priceAmount"], "priceCurrency": "EUR", "url": canonical, "availability": "https://schema.org/InStock"}
+    detail_json = json.dumps(detail_schema, ensure_ascii=False).replace("</", "<\\/")
     return f'''<!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(vehicle['title'])} | Automobile Rosenkranz</title><meta name="description" content="{esc(vehicle['title'])} bei Automobile Rosenkranz in Recklinghausen. Fahrzeugdetails, Bilder und Beratung anfragen."><link rel="canonical" href="https://www.automobile-rosenkranz.de/{esc(vehicle['detailPath'])}"><link rel="stylesheet" href="{prefix}styles.css?v=20261105-unified-6"><script type="application/ld+json">{detail_json}</script></head>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>{esc(seo_title)}</title><meta name="description" content="{esc(seo_description)}"><link rel="canonical" href="{esc(canonical)}"><meta property="og:type" content="product"><meta property="og:title" content="{esc(seo_title)}"><meta property="og:description" content="{esc(seo_description)}"><meta property="og:url" content="{esc(canonical)}"><meta property="og:image" content="{esc(images[0] if images else '')}"><meta property="og:locale" content="de_DE"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(seo_title)}"><meta name="twitter:description" content="{esc(seo_description)}"><meta name="twitter:image" content="{esc(images[0] if images else '')}"><link rel="stylesheet" href="{prefix}styles.css?v=20261105-unified-7"><script type="application/ld+json">{detail_json}</script></head>
 <body><div id="shared-header"></div>
 <main><section class="vehicle-detail"><div class="wrap"><a class="vehicle-back" href="{prefix}angebote.html">← Zur Angebotsübersicht</a><div class="vehicle-detail-layout"><div><div class="vehicle-gallery"><div class="vehicle-gallery-track" aria-label="Fahrzeugbilder">{gallery}</div><div class="vehicle-gallery-controls"><button type="button" class="vehicle-gallery-prev" aria-label="Vorheriges Bild">←</button><span class="vehicle-gallery-count">1 / {len(images)}</span><button type="button" class="vehicle-gallery-next" aria-label="Nächstes Bild">→</button></div></div><p class="vehicle-gallery-hint">Bilder nach rechts oder links wischen</p></div><div class="vehicle-summary"><span class="eyebrow">{esc(vehicle.get('make'))} · Fahrzeugangebot</span><h1>{esc(vehicle['title'])}</h1><p class="vehicle-price">{esc(vehicle['price'])}</p><p class="vehicle-location">Automobile Rosenkranz · Recklinghausen</p><a class="btn btn-red" href="{prefix}index.html#kontakt">Beratung zu diesem Fahrzeug anfragen</a><a class="vehicle-phone" href="tel:+49236191490">Oder direkt anrufen: 02361 / 9149-0</a></div></div>
 <section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2>{description}</section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
