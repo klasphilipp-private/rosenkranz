@@ -109,6 +109,16 @@ Vor dem Go-live muss diese Liste anhand des WordPress-Sitemaps, der Search Conso
 
 Diese Seiten erst mit eigenem Nutzwert statt austauschbaren Orts- oder Keywordvarianten veröffentlichen. Interne Links aus Navi, Modellseiten, Service und Footer ergänzen.
 
+## Produktionskopie für IONOS
+
+Die GitHub-Quelle bleibt dauerhaft `noindex`. Vor einem IONOS-Upload erzeugt `scripts/prepare-production-seo.py` eine separate Produktionskopie:
+
+```bash
+python3 scripts/prepare-production-seo.py --output /tmp/rosenkranz-production --base-url https://www.automobile-rosenkranz.de/
+```
+
+Das Script ändert nur den Ausgabeordner: Es setzt auf indexierbaren Seiten `index,follow` und das jeweilige selbstreferenzielle Canonical, aktualisiert Open-Graph-/JSON-LD-URLs und ergänzt die aktiven mobile.de-Detailseiten in der Sitemap. Die generischen Parameter-/Weiterleitungsseiten `fahrzeug.html` und `modell.html` bleiben `noindex`. Vor dem Upload müssen die in der URL-Migration genannten 301-Weiterleitungen auf IONOS eingerichtet sein.
+
 ## Vor Go-live
 
 Die Texte und Schema-Objekte sind in der Vorschau aktualisiert, aber deren Seiten bleiben absichtlich nicht indexierbar. Vor dem produktiven Wechsel sind Canonicals auf den IONOS-Seiten zu setzen, `noindex` zu entfernen, die bestätigte URL-Migrationsliste als 301s umzusetzen und die finale Sitemap bei Google einzureichen. Gute Rankings oder eine Aufnahme in KI-Antworten können nicht zugesichert werden.
