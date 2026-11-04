@@ -282,3 +282,21 @@
 .site-footer-credit .regiostart-link:hover,.site-footer-credit .regiostart-link:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .site-footer-credit .regiostart-logo{display:block;width:112px;height:auto;max-width:none;max-height:40px;object-fit:contain;filter:none}
 @media(max-width:720px){.site-footer-credit .regiostart-link,.site-footer-credit .regiostart-logo{width:100px;max-width:100px;max-height:36px}}
+
+
+/* Tablet navigation: use the compact menu through tablet widths. */
+@media(min-width:721px) and (max-width:1024px){
+ .site-header{height:80px}
+ .site-header .site-nav{height:80px;gap:10px;justify-content:space-between}
+ .logo{width:175px}
+ .mobile-contacts{display:flex;align-items:center;gap:5px;margin-left:auto}
+ .mobile-contacts a{display:grid;place-items:center;width:36px;height:40px;color:var(--red)}
+ .mobile-contacts svg{width:21px;height:21px}
+ .menu-toggle{display:flex;flex:0 0 42px;background:transparent;color:#fff}
+ .site-navlinks{display:none;position:absolute;top:80px;left:0;right:0;background:#171717;padding:16px 22px 24px;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid #393939;max-height:calc(100vh - 80px);overflow-y:auto}
+ .site-navlinks.open{display:flex}
+ .site-navlinks>a,.nav-dropdown>a{padding:12px 0;font-size:15px}
+ .dropdown-menu{position:static;display:block;padding:0 0 4px 14px;min-width:0}
+ .dropdown-menu-inner{background:none;border:0;box-shadow:none;padding:0}
+ .dropdown-menu a{padding:8px 10px;color:#ccc}
+}
