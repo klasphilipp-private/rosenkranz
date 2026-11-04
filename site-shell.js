@@ -23,10 +23,10 @@ const modelFiles=['modelle.html','modell.html','citroen-ami.html','citroen-berli
 const activeFile=modelFiles.includes(currentFile)?'modelle.html':currentFile;
 for(const link of navAnchors){
   const target=new URL(link.href,location.href);
+  if(target.hash)continue;
   const routeMatch=target.pathname.split('/').pop()===activeFile;
-  const hashMatch=!target.hash || location.hash===target.hash;
   const brandMatch=!target.searchParams.has('marke') || target.searchParams.get('marke')===currentBrand;
-  const matches=routeMatch&&hashMatch&&brandMatch;
+  const matches=routeMatch&&brandMatch;
   if(matches){link.classList.add('is-active');link.setAttribute('aria-current','page');}
 }
 

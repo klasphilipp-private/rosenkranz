@@ -212,9 +212,9 @@
 @media(max-width:760px){.offers-filter .offer-filters{grid-template-columns:repeat(2,minmax(0,1fr));padding:16px;gap:12px}.offers-filter .offer-filters label:first-child{grid-column:1/-1}.offers-results-heading{align-items:flex-start;flex-direction:column;gap:4px}.vanderer-catalog{padding:24px 18px}.vanderer-model-cards{grid-template-columns:1fr}.vanderer-model-cards .vehicle-card>img{height:250px}.vanderer-comparison{font-size:11px}.vanderer-comparison th,.vanderer-comparison td{padding:10px 8px}.comparison-link-grid{display:grid}.comparison-link-grid .btn{width:100%;text-align:center}.rracing-teaser .btn{min-height:46px}}
 
 /* Shared navigation and footer presentation across all pages. */
-.site-navlinks>a,.site-navlinks .nav-dropdown>a{position:relative;transform:translateY(0);color:#f4f4f4;transition:color .18s ease,transform .18s ease}
+.site-navlinks>a,.site-navlinks .nav-dropdown>a{position:relative;display:flex;align-items:center;min-height:48px;transform:translateY(0);color:#f4f4f4;transition:color .18s ease,transform .18s ease}
 .site-navlinks>a:hover,.site-navlinks>a:focus-visible,.site-navlinks>a.is-active,.site-navlinks .nav-dropdown>a:hover,.site-navlinks .nav-dropdown>a:focus-visible,.site-navlinks .nav-dropdown>a.is-active{color:var(--red);transform:translateY(-3px)}
-.site-navlinks>a:after,.site-navlinks .nav-dropdown>a:after{content:"";position:absolute;left:33.333%;right:auto;bottom:3px;width:33.333%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:center;transition:transform .18s ease}
+.site-navlinks>a:after,.site-navlinks .nav-dropdown>a:after{content:"";position:absolute;left:0;right:auto;bottom:-8px;width:33.333%;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
 .site-navlinks>a:hover:after,.site-navlinks>a:focus-visible:after,.site-navlinks>a.is-active:after,.site-navlinks .nav-dropdown:hover>a:after,.site-navlinks .nav-dropdown:focus-within>a:after,.site-navlinks .nav-dropdown>a.is-active:after{transform:scaleX(1)}
 .site-footer{background:#fff;color:#171717;border-top:1px solid #e1e0de}
 .site-footer a,.site-footer-row a{color:#171717}
