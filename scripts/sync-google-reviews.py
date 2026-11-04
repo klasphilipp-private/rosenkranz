@@ -2,6 +2,7 @@
 """Fetch a public Place rating and recent reviews; API key comes from the runner secret."""
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 import json
 import os
@@ -19,8 +20,19 @@ def main():
         "X-Goog-Api-Key": key,
         "X-Goog-FieldMask": "displayName,rating,userRatingCount,reviews",
     })
-    with urlopen(request, timeout=35) as response:
-        place = json.load(response)
+    try:
+        with urlopen(request, timeout=35) as response:
+            place = json.load(response)
+    except HTTPError as error:
+        try:
+            details = json.loads(error.read().decode("utf-8"))
+            api_error = details.get("error", {})
+            status = api_error.get("status", "")
+            message = api_error.get("message", "")
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            status, message = "", "Google returned an unreadable error response."
+        description = ": ".join(value for value in (status, message) if value)
+        raise SystemExit(f"Google Places API returned HTTP {error.code}{': ' + description if description else ''}.") from None
     reviews = []
     for review in place.get("reviews", []):
         text = review.get("text", {}).get("text", "")
