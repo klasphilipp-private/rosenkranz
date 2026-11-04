@@ -41,3 +41,4 @@
 /* Keep the shared site header measured the same as on every other page. */
 @media(min-width:981px) and (max-width:1150px){.site-header{height:92px}.site-header .wrap{width:min(calc(100% - 64px),var(--max))}.site-header .site-nav{height:100%;gap:35px}.site-header .logo{width:245px}.site-header .site-navlinks{gap:clamp(16px,2vw,32px);font-size:15px}}
 @media(min-width:721px) and (max-width:980px){.site-header{height:80px}.site-header .wrap{width:min(calc(100% - 42px),var(--max))}.site-header .site-nav{height:100%;gap:35px}.site-header .logo{width:210px}.site-header .site-navlinks{gap:15px;font-size:13px}}
+.site-header .dropdown-menu a:hover,.site-header .dropdown-menu a:focus-visible{background:var(--red);color:#fff}
