@@ -1,7 +1,7 @@
 const frame=document.querySelector('#model-hero-slides');
 const dots=document.querySelector('#model-hero-dots');
 
-if(frame&&dots)fetch('models.json?v=20261105-model-order').then(r=>r.json()).then(models=>{
+if(frame&&dots)fetch('models.json?v=20261105-commercial-gallery').then(r=>r.json()).then(models=>{
   const params=new URLSearchParams(location.search);
   const brand=params.get('marke');
   const slug=params.get('modell');

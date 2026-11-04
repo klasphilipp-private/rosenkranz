@@ -212,17 +212,20 @@
     "name": "Citroën ë-C3 Van",
     "title": "Citroën ë-C3 Van: kompakter Elektro-Transporter",
     "brand": "Citroën",
-    "image": "assets/models/citroen-e-c3-van.jpeg",
+    "image": "assets/models/gallery/c3-van-commercial/01-e-c3-van-vorne.webp",
     "description": "Der Citroën ë-C3 Van überträgt die handliche Idee des C3 auf den gewerblichen Stadtverkehr. Statt einer Rücksitzbank bietet der rein elektrische Zweisitzer einen abgetrennten Laderaum und richtet sich damit an Servicebetriebe, Lieferdienste und Selbstständige mit kompaktem Transportbedarf.",
     "details": "Seine übersichtliche Karosserie erleichtert das Rangieren in engen Straßen und auf kleinen Stellflächen. Gleichzeitig bleibt der für den C3 typische Komfort erhalten: Citroën Advanced Comfort Sitze und die komfortorientierte Federung unterstützen einen entspannten Arbeitstag. Eine feste Trennwand schützt den vorderen Bereich, während Verzurrmöglichkeiten dabei helfen, Arbeitsmaterial sicher zu organisieren. Je nach Ausstattung sorgen Smartphone-Vernetzung, Navigation und moderne Assistenzfunktionen für zusätzliche Alltagshilfe. Das emissionsfreie Fahren vor Ort passt besonders gut zu regelmäßigen Einsätzen in Stadt und Umland.",
     "commercial": true,
     "formOption": "Citroën ë-C3 Van",
     "gallery": [
-      "assets/models/gallery/c3-van/01.webp",
-      "assets/models/gallery/c3-van/02.webp",
-      "assets/models/gallery/c3-van/03.webp",
-      "assets/models/gallery/c3-van/04.webp",
-      "assets/models/gallery/c3-van/05.webp"
+      "assets/models/gallery/c3-van-commercial/01-e-c3-van-vorne.webp",
+      "assets/models/gallery/c3-van-commercial/02-e-c3-van-seitenansicht.webp",
+      "assets/models/gallery/c3-van-commercial/03-trennwand-und-laderaum.webp",
+      "assets/models/gallery/c3-van-commercial/04-cockpit-und-innenraum.webp",
+      "assets/models/gallery/c3-van-commercial/05-umgeklappte-sitzbank.webp",
+      "assets/models/gallery/c3-van-commercial/06-seitentueren-offen.webp",
+      "assets/models/gallery/c3-van-commercial/07-infotainment.webp",
+      "assets/models/gallery/c3-van-commercial/08-transportansicht.webp"
     ],
     "page": "citroen-e-c3-van.html"
   },
@@ -231,19 +234,16 @@
     "name": "Citroën Berlingo Kastenwagen",
     "title": "Citroën Berlingo Kastenwagen: flexibel im Business",
     "brand": "Citroën",
-    "image": "assets/models/citroen-berlingo-kastenwagen.jpg",
+    "image": "assets/models/gallery/berlingo-kastenwagen-commercial/01-beratung-im-fahrzeug.webp",
     "description": "Der Citroën Berlingo Kastenwagen ist ein kompakter Transporter für Handwerk, Service und Lieferverkehr. Er verbindet gut nutzbaren Laderaum mit stadttauglicher Wendigkeit und einer komfortabel eingerichteten Kabine. Verschiedene Längen und elektrische wie konventionelle Antriebsvarianten erleichtern die Anpassung an den Betrieb.",
     "details": "Breite Schiebetüren und weit öffnende Hecktüren unterstützen das Be- und Entladen. Je nach Konfiguration lässt sich der Beifahrerbereich in die Laderaumnutzung einbeziehen oder als mobiler Arbeitsplatz verwenden. Praktische Ablagen halten Unterlagen und Arbeitsmittel griffbereit. Das moderne Cockpit bietet digitale Anzeigen, Smartphone-Einbindung und verfügbare Assistenzsysteme; die Citroën Advanced Comfort Sitze entlasten auf vielen täglichen Etappen. Für besondere Aufgaben stehen unterschiedliche Karosserie- und Innenraumlösungen zur Verfügung.",
     "commercial": true,
     "formOption": "Citroën Berlingo Kastenwagen",
     "gallery": [
-      "assets/models/gallery/berlingo-kastenwagen/01.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-1.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-2.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-3.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-4.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-5.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-6.webp"
+      "assets/models/gallery/berlingo-kastenwagen-commercial/01-beratung-im-fahrzeug.webp",
+      "assets/models/gallery/berlingo-kastenwagen-commercial/02-fahrzeugansicht.webp",
+      "assets/models/gallery/berlingo-kastenwagen-commercial/03-berlingo-beim-autohaus.webp",
+      "assets/models/gallery/berlingo-kastenwagen-commercial/04-berlingo-abmessungen.webp"
     ],
     "page": "citroen-berlingo-kastenwagen.html"
   },
@@ -283,19 +283,16 @@
     "name": "Citroën Jumper",
     "title": "Citroën Jumper: großer Transporter für Ihr Business",
     "brand": "Citroën",
-    "image": "assets/models/citroen-jumper.jpg",
+    "image": "assets/models/gallery/jumper-commercial/01-e-jumper-dynamic.webp",
     "description": "Der Citroën Jumper ist das große Nutzfahrzeug der Marke für anspruchsvolle Transport- und Aufbauaufgaben. Mit mehreren Karosserielängen, Dachhöhen und Aufbauformen lässt er sich auf Handwerk, Logistik, Service oder individuelle Branchenlösungen abstimmen. Auch eine elektrische Variante gehört zur Modellfamilie.",
     "details": "Der geradlinig ausgelegte Laderaum und die großen Türöffnungen erleichtern den täglichen Warenumschlag. Neben dem klassischen Kastenwagen sind je nach Programm weitere Aufbau- und Fahrgestelllösungen möglich. In der Kabine verbindet der Jumper eine ergonomische Fahrposition mit zahlreichen Ablagen und einer praktischen Arbeitsfläche, die sich aus dem mittleren Sitzbereich bilden lässt. Digitale Instrumente, modernes Infotainment und verfügbare Assistenzsysteme unterstützen Fahrerinnen und Fahrer bei langen Strecken, Rangiermanövern und im dichten Berufsverkehr.",
     "commercial": true,
     "formOption": "Citroën Jumper",
     "gallery": [
-      "assets/models/gallery/jumper/01.webp",
-      "assets/models/gallery/jumper/legacy-1.webp",
-      "assets/models/gallery/jumper/legacy-2.webp",
-      "assets/models/gallery/jumper/legacy-3.webp",
-      "assets/models/gallery/jumper/legacy-4.webp",
-      "assets/models/gallery/jumper/legacy-5.webp",
-      "assets/models/gallery/jumper/legacy-6.webp"
+      "assets/models/gallery/jumper-commercial/01-e-jumper-dynamic.webp",
+      "assets/models/gallery/jumper-commercial/02-e-jumper-interior.webp",
+      "assets/models/gallery/jumper-commercial/03-jumper-15m3-laderaum.webp",
+      "assets/models/gallery/jumper-commercial/04-jumper-abmessungen.webp"
     ],
     "page": "citroen-jumper.html"
   },
