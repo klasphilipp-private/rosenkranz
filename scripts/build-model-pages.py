@@ -70,6 +70,8 @@ def main():
         page_html = page_html.replace('← Zur Modellübersicht</a>', f'← Zur {escape(brand)}-Modellübersicht</a>')
         page_html = page_html.replace('<img id="model-image" alt="" fetchpriority="high">', f'<img src="{escape(model["image"], quote=True)}" alt="{safe_name}" fetchpriority="high">')
         page_html = page_html.replace('<span class="eyebrow" id="model-brand"></span><h1 id="model-title">Modell wird geladen …</h1><p class="detail-intro" id="model-description"></p><div id="model-features"></div><a class="btn btn-red" id="drive-link" href="index.html#probefahrt">Probefahrt anfragen ↗</a>', f'<span class="eyebrow">{escape(brand)}{ " · Nutzfahrzeuge" if model.get("commercial") else " · Neuwagen"}</span><h1>{escape(model["title"])}</h1><p class="detail-intro">{escape(model["description"])}</p><div><p>{escape(model["details"])}</p></div><a class="btn btn-red" href="index.html?modell={escape(model["slug"], quote=True)}#probefahrt">Probefahrt anfragen ↗</a>')
+        if model.get("sourceCredit"):
+            page_html = page_html.replace('</div></section></main>', f'<p class="source-credit">{escape(model["sourceCredit"])}</p></div></section></main>', 1)
         page_html = re.sub(r'\n  <script>\s*const slug=.*?</script>', "", page_html, count=1, flags=re.S)
         page_html = re.sub(r'<script src="model-hero\.js[^"]*"></script>', '<script src="model-page.js?v=20261019-1"></script>', page_html, count=1)
         (ROOT / page).write_text(page_html, encoding="utf-8")

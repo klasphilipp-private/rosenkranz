@@ -20,8 +20,9 @@
     <nav class="navlinks" aria-label="Hauptnavigation">
       <a href="index.html">Startseite</a>
       <a href="angebote.html">Unsere Angebote</a>
-      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><div data-model-links aria-label="Einzelne Modelle"></div></div></div></div>
+      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="modelle.html?marke=vanderer">VANDERER</a><a href="vanderer-one.html">VANDERER One</a><a href="vanderer-two.html">VANDERER Two</a><div data-model-links aria-label="Einzelne Modelle"></div></div></div></div>
       <a href="service.html">Service</a>
+      <a href="camping-tuning.html">Camping &amp; Tuning</a>
       <a href="ueber-uns.html">Über uns</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
@@ -37,7 +38,7 @@
   <main>
     <section class="offer-section" style="min-height:75vh;padding-top:72px"><div class="wrap">
       <span class="eyebrow">Fahrzeuge mit Rosenkranz Beratung</span><div class="section-head"><div><h1 class="section-title">Unsere Angebote</h1><p class="section-intro">Neue und junge Gebrauchte aus unserer Fahrzeugauswahl.</p></div><a class="btn btn-red" href="index.html#kontakt">Fahrzeugberatung anfragen ↗</a></div>
-      <div class="offer-filters" aria-label="Fahrzeuge filtern">
+      <div class="offers-layout"><aside class="offers-filter"><details id="offer-filter-details" open><summary>Fahrzeuge filtern <span aria-hidden="true">⌄</span></summary>      <div class="offer-filters" aria-label="Fahrzeuge filtern">
         <label>Marke<select id="offer-filter"><option value="all">Alle Marken</option><option value="citroen">Citroën</option><option value="subaru">Subaru</option><option value="other">Weitere</option></select></label>
         <label>Preis von (€)<input id="price-min" type="number" min="0" step="500" inputmode="numeric" placeholder="beliebig"></label><label>Preis bis (€)<input id="price-max" type="number" min="0" step="500" inputmode="numeric" placeholder="beliebig"></label>
         <label>Kilometer von<input id="mileage-min" type="number" min="0" step="5000" inputmode="numeric" placeholder="beliebig"></label><label>Kilometer bis<input id="mileage-max" type="number" min="0" step="5000" inputmode="numeric" placeholder="beliebig"></label>
@@ -45,15 +46,16 @@
         <label>Getriebe<select id="gearbox-filter"><option value="all">Alle</option><option value="automatic">Automatik</option><option value="manual">Schaltgetriebe</option></select></label>
         <label>Antrieb<select id="drive-filter"><option value="all">Alle</option><option value="front">Frontantrieb</option><option value="rear">Heckantrieb</option><option value="all-wheel">Allrad</option></select></label>
         <label>Sortieren<select id="offer-sort"><option value="default">Aktuelle Angebote</option><option value="price-low">Preis aufsteigend</option><option value="price-high">Preis absteigend</option><option value="mileage-low">Kilometer aufsteigend</option><option value="name">Modell A–Z</option></select></label>
-        <button class="filter-reset" id="filter-reset" type="button">Filter zurücksetzen</button><span class="inventory-note" id="inventory-note">Fahrzeugbestand wird geladen …</span>
+        <button class="filter-reset" id="filter-reset" type="button">Alle Filter zurücksetzen ↺</button>
       </div>
-      <div class="offer-grid" id="offer-grid" aria-live="polite"></div>
-      <p class="notice">Fahrzeuge mit mehreren Bildern und den verfügbaren technischen Angaben. Verfügbarkeit, Preis und Ausstattung bitte vor dem Besuch bei unserem Verkaufsteam bestätigen lassen.</p>
+</details><div class="filter-help"><span class="small-label">Wir helfen Ihnen weiter</span><strong>Ihr Wunschauto ist<br>noch nicht dabei?</strong><a href="index.html#kontakt">Sprechen Sie mit uns ↗</a></div></aside><div class="offers-results"><div class="offers-results-heading"><span class="inventory-note" id="inventory-note">Fahrzeugbestand wird geladen …</span><span class="small-label">Alle Angebote · aktuelle Verfügbarkeit bitte anfragen</span></div><div class="offer-grid" id="offer-grid" aria-live="polite"></div><p class="offer-footnote">¹ Alle Preise sind Gesamtpreise in Euro. Angaben zur ausweisbaren Mehrwertsteuer und die fahrzeugspezifischen Hinweise finden Sie im jeweiligen Inserat. Verfügbarkeit bitte vor Ihrem Besuch mit uns abstimmen.</p></div></div>
+      
     </div></section>
   </main>
   <div id="shared-footer"></div>
   <script src="offer-labels.js?v=20261103-labels"></script><script>
     const grid=document.querySelector('#offer-grid'),filter=document.querySelector('#offer-filter'),sort=document.querySelector('#offer-sort'),note=document.querySelector('#inventory-note');
+    const filterDisclosure=document.querySelector('#offer-filter-details'),compactFilters=matchMedia('(max-width:1000px)');if(filterDisclosure&&compactFilters.matches)filterDisclosure.removeAttribute('open');compactFilters.addEventListener('change',event=>{if(!filterDisclosure)return;if(event.matches)filterDisclosure.removeAttribute('open');else filterDisclosure.setAttribute('open','')});
     const controls=['#offer-filter','#price-min','#price-max','#mileage-min','#mileage-max','#fuel-filter','#gearbox-filter','#drive-filter','#offer-sort'].map(s=>document.querySelector(s));let inventory=[];
     function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
     function numericPrice(x){return Number(x.priceAmount)||Number(String(x.price||'').replace(/[^0-9]/g,''))||0}function brandOf(x){return `${x.make||''} ${x.title||''}`}function fuelGroup(v=''){v=v.toLowerCase();if(/diesel/.test(v))return'diesel';if(/electric|elektro|strom/.test(v))return'electric';if(/hybrid|plug|phev/.test(v))return'hybrid';if(/petrol|gasoline|benzin|super/.test(v))return'petrol';return'other'}function driveGroup(v=''){v=v.toLowerCase();if(/all|awd|4x4/.test(v))return'all-wheel';if(/rear|heck/.test(v))return'rear';if(/front|front-wheel|vorderrad/.test(v))return'front';return'other'}function gearboxGroup(v=''){v=v.toLowerCase();return /auto|automatic/.test(v)?'automatic':/manual|schalt/.test(v)?'manual':'other'}

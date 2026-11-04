@@ -279,9 +279,25 @@
     "commercial": true,
     "formOption": "Citroën Jumpy",
     "gallery": [
-      "assets/models/gallery/jumpy/01.webp"
+      "assets/models/gallery/jumpy/01.webp",
+      "assets/models/gallery/jumpy/02.jpg",
+      "assets/models/gallery/jumpy/03.jpg",
+      "assets/models/gallery/jumpy/04.jpg",
+      "assets/models/gallery/jumpy/05.jpg",
+      "assets/models/gallery/jumpy/06.jpg",
+      "assets/models/gallery/jumpy/07.jpg"
     ],
-    "page": "citroen-jumpy.html"
+    "page": "citroen-jumpy.html",
+    "galleryAlt": [
+      "Citroën Jumpy – Modellansicht",
+      "Citroën Jumpy fährt auf einer Straße",
+      "Citroën Jumpy – Frontansicht",
+      "Citroën Jumpy – Detail des Markenzeichens",
+      "Citroën Jumpy – Detail des Frontscheinwerfers",
+      "Citroën Jumpy – Blick in den Laderaum",
+      "Citroën Jumpy beim Beladen im gewerblichen Einsatz"
+    ],
+    "sourceCredit": "Zusätzliche Modellbilder: Citroën Deutschland."
   },
   {
     "slug": "subaru-forester-vielseitiger-suv-mit-allrad",

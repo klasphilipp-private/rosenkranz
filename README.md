@@ -18,7 +18,7 @@ Statische, WordPress-freie Designvorschau. Einstieg: `index.html`; aktuelle Ange
 
 ## Google Places
 
-`scripts/sync-google-reviews.py` fragt die Places API serverseitig ab und schreibt Rating und Rezensionstexte nach `google-reviews.json`. Die API ist inzwischen erreichbar; die aktuelle Vorschau zeigt den Places-Stand mit 4,7 Sternen und 346 Bewertungen. Der API-Schlüssel liegt nicht im HTML oder Repository. Für regelmäßige Aktualisierungen muss `GOOGLE_PLACES_API_KEY` als GitHub Actions Repository Secret gesetzt sein.
+`scripts/sync-google-reviews.py` fragt die Places API serverseitig ab und schreibt Rating und Rezensionstexte nach `google-reviews.json`. Die API ist inzwischen erreichbar; die aktuelle Vorschau zeigt den Places-Stand mit 4,7 Sternen und 348 Bewertungen. Der API-Schlüssel liegt nicht im HTML oder Repository. Für regelmäßige Aktualisierungen muss `GOOGLE_PLACES_API_KEY` als GitHub Actions Repository Secret gesetzt sein.
 
 ## Medienbestand
 
