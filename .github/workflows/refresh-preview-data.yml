@@ -9,7 +9,11 @@ on:
       - '.github/workflows/refresh-preview-data.yml'
   workflow_dispatch:
   schedule:
-    - cron: '17 */6 * * *'
+    - cron: '17 * * * *'
+
+concurrency:
+  group: refresh-preview-data-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write

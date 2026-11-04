@@ -1,4 +1,16 @@
 window.RosenkranzOfferLabels = {
+  unique(vehicles) {
+    const seen = new Set();
+    return vehicles.filter(vehicle => {
+      const id = String(vehicle.id || '').trim();
+      const url = String(vehicle.url || '').trim();
+      const key = id ? `id:${id}` : url ? `url:${url}` : '';
+      if (!key) return true;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  },
   meta(vehicle) {
     const condition = String(vehicle.condition || '').toUpperCase();
     const conditionLabel = ({ USED: 'Gebrauchtwagen', NEW: 'Neuwagen', PRE_REGISTERED: 'Tageszulassung', DEMONSTRATION: 'Vorführwagen' })[condition]

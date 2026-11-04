@@ -1,7 +1,7 @@
 const frame=document.querySelector('#model-hero-slides');
 const dots=document.querySelector('#model-hero-dots');
 
-if(frame&&dots)fetch('models.json?v=20261019-5').then(r=>r.json()).then(models=>{
+if(frame&&dots)fetch('models.json?v=20261105-model-order').then(r=>r.json()).then(models=>{
   const params=new URLSearchParams(location.search);
   const brand=params.get('marke');
   const slug=params.get('modell');
@@ -13,11 +13,13 @@ if(frame&&dots)fetch('models.json?v=20261019-5').then(r=>r.json()).then(models=>
   if(brand==='citroen')modelsToShow=models.filter(model=>model.brand==='Citroën'&&!model.commercial);
   else if(brand==='subaru')modelsToShow=models.filter(model=>model.brand==='Subaru');
   else if(brand==='gewerbe')modelsToShow=models.filter(model=>model.commercial);
+  else if(brand==='vanderer')modelsToShow=[{slug:'vanderer-one',name:'VANDERER One',brand:'VANDERER',image:'assets/vanderer/one.webp',page:'vanderer-one.html',description:'Urban Camper mit serienmäßigem Schlafdach.'},{slug:'vanderer-two',name:'VANDERER Two',brand:'VANDERER',image:'assets/vanderer/two.webp',page:'vanderer-two.html',description:'Flexibler Minicamper mit Sleep & Storage Modul.'}];
+  else modelsToShow.splice(13,0,{slug:'vanderer',name:'VANDERER',brand:'Camping & Tuning',image:'assets/vanderer/hero.webp',page:'vanderer.html',description:'Entdecken Sie VANDERER One und Two – kompakte Camper auf Basis des Citroën Berlingo XL.'});
   if(isDetailPage)modelsToShow=[detailModel];
 
   const slidesData=isDetailPage
     ? (detailModel.gallery?.length?detailModel.gallery:[detailModel.image]).slice(0,8).map(image=>({model:detailModel,image}))
-    : modelsToShow.slice(0,12).map(model=>({model,image:model.image}));
+    : modelsToShow.map(model=>({model,image:model.image}));
   if(!slidesData.length)return;
 
   frame.innerHTML=slidesData.map(({model,image},index)=>{

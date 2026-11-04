@@ -1,6 +1,6 @@
 const footerScript = document.currentScript;
 const appBase = new URL('.', footerScript?.src || location.href);
-fetch(new URL('footer.html?v=20261103-privacy-link', appBase)).then(response => {
+fetch(new URL('footer.html?v=20261105-unified-2', appBase)).then(response => {
   if (!response.ok) throw new Error('Footer konnte nicht geladen werden');
   return response.text();
 }).then(markup => {
@@ -20,7 +20,7 @@ fetch(new URL('footer.html?v=20261103-privacy-link', appBase)).then(response => 
     event.preventDefault();
     document.querySelector('#contact-status').textContent = 'Danke – Ihre Nachricht ist in dieser Vorschau ausgefüllt. Es wurden keine Daten versendet.';
   });
-  return fetch(new URL('google-reviews.json', appBase));
+  return fetch(new URL('google-reviews.json?v=latest', appBase), { cache: 'no-store' });
 }).then(response => response?.ok ? response.json() : null).then(data => {
   if (!data?.configured) return;
   const rating = document.querySelector('#google-rating-label');
@@ -28,7 +28,13 @@ fetch(new URL('footer.html?v=20261103-privacy-link', appBase)).then(response => 
   const updated = document.querySelector('#google-updated');
   if (updated) updated.textContent = `Stand: ${new Date(data.updated).toLocaleDateString('de-DE')}`;
   const grid = document.querySelector('#reviews-live');
-  if (grid) grid.innerHTML = (data.reviews || []).slice(0, 2).map(review => `<article class="review-card"><span class="stars" aria-label="${review.rating} von 5 Sternen">${'★'.repeat(Math.max(0, Math.min(5, Math.round(review.rating || 0))))}</span><p>${escapeHtml(review.text)}</p><strong>${escapeHtml(review.author)}</strong>${review.date ? `<div class="offer-meta">${escapeHtml(review.date)}</div>` : ''}</article>`).join('');
+  if (grid) {
+    const eligible = (data.reviews || []).filter(review => Number(review.rating) >= 4);
+    let offset = 0;
+    try { offset = Number(localStorage.getItem('rosenkranz-review-offset') || 0) % Math.max(eligible.length, 1); localStorage.setItem('rosenkranz-review-offset', String(offset + 2)); } catch {}
+    const selected = eligible.length ? Array.from({length: Math.min(2, eligible.length)}, (_, index) => eligible[(offset + index) % eligible.length]) : [];
+    grid.innerHTML = selected.map(review => `<article class="review-card"><span class="stars" aria-label="${review.rating} von 5 Sternen">${'★'.repeat(Math.max(0, Math.min(5, Math.round(review.rating || 0))))}</span><p>${escapeHtml(review.text)}</p><strong>${escapeHtml(review.author)}</strong>${review.date ? `<div class="offer-meta">${escapeHtml(review.date)}</div>` : ''}</article>`).join('');
+  }
 }).catch(() => {});
 
 function escapeHtml(value = '') {

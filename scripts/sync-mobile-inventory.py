@@ -138,6 +138,7 @@ def detail_page(vehicle):
     header = header.replace('src="assets/', 'src="../../assets/').replace('href="assets/', 'href="../../assets/')
     for page in ("index.html", "angebote.html", "modelle.html", "service.html", "ueber-uns.html"):
         header = header.replace(f'href="{page}', f'href="../../{page}')
+    header = re.sub(r'href="(?!(?:https?:|mailto:|tel:|#|\.\./\.\./))([^\"]+)"', r'href="../../\1"', header)
     detail_json = json.dumps({
         "@context": "https://schema.org", "@type": "Vehicle", "name": vehicle["title"],
         "image": images, "brand": vehicle.get("make"), "model": vehicle.get("model"),
@@ -149,7 +150,7 @@ def detail_page(vehicle):
 <body><div id="shared-header">{header}</div>
 <main><section class="vehicle-detail"><div class="wrap"><a class="vehicle-back" href="{prefix}angebote.html">← Zur Angebotsübersicht</a><div class="vehicle-detail-layout"><div><div class="vehicle-gallery"><div class="vehicle-gallery-track" aria-label="Fahrzeugbilder">{gallery}</div><div class="vehicle-gallery-controls"><button type="button" class="vehicle-gallery-prev" aria-label="Vorheriges Bild">←</button><span class="vehicle-gallery-count">1 / {len(images)}</span><button type="button" class="vehicle-gallery-next" aria-label="Nächstes Bild">→</button></div></div><p class="vehicle-gallery-hint">Bilder nach rechts oder links wischen</p></div><div class="vehicle-summary"><span class="eyebrow">{esc(vehicle.get('make'))} · Fahrzeugangebot</span><h1>{esc(vehicle['title'])}</h1><p class="vehicle-price">{esc(vehicle['price'])}</p><p class="vehicle-location">Automobile Rosenkranz · Recklinghausen</p><a class="btn btn-red" href="{prefix}index.html#kontakt">Beratung zu diesem Fahrzeug anfragen</a><a class="vehicle-phone" href="tel:+49236191490">Oder direkt anrufen: 02361 / 9149-0</a></div></div>
 <section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2>{description}</section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
-<script src="{prefix}consent.js?v=20261025-1"></script><script src="{prefix}site-shell.js?v=20261019-1"></script><script src="{prefix}footer.js?v=20261025-1"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
+<script src="{prefix}consent.js?v=20261025-1"></script><script src="{prefix}site-shell.js?v=20261105-unified-2"></script><script src="{prefix}footer.js?v=20261105-unified-2"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
 
 
 def fetch_page(username, password, page):
@@ -280,6 +281,24 @@ def main():
             "detailPath": f"angebote/{slug}/",
         })
 
+    # Exact duplicate ads can occur in the dealer API feed (same title, specs, price and image set under multiple IDs).
+    # Keep separate vehicles when their photos or key specifications differ.
+    unique_vehicles = []
+    seen_signatures = set()
+    for vehicle in vehicles:
+        signature = (
+            re.sub(r"\s+", " ", vehicle["title"]).casefold(),
+            vehicle.get("priceAmount"), vehicle.get("mileage"), vehicle.get("firstRegistration"),
+            vehicle.get("fuel"), vehicle.get("gearbox"), vehicle.get("driveType"),
+            tuple(vehicle.get("images") or ()),
+        )
+        if signature in seen_signatures:
+            continue
+        seen_signatures.add(signature)
+        unique_vehicles.append(vehicle)
+    duplicate_count = len(vehicles) - len(unique_vehicles)
+    vehicles = unique_vehicles
+
     if not vehicles:
         raise RuntimeError("mobile.de returned no offers with images; existing snapshot was preserved.")
     if len(ads) < api_total:
@@ -291,6 +310,7 @@ def main():
         "updated": datetime.now(timezone.utc).isoformat(),
         "apiTotal": api_total,
         "vehiclesWithImages": len(vehicles),
+        "exactDuplicatesRemoved": duplicate_count,
         "vehicles": vehicles,
     }
     DESTINATION.parent.mkdir(parents=True, exist_ok=True)
@@ -314,7 +334,7 @@ def main():
     for vehicle in vehicles:
         count = len(vehicle["images"])
         image_counts[count] = image_counts.get(count, 0) + 1
-    print(f"Updated inventory with {len(vehicles)} vehicles with photos (API reports {api_total} total); fetched {detail_responses} full ads; gallery image counts: {image_counts}.")
+    print(f"Updated inventory with {len(vehicles)} vehicles with photos (API reports {api_total} active ads; removed {duplicate_count} exact duplicate records); fetched {detail_responses} full ads; gallery image counts: {image_counts}.")
 
 
 if __name__ == "__main__":

@@ -5,22 +5,22 @@
   <meta name="description" content="Aktuelle Fahrzeugangebote von Automobile Rosenkranz in Recklinghausen.">
   <title>Unsere Angebote · Automobile Rosenkranz</title>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css?v=20261103-offer-fit">
+  <link rel="stylesheet" href="styles.css?v=20261105-unified-2">
 </head>
 <body>
   <!-- SITE HEADER START -->
 <header class="site-header">
-  <div class="wrap nav">
+  <div class="wrap site-nav">
     <a class="brand-link" href="index.html" aria-label="Automobile Rosenkranz – Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz"></a>
     <div class="mobile-contacts" aria-label="Direktkontakt">
       <a href="tel:+49236191490" aria-label="Telefon: 02361 9149-0"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#phone"/></svg></a>
       <a href="mailto:info@automobile-rosenkranz.de" aria-label="E-Mail: info@automobile-rosenkranz.de"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#email"/></svg></a>
     </div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span class="burger-lines" aria-hidden="true"><i></i><i></i><i></i></span></button>
-    <nav class="navlinks" aria-label="Hauptnavigation">
+    <nav class="site-navlinks" aria-label="Hauptnavigation">
       <a href="index.html">Startseite</a>
       <a href="angebote.html">Unsere Angebote</a>
-      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="modelle.html?marke=vanderer">VANDERER</a><a href="vanderer-one.html">VANDERER One</a><a href="vanderer-two.html">VANDERER Two</a><div data-model-links aria-label="Einzelne Modelle"></div></div></div></div>
+      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="modelle.html?marke=vanderer">VANDERER</a></div></div></div>
       <a href="service.html">Service</a>
       <a href="camping-tuning.html">Camping &amp; Tuning</a>
       <a href="ueber-uns.html">Über uns</a>
@@ -28,8 +28,8 @@
     </nav>
   </div>
 </header>
-<aside class="side-rail" aria-label="Schnellzugriff">
-  <a href="tel:+49236191490" aria-label="Jetzt anrufen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#contact"/></svg><span>Jetzt anrufen · 02361 / 9149-0</span></a>
+<aside class="site-quick-rail" aria-label="Schnellzugriff">
+  <a href="tel:+49236191490" aria-label="Telefon 02361 / 9149-0" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#contact"/></svg><span>02361 / 9149-0</span></a>
   <a href="angebote.html" aria-label="Unsere Angebote" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#offer"/></svg><span>Aktuelle Angebote ansehen</span></a>
   <a href="index.html#probefahrt" aria-label="Probefahrt anfragen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#testdrive"/></svg><span>Probefahrt vereinbaren</span></a>
   <a href="service.html" aria-label="Werkstatt und Service" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#service"/></svg><span>Service und Teileverkauf</span></a>
@@ -49,11 +49,11 @@
         <button class="filter-reset" id="filter-reset" type="button">Alle Filter zurücksetzen ↺</button>
       </div>
 </details><div class="filter-help"><span class="small-label">Wir helfen Ihnen weiter</span><strong>Ihr Wunschauto ist<br>noch nicht dabei?</strong><a href="index.html#kontakt">Sprechen Sie mit uns ↗</a></div></aside><div class="offers-results"><div class="offers-results-heading"><span class="inventory-note" id="inventory-note">Fahrzeugbestand wird geladen …</span><span class="small-label">Alle Angebote · aktuelle Verfügbarkeit bitte anfragen</span></div><div class="offer-grid" id="offer-grid" aria-live="polite"></div><p class="offer-footnote">¹ Alle Preise sind Gesamtpreise in Euro. Angaben zur ausweisbaren Mehrwertsteuer und die fahrzeugspezifischen Hinweise finden Sie im jeweiligen Inserat. Verfügbarkeit bitte vor Ihrem Besuch mit uns abstimmen.</p></div></div>
-      
+
     </div></section>
   </main>
   <div id="shared-footer"></div>
-  <script src="offer-labels.js?v=20261103-labels"></script><script>
+  <script src="offer-labels.js?v=20261105-deduplicate"></script><script>
     const grid=document.querySelector('#offer-grid'),filter=document.querySelector('#offer-filter'),sort=document.querySelector('#offer-sort'),note=document.querySelector('#inventory-note');
     const filterDisclosure=document.querySelector('#offer-filter-details'),compactFilters=matchMedia('(max-width:1000px)');if(filterDisclosure&&compactFilters.matches)filterDisclosure.removeAttribute('open');compactFilters.addEventListener('change',event=>{if(!filterDisclosure)return;if(event.matches)filterDisclosure.removeAttribute('open');else filterDisclosure.setAttribute('open','')});
     const controls=['#offer-filter','#price-min','#price-max','#mileage-min','#mileage-max','#fuel-filter','#gearbox-filter','#drive-filter','#offer-sort'].map(s=>document.querySelector(s));let inventory=[];
@@ -63,7 +63,7 @@
     function photos(x){return (x.images?.length?x.images:[x.image]).filter(Boolean)}function card(x,i){const pics=photos(x),dest=x.detailPath||`fahrzeug.html?id=${encodeURIComponent(x.id||x.title)}`;return `<article class="offer-card" data-card-url="${esc(dest)}"><div class="offer-gallery"><div class="offer-gallery-track">${pics.map((p,n)=>`<figure class="offer-gallery-slide"><span class="media-consent-placeholder">Fahrzeugfoto nach Freigabe externer Medien</span><img data-external-src="${esc(p)}" alt="${esc(x.title)} – Bild ${n+1}" loading="lazy"></figure>`).join('')}</div>${pics.length>1?`<button type="button" class="offer-gallery-prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="offer-gallery-next" aria-label="Nächstes Bild">›</button><span class="offer-gallery-count">1 / ${pics.length}</span>`:''}</div><a class="offer-copy offer-copy-link" href="${esc(dest)}"><h2>${esc(x.title)}</h2><div class="offer-meta">${esc(RosenkranzOfferLabels.meta(x))}</div><div class="offer-price">${esc(x.price||'Preis auf Anfrage')}</div><span class="offer-link">Fahrzeugdetails ansehen <span>↗</span></span></a></article>`}
     function render(){let list=inventory.filter(x=>x.image&&matches(x));if(sort.value==='price-low')list.sort((a,b)=>numericPrice(a)-numericPrice(b));if(sort.value==='price-high')list.sort((a,b)=>numericPrice(b)-numericPrice(a));if(sort.value==='mileage-low')list.sort((a,b)=>(Number(a.mileage)||Infinity)-(Number(b.mileage)||Infinity));if(sort.value==='name')list.sort((a,b)=>a.title.localeCompare(b.title,'de'));note.textContent=`${list.length} von ${inventory.length} Fahrzeugen`;grid.innerHTML=list.map(card).join('')||'<p>Für diese Auswahl wurden keine Fahrzeuge gefunden. Passen Sie die Filter an.</p>';grid.querySelectorAll('.offer-card').forEach(card=>{const track=card.querySelector('.offer-gallery-track'),slides=[...card.querySelectorAll('.offer-gallery-slide')];let pos=0;const go=n=>{pos=(n+slides.length)%slides.length;track.scrollTo({left:pos*track.clientWidth,behavior:'smooth'});const count=card.querySelector('.offer-gallery-count');if(count)count.textContent=`${pos+1} / ${slides.length}`};card.querySelector('.offer-gallery-prev')?.addEventListener('click',e=>{e.stopPropagation();go(pos-1)});card.querySelector('.offer-gallery-next')?.addEventListener('click',e=>{e.stopPropagation();go(pos+1)});track?.addEventListener('scroll',()=>{pos=Math.round(track.scrollLeft/track.clientWidth);const count=card.querySelector('.offer-gallery-count');if(count)count.textContent=`${pos+1} / ${slides.length}`},{passive:true});card.addEventListener('click',e=>{if(e.target.closest('button,a'))return;location.href=card.dataset.cardUrl})});if(window.RosenkranzConsent?.hasExternalMedia())window.RosenkranzConsent.hydrateExternalMedia()}
     controls.forEach(el=>el.addEventListener('change',render));document.querySelector('#filter-reset').addEventListener('click',()=>{controls.forEach(el=>el.value=el.tagName==='SELECT'&&el.id==='offer-sort'?'default':el.tagName==='SELECT'?'all':'');render()});
-    fetch('inventory.json?v=20261025-seo').then(r=>r.ok?r.json():Promise.reject()).then(data=>{if(!Array.isArray(data.vehicles))throw new Error('Keine Inserate');inventory=data.vehicles;const updated=new Date(data.updated);note.textContent=`Bestand vom ${updated.toLocaleDateString('de-DE')} · ${inventory.length} Fahrzeuge mit Foto`;render()}).catch(()=>{note.textContent='Bestand gerade nicht abrufbar';grid.innerHTML='<p>Die Fahrzeugauswahl kann gerade nicht geladen werden. Bitte versuchen Sie es später erneut.</p>'});
+    fetch('inventory.json?v=20261105-inventory').then(r=>r.ok?r.json():Promise.reject()).then(data=>{if(!Array.isArray(data.vehicles))throw new Error('Keine Inserate');inventory=window.RosenkranzOfferLabels.unique(data.vehicles);const updated=new Date(data.updated);note.textContent=`Bestand vom ${updated.toLocaleDateString('de-DE')} · ${inventory.length} Fahrzeuge mit Foto`;render()}).catch(()=>{note.textContent='Bestand gerade nicht abrufbar';grid.innerHTML='<p>Die Fahrzeugauswahl kann gerade nicht geladen werden. Bitte versuchen Sie es später erneut.</p>'});
   </script>
-  <script defer src="consent.js?v=20261019-1"></script><script src="site-shell.js?v=20261103-model-registry"></script><script src="footer.js?v=20261103-privacy-link"></script>
+  <script defer src="consent.js?v=20261019-1"></script><script src="site-shell.js?v=20261105-unified-2"></script><script src="footer.js?v=20261105-unified-2"></script>
 </body></html>

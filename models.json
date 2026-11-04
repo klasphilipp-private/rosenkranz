@@ -1,81 +1,5 @@
 [
   {
-    "slug": "citroen-holiday",
-    "name": "Citroën Holidays",
-    "title": "Citroën Holidays: Camper Van für Reise und Alltag",
-    "brand": "Citroën",
-    "image": "assets/models/citroen-holidays.png",
-    "description": "Der Citroën Holidays verbindet die Alltagstauglichkeit eines Vans mit der Freiheit eines kompakten Campers. Auf Basis des SpaceTourer bietet er eine komplette Reisemobil-Ausstattung, bleibt dabei aber handlich genug für viele tägliche Wege. So eignet er sich für spontane Wochenenden ebenso wie für längere Touren.",
-    "details": "Das Aufstelldach schafft zusätzlichen Schlafraum, während sich der Innenraum mit umbaubarer Sitzbank zu einer weiteren Liegefläche verwandeln lässt. Eine herausnehmbare Küche mit Kochstelle, Spüle und Kühlmöglichkeit unterstützt die Versorgung unterwegs. Drehbare Vordersitze und ein flexibel nutzbarer Tisch machen aus dem Fahrzeug einen kleinen Wohnraum. Wird mehr Transportfläche benötigt, lassen sich einzelne Campingelemente entfernen. Je nach Ausstattung ergänzen Lösungen wie Außendusche, mobile Toilette oder Solarpanel das Reisekonzept.",
-    "commercial": false,
-    "formOption": "Citroën Holidays",
-    "gallery": [
-      "assets/models/gallery/citroen-holiday/01.webp",
-      "assets/models/gallery/citroen-holiday/02.webp",
-      "assets/models/gallery/citroen-holiday/03.webp",
-      "assets/models/gallery/citroen-holiday/04.webp",
-      "assets/models/gallery/citroen-holiday/05.webp",
-      "assets/models/gallery/citroen-holiday/06.webp",
-      "assets/models/gallery/citroen-holiday/07.webp",
-      "assets/models/gallery/citroen-holiday/08.webp"
-    ],
-    "page": "citroen-holidays.html"
-  },
-  {
-    "slug": "spacetourer",
-    "name": "Citroën SpaceTourer",
-    "title": "Citroën SpaceTourer: flexibler Van mit viel Platz",
-    "brand": "Citroën",
-    "image": "assets/models/citroen-spacetourer.png",
-    "description": "Der Citroën SpaceTourer ist ein Großraum-Van für Familien, Freizeitaktive und professionelle Personentransporte. Sein variabler Innenraum nimmt je nach Konfiguration bis zu neun Personen auf und bleibt dabei angenehm zugänglich. Zwei Karosserielängen erleichtern die Abstimmung auf Parkplatz, Passagierzahl und Gepäckbedarf.",
-    "details": "Verschiebbare und herausnehmbare Sitze schaffen eine Vielzahl möglicher Raumaufteilungen – von der Reisegruppe bis zum Transport sperriger Sportausrüstung. Breite Schiebetüren erleichtern den Einstieg, die erhöhte Sitzposition verbessert die Übersicht. Das modernisierte Cockpit verbindet praktische Ablagen mit Touchscreen, digitaler Anzeige und Smartphone-Einbindung. Je nach Ausstattung ergänzen Assistenzsysteme und ein Glasdach den Reise- und Bedienkomfort. Der SpaceTourer wird mit elektrischem oder konventionellem Antrieb angeboten.",
-    "commercial": false,
-    "formOption": "Citroën SpaceTourer",
-    "gallery": [
-      "assets/models/gallery/spacetourer/01.webp",
-      "assets/models/gallery/spacetourer/02.webp",
-      "assets/models/gallery/spacetourer/03.webp",
-      "assets/models/gallery/spacetourer/04.webp",
-      "assets/models/gallery/spacetourer/05.webp",
-      "assets/models/gallery/spacetourer/06.webp",
-      "assets/models/gallery/spacetourer/07.webp",
-      "assets/models/gallery/spacetourer/08.webp"
-    ],
-    "galleryAlt": [
-      "Citroën SpaceTourer an einer Ladestation, Außenansicht",
-      "Citroën SpaceTourer mit geöffneter Schiebetür",
-      "Innenraum des Citroën SpaceTourer mit Passagieren",
-      "Cockpit und Armaturen des Citroën SpaceTourer",
-      "Sitzreihe im Innenraum des Citroën SpaceTourer",
-      "Ladeanschluss am Citroën SpaceTourer",
-      "Schriftzug SpaceTourer an der Fahrzeugseite",
-      "Detail des Frontscheinwerfers am Citroën SpaceTourer"
-    ],
-    "page": "citroen-spacetourer.html"
-  },
-  {
-    "slug": "berlingo",
-    "name": "Citroën Berlingo",
-    "title": "Citroën Berlingo: vielseitiger Familien-Van",
-    "brand": "Citroën",
-    "image": "assets/models/citroen-berlingo.png",
-    "description": "Der Citroën Berlingo ist ein vielseitiger Familien-Van für alle, die im Alltag mehr Raum und Flexibilität benötigen. Ob Kinder, Hobbyausrüstung oder Reisegepäck: Die hohe Karosserie, die großen seitlichen Schiebetüren und der gut zugängliche Gepäckraum machen viele Transportaufgaben angenehm unkompliziert.",
-    "details": "Drei einzeln umklappbare Sitze in der zweiten Reihe helfen dabei, Personen und Gepäck passend zu kombinieren. Je nach Version ist eine weitere Sitzreihe verfügbar, während sich auch der Beifahrersitz für besonders lange Gegenstände in die Ladefläche einbeziehen lässt. Zahlreiche Ablagen, die niedrige Ladekante und die separat zu öffnende Heckscheibe erhöhen den Nutzwert. Das überarbeitete Cockpit bietet moderne Vernetzung und verfügbare Assistenzsysteme; Citroën Advanced Comfort Sitze fördern entspanntes Reisen. Die Baureihe umfasst elektrische und konventionelle Antriebsvarianten.",
-    "commercial": false,
-    "formOption": "Citroën Berlingo",
-    "gallery": [
-      "assets/models/gallery/berlingo/01.webp",
-      "assets/models/gallery/berlingo/02.webp",
-      "assets/models/gallery/berlingo/03.webp",
-      "assets/models/gallery/berlingo/04.webp",
-      "assets/models/gallery/berlingo/05.webp",
-      "assets/models/gallery/berlingo/06.webp",
-      "assets/models/gallery/berlingo/07.webp",
-      "assets/models/gallery/berlingo/08.webp"
-    ],
-    "page": "citroen-berlingo.html"
-  },
-  {
     "slug": "ami",
     "name": "Citroën Ami",
     "title": "Citroën Ami: elektrische Mobilität für die Stadt",
@@ -96,72 +20,6 @@
       "assets/models/gallery/ami/08.webp"
     ],
     "page": "citroen-ami.html"
-  },
-  {
-    "slug": "der-neue-c5-aircross",
-    "name": "Citroën C5 Aircross",
-    "title": "Neuer Citroën C5 Aircross: SUV-Komfort für Familien",
-    "brand": "Citroën",
-    "image": "assets/models/citroen-c5-aircross.png",
-    "description": "Der neue Citroën C5 Aircross ist das großzügige SUV-Modell der Marke für Familie, Beruf und Reise. Ein klar gezeichnetes, kraftvolles Exterieur trifft auf einen wohnlichen Innenraum, der den Komfortgedanken von Citroën konsequent fortführt. Hybrid-, Plug-in-Hybrid- und Elektrovarianten eröffnen unterschiedliche Wege zur elektrifizierten Mobilität.",
-    "details": "Das Interieur ist als Lounge gestaltet: besonders komfortable Sitze, viel Bewegungsfreiheit und ein flexibler Gepäckraum schaffen gute Voraussetzungen für lange Tage unterwegs. Die Federung mit progressivem hydraulischem Anschlag unterstützt das ruhige Fahrgefühl. Im Cockpit fällt der hochformatige Waterfall-Touchscreen ins Auge; eine erweiterte Head-up-Anzeige bringt wichtige Informationen ins Sichtfeld. Je nach Ausstattung ergänzen moderne Lichttechnik, Rundumsicht und Assistenzfunktionen das Fahrzeug. Die aerodynamisch ausgearbeitete Form und die vielseitige Antriebsauswahl verbinden zeitgemäße Technik mit dem typischen Citroën Komfort.",
-    "commercial": false,
-    "formOption": "Citroën C5 Aircross",
-    "gallery": [
-      "assets/models/gallery/der-neue-c5-aircross/01.webp",
-      "assets/models/gallery/der-neue-c5-aircross/02.webp",
-      "assets/models/gallery/der-neue-c5-aircross/03.webp",
-      "assets/models/gallery/der-neue-c5-aircross/04.webp",
-      "assets/models/gallery/der-neue-c5-aircross/05.webp",
-      "assets/models/gallery/der-neue-c5-aircross/06.webp",
-      "assets/models/gallery/der-neue-c5-aircross/07.webp",
-      "assets/models/gallery/der-neue-c5-aircross/08.webp"
-    ],
-    "page": "citroen-c5-aircross.html"
-  },
-  {
-    "slug": "c4x",
-    "name": "Citroën C4 X",
-    "title": "Citroën C4 X: elegantes Fastback mit viel Komfort",
-    "brand": "Citroën",
-    "image": "assets/models/citroen-c4x.png",
-    "description": "Der Citroën C4 X verbindet die fließende Linie eines Fastbacks mit der Präsenz eines Crossovers und dem Komfort einer geräumigen Limousine. Damit richtet er sich an Fahrerinnen und Fahrer, die einen eigenständigen Auftritt ebenso schätzen wie entspanntes Reisen und einen vom Innenraum getrennten Gepäckbereich.",
-    "details": "Die coupéartig abfallende Dachlinie prägt das elegante Profil, während der lange Kofferraum den C4 X besonders reisetauglich macht. Im Innenraum schaffen Citroën Advanced Comfort Sitze und die komfortorientierte Federung eine ruhige Atmosphäre. Mit digitaler Anzeige, Touchscreen, Smartphone-Einbindung und verfügbaren Assistenzsystemen ist das Bedienkonzept zeitgemäß aufgestellt. Auch die Fondpassagiere profitieren von einer auf Komfort ausgerichteten Sitzposition. Der C4 X ist mit elektrischen und hybriden Antriebsvarianten erhältlich und lässt sich so passend zum individuellen Alltag konfigurieren.",
-    "commercial": false,
-    "formOption": "Citroën C4 X",
-    "gallery": [
-      "assets/models/gallery/c4x/01.webp",
-      "assets/models/gallery/c4x/02.webp",
-      "assets/models/gallery/c4x/03.webp",
-      "assets/models/gallery/c4x/04.webp",
-      "assets/models/gallery/c4x/05.webp",
-      "assets/models/gallery/c4x/06.webp",
-      "assets/models/gallery/c4x/07.webp",
-      "assets/models/gallery/c4x/08.webp"
-    ],
-    "page": "citroen-c4-x.html"
-  },
-  {
-    "slug": "c4",
-    "name": "Citroën C4",
-    "title": "Citroën C4: komfortable Kompaktlimousine mit Stil",
-    "brand": "Citroën",
-    "image": "assets/models/citroen-c4.jpg",
-    "description": "Der Citroën C4 verbindet die Dynamik eines Coupés mit dem Komfort einer Kompaktlimousine und dezenten SUV-Anklängen. Sein geschärftes Design wirkt eigenständig und modern, ohne die Alltagstauglichkeit aus dem Blick zu verlieren. Je nach persönlichem Fahrprofil stehen elektrifizierte und konventionelle Antriebsarten zur Wahl.",
-    "details": "Im Mittelpunkt steht das entspannte Fahrerlebnis. Citroën Advanced Comfort Sitze und die Federung mit progressivem hydraulischem Anschlag filtern viele Unebenheiten angenehm heraus. Ein klar gegliedertes digitales Cockpit, ein zentraler Touchscreen und die Smartphone-Einbindung unterstützen eine intuitive Bedienung. Je nach Ausstattung sorgen Head-up-Anzeige und verschiedene Assistenzsysteme für zusätzliche Übersicht. Die weit öffnende Heckklappe und die variabel nutzbare Rückbank machen den C4 zugleich zu einem praktischen Begleiter für Einkauf, Beruf und Reise.",
-    "commercial": false,
-    "formOption": "Citroën C4",
-    "gallery": [
-      "assets/models/gallery/c4/01.webp",
-      "assets/models/gallery/c4/02.webp",
-      "assets/models/gallery/c4/03.webp",
-      "assets/models/gallery/c4/04.webp",
-      "assets/models/gallery/c4/05.webp",
-      "assets/models/gallery/c4/06.webp",
-      "assets/models/gallery/c4/07.webp",
-      "assets/models/gallery/c4/08.webp"
-    ],
-    "page": "citroen-c4.html"
   },
   {
     "slug": "c3",
@@ -208,25 +66,146 @@
     "page": "citroen-c3-aircross.html"
   },
   {
-    "slug": "berlingo-kastenwagen",
-    "name": "Citroën Berlingo Kastenwagen",
-    "title": "Citroën Berlingo Kastenwagen: flexibel im Business",
+    "slug": "c4",
+    "name": "Citroën C4",
+    "title": "Citroën C4: komfortable Kompaktlimousine mit Stil",
     "brand": "Citroën",
-    "image": "assets/models/citroen-berlingo-kastenwagen.jpg",
-    "description": "Der Citroën Berlingo Kastenwagen ist ein kompakter Transporter für Handwerk, Service und Lieferverkehr. Er verbindet gut nutzbaren Laderaum mit stadttauglicher Wendigkeit und einer komfortabel eingerichteten Kabine. Verschiedene Längen und elektrische wie konventionelle Antriebsvarianten erleichtern die Anpassung an den Betrieb.",
-    "details": "Breite Schiebetüren und weit öffnende Hecktüren unterstützen das Be- und Entladen. Je nach Konfiguration lässt sich der Beifahrerbereich in die Laderaumnutzung einbeziehen oder als mobiler Arbeitsplatz verwenden. Praktische Ablagen halten Unterlagen und Arbeitsmittel griffbereit. Das moderne Cockpit bietet digitale Anzeigen, Smartphone-Einbindung und verfügbare Assistenzsysteme; die Citroën Advanced Comfort Sitze entlasten auf vielen täglichen Etappen. Für besondere Aufgaben stehen unterschiedliche Karosserie- und Innenraumlösungen zur Verfügung.",
-    "commercial": true,
-    "formOption": "Citroën Berlingo Kastenwagen",
+    "image": "assets/models/citroen-c4.jpg",
+    "description": "Der Citroën C4 verbindet die Dynamik eines Coupés mit dem Komfort einer Kompaktlimousine und dezenten SUV-Anklängen. Sein geschärftes Design wirkt eigenständig und modern, ohne die Alltagstauglichkeit aus dem Blick zu verlieren. Je nach persönlichem Fahrprofil stehen elektrifizierte und konventionelle Antriebsarten zur Wahl.",
+    "details": "Im Mittelpunkt steht das entspannte Fahrerlebnis. Citroën Advanced Comfort Sitze und die Federung mit progressivem hydraulischem Anschlag filtern viele Unebenheiten angenehm heraus. Ein klar gegliedertes digitales Cockpit, ein zentraler Touchscreen und die Smartphone-Einbindung unterstützen eine intuitive Bedienung. Je nach Ausstattung sorgen Head-up-Anzeige und verschiedene Assistenzsysteme für zusätzliche Übersicht. Die weit öffnende Heckklappe und die variabel nutzbare Rückbank machen den C4 zugleich zu einem praktischen Begleiter für Einkauf, Beruf und Reise.",
+    "commercial": false,
+    "formOption": "Citroën C4",
     "gallery": [
-      "assets/models/gallery/berlingo-kastenwagen/01.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-1.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-2.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-3.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-4.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-5.webp",
-      "assets/models/gallery/berlingo-kastenwagen/legacy-6.webp"
+      "assets/models/gallery/c4/01.webp",
+      "assets/models/gallery/c4/02.webp",
+      "assets/models/gallery/c4/03.webp",
+      "assets/models/gallery/c4/04.webp",
+      "assets/models/gallery/c4/05.webp",
+      "assets/models/gallery/c4/06.webp",
+      "assets/models/gallery/c4/07.webp",
+      "assets/models/gallery/c4/08.webp"
     ],
-    "page": "citroen-berlingo-kastenwagen.html"
+    "page": "citroen-c4.html"
+  },
+  {
+    "slug": "c4x",
+    "name": "Citroën C4 X",
+    "title": "Citroën C4 X: elegantes Fastback mit viel Komfort",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c4x.png",
+    "description": "Der Citroën C4 X verbindet die fließende Linie eines Fastbacks mit der Präsenz eines Crossovers und dem Komfort einer geräumigen Limousine. Damit richtet er sich an Fahrerinnen und Fahrer, die einen eigenständigen Auftritt ebenso schätzen wie entspanntes Reisen und einen vom Innenraum getrennten Gepäckbereich.",
+    "details": "Die coupéartig abfallende Dachlinie prägt das elegante Profil, während der lange Kofferraum den C4 X besonders reisetauglich macht. Im Innenraum schaffen Citroën Advanced Comfort Sitze und die komfortorientierte Federung eine ruhige Atmosphäre. Mit digitaler Anzeige, Touchscreen, Smartphone-Einbindung und verfügbaren Assistenzsystemen ist das Bedienkonzept zeitgemäß aufgestellt. Auch die Fondpassagiere profitieren von einer auf Komfort ausgerichteten Sitzposition. Der C4 X ist mit elektrischen und hybriden Antriebsvarianten erhältlich und lässt sich so passend zum individuellen Alltag konfigurieren.",
+    "commercial": false,
+    "formOption": "Citroën C4 X",
+    "gallery": [
+      "assets/models/gallery/c4x/01.webp",
+      "assets/models/gallery/c4x/02.webp",
+      "assets/models/gallery/c4x/03.webp",
+      "assets/models/gallery/c4x/04.webp",
+      "assets/models/gallery/c4x/05.webp",
+      "assets/models/gallery/c4x/06.webp",
+      "assets/models/gallery/c4x/07.webp",
+      "assets/models/gallery/c4x/08.webp"
+    ],
+    "page": "citroen-c4-x.html"
+  },
+  {
+    "slug": "der-neue-c5-aircross",
+    "name": "Citroën C5 Aircross",
+    "title": "Neuer Citroën C5 Aircross: SUV-Komfort für Familien",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-c5-aircross.png",
+    "description": "Der neue Citroën C5 Aircross ist das großzügige SUV-Modell der Marke für Familie, Beruf und Reise. Ein klar gezeichnetes, kraftvolles Exterieur trifft auf einen wohnlichen Innenraum, der den Komfortgedanken von Citroën konsequent fortführt. Hybrid-, Plug-in-Hybrid- und Elektrovarianten eröffnen unterschiedliche Wege zur elektrifizierten Mobilität.",
+    "details": "Das Interieur ist als Lounge gestaltet: besonders komfortable Sitze, viel Bewegungsfreiheit und ein flexibler Gepäckraum schaffen gute Voraussetzungen für lange Tage unterwegs. Die Federung mit progressivem hydraulischem Anschlag unterstützt das ruhige Fahrgefühl. Im Cockpit fällt der hochformatige Waterfall-Touchscreen ins Auge; eine erweiterte Head-up-Anzeige bringt wichtige Informationen ins Sichtfeld. Je nach Ausstattung ergänzen moderne Lichttechnik, Rundumsicht und Assistenzfunktionen das Fahrzeug. Die aerodynamisch ausgearbeitete Form und die vielseitige Antriebsauswahl verbinden zeitgemäße Technik mit dem typischen Citroën Komfort.",
+    "commercial": false,
+    "formOption": "Citroën C5 Aircross",
+    "gallery": [
+      "assets/models/gallery/der-neue-c5-aircross/01.webp",
+      "assets/models/gallery/der-neue-c5-aircross/02.webp",
+      "assets/models/gallery/der-neue-c5-aircross/03.webp",
+      "assets/models/gallery/der-neue-c5-aircross/04.webp",
+      "assets/models/gallery/der-neue-c5-aircross/05.webp",
+      "assets/models/gallery/der-neue-c5-aircross/06.webp",
+      "assets/models/gallery/der-neue-c5-aircross/07.webp",
+      "assets/models/gallery/der-neue-c5-aircross/08.webp"
+    ],
+    "page": "citroen-c5-aircross.html"
+  },
+  {
+    "slug": "berlingo",
+    "name": "Citroën Berlingo",
+    "title": "Citroën Berlingo: vielseitiger Familien-Van",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-berlingo.png",
+    "description": "Der Citroën Berlingo ist ein vielseitiger Familien-Van für alle, die im Alltag mehr Raum und Flexibilität benötigen. Ob Kinder, Hobbyausrüstung oder Reisegepäck: Die hohe Karosserie, die großen seitlichen Schiebetüren und der gut zugängliche Gepäckraum machen viele Transportaufgaben angenehm unkompliziert.",
+    "details": "Drei einzeln umklappbare Sitze in der zweiten Reihe helfen dabei, Personen und Gepäck passend zu kombinieren. Je nach Version ist eine weitere Sitzreihe verfügbar, während sich auch der Beifahrersitz für besonders lange Gegenstände in die Ladefläche einbeziehen lässt. Zahlreiche Ablagen, die niedrige Ladekante und die separat zu öffnende Heckscheibe erhöhen den Nutzwert. Das überarbeitete Cockpit bietet moderne Vernetzung und verfügbare Assistenzsysteme; Citroën Advanced Comfort Sitze fördern entspanntes Reisen. Die Baureihe umfasst elektrische und konventionelle Antriebsvarianten.",
+    "commercial": false,
+    "formOption": "Citroën Berlingo",
+    "gallery": [
+      "assets/models/gallery/berlingo/01.webp",
+      "assets/models/gallery/berlingo/02.webp",
+      "assets/models/gallery/berlingo/03.webp",
+      "assets/models/gallery/berlingo/04.webp",
+      "assets/models/gallery/berlingo/05.webp",
+      "assets/models/gallery/berlingo/06.webp",
+      "assets/models/gallery/berlingo/07.webp",
+      "assets/models/gallery/berlingo/08.webp"
+    ],
+    "page": "citroen-berlingo.html"
+  },
+  {
+    "slug": "spacetourer",
+    "name": "Citroën SpaceTourer",
+    "title": "Citroën SpaceTourer: flexibler Van mit viel Platz",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-spacetourer.png",
+    "description": "Der Citroën SpaceTourer ist ein Großraum-Van für Familien, Freizeitaktive und professionelle Personentransporte. Sein variabler Innenraum nimmt je nach Konfiguration bis zu neun Personen auf und bleibt dabei angenehm zugänglich. Zwei Karosserielängen erleichtern die Abstimmung auf Parkplatz, Passagierzahl und Gepäckbedarf.",
+    "details": "Verschiebbare und herausnehmbare Sitze schaffen eine Vielzahl möglicher Raumaufteilungen – von der Reisegruppe bis zum Transport sperriger Sportausrüstung. Breite Schiebetüren erleichtern den Einstieg, die erhöhte Sitzposition verbessert die Übersicht. Das modernisierte Cockpit verbindet praktische Ablagen mit Touchscreen, digitaler Anzeige und Smartphone-Einbindung. Je nach Ausstattung ergänzen Assistenzsysteme und ein Glasdach den Reise- und Bedienkomfort. Der SpaceTourer wird mit elektrischem oder konventionellem Antrieb angeboten.",
+    "commercial": false,
+    "formOption": "Citroën SpaceTourer",
+    "gallery": [
+      "assets/models/gallery/spacetourer/01.webp",
+      "assets/models/gallery/spacetourer/02.webp",
+      "assets/models/gallery/spacetourer/03.webp",
+      "assets/models/gallery/spacetourer/04.webp",
+      "assets/models/gallery/spacetourer/05.webp",
+      "assets/models/gallery/spacetourer/06.webp",
+      "assets/models/gallery/spacetourer/07.webp",
+      "assets/models/gallery/spacetourer/08.webp"
+    ],
+    "galleryAlt": [
+      "Citroën SpaceTourer an einer Ladestation, Außenansicht",
+      "Citroën SpaceTourer mit geöffneter Schiebetür",
+      "Innenraum des Citroën SpaceTourer mit Passagieren",
+      "Cockpit und Armaturen des Citroën SpaceTourer",
+      "Sitzreihe im Innenraum des Citroën SpaceTourer",
+      "Ladeanschluss am Citroën SpaceTourer",
+      "Schriftzug SpaceTourer an der Fahrzeugseite",
+      "Detail des Frontscheinwerfers am Citroën SpaceTourer"
+    ],
+    "page": "citroen-spacetourer.html"
+  },
+  {
+    "slug": "citroen-holiday",
+    "name": "Citroën Holidays",
+    "title": "Citroën Holidays: Camper Van für Reise und Alltag",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-holidays.png",
+    "description": "Der Citroën Holidays verbindet die Alltagstauglichkeit eines Vans mit der Freiheit eines kompakten Campers. Auf Basis des SpaceTourer bietet er eine komplette Reisemobil-Ausstattung, bleibt dabei aber handlich genug für viele tägliche Wege. So eignet er sich für spontane Wochenenden ebenso wie für längere Touren.",
+    "details": "Das Aufstelldach schafft zusätzlichen Schlafraum, während sich der Innenraum mit umbaubarer Sitzbank zu einer weiteren Liegefläche verwandeln lässt. Eine herausnehmbare Küche mit Kochstelle, Spüle und Kühlmöglichkeit unterstützt die Versorgung unterwegs. Drehbare Vordersitze und ein flexibel nutzbarer Tisch machen aus dem Fahrzeug einen kleinen Wohnraum. Wird mehr Transportfläche benötigt, lassen sich einzelne Campingelemente entfernen. Je nach Ausstattung ergänzen Lösungen wie Außendusche, mobile Toilette oder Solarpanel das Reisekonzept.",
+    "commercial": false,
+    "formOption": "Citroën Holidays",
+    "gallery": [
+      "assets/models/gallery/citroen-holiday/01.webp",
+      "assets/models/gallery/citroen-holiday/02.webp",
+      "assets/models/gallery/citroen-holiday/03.webp",
+      "assets/models/gallery/citroen-holiday/04.webp",
+      "assets/models/gallery/citroen-holiday/05.webp",
+      "assets/models/gallery/citroen-holiday/06.webp",
+      "assets/models/gallery/citroen-holiday/07.webp",
+      "assets/models/gallery/citroen-holiday/08.webp"
+    ],
+    "page": "citroen-holidays.html"
   },
   {
     "slug": "c3-van",
@@ -248,25 +227,25 @@
     "page": "citroen-e-c3-van.html"
   },
   {
-    "slug": "jumper",
-    "name": "Citroën Jumper",
-    "title": "Citroën Jumper: großer Transporter für Ihr Business",
+    "slug": "berlingo-kastenwagen",
+    "name": "Citroën Berlingo Kastenwagen",
+    "title": "Citroën Berlingo Kastenwagen: flexibel im Business",
     "brand": "Citroën",
-    "image": "assets/models/citroen-jumper.jpg",
-    "description": "Der Citroën Jumper ist das große Nutzfahrzeug der Marke für anspruchsvolle Transport- und Aufbauaufgaben. Mit mehreren Karosserielängen, Dachhöhen und Aufbauformen lässt er sich auf Handwerk, Logistik, Service oder individuelle Branchenlösungen abstimmen. Auch eine elektrische Variante gehört zur Modellfamilie.",
-    "details": "Der geradlinig ausgelegte Laderaum und die großen Türöffnungen erleichtern den täglichen Warenumschlag. Neben dem klassischen Kastenwagen sind je nach Programm weitere Aufbau- und Fahrgestelllösungen möglich. In der Kabine verbindet der Jumper eine ergonomische Fahrposition mit zahlreichen Ablagen und einer praktischen Arbeitsfläche, die sich aus dem mittleren Sitzbereich bilden lässt. Digitale Instrumente, modernes Infotainment und verfügbare Assistenzsysteme unterstützen Fahrerinnen und Fahrer bei langen Strecken, Rangiermanövern und im dichten Berufsverkehr.",
+    "image": "assets/models/citroen-berlingo-kastenwagen.jpg",
+    "description": "Der Citroën Berlingo Kastenwagen ist ein kompakter Transporter für Handwerk, Service und Lieferverkehr. Er verbindet gut nutzbaren Laderaum mit stadttauglicher Wendigkeit und einer komfortabel eingerichteten Kabine. Verschiedene Längen und elektrische wie konventionelle Antriebsvarianten erleichtern die Anpassung an den Betrieb.",
+    "details": "Breite Schiebetüren und weit öffnende Hecktüren unterstützen das Be- und Entladen. Je nach Konfiguration lässt sich der Beifahrerbereich in die Laderaumnutzung einbeziehen oder als mobiler Arbeitsplatz verwenden. Praktische Ablagen halten Unterlagen und Arbeitsmittel griffbereit. Das moderne Cockpit bietet digitale Anzeigen, Smartphone-Einbindung und verfügbare Assistenzsysteme; die Citroën Advanced Comfort Sitze entlasten auf vielen täglichen Etappen. Für besondere Aufgaben stehen unterschiedliche Karosserie- und Innenraumlösungen zur Verfügung.",
     "commercial": true,
-    "formOption": "Citroën Jumper",
+    "formOption": "Citroën Berlingo Kastenwagen",
     "gallery": [
-      "assets/models/gallery/jumper/01.webp",
-      "assets/models/gallery/jumper/legacy-1.webp",
-      "assets/models/gallery/jumper/legacy-2.webp",
-      "assets/models/gallery/jumper/legacy-3.webp",
-      "assets/models/gallery/jumper/legacy-4.webp",
-      "assets/models/gallery/jumper/legacy-5.webp",
-      "assets/models/gallery/jumper/legacy-6.webp"
+      "assets/models/gallery/berlingo-kastenwagen/01.webp",
+      "assets/models/gallery/berlingo-kastenwagen/legacy-1.webp",
+      "assets/models/gallery/berlingo-kastenwagen/legacy-2.webp",
+      "assets/models/gallery/berlingo-kastenwagen/legacy-3.webp",
+      "assets/models/gallery/berlingo-kastenwagen/legacy-4.webp",
+      "assets/models/gallery/berlingo-kastenwagen/legacy-5.webp",
+      "assets/models/gallery/berlingo-kastenwagen/legacy-6.webp"
     ],
-    "page": "citroen-jumper.html"
+    "page": "citroen-berlingo-kastenwagen.html"
   },
   {
     "slug": "jumpy",
@@ -298,6 +277,27 @@
       "Citroën Jumpy beim Beladen im gewerblichen Einsatz"
     ],
     "sourceCredit": "Zusätzliche Modellbilder: Citroën Deutschland."
+  },
+  {
+    "slug": "jumper",
+    "name": "Citroën Jumper",
+    "title": "Citroën Jumper: großer Transporter für Ihr Business",
+    "brand": "Citroën",
+    "image": "assets/models/citroen-jumper.jpg",
+    "description": "Der Citroën Jumper ist das große Nutzfahrzeug der Marke für anspruchsvolle Transport- und Aufbauaufgaben. Mit mehreren Karosserielängen, Dachhöhen und Aufbauformen lässt er sich auf Handwerk, Logistik, Service oder individuelle Branchenlösungen abstimmen. Auch eine elektrische Variante gehört zur Modellfamilie.",
+    "details": "Der geradlinig ausgelegte Laderaum und die großen Türöffnungen erleichtern den täglichen Warenumschlag. Neben dem klassischen Kastenwagen sind je nach Programm weitere Aufbau- und Fahrgestelllösungen möglich. In der Kabine verbindet der Jumper eine ergonomische Fahrposition mit zahlreichen Ablagen und einer praktischen Arbeitsfläche, die sich aus dem mittleren Sitzbereich bilden lässt. Digitale Instrumente, modernes Infotainment und verfügbare Assistenzsysteme unterstützen Fahrerinnen und Fahrer bei langen Strecken, Rangiermanövern und im dichten Berufsverkehr.",
+    "commercial": true,
+    "formOption": "Citroën Jumper",
+    "gallery": [
+      "assets/models/gallery/jumper/01.webp",
+      "assets/models/gallery/jumper/legacy-1.webp",
+      "assets/models/gallery/jumper/legacy-2.webp",
+      "assets/models/gallery/jumper/legacy-3.webp",
+      "assets/models/gallery/jumper/legacy-4.webp",
+      "assets/models/gallery/jumper/legacy-5.webp",
+      "assets/models/gallery/jumper/legacy-6.webp"
+    ],
+    "page": "citroen-jumper.html"
   },
   {
     "slug": "subaru-forester-vielseitiger-suv-mit-allrad",
@@ -341,28 +341,6 @@
       "assets/models/gallery/subaru-crosstrek-kompakter-suv-mit-allrad/08.webp"
     ],
     "page": "subaru-crosstrek.html"
-  },
-  {
-    "slug": "subaru-impreza-kompakter-allradler-mit-hybrid",
-    "name": "Subaru Impreza",
-    "title": "Subaru Impreza: kompakter Allradler mit Hybrid",
-    "brand": "Subaru",
-    "image": "assets/models/subaru-impreza.jpg",
-    "description": "Der Subaru Impreza verbindet die handliche Form eines Kompaktwagens mit einem in dieser Klasse ungewöhnlichen Antriebskonzept: e-BOXER Hybrid und permanenter Symmetrical AWD sind serienmäßig miteinander kombiniert. Damit eignet sich der fünftürige Allrounder für Stadt, Pendelstrecke und wechselnde Wetterbedingungen.",
-    "details": "Die aktuelle Generation wirkt sportlich und klar gezeichnet. Im Innenraum unterstützt eine niedrige Ladekante den Alltag; die geteilt umklappbare Rückbank schafft bei Bedarf zusätzlichen Platz für Gepäck. Ein zentraler Touchscreen integriert Navigation, Medien und kompatible Smartphones in einer übersichtlichen Bedienoberfläche. Die Subaru Global Platform fördert Stabilität und Komfort, während das weiterentwickelte EyeSight System zusammen mit weiteren Assistenzfunktionen das Verkehrsgeschehen im Blick behält. So verbindet der Impreza kompakte Abmessungen mit Allrad-Souveränität und praktischem Nutzwert.",
-    "commercial": false,
-    "formOption": "Subaru Impreza",
-    "gallery": [
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/01.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/02.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/03.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/04.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/05.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/06.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/07.webp",
-      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/08.webp"
-    ],
-    "page": "subaru-impreza.html"
   },
   {
     "slug": "subaru-outback-crossover-fuer-alltag-und-abenteuer",
@@ -424,6 +402,28 @@
       "assets/models/gallery/subaru-uncharted-elektrischer-kompakt-suv/07.webp"
     ],
     "page": "subaru-uncharted.html"
+  },
+  {
+    "slug": "subaru-impreza-kompakter-allradler-mit-hybrid",
+    "name": "Subaru Impreza",
+    "title": "Subaru Impreza: kompakter Allradler mit Hybrid",
+    "brand": "Subaru",
+    "image": "assets/models/subaru-impreza.jpg",
+    "description": "Der Subaru Impreza verbindet die handliche Form eines Kompaktwagens mit einem in dieser Klasse ungewöhnlichen Antriebskonzept: e-BOXER Hybrid und permanenter Symmetrical AWD sind serienmäßig miteinander kombiniert. Damit eignet sich der fünftürige Allrounder für Stadt, Pendelstrecke und wechselnde Wetterbedingungen.",
+    "details": "Die aktuelle Generation wirkt sportlich und klar gezeichnet. Im Innenraum unterstützt eine niedrige Ladekante den Alltag; die geteilt umklappbare Rückbank schafft bei Bedarf zusätzlichen Platz für Gepäck. Ein zentraler Touchscreen integriert Navigation, Medien und kompatible Smartphones in einer übersichtlichen Bedienoberfläche. Die Subaru Global Platform fördert Stabilität und Komfort, während das weiterentwickelte EyeSight System zusammen mit weiteren Assistenzfunktionen das Verkehrsgeschehen im Blick behält. So verbindet der Impreza kompakte Abmessungen mit Allrad-Souveränität und praktischem Nutzwert.",
+    "commercial": false,
+    "formOption": "Subaru Impreza",
+    "gallery": [
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/01.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/02.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/03.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/04.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/05.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/06.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/07.webp",
+      "assets/models/gallery/subaru-impreza-kompakter-allradler-mit-hybrid/08.webp"
+    ],
+    "page": "subaru-impreza.html"
   },
   {
     "slug": "subaru-e-outback-elektrischer-allrad-suv",
