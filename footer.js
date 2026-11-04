@@ -20,7 +20,9 @@ fetch(new URL('footer.html?v=20261103-privacy-link', appBase)).then(response => 
     event.preventDefault();
     document.querySelector('#contact-status').textContent = 'Danke – Ihre Nachricht ist in dieser Vorschau ausgefüllt. Es wurden keine Daten versendet.';
   });
-  return fetch(new URL('google-reviews.json', appBase));
+  const reviewsUrl = new URL('google-reviews.json', appBase);
+  reviewsUrl.searchParams.set('v', Date.now());
+  return fetch(reviewsUrl, { cache: 'no-store' });
 }).then(response => response?.ok ? response.json() : null).then(data => {
   if (!data?.configured) return;
   const rating = document.querySelector('#google-rating-label');
