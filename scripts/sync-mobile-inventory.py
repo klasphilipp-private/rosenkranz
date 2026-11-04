@@ -151,16 +151,25 @@ def detail_page(vehicle):
         facts.append(display_value("fuel", vehicle["fuel"]))
     if vehicle.get("gearbox"):
         facts.append(display_value("gearbox", vehicle["gearbox"]))
-    summary_facts = facts[:3]
-    seo_description = f"{vehicle['title']} in Recklinghausen"
-    if summary_facts:
-        seo_description += ": " + ", ".join(summary_facts)
-    seo_description += f". {vehicle['price']}. Bilder, Ausstattung und Beratung ansehen."
-    if len(seo_description) < 145:
-        seo_description += " Jetzt bei Rosenkranz anfragen."
-    while len(seo_description) > 160 and len(summary_facts) > 1:
+    summary_facts = list(facts[:3])
+    def make_seo_description(selected_facts):
+        core = f"{vehicle['title']} in Recklinghausen"
+        if selected_facts:
+            core += ": " + ", ".join(selected_facts)
+        return f"{core}. {vehicle['price']}. Bilder, Ausstattung und Beratung ansehen."
+    seo_description = make_seo_description(summary_facts)
+    while len(seo_description) > 160 and summary_facts:
         summary_facts.pop()
-        seo_description = f"{vehicle['title']} in Recklinghausen: {', '.join(summary_facts)}. {vehicle['price']}. Bilder und Beratung ansehen."
+        seo_description = make_seo_description(summary_facts)
+    while len(seo_description) < 145 and len(summary_facts) < len(facts):
+        candidate_facts = summary_facts + [facts[len(summary_facts)]]
+        candidate = make_seo_description(candidate_facts)
+        if len(candidate) > 160:
+            break
+        summary_facts = candidate_facts
+        seo_description = candidate
+    if len(seo_description) < 145:
+        seo_description += " Persönliche Beratung anfragen."
     if len(seo_description) > 160:
         seo_description = seo_description[:157].rsplit(" ", 1)[0].rstrip(".,;:") + "…"
     seo_title = f"{vehicle['title']} | Rosenkranz Recklinghausen"
