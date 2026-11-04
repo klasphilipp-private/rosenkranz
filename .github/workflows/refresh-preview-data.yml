@@ -14,6 +14,11 @@ on:
 permissions:
   contents: write
 
+# Serialize refreshes so parallel runs cannot race while committing snapshots.
+concurrency:
+  group: refresh-preview-data-main
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -56,4 +61,5 @@ jobs:
             exit 0
           fi
           git commit -m 'Refresh Rosenkranz preview data'
+          git pull --rebase origin main
           git push
