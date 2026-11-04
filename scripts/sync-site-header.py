@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""Reinsert the canonical header fragment into pages after shared navigation edits."""
+"""Replace duplicated page headers with the shared header mount point."""
 from pathlib import Path
 import re
-root=Path(__file__).resolve().parents[1]
-template=(root/'header.html').read_text(encoding='utf-8').strip()
-marker=re.compile(r'<!-- SITE HEADER START -->.*?<!-- SITE HEADER END -->|<div id="shared-header"></div>',re.S)
-for page in [*root.glob('*.html'),*root.glob('impressum/**/*.html'),*root.glob('datenschutz/**/*.html')]:
-    if page.name=='header.html': continue
-    source=page.read_text(encoding='utf-8')
-    updated=marker.sub(lambda _: template,source)
-    if updated != source: page.write_text(updated,encoding='utf-8')
+
+ROOT = Path(__file__).resolve().parents[1]
+HEADER_COPY = re.compile(r'<!-- SITE HEADER START -->.*?<!-- SITE HEADER END -->', re.S)
+MOUNT = '<div id="shared-header"></div>'
+
+for page in [*ROOT.glob('*.html'), *ROOT.glob('impressum/**/*.html'), *ROOT.glob('datenschutz/**/*.html')]:
+    if page.name == 'header.html':
+        continue
+    source = page.read_text(encoding='utf-8')
+    updated = HEADER_COPY.sub(MOUNT, source)
+    if updated != source:
+        page.write_text(updated, encoding='utf-8')

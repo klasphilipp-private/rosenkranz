@@ -5,20 +5,24 @@ Statische, WordPress-freie Designvorschau. Einstieg: `index.html`; aktuelle Ange
 ## Enthalten
 
 - dunkle Gestaltung mit Montserrat, größerer Wortmarke, Hauptnavigation und ausklappbaren Schnellzugriffen
-- Fahrzeugkarussell und Modellübersicht mit den 20 veröffentlichten Citroën- und Subaru-Modellen aus dem WordPress-Export
+- Fahrzeugkarussell und Modellübersicht mit Citroën-, Subaru- und Gewerbemodellen sowie VANDERER One und Two
 - Fahrzeugangebote mit Markenfilter und eigene Angebotsseite mit Sortierung
 - Citroën-, Subaru- und Gewerbe-Kacheln, Serviceleistungen zum Aufklappen, Probefahrt-Auswahl, Kontakt- und Autohausinhalte
 - eigenständiges Werkstattfoto, generiert für diese Vorschau
 
 `models.json` enthält ausschließlich die freigegebenen Modelltexte aus den veröffentlichten Fahrzeugbeiträgen. Der vollständige SQL-Export und WordPress-Formular-/Sicherheitsdaten sind nicht Bestandteil des öffentlichen Repositories.
 
+## Gemeinsame Navigation und Footer
+
+`header.html` ist die einzige Vorlage für Header, Navigation und Schnellzugriffe. Seiten enthalten nur noch den leeren Mount-Punkt `#shared-header`; `site-shell.js` lädt und initialisiert die gemeinsame Vorlage. `footer.html` wird entsprechend über `footer.js` eingebunden. Änderungen an Menüeinträgen, Kontaktleisten oder Footer-Inhalten erfolgen daher jeweils an der Vorlage, nicht auf den einzelnen Seiten. Auch neu erzeugte Angebotsdetailseiten verwenden diese gemeinsamen Vorlagen.
+
 ## Mobile.de-Bestand
 
-`scripts/sync-mobile-inventory.py` liest aktuell nur die erste Ergebnisseite aus und aktualisiert `inventory.json` (höchstens 20 Inserate). Die öffentliche mobile.de-Seite zeigt derzeit „33 Pkw von 36 Angeboten“. Für den vollständigen Bestand ist die offizielle mobile.de Search API / Ad-Integration vorgesehen; sie erfordert API-Zugang und HTTP-Basic-Auth. Zugangsdaten gehören ausschließlich in GitHub Actions Secrets, nie in HTML oder Git. Siehe [offizielle API-Übersicht](https://services.mobile.de/manual/index.html) und [Search-API-Dokumentation](https://services.mobile.de/docs/search-api.html).
+`scripts/sync-mobile-inventory.py` liest alle Ergebnisseiten der offiziellen mobile.de Search API aus, erstellt Angebotsdetailseiten und aktualisiert `inventory.json`. Der Workflow synchronisiert den Bestand stündlich und schließt Anzeigen ohne Fahrzeugfoto sowie exakte Dubletten aus. Zugangsdaten gehören ausschließlich in GitHub Actions Secrets, nie in HTML oder Git. Siehe [offizielle API-Übersicht](https://services.mobile.de/manual/index.html) und [Search-API-Dokumentation](https://services.mobile.de/docs/search-api.html).
 
 ## Google Places
 
-`scripts/sync-google-reviews.py` fragt die Places API serverseitig ab und schreibt Rating und Rezensionstexte nach `google-reviews.json`. Die API ist inzwischen erreichbar; die aktuelle Vorschau zeigt den Places-Stand mit 4,7 Sternen und 348 Bewertungen. Der API-Schlüssel liegt nicht im HTML oder Repository. Für regelmäßige Aktualisierungen muss `GOOGLE_PLACES_API_KEY` als GitHub Actions Repository Secret gesetzt sein.
+`scripts/sync-google-reviews.py` fragt die Places API serverseitig ab und schreibt Rating und Rezensionstexte nach `google-reviews.json`. Der API-Schlüssel liegt nicht im HTML oder Repository; die Aktualisierung läuft über das GitHub-Actions-Secret `GOOGLE_PLACES_API_KEY`.
 
 ## Medienbestand
 

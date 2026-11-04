@@ -11,33 +11,7 @@
 
 </head>
 <body>
-  <!-- SITE HEADER START -->
-<header class="site-header">
-  <div class="wrap site-nav">
-    <a class="brand-link" href="index.html" aria-label="Automobile Rosenkranz – Startseite"><img class="logo" src="assets/logo-header.png" alt="Automobile Rosenkranz"></a>
-    <div class="mobile-contacts" aria-label="Direktkontakt">
-      <a href="tel:+49236191490" aria-label="Telefon: 02361 9149-0"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#phone"/></svg></a>
-      <a href="mailto:info@automobile-rosenkranz.de" aria-label="E-Mail: info@automobile-rosenkranz.de"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#email"/></svg></a>
-    </div>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Navigation öffnen"><span class="burger-lines" aria-hidden="true"><i></i><i></i><i></i></span></button>
-    <nav class="site-navlinks" aria-label="Hauptnavigation">
-      <a href="index.html">Startseite</a>
-      <a href="angebote.html">Unsere Angebote</a>
-      <div class="nav-dropdown"><a href="modelle.html">Neuwagen <span aria-hidden="true">⌄</span></a><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="modelle.html">Modellübersicht</a><a href="modelle.html?marke=citroen">Citroën</a><a href="modelle.html?marke=subaru">Subaru</a><a href="modelle.html?marke=gewerbe">Gewerbe</a><a href="modelle.html?marke=vanderer">VANDERER</a></div></div></div>
-      <a href="service.html">Service</a>
-      <a href="camping-tuning.html">Camping &amp; Tuning</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="index.html#kontakt">Kontakt</a>
-    </nav>
-  </div>
-</header>
-<aside class="site-quick-rail" aria-label="Schnellzugriff">
-  <a href="tel:+49236191490" aria-label="Telefon 02361 / 9149-0" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#contact"/></svg><span>02361 / 9149-0</span></a>
-  <a href="angebote.html" aria-label="Unsere Angebote" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#offer"/></svg><span>Aktuelle Angebote ansehen</span></a>
-  <a href="index.html#probefahrt" aria-label="Probefahrt anfragen" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#testdrive"/></svg><span>Probefahrt vereinbaren</span></a>
-  <a href="service.html" aria-label="Werkstatt und Service" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/line-icons.svg?v=20261019-5#service"/></svg><span>Service und Teileverkauf</span></a>
-</aside>
-<!-- SITE HEADER END -->
+  <div id="shared-header"></div>
   <main id="start">
     <section class="hero" aria-label="Fahrzeuggalerie">
       <div class="hero-slides"><article class="hero-slide active"><img src="assets/models/citroen-ami.jpg" alt="Citroën Ami" fetchpriority="high"><div class="hero-caption"><span class="eyebrow">Citroën · Modellwelt</span><h1>Citroën Ami</h1><p>Der kompakte elektrische Zweisitzer für kurze Wege in der Stadt.</p><a class="btn" href="citroen-ami.html">Modell entdecken ↗</a></div></article></div>
@@ -87,6 +61,6 @@
     let inventory=[];const grid=document.querySelector('#offer-grid'),filter=document.querySelector('#offer-filter');function brandOf(x){return `${x.make||''} ${x.title||''}`}function renderOffers(){const choice=filter.value;const visible=inventory.filter(x=>x.image&&!String(x.image).includes('3e35d31e-718f-4f2e-82cf-35d23b195860'));const matching=visible.filter(x=>choice==='all'||(choice==='citroen'&&/citroën|citroen/i.test(brandOf(x)))||(choice==='subaru'&&/subaru/i.test(brandOf(x)))||(choice==='other'&&!/citroën|citroen|subaru/i.test(brandOf(x))));document.querySelector('#inventory-note').textContent=`${matching.length} Fahrzeuge in dieser Auswahl`;grid.innerHTML=matching.slice(0,3).map(x=>{const pics=x.images?.length?x.images:[x.image],dest=x.detailPath||`fahrzeug.html?id=${encodeURIComponent(x.id||x.title)}`;return `<article class="offer-card" data-card-url="${escapeHtml(dest)}"><div class="offer-gallery"><div class="offer-gallery-track">${pics.map((p,n)=>`<figure class="offer-gallery-slide"><span class="media-consent-placeholder">Fahrzeugfoto nach Freigabe externer Medien</span><img data-external-src="${escapeHtml(p)}" alt="${escapeHtml(x.title)} – Bild ${n+1}" loading="lazy"></figure>`).join('')}</div>${pics.length>1?`<button type="button" class="offer-gallery-prev" aria-label="Vorheriges Bild">‹</button><button type="button" class="offer-gallery-next" aria-label="Nächstes Bild">›</button><span class="offer-gallery-count">1 / ${pics.length}</span>`:''}</div><a class="offer-copy offer-copy-link" href="${escapeHtml(dest)}"><h3>${escapeHtml(x.title)}</h3><div class="offer-meta">${escapeHtml(RosenkranzOfferLabels.meta(x))}</div><div class="offer-price">${escapeHtml(x.price||'Preis auf Anfrage')}</div><span class="offer-link">Fahrzeugdetails ansehen <span>↗</span></span></a></article>`}).join('')||'<p>Derzeit keine Angebote mit eigenem Fahrzeugfoto verfügbar.</p>';grid.querySelectorAll('.offer-card').forEach(card=>{const track=card.querySelector('.offer-gallery-track'),slides=[...card.querySelectorAll('.offer-gallery-slide')];let pos=0;const go=n=>{pos=(n+slides.length)%slides.length;track.scrollTo({left:pos*track.clientWidth,behavior:'smooth'});const count=card.querySelector('.offer-gallery-count');if(count)count.textContent=`${pos+1} / ${slides.length}`};card.querySelector('.offer-gallery-prev')?.addEventListener('click',e=>{e.stopPropagation();go(pos-1)});card.querySelector('.offer-gallery-next')?.addEventListener('click',e=>{e.stopPropagation();go(pos+1)});track?.addEventListener('scroll',()=>{pos=Math.round(track.scrollLeft/track.clientWidth);const count=card.querySelector('.offer-gallery-count');if(count)count.textContent=`${pos+1} / ${slides.length}`},{passive:true});card.addEventListener('click',e=>{if(e.target.closest('button,a'))return;location.href=card.dataset.cardUrl})});document.querySelector('#offer-grid').querySelectorAll('[data-external-src]').forEach(img=>{img.closest('.offer-photo')?.classList.add('has-external-media')});if(window.RosenkranzConsent?.hasExternalMedia())window.RosenkranzConsent.hydrateExternalMedia()}function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}filter.addEventListener('change',renderOffers);fetch('inventory.json?v=20261105-inventory').then(r=>r.ok?r.json():Promise.reject()).then(data=>{inventory=window.RosenkranzOfferLabels.unique(Array.isArray(data.vehicles)?data.vehicles:[]);renderOffers()}).catch(()=>{document.querySelector('#inventory-note').textContent='Bestand gerade nicht abrufbar';grid.innerHTML='<p>Die Fahrzeugauswahl kann gerade nicht geladen werden. Alle Inserate finden Sie im Bereich Unsere Angebote.</p>'});
     document.querySelector('#test-form').addEventListener('submit',e=>{e.preventDefault();document.querySelector('#form-status').textContent='Danke – die Anfrage ist in dieser Vorschau ausgefüllt. Es wurden keine Daten versendet.'});const vehicleSelect=document.querySelector('#vehicle'),requestedModel=new URLSearchParams(location.search).get('modell');vehicleSelect.addEventListener('pointerdown',e=>{if(vehicleSelect.dataset.pickerOpen==='true'&&document.activeElement===vehicleSelect){e.preventDefault();vehicleSelect.blur();delete vehicleSelect.dataset.pickerOpen}else{vehicleSelect.dataset.pickerOpen='true'}});vehicleSelect.addEventListener('change',()=>delete vehicleSelect.dataset.pickerOpen);vehicleSelect.addEventListener('blur',()=>delete vehicleSelect.dataset.pickerOpen);
   </script>
-  <script src="site-shell.js?v=20261105-unified-3"></script><script src="footer.js?v=20261105-unified-2"></script>
+  <script src="site-shell.js?v=20261104-shared-1"></script><script src="footer.js?v=20261105-unified-2"></script>
 </body>
 </html>
