@@ -190,6 +190,8 @@ def detail_page(vehicle):
         vehicle_schema,
     ]}
     if vehicle.get("priceAmount"):
+        vehicle_schema["@type"] = ["Product", "Car"] if vehicle.get("vehicleClass") == "Car" else ["Product", "Vehicle"]
+        vehicle_schema["sku"] = vehicle["id"]
         offer = {"@type": "Offer", "price": vehicle["priceAmount"], "priceCurrency": "EUR", "url": page_url, "availability": "https://schema.org/InStock"}
         if vehicle.get("condition") in condition_urls:
             offer["itemCondition"] = condition_urls[vehicle["condition"]]

@@ -25,7 +25,7 @@ Die Vorschau enthält nun JSON-LD mit klaren Beziehungen zwischen Seite, Autohau
 - Startseite: `AutoDealer`, `WebSite` und `WebPage` mit bestätigter Adresse, Kontakt und Verkaufsöffnungszeiten.
 - Modell-Unterseiten: `WebPage` plus `Vehicle`, mit Modellname, Marke, Beschreibung und den zur Seite gehörenden Bildern.
 - Angebote, Modellübersicht und VANDERER-Übersicht: `CollectionPage`; Service: zusätzlich `Service`; Über uns: `AboutPage`.
-- Aktive mobile.de-Fahrzeugdetails behalten ein eigenes `Vehicle`-Objekt aus den aktuellen Fahrzeugdaten. Preis und Angebot werden nur ausgezeichnet, wenn sie tatsächlich aus dem aktiven Datensatz vorliegen.
+- Aktive mobile.de-Fahrzeugdetails enthalten ein `Vehicle`-Objekt; bei tatsächlich angebotenem Preis zusätzlich `Product` mit `Car` (Pkw) bzw. `Vehicle` (Van) und einem aktuellen `Offer`. Preis und Zustand stammen ausschließlich aus dem aktiven Datensatz.
 - Es gibt absichtlich **kein** `AggregateRating` für Google-Bewertungen und kein FAQ-/Breadcrumb-Markup ohne sichtbare, passende Inhalte.
 
 JSON-LD hilft Suchsystemen und anderen Crawlern, Entitäten und Fakten strukturiert einzuordnen. Es ersetzt weder sichtbare, hilfreiche Texte noch interne Verlinkungen. Google verlangt, dass strukturierte Daten mit dem sichtbaren Inhalt übereinstimmen; gültiges Markup garantiert keine besondere Darstellung. [Google: strukturierte Daten](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)

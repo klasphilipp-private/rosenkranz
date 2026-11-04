@@ -100,7 +100,7 @@ def main():
     shutil.copytree(
         source,
         output,
-        ignore=shutil.ignore_patterns(".git", ".github", "__pycache__", "dist-production"),
+        ignore=shutil.ignore_patterns(".git", ".github", "__pycache__", "dist-production", "scripts", "SEO-IMPLEMENTIERUNG.md", "README.md"),
     )
     changed = 0
     for page in output.rglob("*.html"):
