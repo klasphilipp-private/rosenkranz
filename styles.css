@@ -277,3 +277,8 @@
 .camper-feature-copy p{max-width:660px;color:#62605d;font-size:clamp(16px,1.35vw,18px);line-height:1.75;margin:0 0 26px}
 .camper-feature-copy .btn{margin-top:2px}
 @media(max-width:760px){.camper-callout{padding-bottom:56px}.camper-feature{grid-template-columns:1fr}.camper-feature>img{height:auto;min-height:0;aspect-ratio:1.45}.camper-feature-copy{padding:28px 24px 32px}.camper-feature-copy .eyebrow{margin-bottom:10px}.camper-feature-copy h2{font-size:clamp(34px,8vw,44px);margin-bottom:14px}.camper-feature-copy p{font-size:15px;margin-bottom:20px}}
+/* Full Regiostart wordmark in the shared footer. */
+.site-footer-credit .regiostart-link{display:inline-flex;align-items:center;justify-content:center;width:112px;height:auto;padding:0;border:0;border-radius:0;background:transparent;line-height:0;text-decoration:none}
+.site-footer-credit .regiostart-link:hover,.site-footer-credit .regiostart-link:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.site-footer-credit .regiostart-logo{display:block;width:112px;height:auto;max-width:none;max-height:40px;object-fit:contain;filter:none}
+@media(max-width:720px){.site-footer-credit .regiostart-link,.site-footer-credit .regiostart-logo{width:100px;max-width:100px;max-height:36px}}
