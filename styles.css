@@ -300,3 +300,28 @@
  .dropdown-menu-inner{background:none;border:0;box-shadow:none;padding:0}
  .dropdown-menu a{padding:8px 10px;color:#ccc}
 }
+
+/* Larger, balanced brand mark and roomier header. */
+@media(min-width:1201px){
+ .site-header{height:102px}
+ .site-header .site-nav{height:102px}
+ .logo{width:270px}
+}
+@media(min-width:1025px) and (max-width:1200px){
+ .site-header{height:98px}
+ .site-header .site-nav{height:98px;gap:10px}
+ .logo{width:260px}
+ .site-navlinks{gap:12px;font-size:13px}
+}
+@media(min-width:721px) and (max-width:1024px){
+ .site-header{height:88px}
+ .site-header .site-nav{height:88px}
+ .logo{width:192px}
+ .site-navlinks{top:88px;max-height:calc(100vh - 88px)}
+}
+@media(max-width:720px){
+ .logo{width:155px}
+}
+@media(max-width:420px){
+ .logo{width:130px}
+}
