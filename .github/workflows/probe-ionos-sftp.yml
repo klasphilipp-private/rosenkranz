@@ -36,6 +36,10 @@ jobs:
               exit 1
             fi
           done
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$IONOS_SFTP_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
           batch="$(mktemp)"
           log="$(mktemp)"
           printf 'pwd\nls\n' > "$batch"
