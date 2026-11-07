@@ -20,7 +20,6 @@ jobs:
       IONOS_SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
       IONOS_DEV_SFTP_USERNAME: ${{ secrets.IONOS_DEV_SFTP_USERNAME }}
       IONOS_DEV_SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD }}
-      IONOS_DEV_REMOTE_PATH: ${{ secrets.IONOS_DEV_REMOTE_PATH }}
     steps:
       - name: Install SFTP client
         run: |
@@ -31,18 +30,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          required=(IONOS_SFTP_HOST IONOS_SFTP_PORT IONOS_SFTP_KNOWN_HOSTS IONOS_DEV_SFTP_USERNAME IONOS_DEV_SFTP_PASSWORD IONOS_DEV_REMOTE_PATH)
+          required=(IONOS_SFTP_HOST IONOS_SFTP_PORT IONOS_SFTP_KNOWN_HOSTS IONOS_DEV_SFTP_USERNAME IONOS_DEV_SFTP_PASSWORD)
           for name in "${required[@]}"; do
             if [[ -z "${!name:-}" ]]; then
               echo "::error::Missing required Actions secret/variable: $name"
               exit 1
             fi
           done
-
-          if [[ "$IONOS_DEV_REMOTE_PATH" == *$'\n'* || "$IONOS_DEV_REMOTE_PATH" == *'"'* || "$IONOS_DEV_REMOTE_PATH" == *'\\'* ]]; then
-            echo "::error::DEV_TEST remote path contains unsupported quoting characters."
-            exit 1
-          fi
 
           mkdir -p "$HOME/.ssh"
           chmod 700 "$HOME/.ssh"
@@ -63,7 +57,7 @@ jobs:
           cleanup() {
             status=$?
             if [[ "$remote_may_exist" == "1" ]]; then
-              printf 'cd "%s"\nrm "%s"\n' "$IONOS_DEV_REMOTE_PATH" "$test_name" > "$cleanup_batch"
+              printf 'cd "."\nrm "%s"\n' "$test_name" > "$cleanup_batch"
               SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
                 -P "$IONOS_SFTP_PORT" \
                 -o StrictHostKeyChecking=yes \
@@ -80,8 +74,8 @@ jobs:
           printf 'IONOS SFTP probe %s version 1\n' "$GITHUB_RUN_ID" > "$first"
           printf 'IONOS SFTP probe %s version 2\n' "$GITHUB_RUN_ID" > "$second"
 
-          printf 'cd "%s"\nput "%s" "%s"\nget "%s" "%s"\nput "%s" "%s"\nget "%s" "%s"\nrm "%s"\n' \
-            "$IONOS_DEV_REMOTE_PATH" "$first" "$test_name" "$test_name" "$download_first" \
+          printf 'cd "."\nput "%s" "%s"\nget "%s" "%s"\nput "%s" "%s"\nget "%s" "%s"\nrm "%s"\n' \
+            "$first" "$test_name" "$test_name" "$download_first" \
             "$second" "$test_name" "$test_name" "$download_second" "$test_name" > "$batch"
 
           remote_may_exist=1
@@ -98,7 +92,7 @@ jobs:
             elif grep -Eqi 'Could not resolve hostname|Connection timed out|Network is unreachable|Connection refused' "$log"; then
               echo "::error::The SFTP server could not be reached. Recheck the hostname and port."
             elif grep -Eqi 'No such file|Couldn.t canonicalize|Failure' "$log"; then
-              echo "::error::SFTP connected, but the DEV_TEST directory or requested file operation failed. Recheck IONOS_DEV_REMOTE_PATH and permissions."
+              echo "::error::SFTP connected, but the DEV_TEST directory or requested file operation failed. Recheck the DEV_TEST account root and permissions."
             else
               echo "::error::SFTP login or DEV_TEST file-operation probe failed. Raw connection details and paths are suppressed."
             fi
