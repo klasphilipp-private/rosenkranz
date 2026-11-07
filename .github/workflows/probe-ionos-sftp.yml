@@ -43,14 +43,18 @@ jobs:
           batch="$(mktemp)"
           log="$(mktemp)"
           printf 'pwd\nls\n' > "$batch"
-          if ! SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
+          if ! SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -v -e sftp \
             -P "$IONOS_SFTP_PORT" \
+            -o PreferredAuthentications=keyboard-interactive,password \
+            -o PubkeyAuthentication=no \
             -o StrictHostKeyChecking=yes \
             -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
             -b "$batch" \
             "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1; then
-            if grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
-              echo "::error::GitHub Actions could not authenticate to IONOS with the configured DEV_TEST credentials."
+            if grep -Eqi 'SSHPASS: detected prompt\. Sending password\.' "$log" && grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
+              echo "::error::IONOS prompted for a password and rejected the password supplied by GitHub Actions."
+            elif grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
+              echo "::error::IONOS rejected the login before sshpass detected a password prompt; password authentication may not match the FileZilla method."
             elif grep -Eqi 'Host key verification failed|REMOTE HOST IDENTIFICATION HAS CHANGED' "$log"; then
               echo "::error::The recorded host key does not match the SFTP server."
             else
