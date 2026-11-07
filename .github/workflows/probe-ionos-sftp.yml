@@ -1,0 +1,108 @@
+name: Probe IONOS SFTP in DEV_TEST
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/probe-ionos-sftp.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sftp-probe:
+    name: Upload, replace, verify, and remove temporary file
+    runs-on: ubuntu-latest
+    env:
+      IONOS_SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
+      IONOS_SFTP_PORT: ${{ secrets.IONOS_SFTP_PORT }}
+      IONOS_SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS }}
+      IONOS_DEV_SFTP_USERNAME: ${{ secrets.IONOS_DEV_SFTP_USERNAME }}
+      IONOS_DEV_SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD }}
+      IONOS_DEV_REMOTE_PATH: ${{ secrets.IONOS_DEV_REMOTE_PATH }}
+    steps:
+      - name: Install SFTP client
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq openssh-client sshpass
+
+      - name: Verify connection and DEV_TEST file operations
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(IONOS_SFTP_HOST IONOS_SFTP_PORT IONOS_SFTP_KNOWN_HOSTS IONOS_DEV_SFTP_USERNAME IONOS_DEV_SFTP_PASSWORD IONOS_DEV_REMOTE_PATH)
+          for name in "${required[@]}"; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::Missing required Actions secret/variable: $name"
+              exit 1
+            fi
+          done
+
+          if [[ "$IONOS_DEV_REMOTE_PATH" == *$'\n'* || "$IONOS_DEV_REMOTE_PATH" == *'"'* || "$IONOS_DEV_REMOTE_PATH" == *'\\'* ]]; then
+            echo "::error::DEV_TEST remote path contains unsupported quoting characters."
+            exit 1
+          fi
+
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$IONOS_SFTP_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+          tmpdir="$(mktemp -d)"
+          test_name="codex-sftp-probe-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.txt"
+          batch="$tmpdir/probe.batch"
+          cleanup_batch="$tmpdir/cleanup.batch"
+          first="$tmpdir/first.txt"
+          second="$tmpdir/second.txt"
+          download_first="$tmpdir/download-first.txt"
+          download_second="$tmpdir/download-second.txt"
+          log="$tmpdir/sftp.log"
+          remote_may_exist=0
+
+          cleanup() {
+            status=$?
+            if [[ "$remote_may_exist" == "1" ]]; then
+              printf 'cd "%s"\nrm "%s"\n' "$IONOS_DEV_REMOTE_PATH" "$test_name" > "$cleanup_batch"
+              SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
+                -P "$IONOS_SFTP_PORT" \
+                -o StrictHostKeyChecking=yes \
+                -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
+                -b "$cleanup_batch" \
+                "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1 || \
+                echo "::warning::Could not confirm removal of temporary DEV_TEST probe file $test_name."
+            fi
+            rm -rf "$tmpdir"
+            exit "$status"
+          }
+          trap cleanup EXIT
+
+          printf 'IONOS SFTP probe %s version 1\n' "$GITHUB_RUN_ID" > "$first"
+          printf 'IONOS SFTP probe %s version 2\n' "$GITHUB_RUN_ID" > "$second"
+
+          printf 'cd "%s"\nput "%s" "%s"\nget "%s" "%s"\nput "%s" "%s"\nget "%s" "%s"\nrm "%s"\n' \
+            "$IONOS_DEV_REMOTE_PATH" "$first" "$test_name" "$test_name" "$download_first" \
+            "$second" "$test_name" "$test_name" "$download_second" "$test_name" > "$batch"
+
+          remote_may_exist=1
+          if ! SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
+            -P "$IONOS_SFTP_PORT" \
+            -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
+            -b "$batch" \
+            "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1; then
+            echo "::error::SFTP login or DEV_TEST file-operation probe failed. Connection details and paths are suppressed."
+            exit 1
+          fi
+          remote_may_exist=0
+
+          if ! cmp -s "$first" "$download_first"; then
+            echo "::error::Uploaded test file could not be read back with the original contents."
+            exit 1
+          fi
+          if ! cmp -s "$second" "$download_second"; then
+            echo "::error::Replaced test file did not contain the updated contents."
+            exit 1
+          fi
+
+          echo "SFTP probe passed in DEV_TEST: login, upload, overwrite/edit, read-back, and deletion."
