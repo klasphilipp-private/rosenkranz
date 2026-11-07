@@ -91,7 +91,17 @@ jobs:
             -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
             -b "$batch" \
             "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1; then
-            echo "::error::SFTP login or DEV_TEST file-operation probe failed. Connection details and paths are suppressed."
+            if grep -Eqi 'Host key verification failed|REMOTE HOST IDENTIFICATION HAS CHANGED' "$log"; then
+              echo "::error::The recorded host key does not match the SFTP server. Check the full known_hosts line and hostname/port."
+            elif grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
+              echo "::error::IONOS rejected the DEV_TEST login or denied this file operation. Recheck the DEV_TEST username/password and directory permissions."
+            elif grep -Eqi 'Could not resolve hostname|Connection timed out|Network is unreachable|Connection refused' "$log"; then
+              echo "::error::The SFTP server could not be reached. Recheck the hostname and port."
+            elif grep -Eqi 'No such file|Couldn.t canonicalize|Failure' "$log"; then
+              echo "::error::SFTP connected, but the DEV_TEST directory or requested file operation failed. Recheck IONOS_DEV_REMOTE_PATH and permissions."
+            else
+              echo "::error::SFTP login or DEV_TEST file-operation probe failed. Raw connection details and paths are suppressed."
+            fi
             exit 1
           fi
           remote_may_exist=0
