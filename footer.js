@@ -1,6 +1,6 @@
 const footerScript = document.currentScript;
 const appBase = new URL('.', footerScript?.src || location.href);
-fetch(new URL('footer.html?v=20261105-unified-3', appBase)).then(response => {
+fetch(new URL('footer.html?v=20261107-forms', appBase)).then(response => {
   if (!response.ok) throw new Error('Footer konnte nicht geladen werden');
   return response.text();
 }).then(markup => {
@@ -15,11 +15,9 @@ fetch(new URL('footer.html?v=20261105-unified-3', appBase)).then(response => {
   });
   document.querySelector('#shared-footer').replaceChildren(...holder.childNodes);
   if (location.hash === '#kontakt') requestAnimationFrame(() => document.querySelector('#kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
-  const form = document.querySelector('#contact-form');
-  form?.addEventListener('submit', event => {
-    event.preventDefault();
-    document.querySelector('#contact-status').textContent = 'Danke – Ihre Nachricht ist in dieser Vorschau ausgefüllt. Es wurden keine Daten versendet.';
-  });
+  const formClient = document.createElement('script');
+  formClient.src = new URL('forms.js?v=20261107-forms', appBase).href;
+  document.head.append(formClient);
   return fetch(new URL('google-reviews.json?v=latest', appBase), { cache: 'no-store' });
 }).then(response => response?.ok ? response.json() : null).then(data => {
   if (!data?.configured) return;

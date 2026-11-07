@@ -1,0 +1,26 @@
+name = "rosenkranz-forms"
+main = "src/index.js"
+compatibility_date = "2026-11-07"
+workers_dev = true
+
+[env.staging]
+name = "rosenkranz-forms-staging"
+workers_dev = true
+
+[env.staging.vars]
+ALLOWED_ORIGINS = "https://klasphilipp-private.github.io"
+INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
+FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
+REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
+CUSTOMER_CONFIRMATION = "false"
+
+[env.production]
+name = "rosenkranz-forms-production"
+workers_dev = true
+
+[env.production.vars]
+ALLOWED_ORIGINS = "https://automobile-rosenkranz.de,https://www.automobile-rosenkranz.de"
+INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
+FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
+REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
+CUSTOMER_CONFIRMATION = "true"
