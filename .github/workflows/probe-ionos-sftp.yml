@@ -26,6 +26,38 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq openssh-client sshpass
 
+      - name: Verify SFTP login and directory listing
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in IONOS_SFTP_HOST IONOS_SFTP_PORT IONOS_SFTP_KNOWN_HOSTS IONOS_DEV_SFTP_USERNAME IONOS_DEV_SFTP_PASSWORD; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::Missing required Actions secret/variable: $name"
+              exit 1
+            fi
+          done
+          batch="$(mktemp)"
+          log="$(mktemp)"
+          printf 'pwd\nls\n' > "$batch"
+          if ! SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
+            -P "$IONOS_SFTP_PORT" \
+            -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
+            -b "$batch" \
+            "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1; then
+            if grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
+              echo "::error::GitHub Actions could not authenticate to IONOS with the configured DEV_TEST credentials."
+            elif grep -Eqi 'Host key verification failed|REMOTE HOST IDENTIFICATION HAS CHANGED' "$log"; then
+              echo "::error::The recorded host key does not match the SFTP server."
+            else
+              echo "::error::GitHub Actions could not complete the read-only SFTP login/listing check."
+            fi
+            rm -f "$batch" "$log"
+            exit 1
+          fi
+          rm -f "$batch" "$log"
+          echo "SFTP authentication and directory listing succeeded."
+
       - name: Verify connection and DEV_TEST file operations
         shell: bash
         run: |
