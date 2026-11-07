@@ -1,0 +1,126 @@
+name: Probe IONOS SFTP in PROD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/probe-ionos-prod-sftp.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sftp-probe:
+    name: Verify PROD SFTP access and file operations
+    runs-on: ubuntu-latest
+    env:
+      IONOS_SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
+      IONOS_SFTP_PORT: ${{ secrets.IONOS_SFTP_PORT }}
+      IONOS_SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
+      IONOS_PROD_SFTP_USERNAME: ${{ secrets.IONOS_PROD_SFTP_USERNAME }}
+      IONOS_PROD_SFTP_PASSWORD: ${{ secrets.IONOS_PROD_SFTP_PASSWORD }}
+    steps:
+      - name: Install Paramiko
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq python3-paramiko
+
+      - name: Verify login, listing, upload, overwrite, read-back, and deletion
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in IONOS_SFTP_HOST IONOS_SFTP_PORT IONOS_SFTP_KNOWN_HOSTS IONOS_PROD_SFTP_USERNAME IONOS_PROD_SFTP_PASSWORD; do
+            if [[ -z "${!name:-}" ]]; then
+              echo "::error::Missing required Actions secret/variable: $name"
+              exit 1
+            fi
+          done
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$IONOS_SFTP_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+          python3 - <<'PY'
+          import os
+          import sys
+          import tempfile
+          from pathlib import Path
+
+          import paramiko
+
+          host = os.environ["IONOS_SFTP_HOST"]
+          port = int(os.environ["IONOS_SFTP_PORT"])
+          username = os.environ["IONOS_PROD_SFTP_USERNAME"]
+          password = os.environ["IONOS_PROD_SFTP_PASSWORD"]
+          run_id = os.environ["GITHUB_RUN_ID"]
+          attempt = os.environ["GITHUB_RUN_ATTEMPT"]
+          name = f".codex-sftp-probe-{run_id}-{attempt}.txt"
+          stage = "host-key setup"
+          client = paramiko.SSHClient()
+          client.load_host_keys(os.path.expanduser("~/.ssh/known_hosts"))
+          client.set_missing_host_key_policy(paramiko.RejectPolicy())
+          sftp = None
+          remote_may_exist = False
+
+          try:
+              stage = "login"
+              client.connect(
+                  hostname=host,
+                  port=port,
+                  username=username,
+                  password=password,
+                  look_for_keys=False,
+                  allow_agent=False,
+                  timeout=15,
+                  banner_timeout=15,
+                  auth_timeout=15,
+              )
+              stage = "directory listing"
+              sftp = client.open_sftp()
+              sftp.listdir(".")
+              with tempfile.TemporaryDirectory() as directory:
+                  first = Path(directory) / "first.txt"
+                  second = Path(directory) / "second.txt"
+                  downloaded = Path(directory) / "downloaded.txt"
+                  first.write_text(f"IONOS PROD SFTP probe {run_id} version 1\n")
+                  second.write_text(f"IONOS PROD SFTP probe {run_id} version 2\n")
+
+                  stage = "upload"
+                  remote_may_exist = True
+                  sftp.put(str(first), name)
+                  stage = "download/read-back"
+                  sftp.get(name, str(downloaded))
+                  if downloaded.read_bytes() != first.read_bytes():
+                      raise RuntimeError("Uploaded content did not match on read-back.")
+
+                  stage = "overwrite"
+                  sftp.put(str(second), name)
+                  downloaded.unlink()
+                  sftp.get(name, str(downloaded))
+                  if downloaded.read_bytes() != second.read_bytes():
+                      raise RuntimeError("Overwritten content did not match on read-back.")
+
+                  stage = "deletion"
+                  sftp.remove(name)
+                  remote_may_exist = False
+
+              print("PROD SFTP probe passed: login, listing, upload, overwrite, read-back, and deletion.")
+          except paramiko.AuthenticationException:
+              print("::error::IONOS rejected the password-based PROD login from GitHub Actions.")
+              sys.exit(1)
+          except paramiko.BadHostKeyException:
+              print("::error::The recorded known-host key does not match the IONOS SFTP server.")
+              sys.exit(1)
+          except Exception as error:
+              print(f"::error::PROD SFTP probe failed during {stage} ({type(error).__name__}).")
+              sys.exit(1)
+          finally:
+              if remote_may_exist and sftp is not None:
+                  try:
+                      sftp.remove(name)
+                  except Exception:
+                      print(f"::warning::Could not confirm cleanup of temporary PROD file {name}.")
+              if sftp is not None:
+                  sftp.close()
+              client.close()
+          PY
