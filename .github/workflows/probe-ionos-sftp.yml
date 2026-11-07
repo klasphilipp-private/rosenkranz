@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   sftp-probe:
-    name: Upload, replace, verify, and remove temporary file
+    name: Verify DEV_TEST SFTP access and file operations
     runs-on: ubuntu-latest
     env:
       IONOS_SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
@@ -21,12 +21,12 @@ jobs:
       IONOS_DEV_SFTP_USERNAME: ${{ secrets.IONOS_DEV_SFTP_USERNAME }}
       IONOS_DEV_SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD }}
     steps:
-      - name: Install SFTP client
+      - name: Install Paramiko
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq openssh-client sshpass
+          sudo apt-get install -y -qq python3-paramiko
 
-      - name: Verify SFTP login and directory listing
+      - name: Verify login, listing, upload, overwrite, download, and deletion
         shell: bash
         run: |
           set -euo pipefail
@@ -40,120 +40,90 @@ jobs:
           chmod 700 "$HOME/.ssh"
           printf '%s\n' "$IONOS_SFTP_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
           chmod 600 "$HOME/.ssh/known_hosts"
-          batch="$(mktemp)"
-          log="$(mktemp)"
-          printf 'pwd\nls\n' > "$batch"
-          if ! SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -v -e sftp \
-            -P "$IONOS_SFTP_PORT" \
-            -o PreferredAuthentications=keyboard-interactive,password \
-            -o PubkeyAuthentication=no \
-            -o PasswordAuthentication=yes \
-            -o KbdInteractiveAuthentication=yes \
-            -o LogLevel=DEBUG1 \
-            -o StrictHostKeyChecking=yes \
-            -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
-            -b "$batch" \
-            "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1; then
-            if grep -Eqi 'SSHPASS: detected prompt\. Sending password\.' "$log" && grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
-              echo "::error::IONOS prompted for a password and rejected the password supplied by GitHub Actions."
-            elif grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
-              auth_methods="$(grep -E 'Authentications that can continue:|Next authentication method:' "$log" | sed -E 's/^.*debug[0-9]+: //' | sort -u || true)"
-              if [[ -n "$auth_methods" ]]; then
-                echo "::notice::SSH authentication trace: $auth_methods"
-              fi
-              echo "::error::IONOS rejected the login before sshpass detected a password prompt; inspect the offered SSH authentication methods above."
-            elif grep -Eqi 'Host key verification failed|REMOTE HOST IDENTIFICATION HAS CHANGED' "$log"; then
-              echo "::error::The recorded host key does not match the SFTP server."
-            else
-              echo "::error::GitHub Actions could not complete the read-only SFTP login/listing check."
-            fi
-            rm -f "$batch" "$log"
-            exit 1
-          fi
-          rm -f "$batch" "$log"
-          echo "SFTP authentication and directory listing succeeded."
+          python3 - <<'PY'
+          import os
+          import sys
+          import tempfile
+          from pathlib import Path
 
-      - name: Verify connection and DEV_TEST file operations
-        shell: bash
-        run: |
-          set -euo pipefail
-          required=(IONOS_SFTP_HOST IONOS_SFTP_PORT IONOS_SFTP_KNOWN_HOSTS IONOS_DEV_SFTP_USERNAME IONOS_DEV_SFTP_PASSWORD)
-          for name in "${required[@]}"; do
-            if [[ -z "${!name:-}" ]]; then
-              echo "::error::Missing required Actions secret/variable: $name"
-              exit 1
-            fi
-          done
+          import paramiko
 
-          mkdir -p "$HOME/.ssh"
-          chmod 700 "$HOME/.ssh"
-          printf '%s\n' "$IONOS_SFTP_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
-          chmod 600 "$HOME/.ssh/known_hosts"
+          host = os.environ["IONOS_SFTP_HOST"]
+          port = int(os.environ["IONOS_SFTP_PORT"])
+          username = os.environ["IONOS_DEV_SFTP_USERNAME"]
+          password = os.environ["IONOS_DEV_SFTP_PASSWORD"]
+          run_id = os.environ["GITHUB_RUN_ID"]
+          attempt = os.environ["GITHUB_RUN_ATTEMPT"]
+          name = f"codex-sftp-probe-{run_id}-{attempt}.txt"
+          stage = "host-key setup"
+          client = paramiko.SSHClient()
+          client.load_host_keys(os.path.expanduser("~/.ssh/known_hosts"))
+          client.set_missing_host_key_policy(paramiko.RejectPolicy())
+          sftp = None
+          remote_may_exist = False
+          removed = False
 
-          tmpdir="$(mktemp -d)"
-          test_name="codex-sftp-probe-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.txt"
-          batch="$tmpdir/probe.batch"
-          cleanup_batch="$tmpdir/cleanup.batch"
-          first="$tmpdir/first.txt"
-          second="$tmpdir/second.txt"
-          download_first="$tmpdir/download-first.txt"
-          download_second="$tmpdir/download-second.txt"
-          log="$tmpdir/sftp.log"
-          remote_may_exist=0
+          try:
+              stage = "login"
+              client.connect(
+                  hostname=host,
+                  port=port,
+                  username=username,
+                  password=password,
+                  look_for_keys=False,
+                  allow_agent=False,
+                  timeout=15,
+                  banner_timeout=15,
+                  auth_timeout=15,
+              )
+              stage = "directory listing"
+              sftp = client.open_sftp()
+              sftp.listdir(".")
+              with tempfile.TemporaryDirectory() as directory:
+                  first = Path(directory) / "first.txt"
+                  second = Path(directory) / "second.txt"
+                  downloaded = Path(directory) / "downloaded.txt"
+                  first.write_text(f"IONOS SFTP probe {run_id} version 1\n")
+                  second.write_text(f"IONOS SFTP probe {run_id} version 2\n")
 
-          cleanup() {
-            status=$?
-            if [[ "$remote_may_exist" == "1" ]]; then
-              printf 'cd "."\nrm "%s"\n' "$test_name" > "$cleanup_batch"
-              SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
-                -P "$IONOS_SFTP_PORT" \
-                -o StrictHostKeyChecking=yes \
-                -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
-                -b "$cleanup_batch" \
-                "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1 || \
-                echo "::warning::Could not confirm removal of temporary DEV_TEST probe file $test_name."
-            fi
-            rm -rf "$tmpdir"
-            exit "$status"
-          }
-          trap cleanup EXIT
+                  stage = "upload"
+                  remote_may_exist = True
+                  sftp.put(str(first), name)
+                  stage = "download/read-back"
+                  sftp.get(name, str(downloaded))
+                  if downloaded.read_bytes() != first.read_bytes():
+                      raise RuntimeError("Uploaded content did not match on read-back.")
 
-          printf 'IONOS SFTP probe %s version 1\n' "$GITHUB_RUN_ID" > "$first"
-          printf 'IONOS SFTP probe %s version 2\n' "$GITHUB_RUN_ID" > "$second"
+                  stage = "overwrite"
+                  sftp.put(str(second), name)
+                  downloaded.unlink()
+                  sftp.get(name, str(downloaded))
+                  if downloaded.read_bytes() != second.read_bytes():
+                      raise RuntimeError("Overwritten content did not match on read-back.")
 
-          printf 'cd "."\nput "%s" "%s"\nget "%s" "%s"\nput "%s" "%s"\nget "%s" "%s"\nrm "%s"\n' \
-            "$first" "$test_name" "$test_name" "$download_first" \
-            "$second" "$test_name" "$test_name" "$download_second" "$test_name" > "$batch"
+                  stage = "deletion"
+                  sftp.remove(name)
+                  remote_may_exist = False
+                  removed = True
 
-          remote_may_exist=1
-          if ! SSHPASS="$IONOS_DEV_SFTP_PASSWORD" sshpass -e sftp \
-            -P "$IONOS_SFTP_PORT" \
-            -o StrictHostKeyChecking=yes \
-            -o UserKnownHostsFile="$HOME/.ssh/known_hosts" \
-            -b "$batch" \
-            "$IONOS_DEV_SFTP_USERNAME@$IONOS_SFTP_HOST" > "$log" 2>&1; then
-            if grep -Eqi 'Host key verification failed|REMOTE HOST IDENTIFICATION HAS CHANGED' "$log"; then
-              echo "::error::The recorded host key does not match the SFTP server. Check the full known_hosts line and hostname/port."
-            elif grep -Eqi 'Permission denied|Authentication failed|password is incorrect' "$log"; then
-              echo "::error::IONOS rejected the DEV_TEST login or denied this file operation. Recheck the DEV_TEST username/password and directory permissions."
-            elif grep -Eqi 'Could not resolve hostname|Connection timed out|Network is unreachable|Connection refused' "$log"; then
-              echo "::error::The SFTP server could not be reached. Recheck the hostname and port."
-            elif grep -Eqi 'No such file|Couldn.t canonicalize|Failure' "$log"; then
-              echo "::error::SFTP connected, but the DEV_TEST directory or requested file operation failed. Recheck the DEV_TEST account root and permissions."
-            else
-              echo "::error::SFTP login or DEV_TEST file-operation probe failed. Raw connection details and paths are suppressed."
-            fi
-            exit 1
-          fi
-          remote_may_exist=0
-
-          if ! cmp -s "$first" "$download_first"; then
-            echo "::error::Uploaded test file could not be read back with the original contents."
-            exit 1
-          fi
-          if ! cmp -s "$second" "$download_second"; then
-            echo "::error::Replaced test file did not contain the updated contents."
-            exit 1
-          fi
-
-          echo "SFTP probe passed in DEV_TEST: login, upload, overwrite/edit, read-back, and deletion."
+              print("SFTP probe passed in DEV_TEST: login, listing, upload, overwrite, read-back, and deletion.")
+          except paramiko.AuthenticationException:
+              print("::error::IONOS rejected the password-based DEV_TEST login from GitHub Actions.")
+              sys.exit(1)
+          except paramiko.BadHostKeyException:
+              print("::error::The recorded known-host key does not match the IONOS SFTP server.")
+              sys.exit(1)
+          except Exception as error:
+              print(f"::error::DEV_TEST SFTP probe failed during {stage} ({type(error).__name__}).")
+              sys.exit(1)
+          finally:
+              if remote_may_exist and sftp is not None:
+                  try:
+                      sftp.remove(name)
+                      removed = True
+                  except Exception:
+                      print(f"::warning::Could not confirm cleanup of temporary DEV_TEST file {name}.")
+              if sftp is not None:
+                  sftp.close()
+              client.close()
+          PY
