@@ -221,17 +221,15 @@ jobs:
               sys.exit("IONOS did not return exactly one DNS zone for automobile-rosenkranz.de.")
 
           zone_id = next(iter(unique_zones))
-          next_request_id = 3
+          next_request_id = [3]
 
           def get_records(record_name):
-              nonlocal_dummy = None
-              global next_request_id
               response = call_tool(
                   "dns_get_zone",
                   {"zone_id": zone_id, "record_name": record_name},
-                  next_request_id,
+                  next_request_id[0],
               )
-              next_request_id += 1
+              next_request_id[0] += 1
               found = []
               for obj in walk(response):
                   record_type = get_field(obj, "type", "record_type")
@@ -243,6 +241,7 @@ jobs:
                           "type": str(record_type).upper(),
                           "content": str(record_content),
                           "disabled": bool(obj.get("disabled", False)),
+                          "prio": obj.get("prio"),
                       })
               return [record for record in found if record["name"] == record_name]
 
@@ -297,7 +296,8 @@ jobs:
               print("All four Resend records already exist. No DNS changes were needed.")
               sys.exit(0)
 
-          call_tool("dns_create_records", {"zone_id": zone_id, "records": missing}, next_request_id)
+          call_tool("dns_create_records", {"zone_id": zone_id, "records": missing}, next_request_id[0])
+          next_request_id[0] += 1
           print(f"Submitted {len(missing)} missing record(s) to IONOS.")
           for wanted in missing:
               current = get_records(wanted["name"])
