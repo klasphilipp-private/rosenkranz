@@ -1,0 +1,307 @@
+name: Add Resend DNS records through IONOS MCP
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Preview the four fixed Resend records, or create missing records"
+        type: choice
+        options:
+          - preview
+          - apply
+        default: preview
+        required: true
+      confirm_domain:
+        description: "For apply only, enter automobile-rosenkranz.de exactly"
+        type: string
+        required: false
+      mcp_url:
+        description: "Optional official IONOS MCP URL (otherwise use IONOS_MCP_URL repository variable)"
+        type: string
+        required: false
+
+permissions: {}
+
+concurrency:
+  group: ionos-resend-dns
+  cancel-in-progress: false
+
+jobs:
+  configure-dns:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      IONOS_PAT: ${{ secrets.IONOS_PAT }}
+      IONOS_MCP_URL: ${{ inputs.mcp_url || vars.IONOS_MCP_URL || secrets.IONOS_MCP_URL }}
+      MODE: ${{ inputs.mode || 'preview' }}
+      CONFIRM_DOMAIN: ${{ inputs.confirm_domain }}
+    steps:
+      - name: Preview or create the fixed Resend DNS records
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          DOMAIN = "automobile-rosenkranz.de"
+          EXPECTED = [
+              {
+                  "name": "resend._domainkey.automobile-rosenkranz.de",
+                  "type": "TXT",
+                  "content": "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDVRvy6cz9vpPXD7U2lFGbU7Eu9bQei6xae45BTJqsP3xrailqf2DglPLZF1A7AZkVa2P39La+W6v2/hwsUEhorBsjwAfLjxrqA0vMNMbYA/ByiAPA50wKFPg2+PeosswoHaszMnLGTvXCJXTmOGftmu7DTCrrm7HhDjUx4+dfKqwIDAQAB",
+              },
+              {
+                  "name": "send.automobile-rosenkranz.de",
+                  "type": "MX",
+                  "content": "feedback-smtp.eu-west-1.amazonses.com",
+                  "prio": 10,
+              },
+              {
+                  "name": "send.automobile-rosenkranz.de",
+                  "type": "TXT",
+                  "content": "v=spf1 include:amazonses.com ~all",
+              },
+              {
+                  "name": "rsend.automobile-rosenkranz.de",
+                  "type": "CNAME",
+                  "content": "send.forge.rmta.net",
+              },
+          ]
+
+          token = os.environ.get("IONOS_PAT", "").strip()
+          url = os.environ.get("IONOS_MCP_URL", "").strip()
+          mode = os.environ.get("MODE", "preview").strip()
+          confirmation = os.environ.get("CONFIRM_DOMAIN", "").strip()
+
+          if not token:
+              sys.exit("Missing GitHub Actions secret: IONOS_PAT.")
+          if not url:
+              sys.exit("Set the IONOS_MCP_URL repository variable or provide the official MCP URL as a workflow input.")
+          if mode not in {"preview", "apply"}:
+              sys.exit("Unsupported mode.")
+          parsed = urllib.parse.urlsplit(url)
+          host = (parsed.hostname or "").lower()
+          official_domains = ("ionos.de", "ionos.com", "ionos.fr", "ionos.cloud")
+          if (
+              parsed.scheme != "https"
+              or parsed.username is not None
+              or parsed.password is not None
+              or parsed.port not in (None, 443)
+              or parsed.query
+              or parsed.fragment
+              or not any(host.endswith("." + domain) for domain in official_domains)
+          ):
+              sys.exit("IONOS_MCP_URL must be an HTTPS URL on an official IONOS subdomain.")
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          opener = urllib.request.build_opener(NoRedirect())
+          headers = {
+              "Authorization": "Bearer " + token,
+              "Content-Type": "application/json",
+              "Accept": "application/json, text/event-stream",
+          }
+
+          def rpc(method, params, request_id=None):
+              message = {"jsonrpc": "2.0", "method": method, "params": params}
+              if request_id is not None:
+                  message["id"] = request_id
+              request = urllib.request.Request(
+                  url,
+                  data=json.dumps(message).encode("utf-8"),
+                  headers=headers,
+                  method="POST",
+              )
+              try:
+                  with opener.open(request, timeout=25) as response:
+                      if request_id is None:
+                          return None, response.headers
+                      if response.headers.get_content_type() == "text/event-stream":
+                          event_data = []
+                          reply = None
+                          for line in response:
+                              line = line.decode("utf-8").rstrip("\r\n")
+                              if line.startswith("data:"):
+                                  event_data.append(line[5:].lstrip())
+                              elif not line and event_data:
+                                  candidate = json.loads("\n".join(event_data))
+                                  if candidate.get("id") == request_id:
+                                      reply = candidate
+                                      break
+                                  event_data.clear()
+                          if reply is None:
+                              sys.exit("IONOS MCP did not return a response for a requested operation.")
+                      else:
+                          reply = json.load(response)
+                      if "error" in reply or "result" not in reply:
+                          sys.exit("IONOS MCP rejected a request. Check the endpoint and token permissions.")
+                      return reply["result"], response.headers
+              except urllib.error.HTTPError as error:
+                  sys.exit(f"IONOS MCP returned HTTP {error.code}. Check the endpoint and token permissions.")
+              except (urllib.error.URLError, TimeoutError, ValueError, UnicodeDecodeError):
+                  sys.exit("The IONOS MCP response could not be read.")
+
+          init, response_headers = rpc(
+              "initialize",
+              {
+                  "protocolVersion": "2025-03-26",
+                  "capabilities": {},
+                  "clientInfo": {"name": "rosenkranz-resend-dns", "version": "1.0"},
+              },
+              1,
+          )
+          protocol_version = init.get("protocolVersion")
+          if not isinstance(protocol_version, str):
+              sys.exit("IONOS MCP returned an unsupported initialization response.")
+          headers["MCP-Protocol-Version"] = protocol_version
+          session = response_headers.get("Mcp-Session-Id")
+          if session:
+              headers["Mcp-Session-Id"] = session
+          rpc("notifications/initialized", {})
+
+          def call_tool(name, arguments, request_id):
+              result, _ = rpc(
+                  "tools/call",
+                  {"name": name, "arguments": arguments},
+                  request_id,
+              )
+              if result.get("isError"):
+                  sys.exit(f"IONOS MCP could not run {name}. Check the DNS token scope.")
+              structured = result.get("structuredContent")
+              if isinstance(structured, (dict, list)):
+                  return structured
+              for item in result.get("content", []):
+                  if item.get("type") == "text":
+                      try:
+                          return json.loads(item["text"])
+                      except (KeyError, ValueError):
+                          continue
+              sys.exit(f"IONOS MCP returned no structured data for {name}.")
+
+          def walk(value):
+              if isinstance(value, dict):
+                  yield value
+                  for child in value.values():
+                      yield from walk(child)
+              elif isinstance(value, list):
+                  for child in value:
+                      yield from walk(child)
+
+          def normalized_name(value):
+              name = str(value or "").strip().lower().rstrip(".")
+              if name in {"", "@"}:
+                  return DOMAIN
+              if name == DOMAIN or name.endswith("." + DOMAIN):
+                  return name
+              return name + "." + DOMAIN
+
+          def get_field(record, *keys):
+              for key in keys:
+                  value = record.get(key)
+                  if value is not None:
+                      return value
+              return None
+
+          zones_response = call_tool("dns_get_zones", {}, 2)
+          zones = []
+          for obj in walk(zones_response):
+              name = get_field(obj, "name", "zone_name", "domain")
+              zone_id = get_field(obj, "id", "zone_id")
+              if isinstance(name, str) and normalized_name(name) == DOMAIN and zone_id:
+                  zones.append({"name": DOMAIN, "id": str(zone_id)})
+          unique_zones = {zone["id"]: zone for zone in zones}
+          if len(unique_zones) != 1:
+              sys.exit("IONOS did not return exactly one DNS zone for automobile-rosenkranz.de.")
+
+          zone_id = next(iter(unique_zones))
+          next_request_id = [3]
+
+          def get_records(record_name):
+              response = call_tool(
+                  "dns_get_zone",
+                  {"zone_id": zone_id, "record_name": record_name},
+                  next_request_id[0],
+              )
+              next_request_id[0] += 1
+              found = []
+              for obj in walk(response):
+                  record_type = get_field(obj, "type", "record_type")
+                  record_name_value = get_field(obj, "name", "record_name")
+                  record_content = get_field(obj, "content", "value", "data")
+                  if record_type and record_name_value is not None and record_content is not None:
+                      found.append({
+                          "name": normalized_name(record_name_value),
+                          "type": str(record_type).upper(),
+                          "content": str(record_content),
+                          "disabled": bool(obj.get("disabled", False)),
+                          "prio": obj.get("prio"),
+                      })
+              return [record for record in found if record["name"] == record_name]
+
+          def normalized_content(record_type, value):
+              text = str(value or "").strip()
+              if record_type in {"MX", "CNAME"}:
+                  return text.lower().rstrip(".")
+              if record_type == "TXT" and len(text) >= 2 and text[0] == text[-1] == '"':
+                  return text[1:-1]
+              return text
+
+          def status_for(wanted, records):
+              target_name = wanted["name"]
+              target_type = wanted["type"]
+              target_content = normalized_content(target_type, wanted["content"])
+              active = [record for record in records if not record["disabled"]]
+              for record in active:
+                  if (
+                      record["type"] == target_type
+                      and normalized_content(target_type, record["content"]) == target_content
+                      and (target_type != "MX" or int(wanted.get("prio", 0)) == int(record.get("prio", wanted.get("prio", 0))))
+                  ):
+                      return "present"
+              if target_type == "CNAME" and active:
+                  return "conflict"
+              if any(record["type"] == "CNAME" for record in active):
+                  return "conflict"
+              if target_type == "MX" and any(record["type"] == "MX" for record in active):
+                  return "conflict"
+              if target_type == "TXT":
+                  if target_content.lower().startswith("v=spf1"):
+                      if any(record["type"] == "TXT" and record["content"].strip().lower().startswith("v=spf1") for record in active):
+                          return "conflict"
+                  elif any(record["type"] == "TXT" for record in active):
+                      return "conflict"
+              return "missing"
+
+          states = []
+          for wanted in EXPECTED:
+              states.append((wanted, status_for(wanted, get_records(wanted["name"]))))
+          for wanted, status in states:
+              print(f"{status.upper()}: {wanted['type']} {wanted['name']}")
+          if any(status == "conflict" for _, status in states):
+              sys.exit("Conflicting DNS records exist. No records were changed.")
+          missing = [wanted for wanted, status in states if status == "missing"]
+          if mode == "preview":
+              print(f"Preview only; {len(missing)} record(s) would be created. No DNS changes were made.")
+              sys.exit(0)
+          if confirmation != DOMAIN:
+              sys.exit("For apply, set confirm_domain to automobile-rosenkranz.de exactly.")
+          if not missing:
+              print("All four Resend records already exist. No DNS changes were needed.")
+              sys.exit(0)
+
+          call_tool("dns_create_records", {"zone_id": zone_id, "records": missing}, next_request_id[0])
+          next_request_id[0] += 1
+          print(f"Submitted {len(missing)} missing record(s) to IONOS.")
+          for wanted in missing:
+              current = get_records(wanted["name"])
+              if status_for(wanted, current) != "present":
+                  sys.exit("IONOS accepted the request, but read-back did not confirm every requested record.")
+          print("IONOS read-back confirmed the created Resend DNS records.")
+          PY
