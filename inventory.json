@@ -1,7 +1,7 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-10T09:46:18.075732+00:00",
+  "updated": "2026-11-10T17:48:26.850219+00:00",
   "apiTotal": 33,
   "vehiclesWithImages": 32,
   "exactDuplicatesRemoved": 1,
@@ -900,104 +900,6 @@
         }
       ],
       "detailPath": "angebote/outback-outback-2-5i-exclusive-cross-lineartronic-41642220093632/"
-    },
-    {
-      "id": "42360862313856",
-      "title": "Citroën C4 PT 130 Shine | PDach - Nav - 360° Kamera",
-      "price": "16.300 €",
-      "priceAmount": 16300.0,
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2b/2b029d6d-ad4d-4d4d-b4d7-2a2ac8723d2e?rule=mo-1024.jpg",
-      "images": [
-        "https://img.classistatic.de/api/v1/mo-prod/images/2b/2b029d6d-ad4d-4d4d-b4d7-2a2ac8723d2e?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/46/46681678-6255-419c-8935-f103e42c8bc6?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/98/987ef574-f5bb-48dc-ba20-07be8a6c5ce7?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c3/c348d336-4835-4987-b9e3-b3980afb8240?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/37/37e9ee35-a597-4e78-8b0f-0b7f73ea2432?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/03/038fbb35-b406-49af-b83b-7f4add75dbf5?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/35/35b59d0b-dd5a-48e3-8801-1ea02bbb6ef3?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/b9/b97724e5-86c0-43ce-abe8-2111da040c94?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/53/533f4226-b132-44f8-bbba-b8493130060d?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/4e/4eeee270-9cc5-45a3-8ebd-a57390100cae?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/08/08f76fd4-76f5-4b08-89da-c52ad5d79bc9?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/d2/d2e9fa6b-1fda-4686-a53e-099f9cc1ae53?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/5b/5b8ac66c-bcfc-4a85-83ae-8642c7a1c503?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/56/5640e83e-90ea-437f-9ad2-b76a29d3c892?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/24/2425b6aa-a9b0-4e94-be04-342d3db25347?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/ec/eca371c0-b08e-48e7-b685-cd541ed48faa?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/ef/ef4c2b19-2b57-472b-9c30-47066c4679c7?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/a0/a0d24bdf-a219-4396-82b7-7061b4760517?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/92/92695dcf-231b-468c-87bc-0e107c7ac2e7?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/a3/a3b4bb92-68da-466a-8532-892968388c21?rule=mo-1024.jpg"
-      ],
-      "url": "https://suchen.mobile.de/auto-inserat/citroen-c4-pt-130-shine-pdach-nav-360-kamera-recklinghausen/42360862313856.html?source=api",
-      "vehicleClass": "Car",
-      "make": "Citroën",
-      "model": "C4",
-      "modelDescription": "C4 PT 130 Shine | PDach - Nav - 360° Kamera",
-      "mileage": 46300,
-      "fuel": "PETROL",
-      "gearbox": "MANUAL_GEAR",
-      "driveType": "FRONT",
-      "firstRegistration": "202208",
-      "category": "Limousine",
-      "condition": "USED",
-      "power": 96,
-      "description": "Citroen C4 PureTech 130 Shine -  - Frischer Leasingrückläufer aus privatem Erstbesitz. In der stilvollen Farbe Karamell-Braun met., erwartet Sie hier ein nahezu vollausgestatteter Citroen C4 in sehr gutem Zustand. Highlight des Fahrzeug es ist das großflächige Schiebedach und die 360° Kamera. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  -  - Kurzüberblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en) ab Werk: (Niveau \"Shine\") -  - Schubfach im Armaturenbrett, Fahrer- und Beifahrerseite (Beifahrerairbag abschaltbar), Kopfairbags vorne und hinten außer hinten Mitte, Seitenairbags vorne, Antiblockiersystem (ABS) mit elektronischem Bremskraftverteiler und Bremsassistent, Außenspiegel elektrisch anklapp- und einstellbar, beheizbar, Berganfahrassistent, CITROEN Connect Box (Notruf und Assistance System), Elektronisches Stabilitätsprogramm (ESP) mit Antriebsschlupfregelung (ASR), Advanced Comfort Federung, Fensterheber elektrisch vorn und hinten mit Komforschaltung, Frontscheibenwischer mit Regensensor, 6-Gang-Schaltgetriebe, Head-Up Display, Heckscheibe beheizbar, Innenspiegel automatisch abblendend, Isofix-Kindersitzbefestigungen hinten (außer Mitte), Kindersicherung der Türen hinten, Klimautomatik (2-Zonen) mit Lüftungsdüse hinten, Beleuchtetes 5,5\" Digitales-Kombiinstrument, Lederlenkrad in Höhe und Reichweite verstellbar, LED Innenraumbeleuchtung vorne & hinten, LED Nebelscheinwerfer mit statischem Abbiegelicht, LED-Tagfahrlicht - LED-Scheinwerfer mit Lichtsensor, Mittelkonsole mit Ablagefach und Armlehne, Citroën Connect Nav (3D-Navigationssystem), Digitaler Radioempfang DAB & DAB+ (Digital Audio Broadcasting), Rückfahrkamera mit Top Rear Vision, Aktiver Toter-Winkel-Assistent, Fernlichtassistent, Aktiver Notbremsassistent (Kamera & Sensor gesteuert), Kollisionswarner, Aktiver Spurhalte-Assistent, Aufmerksamkeitsassistent, Heck- und Seitenscheiben hinten, dunkler getönt, Parkbremse, elektrisch, Geschwindigkeitsregler und -begrenzer, Interieur METROPOLITAN GREY Kunstleder Schwarz mit Stoff Grau, Keyless-System, Leichtmetallfelgen 18\", \"Aeroblade\" glanzgedreht, Citroën Connect Radio mit 10\"-Touchscreen mit Bluetooth-Freisprecheinrichtung und Mirror Screen (inkl. AndroidAuto and Apple CarPlay), Reifenreparatur-Kit mit Pannenspray, Fahrersitz und Beifahresitz, höhenverstellbar, Fahrersitz mit verstellbaren Lendenwirbelstützen, Zusätzliche 12V-Steckdose im Kofferraum, Variabler Kofferraumboden, .... und vieles, vieles mehr ! -  - Sonderausstattung(en) ab Werk: -  - Glas-Schiebedach elektrisch, Lackierung: Karamell-Braun Metallic, Kältepaket (Beheizbares Lenkrad, Beheizbare Windschutzscheibe und Sitzheizung für die vorderen Sitze), Park-Assist-360-Paket (Park-Assist mit Lenkautomatik, 360 Grad Rundumsicht) -  -  -  -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 1889 der Modellcode: ACU. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!",
-      "details": [
-        {
-          "label": "Erstzulassung",
-          "value": "08/2022"
-        },
-        {
-          "label": "Kilometerstand",
-          "value": "46.300 km"
-        },
-        {
-          "label": "Leistung",
-          "value": "96 kW"
-        },
-        {
-          "label": "Getriebe",
-          "value": "Schaltgetriebe"
-        },
-        {
-          "label": "Kraftstoff",
-          "value": "Benzin"
-        },
-        {
-          "label": "Antrieb",
-          "value": "Frontantrieb"
-        },
-        {
-          "label": "Fahrzeugklasse",
-          "value": "Limousine"
-        },
-        {
-          "label": "Zustand",
-          "value": "Gebrauchtfahrzeug"
-        },
-        {
-          "label": "Hubraum",
-          "value": 1199
-        },
-        {
-          "label": "Türen",
-          "value": "4/5"
-        },
-        {
-          "label": "Sitzplätze",
-          "value": 5
-        },
-        {
-          "label": "Außenfarbe",
-          "value": "Braun"
-        },
-        {
-          "label": "Schadstoffklasse",
-          "value": "Euro 6D"
-        }
-      ],
-      "detailPath": "angebote/c4-c4-pt-130-shine-pdach-nav-360-kamera-42360862313856/"
     },
     {
       "id": "433197523",
@@ -3024,6 +2926,100 @@
         }
       ],
       "detailPath": "angebote/c4-e-c4-feelpack-rcam-tw-sh-nav-headup-49838028642656/"
+    },
+    {
+      "id": "55477956003552",
+      "title": "Vw T-Cross 1.0 TSI OPF 81 kW DSG MOVE",
+      "price": "20.470 €",
+      "priceAmount": 20470.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/4e/4e161af0-7a46-45c6-9c10-6b17bcc2aae1?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/4e/4e161af0-7a46-45c6-9c10-6b17bcc2aae1?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/d3/d3303ba2-4020-4339-acdb-32eaedc15563?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/52/52eb122f-b041-416d-827c-c41a42b58cbd?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/96/966558fb-790a-4eb6-b53d-0a596e804ec5?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/54/546ee199-a361-4afe-b697-5bb0e579c725?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/1e/1e7a66c6-18e5-47cb-9903-e4f9fdf8dfbc?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/85/853ef7fe-dd9b-42fb-9d16-042a515db4c9?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/88/88c93441-c85d-4cf2-9b46-6a5340dafecc?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/3a/3af3723d-1c0a-4118-a0d1-a9392ed0c206?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/4e/4e4a2575-e4b6-4091-aa44-96868cce1e91?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/87/8774722b-6b0e-46c2-a94f-79c233a408b0?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/9a/9a19c422-2c68-41e4-978f-840813095ff2?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/1b/1bf5cbe9-bc3a-4f01-a481-1637d967428e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c8/c854217b-33c8-448b-af2a-0e469fa5d20a?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/ae/ae584244-defa-4227-aaa0-29f911826091?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/7d/7d53b02f-579c-4823-8577-1f3487b389ea?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/vw-t-cross-1-0-tsi-opf-81-kw-dsg-move-recklinghausen/55477956003552.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Vw",
+      "model": "T-Cross",
+      "modelDescription": "T-Cross 1.0 TSI OPF 81 kW DSG MOVE",
+      "mileage": 16800,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202312",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 81,
+      "description": "VW T-Cross 1.0 TSI DSG \"Move\" -  - Frische Inzahlungnahme aus privatem Vorbesitz. Ausgestattet mit allem was der Alltag für Anforderungen mit sich bringt. Dank DSG und Rückfahrkamera, komfortabel und sicher unterwegs. Die geringe Laufleistung spricht für einen neuwertigen Zustand. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  -  - Kurzüberblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattiung(en) ab Werk: (Niveau \"Move\") -  - Airbag für Fahrer und Beifahrer - Deaktivierungsschalter für Airbag auf Beifahrerseite, Kopfairbagsystem für Front- und Fondpassagiere inkl. Seitenairbags vorn, App-Connect inkl. App-Connect Wireless für Apple CarPlay und Android Auto, Außenspiegel elektrisch einstell-, anklapp und beheizbar, Außenspiegelgehäuse und Türgriffe in Wagenfarbe, Berganfahrassistent, Dachreling schwarz, Drehzahlmesser, Einparkhilfe im Front- und Heckbereich, Fahrlichtschaltung automatisch, Fensterheber elektrisch vorn und hinten, Fernlichtregulierung Light Assist, Fußgänger- und Radfahrererkennung, Gepäckraumboden in 2 Höhen einstellbar, Getriebe: 7-Gang DSG, Innenspiegel automatisch abblendend, ISOFIX-Halteösen für Kindersitze, Klimaanlage \"Air Care Climatronic\" mit Aktiv-Kombifilter und 2-Zonen-Temperaturregelung, Licht- und Regensensor, Multifunktionslenkrad in Leder, mit Schaltwippen, Mittelarmlehne vorn längseinstellbar - mit Ablagebox, 2 USB- Ladebuchsen hinten, Rückfahrkamera, Notbremsassistent \"Front Assist\", Pedale in Edelstahl gebürstet, Tire Mobility Set - 12-Volt-Kompressor und Reifendichtmittel, Digitaler Radioempfang DAB+, Seitenscheiben hinten und Heckscheibe abgedunkelt, Scheibenwaschdüsen vorn automatisch beheizt, Rücksitzbank ungeteilt,verschiebbar, Lehne asymmetrisch geteilt umklappbar, Vordersitze beheizbar, Vordersitze mit Höheneinstellung, Spurhalteassistent \"Lane Assist\", Telefonschnittstelle, ....und vieles, vieles mehr! -  -  - Sonderausstatung ab Werk: -  - Automatische Distanzregelung ACC und Notbremsassistent \"Front Assist\", Digital Cockpit Pro, mehrfarbig, verschiedene Info-Profile wählbar, Lackierung: Metallic, LED-Scheinwerfer für Abblend- und Fernlicht (Leuchtweitenregulierung dynamisch, Nebelscheinwerfer und Abbiegelicht), Navigationssystem \"Discover Media\", Plus Paket (4 Leichtmetallräder \"Bangalore\" 6,5 J x 17, Dachhimmel schwarz) -  -  -  -  -  -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 0603 der Modellcode: CNI. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!, - ",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "12/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "16.800 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "81 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Automatik"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Benzin"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Frontantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SUV/Geländewagen"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 999
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Grau"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6D"
+        }
+      ],
+      "detailPath": "angebote/t-cross-t-cross-1-0-tsi-opf-81-kw-dsg-move-55477956003552/"
     }
   ]
 }
