@@ -1,7 +1,7 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-11T06:11:28.892257+00:00",
+  "updated": "2026-11-11T14:17:06.657061+00:00",
   "apiTotal": 33,
   "vehiclesWithImages": 32,
   "exactDuplicatesRemoved": 1,
@@ -312,207 +312,6 @@
       "detailPath": "angebote/new-crosstrek-subaru-crosstreck-2-0ie-comfort-395616079/"
     },
     {
-      "id": "40773638513888",
-      "title": "Citroën Berlingo M HDi130 Max | PDach - Navi - AHK",
-      "price": "31.535 €",
-      "priceAmount": 31535.0,
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1024.jpg",
-      "images": [
-        "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/72/722a5c2b-ffc5-4dae-abf9-cb95845df99a?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/3a/3ab7306e-3563-4f32-a52f-0febb42a4e2e?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c4/c40228e7-e177-4e55-a305-d79eac268a68?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/ef/ef8156f0-0868-4ae3-a59e-9c89db2e22ac?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/1f/1f00938d-0bb4-44a8-a68f-216f150bdd35?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c3/c390c8c9-b462-444c-aa3f-e699348aefd9?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/8e/8e516a90-afdf-4a3b-afa8-696d09338311?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/80/80212b31-f228-4764-91b7-4514164cc235?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/4b/4bc9a9bb-dfb6-4059-a93e-373f58ea882c?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/22/2266196c-6828-4470-9666-a8cfe071e510?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/6c/6c75d5b4-ad71-4458-91c0-44ab8c4e6aa5?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/b1/b17cbf49-e9c7-4649-9a95-5fbec9886e8a?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/59/590dfd93-a192-4a85-b3f3-cbb1e270f56b?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/e7/e764168f-6c48-4c99-8235-0574b70ead58?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/ac/acc56be2-25f2-4131-a2c6-d7c4684ba3ee?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/37/376449c1-1ee6-4f97-ac83-d9cbf3def199?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/a9/a9a985c7-3f9c-45cf-8e5d-de687a09b310?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/3b/3baff1c1-e155-475a-a3b7-394ac655697a?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/05/057c5adb-0765-464e-aa62-be42c3449ad1?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/70/70c34c22-652d-4a4b-baff-8a008af08133?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/71/715fa34c-eb97-4fe8-9d84-c7ad78557d05?rule=mo-1024.jpg"
-      ],
-      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-max-pdach-navi-ahk-recklinghausen/40773638513888.html?source=api",
-      "vehicleClass": "Car",
-      "make": "Citroën",
-      "model": "Berlingo",
-      "modelDescription": "Berlingo M HDi130 Max | PDach - Navi - AHK",
-      "mileage": 5500,
-      "fuel": "DIESEL",
-      "gearbox": "MANUAL_GEAR",
-      "driveType": "FRONT",
-      "firstRegistration": "202608",
-      "category": "Van",
-      "condition": "USED",
-      "power": 96,
-      "description": "Citroen Eerlingo M Dhi130 Max -  - Der aktuelle Citroën Berlingo verbindet großzügigen Platz, hohen Komfort und moderne Ausstattung. Mit seinem kraftvollen und effizienten Dieselmotor ist er ideal für Familie, Freizeit und Gewerbe. Der variable Innenraum, die erhöhte Sitzposition und zahlreiche praktische Ablagen machen ihn zum vielseitigen Begleiter für Alltag, Transport und längere Fahrten. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  - Kurzüerblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en ab Werk: ( Niveau \"Max\") -  - Außenspiegelgehäuse in Schwarz lackiert, Dachreling, Heckscheibe separat zu öffnen und stärker getönt, Kindersicherung elektrisch, Manuelle Schiebetüre rechts und links mit absenkbaren Seitenfenster in den Schiebetüren, Türgriffe außen in Schwarz lackiert, Elektrische Parkbremse, Frontairbag für Fahrer− und Beifahrer, Kopfairbags vorne und hinten / Seitenairbag vorne, Spurassistent , Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen, ECO-LED-Scheinwerfer, Sicht−Paket (beinhaltet: Lichtsensor, Regensensor, Dachablage, Magic Wash Frontscheibenwischer mit integrierten Wischerdüsen), Berganfahrassistent, Einparkhilfe hinten akustisch mit Rückfahrkamera 180° Rundumsicht, Beheizbares Multifunktions- und Lederlenkrad, MyCitroën Play Plus: (beinhaltet: 10“- HD Touchscreen, Digitaler Radioempfang DAB & DAB+, kabellos oder per Kabel Android Auto™ und Apple CarPlay™, Bluetooth®-Freisprecheinrichtung, USB Type C (aufladbar/Datenübertragung) + USB Type C (aufladbar)), Elektrische Fensterheber vorn und hinten, Klimaautomatik (2-Zonen), Fahrersitz in der Höhe verstellbar mit Armlehne und manuellen Lendenwirbelstütze, Beifahrersitz umklappbar mit Armlehnen, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Reifendruckkontrollsystem, ....und vieles, vieles mehr! -  -  - Sonderausstattung(en) ab Werk: -  - Vorrüstung für Anhängerkupplung , Techno Paket Plus (beinhaltet: Keyless-System, Grip Control und Bergabfahrassistent, Induktive Ladestation, 3D-Navigationssystem), Winter Paket (beinhaltet: Sitzheizung vorne und Beheizbare Windschutzscheibe), Holiday Paket (beinhaltet: Multifunktionsdach Modutop® inkl. Dachablage, Glasdach, Kofferraumbeleuchtung, Ambientebeleuchtung, Innenspiegel elektrochrom, Mittelkonsole mit Ablagefach zwischen Fahrer und BeifahrerInkl. Klima-/Beluftungsausgang für die Reihe 2 und einem zusätzlichen USB Anschluss (aufladbar), sowie Steckdose 230-Volt-Anschluss), XTR-Paket: (beinhaltet: Citroën Advanced Comfort Sitze mit Sitzbezug \"Chine-Blue\", Unterbodenstoßfänger vorne und hinten in Aluminium-Grau lackiert, XTR-Logo, Ambiente \"XTR\", Farb-Paket Rot (Airbump® und Nebelscheinwerfer mit rotem Dekorstreifen), 17-Zoll-Leichtmetallfelgen \"Topaz\") -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 2525 der Modellcode: ADX. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!",
-      "details": [
-        {
-          "label": "Erstzulassung",
-          "value": "08/2026"
-        },
-        {
-          "label": "Kilometerstand",
-          "value": "5.500 km"
-        },
-        {
-          "label": "Leistung",
-          "value": "96 kW"
-        },
-        {
-          "label": "Getriebe",
-          "value": "Schaltgetriebe"
-        },
-        {
-          "label": "Kraftstoff",
-          "value": "Diesel"
-        },
-        {
-          "label": "Antrieb",
-          "value": "Frontantrieb"
-        },
-        {
-          "label": "Fahrzeugklasse",
-          "value": "Van"
-        },
-        {
-          "label": "Zustand",
-          "value": "Gebrauchtfahrzeug"
-        },
-        {
-          "label": "Hubraum",
-          "value": 1499
-        },
-        {
-          "label": "Türen",
-          "value": "4/5"
-        },
-        {
-          "label": "Sitzplätze",
-          "value": 5
-        },
-        {
-          "label": "Außenfarbe",
-          "value": "Weiß"
-        },
-        {
-          "label": "Schadstoffklasse",
-          "value": "Euro 6E"
-        }
-      ],
-      "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-navi-ahk-40773638513888/"
-    },
-    {
-      "id": "40787046422944",
-      "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
-      "price": "34.330 €",
-      "priceAmount": 34330.0,
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/13/13eceb40-52f6-485e-bd6c-1ecd461901c7?rule=mo-1024.jpg",
-      "images": [
-        "https://img.classistatic.de/api/v1/mo-prod/images/13/13eceb40-52f6-485e-bd6c-1ecd461901c7?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/a2/a2889291-2390-420d-a5a3-5a4f5e6cc1e4?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/e0/e008eaf9-8f38-402d-b60e-610c566ad668?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/8f/8f74e5a6-e9b0-4a72-a653-002f9558273e?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/23/2378a35d-7c0e-4ba0-adcb-2a7680c4a5fb?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/85/85fe7019-6591-45ae-a0d7-74c33ea2b558?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c5/c5c288f9-77b6-4e1b-a2f8-4389317a9b16?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c5/c5692b27-f3a4-4637-bea5-7629ce31cc85?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/32/325156bc-05ba-4367-9d6a-d297a6af85b6?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/17/17b53cd4-12e4-4c79-86c0-a33138b5ea96?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/9f/9f5b712a-d0e7-4be2-a783-bcd7fa2dfcab?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/77/77690ca3-3cc6-441b-88c3-67c5597691fa?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/1a/1a91c1a0-1565-4232-9697-83e900b2e6f4?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/99/99604b95-e0e0-412e-8521-7aca72edcbe5?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/7f/7f62f2e7-0b50-4c88-a771-3a15619fd7b2?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/db/db91aeda-e701-4595-b262-85a319174f9c?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/9c/9cf19621-0acd-444c-92f0-fe848f3156cf?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c9/c9996454-7140-4ddb-b13c-1e139c2b9cbf?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/a9/a9978c83-7d7b-40cd-9b89-f9adf328f012?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/44/44c028b8-2ff3-4fc0-b5bd-f1e10c2c8be1?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/38/382cbabb-115d-46b7-b7cf-897024d4b88e?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/0e/0e55ecee-ce7a-440d-a817-0c1b3b882628?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/70/704af789-d2db-457b-91e2-440a5b8cf420?rule=mo-1024.jpg"
-      ],
-      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-eat8-max-pdach-ahk-nav-recklinghausen/40787046422944.html?source=api",
-      "vehicleClass": "Car",
-      "make": "Citroën",
-      "model": "Berlingo",
-      "modelDescription": "Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
-      "mileage": 5500,
-      "fuel": "DIESEL",
-      "gearbox": "AUTOMATIC_GEAR",
-      "driveType": "FRONT",
-      "firstRegistration": "202608",
-      "category": "Van",
-      "condition": "USED",
-      "power": 96,
-      "description": "Citroen Berlingo M HDi130 EAT8 Max -  - Der aktuelle Citroën Berlingo verbindet großzügigen Platz, hohen Komfort und moderne Ausstattung. Mit seinem kraftvollen und effizienten Dieselmotor ist er ideal für Familie, Freizeit und Gewerbe. Der variable Innenraum, die erhöhte Sitzposition und zahlreiche praktische Ablagen machen ihn zum vielseitigen Begleiter für Alltag, Transport und längere Fahrten. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  - Kurzüerblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en ab Werk: ( Niveau \"Max\") -  - Außenspiegelgehäuse in Schwarz lackiert, Dachreling, Heckscheibe separat zu öffnen und stärker getönt, Kindersicherung elektrisch, Manuelle Schiebetüre rechts und links mit absenkbaren Seitenfenster in den Schiebetüren, Türgriffe außen in Schwarz lackiert, Elektrische Parkbremse, Frontairbag für Fahrer− und Beifahrer, Kopfairbags vorne und hinten / Seitenairbag vorne, Spurassistent , Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen, ECO-LED-Scheinwerfer, Sicht−Paket (beinhaltet: Lichtsensor, Regensensor, Dachablage, Magic Wash Frontscheibenwischer mit integrierten Wischerdüsen), Berganfahrassistent, Einparkhilfe hinten akustisch mit Rückfahrkamera 180° Rundumsicht, Beheizbares Multifunktions- und Lederlenkrad, MyCitroën Play Plus: (beinhaltet: 10“- HD Touchscreen, Digitaler Radioempfang DAB & DAB+, kabellos oder per Kabel Android Auto™ und Apple CarPlay™, Bluetooth®-Freisprecheinrichtung, USB Type C (aufladbar/Datenübertragung) + USB Type C (aufladbar)), Elektrische Fensterheber vorn und hinten, Klimaautomatik (2-Zonen), Fahrersitz in der Höhe verstellbar mit Armlehne und manuellen Lendenwirbelstütze, Beifahrersitz umklappbar mit Armlehnen, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Reifendruckkontrollsystem, ....und vieles, vieles mehr! -  -  - Sonderausstattung(en) ab Werk: -  - Vorrüstung für Anhängerkupplung , Techno Paket Plus (beinhaltet: Keyless-System, Grip Control und Bergabfahrassistent, Induktive Ladestation, 3D-Navigationssystem), Winter Paket (beinhaltet: Sitzheizung vorne und Beheizbare Windschutzscheibe), Holiday Paket (beinhaltet: Multifunktionsdach Modutop® inkl. Dachablage, Glasdach, Kofferraumbeleuchtung, Ambientebeleuchtung, Innenspiegel elektrochrom, Mittelkonsole mit Ablagefach zwischen Fahrer und BeifahrerInkl. Klima-/Beluftungsausgang für die Reihe 2 und einem zusätzlichen USB Anschluss (aufladbar), sowie Steckdose 230-Volt-Anschluss), XTR-Paket: (beinhaltet: Citroën Advanced Comfort Sitze mit Sitzbezug \"Chine-Blue\", Unterbodenstoßfänger vorne und hinten in Aluminium-Grau lackiert, XTR-Logo, Ambiente \"XTR\", Farb-Paket Rot (Airbump® und Nebelscheinwerfer mit rotem Dekorstreifen), 17-Zoll-Leichtmetallfelgen \"Topaz\"), Automatischer Geschwindigkeitsregler ACC mit STOP & GO-Funktion -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 2525 der Modellcode: ADX. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!,",
-      "details": [
-        {
-          "label": "Erstzulassung",
-          "value": "08/2026"
-        },
-        {
-          "label": "Kilometerstand",
-          "value": "5.500 km"
-        },
-        {
-          "label": "Leistung",
-          "value": "96 kW"
-        },
-        {
-          "label": "Getriebe",
-          "value": "Automatik"
-        },
-        {
-          "label": "Kraftstoff",
-          "value": "Diesel"
-        },
-        {
-          "label": "Antrieb",
-          "value": "Frontantrieb"
-        },
-        {
-          "label": "Fahrzeugklasse",
-          "value": "Van"
-        },
-        {
-          "label": "Zustand",
-          "value": "Gebrauchtfahrzeug"
-        },
-        {
-          "label": "Hubraum",
-          "value": 1499
-        },
-        {
-          "label": "Türen",
-          "value": "4/5"
-        },
-        {
-          "label": "Sitzplätze",
-          "value": 5
-        },
-        {
-          "label": "Außenfarbe",
-          "value": "Grün"
-        },
-        {
-          "label": "Schadstoffklasse",
-          "value": "Euro 6E"
-        }
-      ],
-      "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-ahk-nav-40787046422944/"
-    },
-    {
       "id": "40805707469152",
       "title": "Subaru Forester 2.0ie Lineartronic Comfort",
       "price": "24.990 €",
@@ -608,105 +407,6 @@
         }
       ],
       "detailPath": "angebote/forester-forester-2-0ie-lineartronic-comfort-40805707469152/"
-    },
-    {
-      "id": "40930172025536",
-      "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
-      "price": "34.330 €",
-      "priceAmount": 34330.0,
-      "image": "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1024.jpg",
-      "images": [
-        "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/d5/d55a9bda-b619-4278-a91e-1f71c2fdb8e4?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/5d/5d473aca-d7a4-4059-908b-bd25ed25d020?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/0d/0d16c1ad-af35-444b-b8b9-3917dfaf0564?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/6a/6a06f7c9-b3ea-430d-9f25-e649a7f38f6e?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/f2/f2f0bf59-4488-44a9-a5d5-f1b69a9d71d6?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/57/577c2329-8d62-42cc-9193-1fc279605839?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/f3/f3f7b604-bb2d-4a15-878f-2e76b93ead4c?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/90/903c944d-5d57-43fe-be34-b7ae4882d1e7?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/35/35367c59-19c1-481f-b46e-3d9a5585610a?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/c0/c0a4b7b4-7a28-46b9-a49d-f372d431e3ab?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/a6/a61ff7d6-be18-4a3f-bee5-62c5736806de?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/b3/b3658195-acc6-4a43-80eb-0fe9f342786d?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/f2/f2ccdac2-465a-4aef-9b1f-2081356ea1df?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/19/1936fa3c-98ba-4a76-acfc-dda7a525a13c?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/40/404bcadf-7d86-455d-81dc-d69a8918699e?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/0d/0d29e611-8b91-4247-8106-4c8906464de8?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/6e/6e98d795-a083-41d2-a63e-7ab4f79319ae?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/47/475dad03-2d5f-446d-bcbe-bcb6bb36fa3c?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/82/82cc9d97-7e9f-4125-a730-4a80bb664b28?rule=mo-1024.jpg",
-        "https://img.classistatic.de/api/v1/mo-prod/images/61/61713df7-b457-4496-9fa6-1e8f3a23ff8b?rule=mo-1024.jpg"
-      ],
-      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-eat8-max-pdach-ahk-nav-recklinghausen/40930172025536.html?source=api",
-      "vehicleClass": "Car",
-      "make": "Citroën",
-      "model": "Berlingo",
-      "modelDescription": "Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
-      "mileage": 5500,
-      "fuel": "DIESEL",
-      "gearbox": "AUTOMATIC_GEAR",
-      "driveType": "FRONT",
-      "firstRegistration": "202608",
-      "category": "Van",
-      "condition": "USED",
-      "power": 96,
-      "description": "Citroen Berlingo M HDI130 EAT8 Max -  - Der aktuelle Citroën Berlingo verbindet großzügigen Platz, hohen Komfort und moderne Ausstattung. Mit seinem kraftvollen und effizienten Dieselmotor ist er ideal für Familie, Freizeit und Gewerbe. Der variable Innenraum, die erhöhte Sitzposition und zahlreiche praktische Ablagen machen ihn zum vielseitigen Begleiter für Alltag, Transport und längere Fahrten. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  - Kurzüerblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en ab Werk: ( Niveau \"Max\") -  - Außenspiegelgehäuse in Schwarz lackiert, Dachreling, Heckscheibe separat zu öffnen und stärker getönt, Kindersicherung elektrisch, Manuelle Schiebetüre rechts und links mit absenkbaren Seitenfenster in den Schiebetüren, Türgriffe außen in Schwarz lackiert, Elektrische Parkbremse, Frontairbag für Fahrer− und Beifahrer, Kopfairbags vorne und hinten / Seitenairbag vorne, Spurassistent , Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen, ECO-LED-Scheinwerfer, Sicht−Paket (beinhaltet: Lichtsensor, Regensensor, Dachablage, Magic Wash Frontscheibenwischer mit integrierten Wischerdüsen), Berganfahrassistent, Einparkhilfe hinten akustisch mit Rückfahrkamera 180° Rundumsicht, Beheizbares Multifunktions- und Lederlenkrad, MyCitroën Play Plus: (beinhaltet: 10“- HD Touchscreen, Digitaler Radioempfang DAB & DAB+, kabellos oder per Kabel Android Auto™ und Apple CarPlay™, Bluetooth®-Freisprecheinrichtung, USB Type C (aufladbar/Datenübertragung) + USB Type C (aufladbar)), Elektrische Fensterheber vorn und hinten, Klimaautomatik (2-Zonen), Fahrersitz in der Höhe verstellbar mit Armlehne und manuellen Lendenwirbelstütze, Beifahrersitz umklappbar mit Armlehnen, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Reifendruckkontrollsystem, ....und vieles, vieles mehr! -  -  - Sonderausstattung(en) ab Werk: -  - Vorrüstung für Anhängerkupplung , Techno Paket Plus (beinhaltet: Keyless-System, Grip Control und Bergabfahrassistent, Induktive Ladestation, 3D-Navigationssystem), Winter Paket (beinhaltet: Sitzheizung vorne und Beheizbare Windschutzscheibe), Holiday Paket (beinhaltet: Multifunktionsdach Modutop® inkl. Dachablage, Glasdach, Kofferraumbeleuchtung, Ambientebeleuchtung, Innenspiegel elektrochrom, Mittelkonsole mit Ablagefach zwischen Fahrer und BeifahrerInkl. Klima-/Beluftungsausgang für die Reihe 2 und einem zusätzlichen USB Anschluss (aufladbar), sowie Steckdose 230-Volt-Anschluss), XTR-Paket: (beinhaltet: Citroën Advanced Comfort Sitze mit Sitzbezug \"Chine-Blue\", Unterbodenstoßfänger vorne und hinten in Aluminium-Grau lackiert, XTR-Logo, Ambiente \"XTR\", Farb-Paket Rot (Airbump® und Nebelscheinwerfer mit rotem Dekorstreifen), 17-Zoll-Leichtmetallfelgen \"Topaz\"), Automatischer Geschwindigkeitsregler ACC mit STOP & GO-Funktion -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 2525 der Modellcode: ADX. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!,",
-      "details": [
-        {
-          "label": "Erstzulassung",
-          "value": "08/2026"
-        },
-        {
-          "label": "Kilometerstand",
-          "value": "5.500 km"
-        },
-        {
-          "label": "Leistung",
-          "value": "96 kW"
-        },
-        {
-          "label": "Getriebe",
-          "value": "Automatik"
-        },
-        {
-          "label": "Kraftstoff",
-          "value": "Diesel"
-        },
-        {
-          "label": "Antrieb",
-          "value": "Frontantrieb"
-        },
-        {
-          "label": "Fahrzeugklasse",
-          "value": "Van"
-        },
-        {
-          "label": "Zustand",
-          "value": "Gebrauchtfahrzeug"
-        },
-        {
-          "label": "Hubraum",
-          "value": 1499
-        },
-        {
-          "label": "Türen",
-          "value": "4/5"
-        },
-        {
-          "label": "Sitzplätze",
-          "value": 5
-        },
-        {
-          "label": "Außenfarbe",
-          "value": "Blau"
-        },
-        {
-          "label": "Schadstoffklasse",
-          "value": "Euro 6E"
-        }
-      ],
-      "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-ahk-nav-40930172025536/"
     },
     {
       "id": "40971382007136",
@@ -2929,7 +2629,7 @@
     },
     {
       "id": "55477956003552",
-      "title": "Vw T-Cross 1.0 TSI OPF 81 kW DSG MOVE",
+      "title": "Vw T-Cross 1.0 TSI DSG MOVE | LED - NAV - ACC",
       "price": "20.470 €",
       "priceAmount": 20470.0,
       "image": "https://img.classistatic.de/api/v1/mo-prod/images/4e/4e161af0-7a46-45c6-9c10-6b17bcc2aae1?rule=mo-1024.jpg",
@@ -2951,11 +2651,11 @@
         "https://img.classistatic.de/api/v1/mo-prod/images/ae/ae584244-defa-4227-aaa0-29f911826091?rule=mo-1024.jpg",
         "https://img.classistatic.de/api/v1/mo-prod/images/7d/7d53b02f-579c-4823-8577-1f3487b389ea?rule=mo-1024.jpg"
       ],
-      "url": "https://suchen.mobile.de/auto-inserat/vw-t-cross-1-0-tsi-opf-81-kw-dsg-move-recklinghausen/55477956003552.html?source=api",
+      "url": "https://suchen.mobile.de/auto-inserat/vw-t-cross-1-0-tsi-dsg-move-led-nav-acc-recklinghausen/55477956003552.html?source=api",
       "vehicleClass": "Car",
       "make": "Vw",
       "model": "T-Cross",
-      "modelDescription": "T-Cross 1.0 TSI OPF 81 kW DSG MOVE",
+      "modelDescription": "T-Cross 1.0 TSI DSG MOVE | LED - NAV - ACC",
       "mileage": 16800,
       "fuel": "PETROL",
       "gearbox": "AUTOMATIC_GEAR",
@@ -3019,7 +2719,307 @@
           "value": "Euro 6D"
         }
       ],
-      "detailPath": "angebote/t-cross-t-cross-1-0-tsi-opf-81-kw-dsg-move-55477956003552/"
+      "detailPath": "angebote/t-cross-t-cross-1-0-tsi-dsg-move-led-nav-acc-55477956003552/"
+    },
+    {
+      "id": "55659259370272",
+      "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
+      "price": "31.770 €",
+      "priceAmount": 31770.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/13/13eceb40-52f6-485e-bd6c-1ecd461901c7?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/13/13eceb40-52f6-485e-bd6c-1ecd461901c7?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/a2/a2889291-2390-420d-a5a3-5a4f5e6cc1e4?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/e0/e008eaf9-8f38-402d-b60e-610c566ad668?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/8f/8f74e5a6-e9b0-4a72-a653-002f9558273e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/23/2378a35d-7c0e-4ba0-adcb-2a7680c4a5fb?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/85/85fe7019-6591-45ae-a0d7-74c33ea2b558?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c5/c5c288f9-77b6-4e1b-a2f8-4389317a9b16?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c5/c5692b27-f3a4-4637-bea5-7629ce31cc85?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/32/325156bc-05ba-4367-9d6a-d297a6af85b6?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/17/17b53cd4-12e4-4c79-86c0-a33138b5ea96?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/9f/9f5b712a-d0e7-4be2-a783-bcd7fa2dfcab?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/77/77690ca3-3cc6-441b-88c3-67c5597691fa?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/1a/1a91c1a0-1565-4232-9697-83e900b2e6f4?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/99/99604b95-e0e0-412e-8521-7aca72edcbe5?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/7f/7f62f2e7-0b50-4c88-a771-3a15619fd7b2?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/db/db91aeda-e701-4595-b262-85a319174f9c?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/9c/9cf19621-0acd-444c-92f0-fe848f3156cf?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c9/c9996454-7140-4ddb-b13c-1e139c2b9cbf?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/a9/a9978c83-7d7b-40cd-9b89-f9adf328f012?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/44/44c028b8-2ff3-4fc0-b5bd-f1e10c2c8be1?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/38/382cbabb-115d-46b7-b7cf-897024d4b88e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/0e/0e55ecee-ce7a-440d-a817-0c1b3b882628?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/70/704af789-d2db-457b-91e2-440a5b8cf420?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-eat8-max-pdach-ahk-nav-recklinghausen/55659259370272.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Citroën",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
+      "mileage": 5500,
+      "fuel": "DIESEL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202608",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "Citroen Berlingo M HDi130 EAT8 Max -  - Der aktuelle Citroën Berlingo verbindet großzügigen Platz, hohen Komfort und moderne Ausstattung. Mit seinem kraftvollen und effizienten Dieselmotor ist er ideal für Familie, Freizeit und Gewerbe. Der variable Innenraum, die erhöhte Sitzposition und zahlreiche praktische Ablagen machen ihn zum vielseitigen Begleiter für Alltag, Transport und längere Fahrten. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  - Kurzüerblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en ab Werk: ( Niveau \"Max\") -  - Außenspiegelgehäuse in Schwarz lackiert, Dachreling, Heckscheibe separat zu öffnen und stärker getönt, Kindersicherung elektrisch, Manuelle Schiebetüre rechts und links mit absenkbaren Seitenfenster in den Schiebetüren, Türgriffe außen in Schwarz lackiert, Elektrische Parkbremse, Frontairbag für Fahrer− und Beifahrer, Kopfairbags vorne und hinten / Seitenairbag vorne, Spurassistent , Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen, ECO-LED-Scheinwerfer, Sicht−Paket (beinhaltet: Lichtsensor, Regensensor, Dachablage, Magic Wash Frontscheibenwischer mit integrierten Wischerdüsen), Berganfahrassistent, Einparkhilfe hinten akustisch mit Rückfahrkamera 180° Rundumsicht, Beheizbares Multifunktions- und Lederlenkrad, MyCitroën Play Plus: (beinhaltet: 10“- HD Touchscreen, Digitaler Radioempfang DAB & DAB+, kabellos oder per Kabel Android Auto™ und Apple CarPlay™, Bluetooth®-Freisprecheinrichtung, USB Type C (aufladbar/Datenübertragung) + USB Type C (aufladbar)), Elektrische Fensterheber vorn und hinten, Klimaautomatik (2-Zonen), Fahrersitz in der Höhe verstellbar mit Armlehne und manuellen Lendenwirbelstütze, Beifahrersitz umklappbar mit Armlehnen, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Reifendruckkontrollsystem, ....und vieles, vieles mehr! -  -  - Sonderausstattung(en) ab Werk: -  - Vorrüstung für Anhängerkupplung , Techno Paket Plus (beinhaltet: Keyless-System, Grip Control und Bergabfahrassistent, Induktive Ladestation, 3D-Navigationssystem), Winter Paket (beinhaltet: Sitzheizung vorne und Beheizbare Windschutzscheibe), Holiday Paket (beinhaltet: Multifunktionsdach Modutop® inkl. Dachablage, Glasdach, Kofferraumbeleuchtung, Ambientebeleuchtung, Innenspiegel elektrochrom, Mittelkonsole mit Ablagefach zwischen Fahrer und BeifahrerInkl. Klima-/Beluftungsausgang für die Reihe 2 und einem zusätzlichen USB Anschluss (aufladbar), sowie Steckdose 230-Volt-Anschluss), XTR-Paket: (beinhaltet: Citroën Advanced Comfort Sitze mit Sitzbezug \"Chine-Blue\", Unterbodenstoßfänger vorne und hinten in Aluminium-Grau lackiert, XTR-Logo, Ambiente \"XTR\", Farb-Paket Rot (Airbump® und Nebelscheinwerfer mit rotem Dekorstreifen), 17-Zoll-Leichtmetallfelgen \"Topaz\"), Automatischer Geschwindigkeitsregler ACC mit STOP & GO-Funktion -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 2525 der Modellcode: ADX. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!,",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Automatik"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Diesel"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Frontantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Grün"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6E"
+        }
+      ],
+      "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-ahk-nav-55659259370272/"
+    },
+    {
+      "id": "55660025029728",
+      "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
+      "price": "31.770 €",
+      "priceAmount": 31770.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/83/8320177d-2eba-4ae5-b3c7-87a0f05427f0?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/d5/d55a9bda-b619-4278-a91e-1f71c2fdb8e4?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/5d/5d473aca-d7a4-4059-908b-bd25ed25d020?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/0d/0d16c1ad-af35-444b-b8b9-3917dfaf0564?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/6a/6a06f7c9-b3ea-430d-9f25-e649a7f38f6e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/f2/f2f0bf59-4488-44a9-a5d5-f1b69a9d71d6?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/57/577c2329-8d62-42cc-9193-1fc279605839?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/f3/f3f7b604-bb2d-4a15-878f-2e76b93ead4c?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/90/903c944d-5d57-43fe-be34-b7ae4882d1e7?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/35/35367c59-19c1-481f-b46e-3d9a5585610a?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c0/c0a4b7b4-7a28-46b9-a49d-f372d431e3ab?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/a6/a61ff7d6-be18-4a3f-bee5-62c5736806de?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/b3/b3658195-acc6-4a43-80eb-0fe9f342786d?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/f2/f2ccdac2-465a-4aef-9b1f-2081356ea1df?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/19/1936fa3c-98ba-4a76-acfc-dda7a525a13c?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/40/404bcadf-7d86-455d-81dc-d69a8918699e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/0d/0d29e611-8b91-4247-8106-4c8906464de8?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/6e/6e98d795-a083-41d2-a63e-7ab4f79319ae?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/47/475dad03-2d5f-446d-bcbe-bcb6bb36fa3c?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/82/82cc9d97-7e9f-4125-a730-4a80bb664b28?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/61/61713df7-b457-4496-9fa6-1e8f3a23ff8b?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-eat8-max-pdach-ahk-nav-recklinghausen/55660025029728.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Citroën",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo M HDI130 EAT8 Max | PDach - AHK - Nav",
+      "mileage": 5500,
+      "fuel": "DIESEL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202608",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "Citroen Berlingo M HDI130 EAT8 Max -  - Der aktuelle Citroën Berlingo verbindet großzügigen Platz, hohen Komfort und moderne Ausstattung. Mit seinem kraftvollen und effizienten Dieselmotor ist er ideal für Familie, Freizeit und Gewerbe. Der variable Innenraum, die erhöhte Sitzposition und zahlreiche praktische Ablagen machen ihn zum vielseitigen Begleiter für Alltag, Transport und längere Fahrten. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  - Kurzüerblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en ab Werk: ( Niveau \"Max\") -  - Außenspiegelgehäuse in Schwarz lackiert, Dachreling, Heckscheibe separat zu öffnen und stärker getönt, Kindersicherung elektrisch, Manuelle Schiebetüre rechts und links mit absenkbaren Seitenfenster in den Schiebetüren, Türgriffe außen in Schwarz lackiert, Elektrische Parkbremse, Frontairbag für Fahrer− und Beifahrer, Kopfairbags vorne und hinten / Seitenairbag vorne, Spurassistent , Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen, ECO-LED-Scheinwerfer, Sicht−Paket (beinhaltet: Lichtsensor, Regensensor, Dachablage, Magic Wash Frontscheibenwischer mit integrierten Wischerdüsen), Berganfahrassistent, Einparkhilfe hinten akustisch mit Rückfahrkamera 180° Rundumsicht, Beheizbares Multifunktions- und Lederlenkrad, MyCitroën Play Plus: (beinhaltet: 10“- HD Touchscreen, Digitaler Radioempfang DAB & DAB+, kabellos oder per Kabel Android Auto™ und Apple CarPlay™, Bluetooth®-Freisprecheinrichtung, USB Type C (aufladbar/Datenübertragung) + USB Type C (aufladbar)), Elektrische Fensterheber vorn und hinten, Klimaautomatik (2-Zonen), Fahrersitz in der Höhe verstellbar mit Armlehne und manuellen Lendenwirbelstütze, Beifahrersitz umklappbar mit Armlehnen, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Reifendruckkontrollsystem, ....und vieles, vieles mehr! -  -  - Sonderausstattung(en) ab Werk: -  - Vorrüstung für Anhängerkupplung , Techno Paket Plus (beinhaltet: Keyless-System, Grip Control und Bergabfahrassistent, Induktive Ladestation, 3D-Navigationssystem), Winter Paket (beinhaltet: Sitzheizung vorne und Beheizbare Windschutzscheibe), Holiday Paket (beinhaltet: Multifunktionsdach Modutop® inkl. Dachablage, Glasdach, Kofferraumbeleuchtung, Ambientebeleuchtung, Innenspiegel elektrochrom, Mittelkonsole mit Ablagefach zwischen Fahrer und BeifahrerInkl. Klima-/Beluftungsausgang für die Reihe 2 und einem zusätzlichen USB Anschluss (aufladbar), sowie Steckdose 230-Volt-Anschluss), XTR-Paket: (beinhaltet: Citroën Advanced Comfort Sitze mit Sitzbezug \"Chine-Blue\", Unterbodenstoßfänger vorne und hinten in Aluminium-Grau lackiert, XTR-Logo, Ambiente \"XTR\", Farb-Paket Rot (Airbump® und Nebelscheinwerfer mit rotem Dekorstreifen), 17-Zoll-Leichtmetallfelgen \"Topaz\"), Automatischer Geschwindigkeitsregler ACC mit STOP & GO-Funktion -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 2525 der Modellcode: ADX. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!,",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Automatik"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Diesel"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Frontantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Blau"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6E"
+        }
+      ],
+      "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-ahk-nav-55660025029728/"
+    },
+    {
+      "id": "55660813464672",
+      "title": "Citroën Berlingo M HDi130 Max | PDach - Navi - AHK",
+      "price": "27.920 €",
+      "priceAmount": 27920.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/2d/2d8c0e38-e2f1-41ab-a483-30e0920af88f?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/72/722a5c2b-ffc5-4dae-abf9-cb95845df99a?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/3a/3ab7306e-3563-4f32-a52f-0febb42a4e2e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c4/c40228e7-e177-4e55-a305-d79eac268a68?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/ef/ef8156f0-0868-4ae3-a59e-9c89db2e22ac?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/1f/1f00938d-0bb4-44a8-a68f-216f150bdd35?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c3/c390c8c9-b462-444c-aa3f-e699348aefd9?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/8e/8e516a90-afdf-4a3b-afa8-696d09338311?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/80/80212b31-f228-4764-91b7-4514164cc235?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/4b/4bc9a9bb-dfb6-4059-a93e-373f58ea882c?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/22/2266196c-6828-4470-9666-a8cfe071e510?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/6c/6c75d5b4-ad71-4458-91c0-44ab8c4e6aa5?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/b1/b17cbf49-e9c7-4649-9a95-5fbec9886e8a?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/59/590dfd93-a192-4a85-b3f3-cbb1e270f56b?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/e7/e764168f-6c48-4c99-8235-0574b70ead58?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/ac/acc56be2-25f2-4131-a2c6-d7c4684ba3ee?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/37/376449c1-1ee6-4f97-ac83-d9cbf3def199?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/a9/a9a985c7-3f9c-45cf-8e5d-de687a09b310?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/3b/3baff1c1-e155-475a-a3b7-394ac655697a?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/05/057c5adb-0765-464e-aa62-be42c3449ad1?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/70/70c34c22-652d-4a4b-baff-8a008af08133?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/71/715fa34c-eb97-4fe8-9d84-c7ad78557d05?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-m-hdi130-max-pdach-navi-ahk-recklinghausen/55660813464672.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Citroën",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo M HDi130 Max | PDach - Navi - AHK",
+      "mileage": 5500,
+      "fuel": "DIESEL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202608",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "Citroen Eerlingo M Dhi130 Max -  - Der aktuelle Citroën Berlingo verbindet großzügigen Platz, hohen Komfort und moderne Ausstattung. Mit seinem kraftvollen und effizienten Dieselmotor ist er ideal für Familie, Freizeit und Gewerbe. Der variable Innenraum, die erhöhte Sitzposition und zahlreiche praktische Ablagen machen ihn zum vielseitigen Begleiter für Alltag, Transport und längere Fahrten. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  - Kurzüerblick über Serien- und Sonderausstattungen ab Werk -  - Serienausstattung(en ab Werk: ( Niveau \"Max\") -  - Außenspiegelgehäuse in Schwarz lackiert, Dachreling, Heckscheibe separat zu öffnen und stärker getönt, Kindersicherung elektrisch, Manuelle Schiebetüre rechts und links mit absenkbaren Seitenfenster in den Schiebetüren, Türgriffe außen in Schwarz lackiert, Elektrische Parkbremse, Frontairbag für Fahrer− und Beifahrer, Kopfairbags vorne und hinten / Seitenairbag vorne, Spurassistent , Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen, ECO-LED-Scheinwerfer, Sicht−Paket (beinhaltet: Lichtsensor, Regensensor, Dachablage, Magic Wash Frontscheibenwischer mit integrierten Wischerdüsen), Berganfahrassistent, Einparkhilfe hinten akustisch mit Rückfahrkamera 180° Rundumsicht, Beheizbares Multifunktions- und Lederlenkrad, MyCitroën Play Plus: (beinhaltet: 10“- HD Touchscreen, Digitaler Radioempfang DAB & DAB+, kabellos oder per Kabel Android Auto™ und Apple CarPlay™, Bluetooth®-Freisprecheinrichtung, USB Type C (aufladbar/Datenübertragung) + USB Type C (aufladbar)), Elektrische Fensterheber vorn und hinten, Klimaautomatik (2-Zonen), Fahrersitz in der Höhe verstellbar mit Armlehne und manuellen Lendenwirbelstütze, Beifahrersitz umklappbar mit Armlehnen, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Reifendruckkontrollsystem, ....und vieles, vieles mehr! -  -  - Sonderausstattung(en) ab Werk: -  - Vorrüstung für Anhängerkupplung , Techno Paket Plus (beinhaltet: Keyless-System, Grip Control und Bergabfahrassistent, Induktive Ladestation, 3D-Navigationssystem), Winter Paket (beinhaltet: Sitzheizung vorne und Beheizbare Windschutzscheibe), Holiday Paket (beinhaltet: Multifunktionsdach Modutop® inkl. Dachablage, Glasdach, Kofferraumbeleuchtung, Ambientebeleuchtung, Innenspiegel elektrochrom, Mittelkonsole mit Ablagefach zwischen Fahrer und BeifahrerInkl. Klima-/Beluftungsausgang für die Reihe 2 und einem zusätzlichen USB Anschluss (aufladbar), sowie Steckdose 230-Volt-Anschluss), XTR-Paket: (beinhaltet: Citroën Advanced Comfort Sitze mit Sitzbezug \"Chine-Blue\", Unterbodenstoßfänger vorne und hinten in Aluminium-Grau lackiert, XTR-Logo, Ambiente \"XTR\", Farb-Paket Rot (Airbump® und Nebelscheinwerfer mit rotem Dekorstreifen), 17-Zoll-Leichtmetallfelgen \"Topaz\") -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 2525 der Modellcode: ADX. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "5.500 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Schaltgetriebe"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Diesel"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Frontantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1499
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Weiß"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6E"
+        }
+      ],
+      "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-navi-ahk-55660813464672/"
     }
   ]
 }
