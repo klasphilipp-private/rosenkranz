@@ -37,7 +37,7 @@ jobs:
           import stat
           import subprocess
           import tempfile
-          from pathlib import Path, PurePosixPath
+          from pathlib import Path
 
           import paramiko
 
@@ -105,7 +105,7 @@ jobs:
 
                   directories = sorted({parent.as_posix() for path in files for parent in path.parents} - {"."})
                   for directory in directories:
-                      remote = str(PurePosixPath(target, directory))
+                      remote = directory
                       try:
                           attributes = sftp.lstat(remote)
                       except OSError as error:
@@ -117,7 +117,7 @@ jobs:
                           raise SystemExit(f"Expected directory: {directory}")
 
                   for path in files:
-                      remote = str(PurePosixPath(target, path.as_posix()))
+                      remote = path.as_posix()
                       try:
                           attributes = sftp.lstat(remote)
                       except OSError as error:
@@ -128,7 +128,7 @@ jobs:
                               raise SystemExit(f"Expected regular file: {path}")
                       sftp.put(str(path), remote, confirm=True)
                       print(f"Uploaded {path}", flush=True)
-                  with sftp.open(target + "/index.html", "rb") as entry:
+                  with sftp.open("index.html", "rb") as entry:
                       if entry.read() != Path("index.html").read_bytes():
                           raise SystemExit("Remote index.html differs from source.")
                   print("DEV_TEST upload complete. index.html verified.")
