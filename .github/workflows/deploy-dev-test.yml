@@ -83,13 +83,21 @@ jobs:
               )
               with ssh.open_sftp() as sftp:
                   sftp.get_channel().settimeout(30)
+                  if os.environ["SFTP_USER"] != "u52165621":
+                      raise SystemExit("IONOS_DEV_SFTP_USERNAME does not match the tested DEV account.")
+                  relative_target = target.lstrip("/")
                   try:
-                      target_attributes = sftp.lstat(target)
+                      sftp.chdir(relative_target)
                   except FileNotFoundError:
-                      raise SystemExit(f"DEV_TEST is not visible to this SFTP account: {target}") from None
-                  if not stat.S_ISDIR(target_attributes.st_mode) or sftp.normalize(target) != target:
-                      raise SystemExit("DEV_TEST is not a direct directory at the configured path.")
-                  print(f"Connected. DEV_TEST entries: {len(sftp.listdir(target))}", flush=True)
+                      root_entries = sftp.listdir(".")
+                      visible = "Web-Relaunch-2026" in root_entries
+                      raise SystemExit(
+                          f"DEV_TEST is not reachable from SFTP login directory. "
+                          f"Web-Relaunch-2026 visible at login: {visible}."
+                      ) from None
+                  if sftp.getcwd() != target:
+                      raise SystemExit("SFTP resolved DEV_TEST to an unexpected directory.")
+                  print(f"Connected. DEV_TEST entries: {len(sftp.listdir('.'))}", flush=True)
                   if os.environ["MODE"] == "check":
                       raise SystemExit(0)
                   if os.environ["MODE"] != "upload":
