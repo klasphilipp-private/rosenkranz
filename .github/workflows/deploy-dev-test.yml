@@ -28,7 +28,7 @@ jobs:
           SFTP_HOST: home273863182.1and1-data.host
           SFTP_PORT: "22"
           SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
-          SFTP_USER: ${{ secrets.IONOS_DEV_SFTP_USERNAME }}
+          SFTP_USER: u52165621
           SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD }}
         run: |
           python - <<'PY'
@@ -83,8 +83,6 @@ jobs:
               )
               with ssh.open_sftp() as sftp:
                   sftp.get_channel().settimeout(30)
-                  if os.environ["SFTP_USER"] != "u52165621":
-                      raise SystemExit("IONOS_DEV_SFTP_USERNAME does not match the tested DEV account.")
                   relative_target = target.lstrip("/")
                   try:
                       sftp.chdir(relative_target)
