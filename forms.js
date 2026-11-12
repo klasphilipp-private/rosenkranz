@@ -9,6 +9,21 @@
       return config;
     });
 
+  function setFormStatus(status, message, kind = 'info') {
+    if (!status) return;
+    status.classList.remove('is-success', 'is-error');
+    if (kind === 'success') {
+      status.classList.add('is-success');
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-circle-check';
+      icon.setAttribute('aria-hidden', 'true');
+      status.replaceChildren(icon, document.createTextNode(' ' + message));
+      return;
+    }
+    if (kind === 'error') status.classList.add('is-error');
+    status.textContent = message;
+  }
+
   document.addEventListener('submit', async event => {
     const form = event.target;
     if (!(form instanceof HTMLFormElement) || !form.matches('#contact-form, #test-form')) return;
@@ -22,12 +37,12 @@
     const config = await configRequest;
     const endpoint = String(config.endpoint || '').trim();
     if (!endpoint) {
-      if (status) status.textContent = 'Der Online-Versand ist noch nicht aktiviert. Bitte kontaktieren Sie uns telefonisch unter 02361 / 9149-0.';
+      setFormStatus(status, 'Der Online-Versand ist noch nicht aktiviert. Bitte kontaktieren Sie uns telefonisch unter 02361 / 9149-0.', 'error');
       return;
     }
 
     if (button) { button.disabled = true; button.textContent = 'Wird gesendet …'; }
-    if (status) status.textContent = 'Ihre Anfrage wird sicher übermittelt …';
+    setFormStatus(status, 'Ihre Anfrage wird sicher übermittelt …');
     const values = Object.fromEntries(new FormData(form));
     const payload = {
       type: form.id === 'test-form' ? 'test_drive' : 'contact',
@@ -50,13 +65,12 @@
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || !result.ok) throw new Error(result.message || 'Anfrage konnte nicht gesendet werden.');
-      if (status) {
-        status.textContent = result.customerConfirmationSent === false
-          ? 'Ihre Anfrage ist eingegangen, aber die Bestätigungs-E-Mail konnte nicht gesendet werden. Bitte prüfen Sie Ihre E-Mail-Adresse oder kontaktieren Sie uns telefonisch.'
-          : 'Vielen Dank. Ihre Anfrage ist eingegangen; eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.';
-      }
+      const confirmationMessage = result.customerConfirmationSent === false
+        ? 'Ihre Anfrage ist eingegangen. Die Bestätigungs-E-Mail konnte gerade nicht versendet werden; unser Team kümmert sich um Ihr Anliegen.'
+        : 'Vielen Dank. Ihre Anfrage ist eingegangen; eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.';
+      setFormStatus(status, confirmationMessage, 'success');
     } catch {
-      if (status) status.textContent = 'Der Versand hat gerade nicht funktioniert. Bitte versuchen Sie es später erneut oder rufen Sie uns unter 02361 / 9149-0 an.';
+      setFormStatus(status, 'Der Versand hat gerade nicht funktioniert. Bitte versuchen Sie es später erneut oder rufen Sie uns unter 02361 / 9149-0 an.', 'error');
     } finally {
       if (button) { button.disabled = false; button.textContent = originalLabel; }
     }
