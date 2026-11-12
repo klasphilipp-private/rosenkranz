@@ -16,7 +16,7 @@ fetch(new URL('footer.html?v=20261107-forms', appBase)).then(response => {
   document.querySelector('#shared-footer').replaceChildren(...holder.childNodes);
   if (location.hash === '#kontakt') requestAnimationFrame(() => document.querySelector('#kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   const formClient = document.createElement('script');
-  formClient.src = new URL('forms.js?v=20261107-forms', appBase).href;
+  formClient.src = new URL('forms.js?v=20261112-confirmation-design', appBase).href;
   document.head.append(formClient);
   return fetch(new URL('google-reviews.json?v=latest', appBase), { cache: 'no-store' });
 }).then(response => response?.ok ? response.json() : null).then(data => {
