@@ -60,9 +60,21 @@ export default {
       ["Wunschfahrzeug", vehicle || "Keine Angabe"],
       ["Nachricht", message || "Keine Angabe"]
     ];
-    const rows = fields.map(([label, value]) => "<tr><th align=\"left\" style=\"padding:8px;border-bottom:1px solid #ddd\">" + escapeHtml(label) + "</th><td style=\"padding:8px;border-bottom:1px solid #ddd\">" + escapeHtml(value) + "</td></tr>").join("");
-    const notificationHtml = "<div style=\"font:16px/1.5 Arial,sans-serif;color:#181818\"><h2>Neue " + escapeHtml(inquiryLabel) + "</h2><table style=\"border-collapse:collapse;width:100%\">" + rows + "</table></div>";
-    const notificationText = fields.map(([label, value]) => label + ": " + value).join("\n");
+    const inquiry = {
+      schemaVersion: 1,
+      type,
+      requestType: inquiryLabel,
+      receivedAt: new Date().toISOString(),
+      name,
+      email,
+      phone: phone || "",
+      vehicle: vehicle || "",
+      message
+    };
+    const inquiryJson = JSON.stringify(inquiry, null, 2);
+    const rows = fields.map(([label, value]) => "<tr><th align=\\"left\\" style=\\"padding:8px;border-bottom:1px solid #ddd\\">" + escapeHtml(label) + "</th><td style=\\"padding:8px;border-bottom:1px solid #ddd\\">" + escapeHtml(value) + "</td></tr>").join("");
+    const notificationHtml = "<div style=\\"font:16px/1.5 Arial,sans-serif;color:#181818\\"><h2>Neue " + escapeHtml(inquiryLabel) + "</h2><table style=\\"border-collapse:collapse;width:100%\\">" + rows + "</table><h3>Anfrage als JSON</h3><pre style=\\"white-space:pre-wrap;background:#f4f4f4;padding:12px;border-radius:4px\\">" + escapeHtml(inquiryJson) + "</pre></div>";
+    const notificationText = fields.map(([label, value]) => label + ": " + value).join("\\n") + "\\n\\nAnfrage als JSON:\\n" + inquiryJson;
     const internal = await sendMail(env, {
       from: env.FROM_EMAIL,
       to: [env.INTERNAL_RECIPIENT],
