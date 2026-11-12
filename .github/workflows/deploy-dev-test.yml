@@ -28,8 +28,8 @@ jobs:
           SFTP_HOST: ${{ vars.IONOS_SFTP_HOST || secrets.IONOS_SFTP_HOST }}
           SFTP_PORT: ${{ vars.IONOS_SFTP_PORT || secrets.IONOS_SFTP_PORT || '22' }}
           SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
-          SFTP_USER: ${{ secrets.IONOS_DEV_SFTP_USERNAME || secrets.IONOS_PROD_SFTP_USERNAME }}
-          SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD || secrets.IONOS_PROD_SFTP_PASSWORD }}
+          SFTP_USER: ${{ secrets.IONOS_DEV_SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD }}
         run: |
           python - <<'PY'
           import errno
@@ -54,7 +54,7 @@ jobs:
               path = Path(name)
               if not name or any(part.startswith(".") for part in path.parts):
                   continue
-              if path.parts[0] in {"scripts", "docs", "tests", "deploy"}:
+              if path.parts[0] in {"scripts", "docs", "tests", "deploy", "workers"}:
                   continue
               if path.is_file() and not path.is_symlink() and (
                   path.suffix.lower() in public_types or name in public_data
@@ -83,7 +83,11 @@ jobs:
               )
               with ssh.open_sftp() as sftp:
                   sftp.get_channel().settimeout(30)
-                  if not stat.S_ISDIR(sftp.lstat(target).st_mode) or sftp.normalize(target) != target:
+                  try:
+                      target_attributes = sftp.lstat(target)
+                  except FileNotFoundError:
+                      raise SystemExit(f"DEV_TEST is not visible to this SFTP account: {target}") from None
+                  if not stat.S_ISDIR(target_attributes.st_mode) or sftp.normalize(target) != target:
                       raise SystemExit("DEV_TEST is not a direct directory at the configured path.")
                   print(f"Connected. DEV_TEST entries: {len(sftp.listdir(target))}", flush=True)
                   if os.environ["MODE"] == "check":
