@@ -52,7 +52,7 @@
       if (!response.ok || !result.ok) throw new Error(result.message || 'Anfrage konnte nicht gesendet werden.');
       if (status) {
         status.textContent = result.customerConfirmationSent === false
-          ? 'Ihre Anfrage ist eingegangen. Im Testbetrieb wird keine Bestätigungs-E-Mail an Kunden versendet.'
+          ? 'Ihre Anfrage ist eingegangen, aber die Bestätigungs-E-Mail konnte nicht gesendet werden. Bitte prüfen Sie Ihre E-Mail-Adresse oder kontaktieren Sie uns telefonisch.'
           : 'Vielen Dank. Ihre Anfrage ist eingegangen; eine Bestätigung wurde an Ihre E-Mail-Adresse gesendet.';
       }
     } catch {
