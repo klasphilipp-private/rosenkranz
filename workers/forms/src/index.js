@@ -87,10 +87,85 @@ export default {
 
     let customerConfirmationSent = false;
     if (String(env.CUSTOMER_CONFIRMATION || "").toLowerCase() === "true") {
-      const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage zu " + vehicle : "Ihre Nachricht";
-      const customerHtml = "<div style=\"font:16px/1.6 Arial,sans-serif;color:#181818\"><p>Guten Tag " + escapeHtml(name) + ",</p><p>vielen Dank für " + escapeHtml(requestDescription) + ". Wir haben Ihre Anfrage erhalten und melden uns schnellstmöglich bei Ihnen zurück.</p><p>Freundliche Grüße<br>Automobile Rosenkranz GmbH</p></div>";
-      const customerText = "Guten Tag " + name + ",\n\nvielen Dank für " + requestDescription + ". Wir haben Ihre Anfrage erhalten und melden uns schnellstmöglich bei Ihnen zurück.\n\nFreundliche Grüße\nAutomobile Rosenkranz GmbH";
-      const confirmation = await sendMail(env, {
+      const requestTypeLabel = type === "test_drive" ? "Probefahrtanfrage" : "Kontaktanfrage";
+      const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : "Ihre Nachricht an Automobile Rosenkranz";
+      const vehicleSummary = type === "test_drive"
+        ? "<tr><td style=\"padding:10px 0;color:#666;border-bottom:1px solid #dedbd7\">Wunschfahrzeug</td><td align=\"right\" style=\"padding:10px 0;color:#151515;font-weight:700;border-bottom:1px solid #dedbd7\">" + escapeHtml(vehicle) + "</td></tr>"
+        : "";
+      const customerHtml = `<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ihre Anfrage bei Automobile Rosenkranz</title>
+  </head>
+  <body style="margin:0;padding:0;background-color:#f2f1ef;font-family:Arial,Helvetica,sans-serif;color:#151515">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0">Ihre Anfrage ist bei Automobile Rosenkranz eingegangen.</div>
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background-color:#f2f1ef">
+      <tr><td align="center" style="padding:32px 14px">
+        <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background-color:#ffffff">
+          <tr>
+            <td style="padding:26px 32px 22px;background-color:#151515;border-bottom:4px solid #c60805">
+              <a href="https://www.automobile-rosenkranz.de/" style="display:inline-block;text-decoration:none">
+                <img src="https://klasphilipp-private.github.io/rosenkranz/assets/logo-header.png" width="220" alt="Automobile Rosenkranz" style="display:block;width:220px;max-width:100%;height:auto;border:0">
+              </a>
+              <p style="margin:12px 0 0;color:#c9c9c9;font-size:11px;line-height:1.4;letter-spacing:2px;text-transform:uppercase">Qualität bewegt seit 1992</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:36px 32px 28px">
+              <p style="margin:0 0 10px;color:#c60805;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase">Eingangsbestätigung</p>
+              <h1 style="margin:0 0 18px;color:#151515;font-size:30px;line-height:1.2;font-weight:700">Vielen Dank, ${escapeHtml(name)}.</h1>
+              <p style="margin:0 0 22px;color:#4d4d4d;font-size:16px;line-height:1.7">${escapeHtml(requestDescription)} ist bei uns eingegangen. Unser Team meldet sich schnellstmöglich persönlich bei Ihnen.</p>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background-color:#f4f3f1;border-left:3px solid #c60805">
+                <tr><td style="padding:15px 18px">
+                  <p style="margin:0 0 10px;color:#c60805;font-size:11px;line-height:1.4;font-weight:700;letter-spacing:1.5px;text-transform:uppercase">Ihre Anfrage</p>
+                  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                    <tr><td style="padding:10px 0;color:#666;border-bottom:1px solid #dedbd7">Anliegen</td><td align="right" style="padding:10px 0;color:#151515;font-weight:700;border-bottom:1px solid #dedbd7">${escapeHtml(requestTypeLabel)}</td></tr>
+                    ${vehicleSummary}
+                  </table>
+                </td></tr>
+              </table>
+              <p style="margin:22px 0 0;color:#4d4d4d;font-size:15px;line-height:1.7">Diese Nachricht bestätigt den Eingang Ihrer Anfrage. Sie müssen nichts weiter unternehmen. Wenn Sie noch etwas ergänzen möchten, erreichen Sie uns telefonisch oder per E-Mail.</p>
+              <p style="margin:24px 0 0;color:#4d4d4d;font-size:15px;line-height:1.7">Freundliche Grüße<br><strong style="color:#151515">Ihr Team von Automobile Rosenkranz</strong></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 32px;background-color:#151515;color:#d2d2d2">
+              <p style="margin:0 0 8px;color:#ffffff;font-size:16px;font-weight:700">Automobile Rosenkranz GmbH</p>
+              <p style="margin:0 0 12px;font-size:14px;line-height:1.65">Holthoffstraße 124<br>45659 Recklinghausen</p>
+              <p style="margin:0 0 8px;font-size:14px;line-height:1.7"><a href="tel:+49236191490" style="color:#ffffff;text-decoration:underline;text-decoration-color:#c60805">02361 / 9149-0</a><br><a href="mailto:info@automobile-rosenkranz.de" style="color:#ffffff;text-decoration:underline;text-decoration-color:#c60805">info@automobile-rosenkranz.de</a></p>
+              <p style="margin:12px 0 0;color:#a9a9a9;font-size:12px;line-height:1.6">Verkauf: Mo–Fr 08:00–18:30 · Sa 09:00–14:00<br>Service: Mo–Fr 08:00–16:45 · Sa 09:00–14:00</p>
+              <p style="margin:18px 0 0;padding-top:14px;border-top:1px solid #393939;color:#929292;font-size:11px;line-height:1.6">Automobile Rosenkranz · Qualität bewegt seit 1992<br><a href="https://klasphilipp-private.github.io/rosenkranz/impressum/" style="color:#d2d2d2;text-decoration:underline">Impressum</a> &nbsp;·&nbsp; <a href="https://klasphilipp-private.github.io/rosenkranz/datenschutz/" style="color:#d2d2d2;text-decoration:underline">Datenschutz</a></p>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>`;
+      const customerText = [
+        "Guten Tag " + name + ",",
+        "",
+        "vielen Dank. " + requestDescription + " ist bei uns eingegangen.",
+        "Unser Team meldet sich schnellstmöglich persönlich bei Ihnen.",
+        "",
+        "Anliegen: " + requestTypeLabel,
+        ...(type === "test_drive" ? ["Wunschfahrzeug: " + vehicle] : []),
+        "",
+        "Freundliche Grüße",
+        "Ihr Team von Automobile Rosenkranz",
+        "",
+        "Automobile Rosenkranz GmbH",
+        "Holthoffstraße 124",
+        "45659 Recklinghausen",
+        "Telefon: 02361 / 9149-0",
+        "E-Mail: info@automobile-rosenkranz.de",
+        "",
+        "Verkauf: Mo–Fr 08:00–18:30 · Sa 09:00–14:00",
+        "Service: Mo–Fr 08:00–16:45 · Sa 09:00–14:00"
+      ].join("\n");
+            const confirmation = await sendMail(env, {
         from: env.FROM_EMAIL,
         to: [email],
         reply_to: env.REPLY_TO_EMAIL || env.INTERNAL_RECIPIENT,
