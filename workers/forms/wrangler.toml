@@ -12,7 +12,7 @@ ALLOWED_ORIGINS = "https://klasphilipp-private.github.io"
 INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
 FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
 REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
-CUSTOMER_CONFIRMATION = "false"
+CUSTOMER_CONFIRMATION = "true"
 
 [env.production]
 name = "rosenkranz-forms-production"
