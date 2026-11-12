@@ -25,9 +25,9 @@ jobs:
       - name: Verify destination or upload website
         env:
           MODE: ${{ inputs.mode }}
-          SFTP_HOST: ${{ vars.IONOS_SFTP_HOST || secrets.IONOS_SFTP_HOST }}
-          SFTP_PORT: ${{ vars.IONOS_SFTP_PORT || secrets.IONOS_SFTP_PORT || '22' }}
-          SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
+          SFTP_HOST: home273863182.1and1-data.host
+          SFTP_PORT: "22"
+          SFTP_KNOWN_HOSTS: ${{ vars.IONOS_DEV_SFTP_KNOWN_HOSTS || secrets.IONOS_DEV_SFTP_KNOWN_HOSTS }}
           SFTP_USER: ${{ secrets.IONOS_DEV_SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.IONOS_DEV_SFTP_PASSWORD }}
         run: |
