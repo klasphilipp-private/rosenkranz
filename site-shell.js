@@ -119,3 +119,51 @@ fetch(new URL('models.json?v=20261105-model-order', shellBase))
     else if (selected) select.value = selected;
   })
   .catch(() => {});
+
+
+// Keep navigation and action arrows as vector icons on mobile, where system fonts
+// can otherwise render arrow characters in emoji style.
+const arrowPaths = {
+  '↗': 'M7 17 17 7M8 7h9v9',
+  '←': 'M17 12H7m0 0 6 6m-6-6 6-6',
+  '‹': 'm15 18-6-6 6-6',
+  '›': 'm9 18 6-6-6-6'
+};
+function replaceArrowGlyphs(root = document.body) {
+  if (!root) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (/[↗←‹›]/u.test(node.nodeValue) && !node.parentElement?.closest('script,style,svg,textarea')) nodes.push(node);
+  }
+  for (const node of nodes) {
+    const fragment = document.createDocumentFragment();
+    const parts = node.nodeValue.split(/([↗←‹›])/u);
+    for (const part of parts) {
+      if (!arrowPaths[part]) {
+        if (part) fragment.append(document.createTextNode(part));
+        continue;
+      }
+      const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      icon.setAttribute('viewBox', '0 0 24 24');
+      icon.setAttribute('width', '1em');
+      icon.setAttribute('height', '1em');
+      icon.setAttribute('aria-hidden', 'true');
+      icon.setAttribute('focusable', 'false');
+      icon.style.cssText = 'display:inline-block;vertical-align:-.12em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round';
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', arrowPaths[part]);
+      icon.append(path);
+      fragment.append(icon);
+    }
+    node.replaceWith(fragment);
+  }
+}
+replaceArrowGlyphs();
+new MutationObserver(records => {
+  for (const record of records) for (const node of record.addedNodes) {
+    if (node.nodeType === Node.TEXT_NODE) replaceArrowGlyphs(node.parentElement);
+    else if (node.nodeType === Node.ELEMENT_NODE && node.tagName !== 'SVG') replaceArrowGlyphs(node);
+  }
+}).observe(document.body, { childList: true, subtree: true });
