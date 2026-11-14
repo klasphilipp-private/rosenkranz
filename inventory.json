@@ -1,9 +1,9 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-14T10:21:29.881780+00:00",
-  "apiTotal": 30,
-  "vehiclesWithImages": 30,
+  "updated": "2026-11-14T17:04:37.872021+00:00",
+  "apiTotal": 31,
+  "vehiclesWithImages": 31,
   "exactDuplicatesRemoved": 0,
   "vehicles": [
     {
@@ -2531,6 +2531,89 @@
         }
       ],
       "detailPath": "angebote/c4-e-c4-feelpack-rcam-tw-sh-nav-headup-49838028642656/"
+    },
+    {
+      "id": "54269980681344",
+      "title": "Citroën Berlingo XL PT130  &quot;Rollstuhl-Umbau&quot;",
+      "price": "37.770 €",
+      "priceAmount": 37770.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/cc/cc6467d8-d780-4e64-ba23-f4939184dc11?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/cc/cc6467d8-d780-4e64-ba23-f4939184dc11?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/b5/b5564ea9-65b3-46a8-962f-a8ebc86808be?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/cb/cb9bb75d-9aa4-4154-a747-5817baa0cca7?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/84/8414f321-afdb-4064-a6e1-361fb2482bc8?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/83/8397a5a8-36cd-488b-8447-13a1fe13107c?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/citroen-berlingo-xl-pt130-eat8-rollstuhl-umbau-recklinghausen/54269980681344.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Citroën",
+      "model": "Berlingo",
+      "modelDescription": "Berlingo XL PT130 EAT8 &quot;Rollstuhl-Umbau&quot;",
+      "mileage": 16700,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "FRONT",
+      "firstRegistration": "202306",
+      "category": "Van",
+      "condition": "USED",
+      "power": 96,
+      "description": "Citroen Berlingo XL-5 FeelPack mit Rollstuhltransport-Umbau -  - Frische Inzahlungnahme! Langversion des vielseitigen Citroen Berlingos mit einem bereits verbauten Rollstuhltransport-Systems. Bei diesem System kann der Laderaum nahezu ohne Einschränkungen vollständig genutzt werden, oder mit Anfahrrampe als Rollstuhltransport (inkl. Fahrer/in) verwendet werden. - Eine seltene Chance ein kurzfristig verfügbares Fahrzeug mit diesem Umbau zu bekommen. - Schauen Sie bei uns vorbei und machen sich selbst ein Bild von diesem Fahrzeug. -  -  - Kurzüberblick über Serien- und Sonderausstattung(en) ab Werk -  - Serienausstattung(en) ab Werk: (Niveau \"FeelPack\") -  -  - Frontairbag für Fahrer- und Beifahrer, Kopfairbags vorne und hinten, Seitenairbag vorne, Außenspiegel elektrisch verstellbar, beheizbar, anklappbar, Berganfahrassistent, Dachreling, Elektrische Fensterheber vorn und hinten, Getriebe: 8-Stufen-Automatik EAT8, Seitenscheibe in Reihe 2 und 3 stärker getönt und Heckscheibe separat zu öffnen stärker getönt, Innenspiegel elektrisch abblendbend, Kindersicherung elektrisch, Multifunktions- und Lederlenkrad, Sicherheits-Paket-Plus (Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen und -empfehlung, Fernlichtassistent, Aufmerksamkeitssystem), Parkbremse, elektrisch, Audio-System mit 20-cm/8\"-Touchscreen, Bluetooth, Mirror-Screen Apple CarPlay und Android Auto, DAB und USB-Anschluss, Reifendruckkontrollsystem, 3 Einzelsitze in Reihe 2 mit Isofix umklappbar, Beifahrersitz umklappbar mit Armlehnen, Fahrersitz in der Höhe verstellbar mit Armlehne und manueller Lendenwirbelstütze, Manuelle Schiebetüre re. und li. mit absenkbaren Seitenfenster in den Schiebetüren, Türentriegelung automatisch im Falle eines Unfalls, .... und vieles, vieles mehr ! -  -  - Sonderausstattung(en) ab Werk:  -  - Klimautomatik (2-Zonen), City-Paket 2 (Einparkhilfe hinten und vorne akustisch mit Rückfahrkamera 180°, Toter-Winkel-Assistent), Drive-Assist-Paket (Verkehrszeichenerkennung für Geschwindigkeitsbegrenzungen und -empfehlung, Fernlichtassistent, Aufmerksamkeitssystem, Aktiver Geschwindigkeitsregler und -begrenzer mit Bremsfunktion), Kinder-Paket (Sonnenrollos in der zweiten Sitzreihe, Kinderspiegel), Sitzheizung für die vorderen Sitze -  -  -  - Rollstuhltransport-Umbau API FlexiRamp - manuell umlegbare Rollstuhlrampe (Tragkraft: max. 300kg), 4-Punkt-Rollstuhlrückhaltesystem -  - Abmessungen: - Rampenbreite 780 mm - Einfahrhöhe 1425 mm - Ausschnittbreite 815 mm - Ausschnittlänge 1340 mm - Rampenwinkel 13° -  -  -  - Neugierig geworden? Besuchen Sie uns! -  - Ihr Ansprechpartner im Hause: Herr Ansgar Hinken (Tel: 02361-914952) -  - Auf Wunsch Leasing oder Finanzierung möglich, selbstverständlich auch mit Inzahlungnahme bzw. Kreditablösung. -  - Informieren Sie sich was dieser Wagen in der KFZ-Versicherung kostet. Die Herstellernummer lautet: 1889 der Modellcode: ABS. - Gern können auch wir Ihnen ein passendes Versicherungsangebot unterbreiten. Ein Vergleichsangebot kann nie schaden! -  - Die im Inserat angegebenen Informationen basieren auf der Abfrage der FIN Daten Serien- und Sonderausstattung über das DAT System und wurden weder vom Verkäufer noch durch Dritte geprüft. In Einzelfällen kann es zu Daten- und Übertragungsfehlern kommen. Bitte überprüfen Sie die Angaben Informationen gesondert vor Ort am Fahrzeug. Die Informationen im Inserat dienen lediglich der allgemeinen Identifizierung des Fahrzeuges und stellen keine Gewährleistung im kaufrechtlichen Sinne dar. Eingabe-Übertragungsfehler Zwischenverkauf und Irrtümer sowie Änderungen vorbehalten. -  - Rufen Sie uns an oder schauen vorbei, wir beraten Sie gern! Ständig über 100 Fahrzeuge zur Auswahl, überzeugen Sie sich selbst. -  - Unser Team freut sich auf Ihren Besuch!, - ",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "06/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "16.700 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "96 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Automatik"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Benzin"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Frontantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "Van"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1199
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "BEIGE"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6D"
+        }
+      ],
+      "detailPath": "angebote/berlingo-berlingo-xl-pt130-quot-rollstuhl-umbau-quot-54269980681344/"
     },
     {
       "id": "55659259370272",
