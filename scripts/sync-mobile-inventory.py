@@ -123,6 +123,62 @@ def display_value(key, value):
     return value
 
 
+def energy_details(ad):
+    """Prepare the available WLTP fields without inventing missing values or units."""
+    def nested(*path):
+        value = ad
+        for key in path:
+            if not isinstance(value, dict):
+                return None
+            value = value.get(key)
+        return value
+
+    def number(*values):
+        for value in values:
+            if isinstance(value, bool) or value is None:
+                continue
+            raw = str(value).strip()
+            if re.fullmatch(r'\d+(?:[.,]\d+)?', raw):
+                return raw.replace('.', ',')
+        return None
+
+    def add(label, value, unit=''):
+        if value is not None:
+            result.append({'label': label, 'value': f'{value}{(" " + unit) if unit else ""}'})
+
+    fuel = str(ad.get('fuel') or '').upper()
+    fuel_unit = 'kg/100 km' if fuel in {'CNG', 'LNG'} else 'l/100 km' if fuel in {
+        'PETROL', 'DIESEL', 'HYBRID', 'HYBRID_DIESEL', 'HYBRID_PETROL', 'LPG', 'ETHANOL'
+    } else None
+    result = []
+    weighted_fuel = number(nested('consumptions', 'weightedCombinedFuel'), nested('wltpValues', 'consumptionFuelCombinedWeighted'))
+    weighted_power = number(nested('consumptions', 'weightedCombinedPower'), nested('wltpValues', 'consumptionPowerCombinedWeighted'))
+    weighted = weighted_fuel is not None or weighted_power is not None or number(nested('wltpValues', 'co2EmissionCombinedWeighted')) is not None
+    if weighted:
+        if fuel_unit:
+            add('Kraftstoffverbrauch gewichtet kombiniert', weighted_fuel, fuel_unit)
+        add('Stromverbrauch gewichtet kombiniert', weighted_power, 'kWh/100 km')
+        if fuel_unit:
+            add('Kraftstoffverbrauch bei entladener Batterie', number(nested('consumptions', 'fuel', 'combined')), fuel_unit)
+    else:
+        if fuel_unit:
+            add('Kraftstoffverbrauch kombiniert', number(nested('consumptions', 'fuel', 'combined'), nested('wltpValues', 'consumptionFuelCombined')), fuel_unit)
+        add('Stromverbrauch kombiniert', number(nested('consumptions', 'power', 'combined'), nested('wltpValues', 'consumptionPowerCombined')), 'kWh/100 km')
+    co2 = number(nested('emissions', 'combined', 'co2'), nested('wltpValues', 'co2EmissionCombinedWeighted') if weighted else nested('wltpValues', 'co2EmissionCombined'))
+    add('CO₂-Emissionen gewichtet kombiniert' if weighted else 'CO₂-Emissionen kombiniert', co2, 'g/km')
+    co2_class = nested('emissions', 'combined', 'co2Class')
+    if isinstance(co2_class, str) and co2_class.upper() in set('ABCDEFG') and len(co2_class) == 1:
+        add('CO₂-Klasse gewichtet kombiniert' if weighted else 'CO₂-Klasse', co2_class.upper())
+    if weighted:
+        add('CO₂-Emissionen bei entladener Batterie', number(nested('emissions', 'discharged', 'co2')), 'g/km')
+        discharged_class = nested('emissions', 'discharged', 'co2Class')
+        if isinstance(discharged_class, str) and discharged_class.upper() in set('ABCDEFG') and len(discharged_class) == 1:
+            add('CO₂-Klasse bei entladener Batterie', discharged_class.upper())
+    if fuel in {'ELECTRICITY', 'HYBRID', 'HYBRID_DIESEL', 'HYBRID_PETROL'}:
+        add('Elektrische Reichweite', number(nested('wltpValues', 'electricRange'), ad.get('equivalentAllElectricRange'), ad.get('range')), 'km')
+    return result
+
+
 def detail_page(vehicle):
     esc = lambda value: html.escape(str(value or ""), quote=True)
     images = vehicle["images"]
@@ -132,6 +188,9 @@ def detail_page(vehicle):
     )
     specs = vehicle.get("details", [])
     spec_html = "".join(f'<div><dt>{esc(item["label"])}</dt><dd>{esc(item["value"])}</dd></div>' for item in specs)
+    energy = vehicle.get('energyDetails') or []
+    energy_html = ''.join(f'<li><strong>{esc(item["label"])}:</strong> {esc(item["value"])}</li>' for item in energy)
+    energy_section = f'<section class="vehicle-energy" aria-label="Verbrauch und CO₂"><h2>Verbrauch &amp; CO₂</h2><ul>{energy_html}</ul></section>' if energy_html else ''
     description = format_description(vehicle.get("description") or "")
     prefix = "../../"
     canonical = f"https://www.automobile-rosenkranz.de/{vehicle['detailPath']}"
@@ -198,10 +257,10 @@ def detail_page(vehicle):
         vehicle_schema["offers"] = offer
     detail_json = json.dumps(detail_schema, ensure_ascii=False).replace("</", "<\\/")
     return f'''<!doctype html>
-<html lang="de"><head><meta charset="utf-8"><link rel="icon" type="image/png" href="{prefix}assets/favicon-512.png?v=20261124"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="{robots}"><title>{esc(seo_title)}</title><meta name="description" content="{esc(seo_description)}">{canonical_tag}<meta property="og:type" content="product"><meta property="og:title" content="{esc(seo_title)}"><meta property="og:description" content="{esc(seo_description)}"><meta property="og:url" content="{esc(page_url)}"><meta property="og:image" content="{esc(images[0] if images else '')}"><meta property="og:locale" content="de_DE"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(seo_title)}"><meta name="twitter:description" content="{esc(seo_description)}"><meta name="twitter:image" content="{esc(images[0] if images else '')}"><link rel="stylesheet" href="{prefix}styles.css?v=20261106-header-logo"><script type="application/ld+json">{detail_json}</script></head>
+<html lang="de"><head><meta charset="utf-8"><link rel="icon" type="image/png" href="{prefix}assets/favicon-512.png?v=20261124"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="{robots}"><title>{esc(seo_title)}</title><meta name="description" content="{esc(seo_description)}">{canonical_tag}<meta property="og:type" content="product"><meta property="og:title" content="{esc(seo_title)}"><meta property="og:description" content="{esc(seo_description)}"><meta property="og:url" content="{esc(page_url)}"><meta property="og:image" content="{esc(images[0] if images else '')}"><meta property="og:locale" content="de_DE"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{esc(seo_title)}"><meta name="twitter:description" content="{esc(seo_description)}"><meta name="twitter:image" content="{esc(images[0] if images else '')}"><link rel="stylesheet" href="{prefix}styles.css?v=20261124-energy"><script type="application/ld+json">{detail_json}</script></head>
 <body><div id="shared-header"></div>
 <main><section class="vehicle-detail"><div class="wrap"><a class="vehicle-back" href="{prefix}angebote.html">← Zur Angebotsübersicht</a><div class="vehicle-detail-layout"><div><div class="vehicle-gallery"><div class="vehicle-gallery-track" aria-label="Fahrzeugbilder">{gallery}</div><div class="vehicle-gallery-controls"><button type="button" class="vehicle-gallery-prev" aria-label="Vorheriges Bild">←</button><span class="vehicle-gallery-count">1 / {len(images)}</span><button type="button" class="vehicle-gallery-next" aria-label="Nächstes Bild">→</button></div></div><p class="vehicle-gallery-hint">Bilder nach rechts oder links wischen</p></div><div class="vehicle-summary"><span class="eyebrow">{esc(vehicle.get('make'))} · Fahrzeugangebot</span><h1>{esc(vehicle['title'])}</h1><p class="vehicle-price">{esc(vehicle['price'])}</p><p class="vehicle-location">Automobile Rosenkranz · Recklinghausen</p><a class="btn btn-red" href="{prefix}index.html#kontakt">Beratung zu diesem Fahrzeug anfragen</a><a class="vehicle-phone" href="tel:+49236191490">Oder direkt anrufen: 02361 / 9149-0</a></div></div>
-<section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2>{description}</section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
+{energy_section}<section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2>{description}</section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
 <script src="{prefix}consent.js?v=20261025-1"></script><script src="{prefix}site-shell.js?v=20261104-shared-1"></script><script src="{prefix}footer.js?v=20261124-reviews"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
 
 
@@ -330,6 +389,7 @@ def main():
             "category": str(ad.get("category") or ""),
             "condition": str(ad.get("condition") or ""),
             "power": ad.get("power"),
+            "energyDetails": energy_details(ad),
             "description": html.unescape(str(ad.get("plainTextDescription") or "")),
             "details": details,
             "detailPath": f"angebote/{slug}/",
