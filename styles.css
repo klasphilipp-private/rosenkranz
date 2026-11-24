@@ -372,3 +372,7 @@
 .model-document{border:1px solid #555;padding:16px;display:flex;flex-direction:column;gap:10px}
 .model-document strong{color:#fff;line-height:1.4}.model-document small{color:#bdbdbd}.model-document-links{display:flex;gap:16px;flex-wrap:wrap}.model-document-links a{color:#fff;font-size:13px;text-decoration:underline;text-underline-offset:3px}.model-document-links a:hover{color:#f35d58}
 @media(max-width:720px){.model-documents{padding:20px;margin-top:32px}}
+
+.offers-new-models-note{max-width:780px;margin:18px 0 0;color:#515151;font-size:16px;line-height:1.6}
+.offers-new-models-note a{color:#b60000;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.offers-new-models-note a:hover{color:#171717}
