@@ -1,0 +1,21 @@
+name: Audit mobile.de energy fields
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Count energy fields without exposing ad data
+        env:
+          MOBILE_API_USERNAME: ${{ secrets.MOBILE_API_USERNAME }}
+          MOBILE_API_PASSWORD: ${{ secrets.MOBILE_API_PASSWORD }}
+        run: python3 scripts/audit-mobile-energy.py
