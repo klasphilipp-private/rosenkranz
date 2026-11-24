@@ -10,16 +10,24 @@
     "commercial": false,
     "formOption": "Citroën Ami",
     "gallery": [
-      "assets/models/gallery/ami/01.webp",
-      "assets/models/gallery/ami/02.webp",
-      "assets/models/gallery/ami/03.webp",
-      "assets/models/gallery/ami/04.webp",
-      "assets/models/gallery/ami/05.webp",
-      "assets/models/gallery/ami/06.webp",
       "assets/models/gallery/ami/07.webp",
+      "assets/models/gallery/ami/citroen-aktuell-1.webp",
+      "assets/models/gallery/ami/citroen-aktuell-4.webp",
+      "assets/models/gallery/ami/citroen-aktuell-5.webp",
+      "assets/models/gallery/ami/citroen-aktuell-9.webp",
+      "assets/models/gallery/ami/citroen-aktuell-10.webp",
       "assets/models/gallery/ami/08.webp"
     ],
-    "page": "citroen-ami.html"
+    "page": "citroen-ami.html",
+    "galleryAlt": [
+      "Citroën Ami Dark Side in Frontansicht",
+      "Citroën Ami der aktuellen Generation",
+      "Citroën Ami in Seitenansicht",
+      "Citroën Ami in Heckansicht",
+      "Citroën Ami in der Stadt",
+      "Citroën Ami auf einer Stadtstraße",
+      "Innenraum des Citroën Ami"
+    ]
   },
   {
     "slug": "c3",
