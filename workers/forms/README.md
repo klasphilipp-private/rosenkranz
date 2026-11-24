@@ -12,3 +12,7 @@ The Worker accepts contact and test-drive inquiries, sends an internal HTML emai
 6. Submit test inquiries using a mailbox you control. Confirm the internal notification (including its JSON block) arrives at `anfragen@` and the confirmation arrives at the test mailbox.
 
 The production configuration is prepared but is not deployed by this workflow. Before production, switch the website to IONOS, add an IONOS-specific origin to the Worker, enable the production Resend secret and customer confirmation, configure edge rate limiting, then run a separately reviewed production deployment.
+
+## Offen: Vorschauhinweise auf Formularen
+
+Auf Camping & Tuning und VANDERER zeigen Projektformulare derzeit den Hinweis, dass Eingaben nur in der Vorschau angezeigt und nicht versendet oder gespeichert werden. Vor der Verwendung in DEV_TEST und PROD müssen diese Formulare an den jeweiligen Worker angeschlossen und Ende zu Ende geprüft werden. Erst wenn der tatsächliche Versand funktioniert, den Vorschauhinweis für die jeweilige Umgebung entfernen und eine passende Erfolgs- und Fehlermeldung anzeigen. Die bestehende Vorschau darf keine erfolgreiche Übermittlung behaupten.
