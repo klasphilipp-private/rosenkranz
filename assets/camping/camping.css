@@ -53,5 +53,15 @@
 .camping-service .clean-list{max-width:850px;margin:25px 0}
 .rracing-logo{width:min(260px,100%);background:#fff;padding:12px;margin:12px 0 26px}
 .rracing-logo img{width:100%;height:auto}
-.rracing-top h2{font-family:BEHATRICE,Montserrat,Arial,sans-serif}
+.rracing-top h2{font-family:Montserrat,Arial,sans-serif}
 @media(prefers-reduced-motion:reduce){.camping-carousel img{transition:none}}
+
+.holidays-eyebrow{display:block;margin:28px 0 12px;color:var(--red)}
+.camping-carousel-controls{position:absolute;right:20px;bottom:20px;z-index:2;display:flex;align-items:center;gap:10px;color:#fff}
+.camping-carousel-count{font-size:12px;letter-spacing:.08em;white-space:nowrap}
+.camping-carousel-dots{display:flex;align-items:center;gap:7px;margin:0 8px}
+.camping-carousel-dots .hero-dot[aria-current="true"]{background:#fff;width:23px;border-radius:4px}
+.camping-carousel-toggle{position:static}
+.camping-contact-phone{color:#171717;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.camping-contact-phone:hover{color:var(--red)}
+@media(max-width:720px){.camping-carousel-controls{right:12px;bottom:12px;gap:6px}.camping-carousel-controls .hero-arrow{width:38px;height:38px}.camping-carousel-dots{gap:5px;margin:0 3px}.camping-carousel-count{font-size:10px}}

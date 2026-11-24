@@ -43,8 +43,12 @@ const campingCarousel=document.querySelector('.camping-carousel');
 if(campingCarousel){
   const images=[...campingCarousel.querySelectorAll('img')];
   const toggle=campingCarousel.querySelector('.camping-carousel-toggle');
+  const count=campingCarousel.querySelector('.camping-carousel-count');
+  const dots=campingCarousel.querySelector('.camping-carousel-dots');
   let current=0,timer,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function schedule(){clearInterval(timer);if(!paused&&!document.hidden)timer=setInterval(()=>{images[current].classList.remove('active');current=(current+1)%images.length;images[current].classList.add('active')},6500)}
+  function schedule(){clearTimeout(timer);if(!paused&&!document.hidden&&images.length>1)timer=setTimeout(()=>show(current+1),6500)}
+  function show(index){current=(index+images.length)%images.length;images.forEach((image,i)=>{image.classList.toggle('active',i===current);image.setAttribute('aria-hidden',String(i!==current))});[...dots.children].forEach((dot,i)=>{dot.classList.toggle('active',i===current);dot.setAttribute('aria-current',String(i===current))});count.textContent=`${String(current+1).padStart(2,'0')} / ${String(images.length).padStart(2,'0')}`;schedule()}
+  dots.replaceChildren(...images.map((_,index)=>{const button=document.createElement('button');button.type='button';button.className='hero-dot';button.setAttribute('aria-label',`Bild ${index+1} von ${images.length} anzeigen`);button.addEventListener('click',()=>show(index));return button}));
   function update(){toggle.textContent=paused?'▶︎':'Ⅱ';toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'Diashow abspielen':'Diashow pausieren');schedule()}
-  toggle.addEventListener('click',()=>{paused=!paused;update()});document.addEventListener('visibilitychange',schedule);update();
+  toggle.addEventListener('click',()=>{paused=!paused;update()});campingCarousel.querySelector('.camping-carousel-prev').addEventListener('click',()=>show(current-1));campingCarousel.querySelector('.camping-carousel-next').addEventListener('click',()=>show(current+1));document.addEventListener('visibilitychange',schedule);show(0);update();
 }
