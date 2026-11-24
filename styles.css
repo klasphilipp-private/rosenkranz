@@ -356,6 +356,13 @@
 @media(max-width:420px){.home-hero .hero-caption h2{font-size:42px}.home-hero .hero-arrow{width:38px;height:38px}.home-hero .hero-dots{gap:4px}.home-hero .hero-dot{width:6px;height:6px}.home-hero .hero-dot.active{width:17px}}
 @media(prefers-reduced-motion:reduce){.home-hero .hero-slide img{animation:none!important}.home-hero .hero-slide{transition:none}}
 
+/* Modellübersicht: dieselbe Steuerung wie auf der Startseite, auch bei vielen Modellen. */
+.model-overview-hero .hero-dots{max-width:min(38vw,280px);overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap}
+.model-overview-hero .hero-dots::-webkit-scrollbar{display:none}
+.model-overview-hero .hero-dot{flex-shrink:0}
+@media(max-width:720px){.model-overview-hero .hero-controls{gap:6px}.model-overview-hero .hero-dots{max-width:min(27vw,130px);gap:5px;margin:0 3px}}
+@media(max-width:420px){.model-overview-hero .hero-arrow{width:38px;height:38px}.model-overview-hero .hero-dots{gap:4px}.model-overview-hero .hero-dot{width:6px;height:6px}.model-overview-hero .hero-dot.active{width:17px}}
+
 /* Service und Team */
 @media(max-width:720px){.service-layout .service-photo{order:0}}
 .about-hero-photo{position:relative;min-width:0}
