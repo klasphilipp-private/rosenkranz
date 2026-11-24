@@ -1,0 +1,332 @@
+CITROËN UND SUBARU – OFFIZIELLE DEUTSCHE PDF-UNTERLAGEN
+Abruf und Prüfung: 15. November 2026
+
+Umfang: 48 unveränderte Original-PDFs (18 Citroën, 30 Subaru), 749 Seiten.
+Quellen: ausschließlich die offiziellen deutschen Herstellerseiten citroen.de und subaru.de.
+Auswahl: die zum Abrufzeitpunkt aktuell verlinkten Unterlagen zu den angebotenen
+Modellen, bei Citroën einschließlich Nutzfahrzeugen und der weiterhin verlinkten C5-X-Preisliste.
+Bei Subaru zusätzlich Forester Exclusive Cross, Zubehör-Gesamtkatalog,
+Zubehör-Gesamtpreisliste und Räderprogramm 2026/2027.
+
+DATEINAMEN
+jahr_monat_marke_modell_variante.pdf
+Jahr und Monat beziehen sich auf den im PDF genannten Stand, die Ausgabe bzw.
+die Gültigkeit. Das Modelljahr ist davon unabhängig. Für sämtliche Dateien
+konnte eine Datumsangabe im PDF festgestellt werden.
+Mehrteilige Modellnamen werden mit Bindestrichen geschrieben; Umlaute werden
+als ae/oe/ue wiedergegeben. Die PDF-Inhalte, Seiten, Metadaten und Komprimierung
+wurden nicht verändert. Nur der Dateiname wurde geändert.
+
+GEMEINSAME DOKUMENTE
+- Citroën fasst mehrere Antriebe in einer Modell-Preisliste zusammen.
+  Beispielsweise enthält c3 auch ë-C3 und c4 auch ë-C4.
+- Spacetourer und Jumpy Kombi besitzen eine gemeinsame Preisliste.
+- Crosstrek und Impreza besitzen einen gemeinsamen Zubehörprospekt und eine
+  gemeinsame Zubehörpreisliste; diese Dateien sind jeweils einmal enthalten.
+
+HINWEISE ZU DATUMSANGABEN DER HERSTELLER
+- Ein älteres Datum bedeutet hier nicht, dass eine neuere verlinkte Fassung
+  ausgelassen wurde. Einige aktuell verlinkte Herstellerunterlagen tragen
+  weiterhin einen Dokumentstand aus 2024 oder 2025.
+- Outback Zubehörpreisliste: Der Original-Link nennt März 2025, im PDF steht
+  jedoch November 2024. Für den neuen Dateinamen wurde die PDF-Angabe verwendet.
+- SOLTERRA und UNCHARTED Preisliste: Auf dem Titel steht Mai 2026; der
+  Ausgabecode auf der Rückseite nennt August 2026. Benannt nach August 2026.
+- UNCHARTED Zubehörprospekt: Der Original-Link nennt August 2026; das PDF nennt
+  Juni 2026 als Ausgabe und Gültigkeitsbeginn. Benannt nach Juni 2026.
+- Crosstrek/Impreza Zubehörprospekt: Ausgabecode Januar 2024, Gültigkeit ab Mai
+  2024 und entsprechender Original-Link. Benannt nach Mai 2024.
+- E-OUTBACK Preisliste: Ausgabecode August 2026, ausdrückliche Gültigkeit ab
+  September 2026. Benannt nach September 2026.
+- Die UNCHARTED Zubehörpreisliste ist im Original-Dateinamen als vorläufig
+  bezeichnet. Die unveränderte, aktuell verlinkte Datei ist enthalten.
+
+DATEIÜBERSICHT UND QUELLEN
+
+citroen/2026_10_citroen_ami_preisliste.pdf
+  Seiten: 11
+  Datumsbeleg im PDF: Stand: 7. Oktober 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_ami_07_10_2026.pdf
+
+citroen/2026_11_citroen_c3_preisliste.pdf
+  Seiten: 37
+  Datumsbeleg im PDF: Stand: 10. November 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/11-26/Preisliste_C3_10.11.2026.pdf
+
+citroen/2026_09_citroen_c3-aircross_preisliste.pdf
+  Seiten: 32
+  Datumsbeleg im PDF: Stand: 24. September 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_C3-Aircross_24.0926.pdf
+
+citroen/2026_11_citroen_c4_preisliste.pdf
+  Seiten: 33
+  Datumsbeleg im PDF: Stand: 1. November 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/11-26/Kundenpreisliste_C4_01112026.pdf
+
+citroen/2026_11_citroen_c4-x_preisliste.pdf
+  Seiten: 28
+  Datumsbeleg im PDF: Stand: 1. November 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/11-26/Kundenpreisliste_C4X_01112026.pdf
+
+citroen/2026_10_citroen_c5-aircross_preisliste.pdf
+  Seiten: 37
+  Datumsbeleg im PDF: Stand: 06. Oktober 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_C5_Aircross_06-10-2026-V2.pdf
+
+citroen/2025_06_citroen_c5-x_preisliste.pdf
+  Seiten: 18
+  Datumsbeleg im PDF: Stand: 04. Juni 2025
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/Kundenpreisliste_C5X_04062025.pdf
+
+citroen/2026_10_citroen_berlingo_preisliste.pdf
+  Seiten: 31
+  Datumsbeleg im PDF: Stand: 06. Oktober 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_Berlingo_PKW_06-10-2026.pdf
+
+citroen/2026_10_citroen_berlingo-mpv_preisliste.pdf
+  Seiten: 20
+  Datumsbeleg im PDF: Stand: 06. Oktober 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_Berlingo_MPV_06-10-2026.pdf
+
+citroen/2026_10_citroen_spacetourer-jumpy-kombi_preisliste.pdf
+  Seiten: 27
+  Datumsbeleg im PDF: Stand: 08. Oktober 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_Spacetourer_Jumpy_Kombi_08-10-2026.pdf
+
+citroen/2026_10_citroen_holidays_preisliste.pdf
+  Seiten: 13
+  Datumsbeleg im PDF: Stand: 08. Oktober 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_Holidays_08-10-2026.pdf
+
+citroen/2026_11_citroen_e-c3-van_preisliste.pdf
+  Seiten: 14
+  Datumsbeleg im PDF: Stand: 10. November 2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/11-26/Preisliste_e-C3-Van_10.11.2026.pdf
+
+citroen/2026_10_citroen_berlingo-kastenwagen_preisliste.pdf
+  Seiten: 24
+  Datumsbeleg im PDF: Stand 16.10.2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste-Citroen-Berlingo-16-10-2026.pdf
+
+citroen/2026_10_citroen_jumpy-kastenwagen_preisliste.pdf
+  Seiten: 26
+  Datumsbeleg im PDF: Stand 13.10.2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/10-26/Preisliste_Citroen_Jumpy_Kastenwagen_13-10-2026_rev03.pdf
+
+citroen/2026_07_citroen_jumper-kastenwagen_preisliste.pdf
+  Seiten: 24
+  Datumsbeleg im PDF: Stand 01.07.2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2b/pricelist-brochure/07-26/Preisliste-Citroën-Jumper-Kastenwagen-01.07.2026.pdf
+
+citroen/2026_06_citroen_e-jumper-kastenwagen_preisliste.pdf
+  Seiten: 18
+  Datumsbeleg im PDF: Stand 01.06.2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2b/pricelist-brochure/07-26/Preisliste-Citroën-ë-Jumper-Kastenwagen-01.06.2026.pdf
+
+citroen/2026_07_citroen_jumper-pritsche-kipper-leichtbaukoffer-fahrgestell_preisliste.pdf
+  Seiten: 29
+  Datumsbeleg im PDF: Stand 01.07.2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2b/pricelist-brochure/07-26/Preisliste-Citroën-Jumper-Pritschenwagen-Fahrgestelle-01.07.2026.pdf
+
+citroen/2026_06_citroen_e-jumper-pritsche-kipper-leichtbaukoffer-fahrgestell_preisliste.pdf
+  Seiten: 18
+  Datumsbeleg im PDF: Stand 01.06.2026
+  Herstellerseite: https://www.citroen.de/infocenter/prospekt.html
+  Original-PDF: https://www.citroen.de/content/dam/citroen/germany/b2b/pricelist-brochure/07-26/Preisliste-Citroën-ë-Jumper-Pritschenwagen-Fahrgestelle-01.06.2026.pdf
+
+subaru/2025_10_subaru_forester_prospekt.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: FOR-HP-10/2025
+  Herstellerseite: https://www.subaru.de/modelle/forester
+  Original-PDF: https://www.subaru.de/hubfs/26_FOR_LHD_EC_Modellbroschuere-1-1.pdf?hsLang=de
+
+subaru/2025_11_subaru_forester_preisliste.pdf
+  Seiten: 13
+  Datumsbeleg im PDF: FOR-PTA-11/2025
+  Herstellerseite: https://www.subaru.de/modelle/forester
+  Original-PDF: https://www.subaru.de/hubfs/26FOR_PTA_Final_BF-1.pdf?hsLang=de
+
+subaru/2024_12_subaru_forester_zubehoerprospekt.pdf
+  Seiten: 20
+  Datumsbeleg im PDF: FOR-ZUB-12/2024
+  Herstellerseite: https://www.subaru.de/modelle/forester
+  Original-PDF: https://www.subaru.de/hubfs/Modellshowrooms/MSR%20Forester%20MJ25/Brosch%C3%BCren/Zubeh%C3%B6rprospekt%20Forester%20MY2025.pdf?hsLang=de
+
+subaru/2025_05_subaru_forester_zubehoerpreisliste.pdf
+  Seiten: 2
+  Datumsbeleg im PDF: Preisliste zu Forester "Zubehör" Mai 2025
+  Herstellerseite: https://www.subaru.de/modelle/forester
+  Original-PDF: https://www.subaru.de/hubfs/Landingpages/Forester_MJ25/FORESTER%20MY2025%20Zubeh%C3%B6rpreisliste%2c%20ab%2002.05.2025.pdf?hsLang=de
+
+subaru/2024_10_subaru_outback_prospekt.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: OUT-HP-10/2024
+  Herstellerseite: https://www.subaru.de/modelle/outback
+  Original-PDF: https://www.subaru.de/hubfs/Outback_MY25_Modellprospekt.pdf?hsLang=de
+
+subaru/2025_03_subaru_outback_preisliste.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: OUT-PTA-03/2025
+  Herstellerseite: https://www.subaru.de/modelle/outback
+  Original-PDF: https://www.subaru.de/hubfs/Outback_MY25_PTA.pdf?hsLang=de
+
+subaru/2024_05_subaru_outback_zubehoerprospekt.pdf
+  Seiten: 20
+  Datumsbeleg im PDF: Die Preise sind ab Mai 2024 gültig.
+  Herstellerseite: https://www.subaru.de/modelle/outback
+  Original-PDF: https://www.subaru.de/hubfs/Modellshowrooms/MSR%20Outback/Brosch%C3%BCren/OUT_MY2022-2024_Zubehoerprospekt__ab_Mai_2024.pdf
+
+subaru/2024_11_subaru_outback_zubehoerpreisliste.pdf
+  Seiten: 3
+  Datumsbeleg im PDF: Preisliste zu Outback "Zubehör" November 2024.
+  Herstellerseite: https://www.subaru.de/modelle/outback
+  Original-PDF: https://www.subaru.de/hubfs/Modellshowrooms/MSR%20Outback/Brosch%C3%BCren/OUTBACK%20MY2022-2024%20Zubeh%C3%B6rpreisliste%2c%20ab%20M%C3%A4rz%202025.pdf
+
+subaru/2025_11_subaru_crosstrek_prospekt.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: CRO-HP-11/2025
+  Herstellerseite: https://www.subaru.de/modelle/crosstrek
+  Original-PDF: https://www.subaru.de/hubfs/26B_CF4_CRT_EC_localize_DEDE_251209_Lo-1.pdf?hsLang=de
+
+subaru/2026_01_subaru_crosstrek_preisliste.pdf
+  Seiten: 13
+  Datumsbeleg im PDF: CRO-PTA-01/2026
+  Herstellerseite: https://www.subaru.de/modelle/crosstrek
+  Original-PDF: https://www.subaru.de/hubfs/MY26_CRO_PTA_bf_Final-1.pdf?hsLang=de
+
+subaru/2024_05_subaru_crosstrek-impreza_zubehoerprospekt.pdf
+  Seiten: 20
+  Datumsbeleg im PDF: Die Preise sind ab Mai 2024 gültig.
+  Herstellerseite: https://www.subaru.de/modelle/crosstrek
+  Original-PDF: https://www.subaru.de/hubfs/Modellshowrooms/MSR%20Crosstrek/Brosch%C3%BCren/CT_IMP_MY2023-2024_Zubehoerprospekt_ab_Mai_2024.pdf?hsLang=de
+
+subaru/2025_03_subaru_crosstrek-impreza_zubehoerpreisliste.pdf
+  Seiten: 2
+  Datumsbeleg im PDF: Preisliste zu Crosstrek / Impreza "Zubehör" März 2025
+  Herstellerseite: https://www.subaru.de/modelle/crosstrek
+  Original-PDF: https://www.subaru.de/hubfs/Modellshowrooms/MSR%20Crosstrek/Brosch%C3%BCren/CROSSTREK%20%26%20IMPREZA%20MY2023-2025%20Zubeh%C3%B6rpreisliste%2c%20ab%20M%C3%A4rz%202025.pdf?hsLang=de
+
+subaru/2025_11_subaru_impreza_prospekt.pdf
+  Seiten: 7
+  Datumsbeleg im PDF: IMP-HP-11/2025
+  Herstellerseite: https://www.subaru.de/modelle/impreza
+  Original-PDF: https://www.subaru.de/hubfs/26B_CF4_IMP_EC_localize_DEDE_251112_Lo_OK_TKr_021225-1.pdf?hsLang=de
+
+subaru/2026_01_subaru_impreza_preisliste.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: IMP-PTA-01/2026
+  Herstellerseite: https://www.subaru.de/modelle/impreza
+  Original-PDF: https://www.subaru.de/hubfs/MY26_IMP_PTA_bf_Final-1.pdf?hsLang=de
+
+subaru/2026_05_subaru_solterra_prospekt.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: SOL-HP-05/2026
+  Herstellerseite: https://www.subaru.de/modelle/solterra
+  Original-PDF: https://www.subaru.de/hubfs/26B_SB8_SOL_EC_localize_DEDE_260520_web-1.pdf?hsLang=de
+
+subaru/2026_08_subaru_solterra_preisliste.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: SOL-PTA-08/2026
+  Herstellerseite: https://www.subaru.de/modelle/solterra
+  Original-PDF: https://www.subaru.de/hubfs/Solterra_MY26_WEBPTA_.2w.pdf?hsLang=de
+
+subaru/2026_05_subaru_solterra_zubehoerprospekt.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: SOL-ZUB-05/2026
+  Herstellerseite: https://www.subaru.de/modelle/solterra
+  Original-PDF: https://www.subaru.de/hubfs/SOLTERRA%20MY2026%20Zubeh%C3%B6rprospekt%2c%20Stand%20Mai%202026%20high%20res.pdf?hsLang=de
+
+subaru/2026_10_subaru_solterra_zubehoerpreisliste.pdf
+  Seiten: 2
+  Datumsbeleg im PDF: Preisliste zu SOLTERRA "Zubehör" Oktober 2026
+  Herstellerseite: https://www.subaru.de/modelle/solterra
+  Original-PDF: https://www.subaru.de/hubfs/SOLTERRA%20MY2026%20Zubeh%C3%B6rpreisliste%2c%20Stand%2009.10.2026.pdf?hsLang=de
+
+subaru/2026_05_subaru_uncharted_prospekt.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: UNC-HP-05/2026
+  Herstellerseite: https://www.subaru.de/modelle/uncharted
+  Original-PDF: https://www.subaru.de/hubfs/26B_UN_DEDE_260520%20-%20ok%20RS%2021-05-26-1.pdf?hsLang=de
+
+subaru/2026_08_subaru_uncharted_preisliste.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: UNC-PTA-08/2026
+  Herstellerseite: https://www.subaru.de/modelle/uncharted
+  Original-PDF: https://www.subaru.de/hubfs/MY26_UNC_webPTA_.2w-1.pdf?hsLang=de
+
+subaru/2026_06_subaru_uncharted_zubehoerprospekt.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: UNC-ZUB-06/2026
+  Herstellerseite: https://www.subaru.de/modelle/uncharted
+  Original-PDF: https://www.subaru.de/hubfs/UNCHARTED%20MY2026%20Zubeh%C3%B6rprospekt%2c%20August%202026%20high%20res.pdf?hsLang=de
+
+subaru/2026_10_subaru_uncharted_zubehoerpreisliste.pdf
+  Seiten: 3
+  Datumsbeleg im PDF: Preisliste zu UNCHARTED "Zubehör" Oktober 2026
+  Herstellerseite: https://www.subaru.de/modelle/uncharted
+  Original-PDF: https://www.subaru.de/hubfs/UNCHARTED%20MY2026%20Zubeh%C3%B6rpreisliste%2c%20vorl%C3%A4ufig%2c%2016.10.2026.pdf?hsLang=de
+
+subaru/2026_08_subaru_e-outback_prospekt.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: E-OUT-HP08/2026
+  Herstellerseite: https://www.subaru.de/modelle/e-outback
+  Original-PDF: https://www.subaru.de/hubfs/26B_EOUT_DEDE_260724_web-1.pdf?hsLang=de
+
+subaru/2026_09_subaru_e-outback_preisliste.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: Diese Preisliste ist ab September 2026 gültig.
+  Herstellerseite: https://www.subaru.de/modelle/e-outback
+  Original-PDF: https://www.subaru.de/hubfs/Preise-Technische_Daten-Ausstattung-Subaru_E-OUTBACK-MY26_web-pta_PDFUA_WCAG_final-10.pdf?hsLang=de
+
+subaru/2026_08_subaru_e-outback_zubehoerprospekt.pdf
+  Seiten: 12
+  Datumsbeleg im PDF: E-OUT-ZUB.08/2026
+  Herstellerseite: https://www.subaru.de/modelle/e-outback
+  Original-PDF: https://www.subaru.de/hubfs/Modellshowrooms/E-OUTBACK/Brosch%C3%BCren/E-OUTBACK_MY2026_Zubehoerprospekt_Stand_31-08-2026.pdf?hsLang=de
+
+subaru/2026_10_subaru_e-outback_zubehoerpreisliste.pdf
+  Seiten: 3
+  Datumsbeleg im PDF: Preisliste zu E-OUTBACK "Zubehör" Oktober 2026
+  Herstellerseite: https://www.subaru.de/modelle/e-outback
+  Original-PDF: https://www.subaru.de/hubfs/E-OUTBACK%20MY2026%20Zubeh%C3%B6rpreisliste%2c%20Stand%20Oktober%202026.pdf?hsLang=de
+
+subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf
+  Seiten: 21
+  Datumsbeleg im PDF: GB2025-07/2025
+  Herstellerseite: https://www.subaru.de/shopping
+  Original-PDF: https://www.subaru.de/hubfs/Gesamtkatalog-Zubehoer_RZ7-1.pdf?hsLang=de
+
+subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf
+  Seiten: 9
+  Datumsbeleg im PDF: Stand: Oktober 2026
+  Herstellerseite: https://www.subaru.de/shopping
+  Original-PDF: https://www.subaru.de/hubfs/Preisliste%20Zubeh%C3%B6r%20Gesamtkatalog%20Final%20Oktober%202026%20mit%20Logo.pdf?hsLang=de
+
+subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf
+  Seiten: 17
+  Datumsbeleg im PDF: AS-RB-10/2026
+  Herstellerseite: https://www.subaru.de/shopping
+  Original-PDF: https://www.subaru.de/hubfs/LR_Sub_RB2627_FIN_RZ_261019_digital_barrierefrei%20(1).pdf?hsLang=de
+
+subaru/2026_04_subaru_forester-exclusive-cross_prospekt.pdf
+  Seiten: 4
+  Datumsbeleg im PDF: FOR-SoEd-Cross-04/2026
+  Herstellerseite: https://www.subaru.de/forester-sonderedition-exclusive-cross
+  Original-PDF: https://www.subaru.de/hubfs/MY26_Forester%20EEC%20Flyer%20BF.pdf?hsLang=de
