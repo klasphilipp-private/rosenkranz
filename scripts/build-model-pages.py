@@ -46,9 +46,7 @@ def main():
             slides.append(
                 f'<article class="hero-slide{active}"><img src="{escape(image, quote=True)}" '
                 f'alt="{alt}" fetchpriority="{"high" if index == 0 else "low"}" '
-                f'loading="{"eager" if index == 0 else "lazy"}"><div class="hero-caption">'
-                f'<span class="eyebrow">{escape(brand)} · Modellwelt</span><h2>{safe_name}</h2>'
-                f'<p>{escape(model["description"])}</p></div></article>'
+                f'loading="{"eager" if index == 0 else "lazy"}"></article>'
             )
             dots.append(
                 f'<button class="hero-dot{active}" type="button" aria-label="Bild {index + 1} anzeigen"></button>'
@@ -73,7 +71,7 @@ def main():
         if model.get("sourceCredit"):
             page_html = page_html.replace('</div></section></main>', f'<p class="source-credit">{escape(model["sourceCredit"])}</p></div></section></main>', 1)
         page_html = re.sub(r'\n  <script>\s*const slug=.*?</script>', "", page_html, count=1, flags=re.S)
-        page_html = re.sub(r'<script src="model-hero\.js[^"]*"></script>', '<script src="model-page.js?v=20261019-1"></script>', page_html, count=1)
+        page_html = re.sub(r'<script src="model-hero\.js[^"]*"></script>', '<script src="model-page.js?v=20261124-documents"></script>', page_html, count=1)
         (ROOT / page).write_text(page_html, encoding="utf-8")
 
 

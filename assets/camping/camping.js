@@ -38,3 +38,13 @@ document.querySelectorAll('.project-form').forEach(form=>form.addEventListener('
   const name=form.querySelector('[name=name]').value.trim();
   form.querySelector('.form-result').textContent=`${name}, Ihre Anfrage zum Thema „${topic}“ ist in der Vorschau vorbereitet. Es wurde nichts versendet. Für eine echte Anfrage erreichen Sie uns über die angegebenen Kontaktdaten.`;
 }));
+
+const campingCarousel=document.querySelector('.camping-carousel');
+if(campingCarousel){
+  const images=[...campingCarousel.querySelectorAll('img')];
+  const toggle=campingCarousel.querySelector('.camping-carousel-toggle');
+  let current=0,timer,paused=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function schedule(){clearInterval(timer);if(!paused&&!document.hidden)timer=setInterval(()=>{images[current].classList.remove('active');current=(current+1)%images.length;images[current].classList.add('active')},6500)}
+  function update(){toggle.textContent=paused?'▶︎':'Ⅱ';toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'Diashow abspielen':'Diashow pausieren');schedule()}
+  toggle.addEventListener('click',()=>{paused=!paused;update()});document.addEventListener('visibilitychange',schedule);update();
+}
