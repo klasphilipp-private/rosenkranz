@@ -1,6 +1,6 @@
 const footerScript = document.currentScript;
 const appBase = new URL('.', footerScript?.src || location.href);
-fetch(new URL('footer.html?v=20261107-forms', appBase)).then(response => {
+fetch(new URL('footer.html?v=20261124-reviews', appBase)).then(response => {
   if (!response.ok) throw new Error('Footer konnte nicht geladen werden');
   return response.text();
 }).then(markup => {
@@ -31,7 +31,7 @@ fetch(new URL('footer.html?v=20261107-forms', appBase)).then(response => {
     let offset = 0;
     try { offset = Number(localStorage.getItem('rosenkranz-review-offset') || 0) % Math.max(eligible.length, 1); localStorage.setItem('rosenkranz-review-offset', String(offset + 2)); } catch {}
     const selected = eligible.length ? Array.from({length: Math.min(2, eligible.length)}, (_, index) => eligible[(offset + index) % eligible.length]) : [];
-    grid.innerHTML = selected.map(review => `<article class="review-card"><span class="stars" aria-label="${review.rating} von 5 Sternen">${'★'.repeat(Math.max(0, Math.min(5, Math.round(review.rating || 0))))}</span><p>${escapeHtml(review.text)}</p><strong>${escapeHtml(review.author)}</strong>${review.date ? `<div class="offer-meta">${escapeHtml(review.date)}</div>` : ''}</article>`).join('');
+    grid.innerHTML = selected.map(review => `<article class="review-card"><span class="stars" aria-label="${review.rating} von 5 Sternen">${'★'.repeat(Math.max(0, Math.min(5, Math.round(review.rating || 0))))}</span><p>${escapeHtml(review.text?.length > 260 ? review.text.slice(0, 260).replace(/\s+\S*$/, "") + "…" : review.text)}</p>${review.text?.length > 260 ? `<details class="review-more"><summary>Bewertung vollständig lesen</summary><p>${escapeHtml(review.text)}</p></details>` : ""}<strong>${escapeHtml(review.author)}</strong>${review.date ? `<div class="offer-meta">${escapeHtml(review.date)}</div>` : ''}</article>`).join('');
   }
 }).catch(() => {});
 
