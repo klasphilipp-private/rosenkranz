@@ -39,7 +39,7 @@
     </div></section>
   </main>
   <div id="shared-footer"></div>
-  <script src="offer-labels.js?v=20261105-deduplicate"></script><script>
+  <script src="offer-labels.js?v=20261124-entities"></script><script>
     const grid=document.querySelector('#offer-grid'),filter=document.querySelector('#offer-filter'),sort=document.querySelector('#offer-sort'),note=document.querySelector('#inventory-note');
     const filterDisclosure=document.querySelector('#offer-filter-details'),compactFilters=matchMedia('(max-width:1000px)');if(filterDisclosure&&compactFilters.matches)filterDisclosure.removeAttribute('open');compactFilters.addEventListener('change',event=>{if(!filterDisclosure)return;if(event.matches)filterDisclosure.removeAttribute('open');else filterDisclosure.setAttribute('open','')});
     const controls=['#offer-filter','#price-min','#price-max','#mileage-min','#mileage-max','#fuel-filter','#gearbox-filter','#drive-filter','#offer-sort'].map(s=>document.querySelector(s));let inventory=[];

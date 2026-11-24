@@ -18,7 +18,10 @@ window.RosenkranzOfferLabels = {
     const categoryKey = String(vehicle.category || '').toLowerCase().replace(/[^a-z]/g, '');
     const categoryLabel = ({ offroad: 'SUV', smallcar: 'Kleinwagen', estatecar: 'Kombi', van: 'Van', limousine: 'Limousine', stakebodyvan: 'Pritschenwagen' })[categoryKey]
       || (vehicle.category && !/^[A-Z_]+$/.test(vehicle.category) ? vehicle.category : '');
-    return [conditionLabel, categoryLabel, vehicle.firstRegistration ? `EZ ${vehicle.firstRegistration}` : '', vehicle.mileage ? `${Number(vehicle.mileage).toLocaleString('de-DE')} km` : '']
+    const registration = String(vehicle.firstRegistration || '');
+    const formattedRegistration = /^\d{6}$/.test(registration) && Number(registration.slice(4)) >= 1 && Number(registration.slice(4)) <= 12
+      ? `${registration.slice(4)}/${registration.slice(0, 4)}` : registration;
+    return [conditionLabel, categoryLabel, formattedRegistration ? `EZ ${formattedRegistration}` : '', vehicle.mileage ? `${Number(vehicle.mileage).toLocaleString('de-DE')} km` : '']
       .filter(Boolean).join(' · ');
   }
 };

@@ -278,9 +278,10 @@ def main():
         detail_url = ad.get("detailPageUrl")
         if not image or not isinstance(detail_url, str) or not detail_url.startswith("https://suchen.mobile.de/"):
             continue
-        make = str(ad.get("make") or "").strip()
-        description = str(ad.get("modelDescription") or "").strip()
-        model = str(ad.get("model") or "").strip()
+        make = html.unescape(str(ad.get("make") or "")).strip()
+        raw_description = str(ad.get("modelDescription") or "").strip()
+        description = html.unescape(raw_description)
+        model = html.unescape(str(ad.get("model") or "")).strip()
         display_make = {"CITROEN": "Citroën", "SUBARU": "Subaru"}.get(make.upper(), make.title())
         trim = re.sub(r"\bEAT\d+\b", "", description, flags=re.I).strip()
         model_part = "" if model and model.casefold() in trim.casefold() else model
@@ -307,7 +308,8 @@ def main():
                 elif key == "power":
                     value = f"{value} kW"
                 details.append({"label": label, "value": display_value(key, value)})
-        slug = detail_slug(make, model, description, ad_id)
+        # Bestehende Angebots-URLs bleiben stabil, auch wenn Anzeigetexte dekodiert werden.
+        slug = detail_slug(make, model, raw_description, ad_id)
         vehicles.append({
             "id": ad_id,
             "title": title,
@@ -328,7 +330,7 @@ def main():
             "category": str(ad.get("category") or ""),
             "condition": str(ad.get("condition") or ""),
             "power": ad.get("power"),
-            "description": str(ad.get("plainTextDescription") or ""),
+            "description": html.unescape(str(ad.get("plainTextDescription") or "")),
             "details": details,
             "detailPath": f"angebote/{slug}/",
         })
