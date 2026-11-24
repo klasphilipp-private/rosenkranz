@@ -327,3 +327,12 @@
 }
 
 .form-status.is-success{display:flex;align-items:flex-start;gap:9px;color:#70d68b;font-weight:600}.form-status.is-success .fa-circle-check{display:inline-grid;place-items:center;flex:0 0 20px;width:20px;height:20px;margin-top:1px;border-radius:50%;background:#70d68b;color:#151515;font-size:13px;font-style:normal;line-height:1}.form-status.is-success .fa-circle-check:before{content:"✓";font-family:Arial,sans-serif}.form-status.is-error{color:#ff8b86}
+
+/* Rezensionen lassen sich bei langen Texten aufklappen. */
+.review-more summary{cursor:pointer;color:#fff;font-weight:600;font-size:14px;list-style:none}
+.review-more summary::-webkit-details-marker{display:none}
+.review-more summary::before{content:"+";color:var(--red);font-size:19px;margin-right:8px}
+.review-more[open] summary::before{content:"−"}
+@media(min-width:1201px){.site-header .logo{width:285px}}
+@media(min-width:981px) and (max-width:1200px){.site-header .logo{width:270px}}
+.review-card:has(.review-more[open]) > p{display:none}
