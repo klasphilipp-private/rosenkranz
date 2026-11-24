@@ -17,7 +17,7 @@ Die schreibgeschützte Prüfung rief 32 Inserate und alle 32 Detailantworten ab.
 | `NEW` / `Car` / `PETROL` | 1 | 1/1 | 1/1 | 1/1 | 0/1 |
 | `NEW` / `Car` / `DIESEL` | 1 | 0/1 | 0/1 | 0/1 | 0/1 |
 
-Gezählt wurde die Existenz der jeweiligen strukturierten Felder (`emissions.combined.co2`, `emissions.combined.co2Class`, `consumptions.fuel.combined`, `costModel`); ein vorhandenes Kostenmodell ist nicht automatisch vollständig oder rechtlich ausreichend. Werte null sind als vorhanden gewertet. Freitexte und weitere mögliche ältere Felder wurden nicht als Ersatz für diese Felder interpretiert. Bei als gebraucht gekennzeichneten Fahrzeugen sind entsprechende Angaben je nach Inserat teilweise vorhanden. Der Import und die Website übernehmen die genannten strukturierten Felder weiterhin noch nicht.
+Gezählt wurde die Existenz der jeweiligen strukturierten Felder (`emissions.combined.co2`, `emissions.combined.co2Class`, `consumptions.fuel.combined`, `costModel`); ein vorhandenes Kostenmodell ist nicht automatisch vollständig oder rechtlich ausreichend. Werte null sind als vorhanden gewertet. Freitexte und weitere mögliche ältere Felder wurden nicht als Ersatz für diese Felder interpretiert. Bei als gebraucht gekennzeichneten Fahrzeugen sind entsprechende Angaben je nach Inserat teilweise vorhanden. Der Import übernimmt vorhandene strukturierte Werte als `energyDetails`; Angebotskacheln und Detailseiten zeigen diese Werte fahrzeugbezogen an. Die Aktualisierung läuft mit dem Bestandssynchronisationslauf.
 
 Vollständige gruppierte Zählung: https://github.com/klasphilipp-private/rosenkranz/actions/runs/45490504149
 
@@ -25,14 +25,14 @@ Vollständige gruppierte Zählung: https://github.com/klasphilipp-private/rosenk
 
 1. Die vorhandenen Energie- und Emissionsfelder aus den Einzelinseraten strukturiert übernehmen; Quelle, Einheit, Fahrzeugart und Antriebsart dokumentieren. Keine Werte aus anderen Fahrzeugen übernehmen oder schätzen.
 2. Ein mit dem Auftraggeber und fachlicher Beratung abgestimmtes Regelwerk für Neufahrzeuge, Grenzfälle und Antriebsarten festlegen. Verbrauch, CO₂-Werte und Klassen dort anzeigen, wo sie für die jeweilige Werbung erforderlich sind. Darstellung und Auffindbarkeit fachlich prüfen lassen.
-3. Bei erforderlichen, aber fehlenden oder widersprüchlichen Werten das betroffene Angebot bis zur Korrektur nicht veröffentlichen; direkt erreichbare Detailseiten und maschinenlesbare Daten dabei ebenfalls berücksichtigen. Einen internen Bericht mit Inserat-ID und fehlenden Feldern erzeugen. Keine pauschale Aussage zur Rechtssicherheit durch einen allgemeinen Hinweis.
+3. **Kundenentscheidung offen:** Angebote ohne Werte vorerst weiterhin anzeigen. Für den Livegang ist zu entscheiden, ob bei erforderlichen, aber fehlenden oder widersprüchlichen Werten das betroffene Angebot bis zur Korrektur nicht veröffentlicht wird; direkt erreichbare Detailseiten und maschinenlesbare Daten dabei ebenfalls berücksichtigen. Einen internen Bericht mit Inserat-ID und fehlenden Feldern erzeugen. Keine pauschale Aussage zur Rechtssicherheit durch einen allgemeinen Hinweis.
 4. Fehlende Werte in mobile.de ergänzen und beim nächsten stündlichen Abruf übernehmen. Für Fehler beim Abruf die letzte erfolgreiche Fassung beibehalten und einen Warnhinweis an die Betreuung vorsehen; eine kurzfristige Deaktivierung einzelner Inserate muss dabei berücksichtigt werden.
 5. Vor der Freischaltung Angebot, Detailseiten und weitere Werbeflächen einschließlich Startseite, Suchmaschinen-Metadaten und strukturierter Daten prüfen. Die Modellwelt mit allgemeinen Herstellerdaten ist gesondert zu betrachten.
 
 ## Fragen an den Auftraggeber
 
 - Wer ergänzt und pflegt die verbindlichen Fahrzeugwerte in mobile.de und kontrolliert fehlende oder fehlerhafte Angaben?
-- Soll ein Angebot bei fehlenden erforderlichen Werten bis zur Korrektur automatisch vollständig ausgeblendet werden? Welche Ersatzdarstellung und Benachrichtigung sind gewünscht?
+- Angebote ohne Werte bleiben zunächst sichtbar. Soll ein Angebot bei fehlenden erforderlichen Werten für den Livegang automatisch vollständig ausgeblendet werden? Welche Ersatzdarstellung und Benachrichtigung sind gewünscht?
 - Wer übernimmt die fachliche Prüfung des anzuwendenden Regelwerks und der Darstellung vor dem Livegang?
 
 ## Quellen

@@ -1,4 +1,12 @@
 window.RosenkranzOfferLabels = {
+  energyHtml(vehicle, detail = false) {
+    const entries = Array.isArray(vehicle.energyDetails) ? vehicle.energyDetails : [];
+    if (!entries.length) return '';
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const items = entries.filter(entry => entry && typeof entry.label === 'string' && typeof entry.value === 'string')
+      .map(entry => `<li><strong>${esc(entry.label)}:</strong> ${esc(entry.value)}</li>`).join('');
+    return items ? `<section class="${detail ? 'vehicle-energy' : 'offer-energy'}" aria-label="Verbrauch und CO₂">${detail ? '<h2>Verbrauch &amp; CO₂</h2>' : ''}<ul>${items}</ul></section>` : '';
+  },
   unique(vehicles) {
     const seen = new Set();
     return vehicles.filter(vehicle => {
