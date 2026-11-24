@@ -178,6 +178,11 @@
 .site-quick-rail a:hover span,.site-quick-rail a:focus-visible span{max-width:220px;opacity:1}
 @media(max-width:720px){.site-quick-rail{align-items:flex-end}.site-quick-rail a{width:48px;max-width:calc(100vw - 20px)}.site-quick-rail a:hover,.site-quick-rail a:focus-visible{width:48px}.site-quick-rail a.expanded{width:min(245px,calc(100vw - 20px))}.site-quick-rail a.expanded span{max-width:190px;opacity:1}}
 
+/* Give the detailed quick-access pictograms more room at every screen size. */
+.site-quick-rail a{padding-inline:15px}
+.site-quick-rail svg{width:32px;height:32px;flex-basis:32px}
+@media(max-width:720px){.site-quick-rail a{padding-inline:8px}}
+
 /* Model galleries and consistent top alignment within section columns. */
 .section-head{align-items:flex-start}
 .quality-layout,.commercial-layout,.service-layout,.about-layout{align-items:start}
