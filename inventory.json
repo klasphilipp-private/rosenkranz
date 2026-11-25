@@ -1,9 +1,9 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-25T14:43:24.154466+00:00",
-  "apiTotal": 32,
-  "vehiclesWithImages": 32,
+  "updated": "2026-11-25T22:29:59.178985+00:00",
+  "apiTotal": 34,
+  "vehiclesWithImages": 34,
   "exactDuplicatesRemoved": 0,
   "vehicles": [
     {
@@ -3286,6 +3286,200 @@
         }
       ],
       "detailPath": "angebote/berlingo-berlingo-m-hdi130-max-pdach-navi-ahk-55660813464672/"
+    },
+    {
+      "id": "58147895083328",
+      "title": "Subaru Forester 2.0 ie 100 kW AWD Active",
+      "price": "38.460 €",
+      "priceAmount": 38460.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/6c/6c56680d-d282-4960-ac99-ef11ff95627e?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/6c/6c56680d-d282-4960-ac99-ef11ff95627e?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/6d/6d3a3c4a-502c-44e1-99fb-7508ce7b1eda?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/d6/d6f40129-4873-43bc-afe8-1ec5651fb55b?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/36/36088f03-7c5b-4301-8539-eaea944528f6?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0-ie-100-kw-awd-active-recklinghausen/58147895083328.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Subaru",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0 ie 100 kW AWD Active",
+      "mileage": 8,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202608",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 100,
+      "energyDetails": [
+        {
+          "label": "Kraftstoffverbrauch kombiniert",
+          "value": "8,1 l/100 km"
+        },
+        {
+          "label": "CO₂-Emissionen kombiniert",
+          "value": "183 g/km"
+        },
+        {
+          "label": "CO₂-Klasse",
+          "value": "G"
+        }
+      ],
+      "description": "Der Subaru Forester überzeugt als vielseitiger Allradler mit einem durchdachten Ausstattungspaket für anspruchsvolle Fahrer. Der 136 PS starke Benzinmotor (Euro 6e) arbeitet mit einem Automatikgetriebe zusammen und überträgt die Kraft permanent auf alle vier Räder – ideal für wechselnde Straßenverhältnisse. Das Sport- und Winterpaket runden das Gesamtpaket sinnvoll ab. - Im Innenraum sorgen eine 2-Zonen-Klimaautomatik, elektrisch verstellbare und beheizbare Sitze sowie ein Touchscreen mit Apple CarPlay und Android Auto für komfortables Reisen. Kabellosem Laden, WiFi-Hotspot und DAB-Radio stehen ebenso zur Verfügung wie ein schlüsselloser Zugang und eine elektrische Heckklappe. - Sicherheitstechnisch ist der Forester umfassend ausgestattet: Adaptiver Tempomat, Spurhalteassistent, Totwinkelüberwachung, Kollisionswarner, Rückfahrkamera sowie ein 360-Grad-Kamerasystem gehören zum Lieferumfang. LED-Scheinwerfer mit adaptivem Kurvenlicht und blendfreiem Fernlicht sorgen für gute Sicht bei Nacht. - Permanenter Allradantrieb mit Automatikgetriebe und Paddleschaltung, Umfangreiches Sicherheitspaket inkl. Totwinkelmonitor, Kollisionswarner und Notrufsystem, 360-Grad-Kamerasystem sowie Front- und Hecksensoren, Apple CarPlay, Android Auto, DAB-Radio und WiFi-Hotspot, Elektrisch verstellbare und beheizbare Sitze, 2-Zonen-Klimaautomatik und Ambiente-Beleuchtung, Schlüsselloser Zugang und elektrische Heckklappe, Anhängelast gebremst: 1.870 kg - ",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "8 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Automatik"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Benzin"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Allradantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SUV/Geländewagen"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Grau"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6E"
+        }
+      ],
+      "detailPath": "angebote/forester-forester-2-0-ie-100-kw-awd-active-58147895083328/"
+    },
+    {
+      "id": "58152147387808",
+      "title": "Subaru Forester 2.0 ie 100 kW AWD Exclusive",
+      "price": "39.950 €",
+      "priceAmount": 39950.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/e2/e2a9780f-8e29-42c3-899a-595b179cecf1?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/e2/e2a9780f-8e29-42c3-899a-595b179cecf1?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/f1/f11ec338-f278-43ce-87c6-1b8a32db9a72?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/3e/3e35d31e-718f-4f2e-82cf-35d23b195860?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/d6/d6f40129-4873-43bc-afe8-1ec5651fb55b?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/36/36088f03-7c5b-4301-8539-eaea944528f6?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-forester-2-0-ie-100-kw-awd-exclusive-recklinghausen/58152147387808.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Subaru",
+      "model": "Forester",
+      "modelDescription": "Forester 2.0 ie 100 kW AWD Exclusive",
+      "mileage": 8,
+      "fuel": "PETROL",
+      "gearbox": "AUTOMATIC_GEAR",
+      "driveType": "ALL_WHEEL",
+      "firstRegistration": "202608",
+      "category": "OffRoad",
+      "condition": "USED",
+      "power": 100,
+      "energyDetails": [
+        {
+          "label": "Kraftstoffverbrauch kombiniert",
+          "value": "8,1 l/100 km"
+        },
+        {
+          "label": "CO₂-Emissionen kombiniert",
+          "value": "183 g/km"
+        },
+        {
+          "label": "CO₂-Klasse",
+          "value": "G"
+        }
+      ],
+      "description": "Dieser Subaru Forester überzeugt als alltagstauglicher Allradler mit umfangreicher Serienausstattung und einem Erstzulassungsjahr 2026. Mit nur einem Vorbesitzer und vollständiger Servicehistorie bietet er eine solide Grundlage für den nächsten Eigentümer. Der Allradantrieb in Kombination mit dem Automatikgetriebe sorgt für zuverlässige Traktion in verschiedenen Fahrsituationen, während das Sportpaket zusätzliche Akzente setzt. - Die Sicherheitsausstattung ist umfassend: Adaptiver Tempomat, Spurhalteassistent, Totwinkelüberwachung, Querverkehrswarner sowie ein Kollisionswarnsystem gehören ebenso dazu wie Front- und Hecksensoren, eine 360-Grad-Kamera und eine Rückfahrkamera. Das Interieur in Schwarz mit Stoffbezügen bietet elektrisch verstellbare und beheizte Sitze, ein Panoramadach sowie eine Zweizonen-Klimaautomatik. Konnektivität ist durch Apple CarPlay, Android Auto, Navigation, DAB-Radio, WLAN-Hotspot und kabelloses Laden gewährleistet. - Allradantrieb mit Automatikgetriebe und Paddleschaltung, Umfangreiches Fahrerassistenzpaket inkl. adaptivem Tempomat und Spurhalteassistent, 360-Grad-Kamera sowie Front- und Parksensoren, Panoramadach und Zweizonen-Klimaautomatik, Elektrisch verstellbare und beheizte Sitze, Apple CarPlay, Android Auto, Navigation und WLAN-Hotspot, LED-Scheinwerfer mit adaptivem Kurvenlicht und Fernlichtassistent, Anhängelast gebremst: 1.870 kg, Metallic-Lackierung in Grau, Nichtraucherfahrzeug mit Garantie - ",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "08/2026"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "8 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "100 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Automatik"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Benzin"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Allradantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SUV/Geländewagen"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 1995
+        },
+        {
+          "label": "Türen",
+          "value": "4/5"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 5
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Grau"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6E"
+        }
+      ],
+      "detailPath": "angebote/forester-forester-2-0-ie-100-kw-awd-exclusive-58152147387808/"
     }
   ]
 }
