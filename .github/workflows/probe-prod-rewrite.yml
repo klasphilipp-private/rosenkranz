@@ -1,0 +1,31 @@
+name: Diagnose Rosenkranz PROD rewrite
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rosenkranz-prod-release
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: python -m pip install 'paramiko>=3.5,<5'
+      - name: Probe rewrite rules and restore the original configuration
+        env:
+          IONOS_SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
+          IONOS_SFTP_PORT: ${{ secrets.IONOS_SFTP_PORT }}
+          IONOS_SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
+          IONOS_PROD_SFTP_USERNAME: ${{ secrets.IONOS_PROD_SFTP_USERNAME }}
+          IONOS_PROD_SFTP_PASSWORD: ${{ secrets.IONOS_PROD_SFTP_PASSWORD }}
+          IONOS_PROD_REMOTE_PATH: ${{ secrets.IONOS_PROD_REMOTE_PATH }}
+        run: PYTHONDONTWRITEBYTECODE=1 python scripts/probe_prod_rewrite.py
