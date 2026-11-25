@@ -124,7 +124,8 @@ def main():
         changed += 1
     offers = update_sitemap(output, base_url)
     robots = output / "robots.txt"
-    robots.write_text(re.sub(r"^Sitemap:.*$", f"Sitemap: {base_url}sitemap.xml", robots.read_text(), flags=re.M))
+    robot_rules = re.sub(r"^Sitemap:.*$", f"Sitemap: {base_url}sitemap.xml", robots.read_text(), flags=re.M)
+    robots.write_text(robot_rules.rstrip() + "\nDisallow: /__releases/\n")
     print(f"Production copy ready: {output}; processed {changed} HTML pages; {offers} active vehicle URLs in sitemap.")
 
 
