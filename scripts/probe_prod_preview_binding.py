@@ -4,6 +4,7 @@ import base64
 import errno
 import os
 import secrets
+import socket
 import tempfile
 import urllib.error
 import urllib.request
@@ -32,6 +33,10 @@ def check_binding(sftp, marker, content, user="", password=""):
             if error.code == 401 and not user:
                 raise RuntimeError("PROD preview requires Basic Auth; add PROD_PREVIEW_USER/PASSWORD as Actions secrets") from None
             raise RuntimeError(f"PROD preview returned HTTP {error.code}; SFTP-to-domain binding is unverified") from None
+        except urllib.error.URLError as error:
+            if isinstance(error.reason, socket.gaierror):
+                raise RuntimeError("PROD preview hostname does not resolve in DNS; SFTP-to-domain binding is unverified") from None
+            raise RuntimeError(f"PROD preview network or TLS request failed ({type(error.reason).__name__})") from None
         if status != 200 or received != content:
             raise RuntimeError("PROD preview did not serve the exact SFTP probe bytes")
         print("Verified: PROD SFTP target serves the exact bytes through the HTTPS preview hostname.")
