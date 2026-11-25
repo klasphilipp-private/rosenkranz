@@ -2,6 +2,7 @@
 const { chromium, request } = require('playwright');
 const fs = require('fs');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 const base = 'https://test1.automobile-rosenkranz.de';
 const user = process.env.DEV_TEST_USER, password = process.env.DEV_TEST_PASSWORD;
 if (!user || !password) { console.error('DEV_TEST credentials missing from repository secrets.'); process.exit(1); }
@@ -25,6 +26,32 @@ const hash = data => crypto.createHash('sha256').update(data).digest('hex');
     else ok(`${file}: erreichbar und entspricht Git-Stand`);
     if (file.endsWith('.html') && !/noindex/i.test(data.toString())) fail(`${file}: noindex fehlt`);
   }
+  const files = execFileSync('git', ['ls-files', '-z', '*.html'], { encoding: 'utf8' }).split('\0')
+    .filter(file => file && !['header.html', 'footer.html'].includes(file));
+  let checkedPages = 0;
+  for (let i = 0; i < files.length; i += 6) {
+    await Promise.all(files.slice(i, i + 6).map(async file => {
+      try {
+        const res = await api.get(`${base}/${file}`, { timeout: 30000 });
+        if (res.status() !== 200) fail(`${file}: HTTP ${res.status()}`);
+        else if (!/noindex/i.test(await res.text())) fail(`${file}: noindex fehlt`);
+        else checkedPages++;
+      } catch (_) { fail(`${file}: Seite nicht erreichbar`); }
+    }));
+  }
+  ok(`${checkedPages} HTML-Seiten auf Erreichbarkeit und noindex geprüft`);
+  const galleryImages = execFileSync('git', ['ls-files', '-z', 'assets/galerien/*.webp'], { encoding: 'utf8' }).split('\0').filter(Boolean);
+  let checkedImages = 0;
+  for (let i = 0; i < galleryImages.length; i += 6) {
+    await Promise.all(galleryImages.slice(i, i + 6).map(async file => {
+      try {
+        const res = await api.head(`${base}/${file}`, { timeout: 30000 });
+        if (res.status() !== 200 || !(res.headers()['content-type'] || '').startsWith('image/')) fail(`${file}: Bild nicht erreichbar`);
+        else checkedImages++;
+      } catch (_) { fail(`${file}: Bild nicht erreichbar`); }
+    }));
+  }
+  ok(`${checkedImages} neue Galeriebilder auf Erreichbarkeit geprüft`);
   const formConfig = await api.get(base + '/forms-config.json', { timeout: 15000 });
   if (formConfig.status() === 404) warn('Formularkonfiguration fehlt auf DEV_TEST; Versand nicht getestet');
   else if (formConfig.status() !== 200) warn(`Formularkonfiguration: HTTP ${formConfig.status()}; Versand nicht getestet`);
