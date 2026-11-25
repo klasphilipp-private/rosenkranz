@@ -6,5 +6,11 @@
     "https://www.automobile-rosenkranz.de": "https://rosenkranz-forms-production.rough-hill-9dd9.workers.dev/submit",
     "https://prd-prev.automobile-rosenkranz.de": "https://rosenkranz-forms-production.rough-hill-9dd9.workers.dev/submit"
   },
-  "turnstileSiteKeys": {}
+  "turnstileSiteKeys": {
+    "https://klasphilipp-private.github.io": "0x4AAAAAAGS8-g-rPUjLuUt8",
+    "https://test1.automobile-rosenkranz.de": "0x4AAAAAAGS8-g-rPUjLuUt8",
+    "https://automobile-rosenkranz.de": "0x4AAAAAAGS9K0Kt2B73YtEm",
+    "https://www.automobile-rosenkranz.de": "0x4AAAAAAGS9K0Kt2B73YtEm",
+    "https://prd-prev.automobile-rosenkranz.de": "0x4AAAAAAGS9K0Kt2B73YtEm"
+  }
 }
