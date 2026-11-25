@@ -28,6 +28,4 @@ jobs:
           IONOS_PROD_SFTP_USERNAME: ${{ secrets.IONOS_PROD_SFTP_USERNAME }}
           IONOS_PROD_SFTP_PASSWORD: ${{ secrets.IONOS_PROD_SFTP_PASSWORD }}
           IONOS_PROD_REMOTE_PATH: ${{ secrets.IONOS_PROD_REMOTE_PATH }}
-          PROD_PREVIEW_USER: ${{ secrets.PROD_PREVIEW_USER }}
-          PROD_PREVIEW_PASSWORD: ${{ secrets.PROD_PREVIEW_PASSWORD }}
         run: PYTHONDONTWRITEBYTECODE=1 python scripts/probe_prod_preview_binding.py
