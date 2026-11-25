@@ -52,6 +52,13 @@ def check_binding(sftp, marker, content, user="", password=""):
         if status != 200 or received != content:
             raise RuntimeError("PROD preview did not serve the exact SFTP probe bytes")
         print("Verified: PROD SFTP target serves the exact bytes through the HTTPS preview hostname.")
+        for host in ("https://automobile-rosenkranz.de", "https://www.automobile-rosenkranz.de"):
+            try:
+                with urllib.request.urlopen(f"{host}/{marker}", timeout=25) as response:
+                    shared = response.status == 200 and response.read(256) == content
+            except (urllib.error.HTTPError, urllib.error.URLError):
+                shared = False
+            print(f"{host} serves the same PROD SFTP directory: {'yes' if shared else 'no'}.")
     finally:
         if written:
             sftp.remove(marker)
