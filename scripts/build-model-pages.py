@@ -71,7 +71,7 @@ def main():
         if model.get("sourceCredit"):
             page_html = page_html.replace('</div></section></main>', f'<p class="source-credit">{escape(model["sourceCredit"])}</p></div></section></main>', 1)
         page_html = re.sub(r'\n  <script>\s*const slug=.*?</script>', "", page_html, count=1, flags=re.S)
-        page_html = re.sub(r'<script src="model-hero\.js[^"]*"></script>', '<script src="model-page.js?v=20261124-documents"></script>', page_html, count=1)
+        page_html = re.sub(r'<script src="model-hero\.js[^"]*"></script>', '<script src="model-page.js?v=20261125-titel"></script>', page_html, count=1)
         (ROOT / page).write_text(page_html, encoding="utf-8")
 
 
