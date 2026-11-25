@@ -18,7 +18,7 @@ const hash = data => crypto.createHash('sha256').update(data).digest('hex');
   if (initial.status() === 401) ok('Passwortschutz ohne Anmeldung aktiv'); else fail(`Ohne Anmeldung HTTP ${initial.status()}`);
   await anonymous.dispose();
   const api = await request.newContext({ httpCredentials: credentials });
-  for (const file of ['index.html','modelle.html','angebote.html','camping-tuning.html','ueber-uns.html','service.html','galleries.js','galleries.css','assets/galerien/historie/01.webp']) {
+  for (const file of ['index.html','modelle.html','angebote.html','camping-tuning.html','ueber-uns.html','service.html','galleries.js','galleries.css','model-page.js','model-documents-data.js','assets/galerien/historie/01.webp']) {
     const res = await api.get(`${base}/${file}`, { timeout: 30000 });
     if (res.status() !== 200) { fail(`${file}: HTTP ${res.status()}`); continue; }
     const data = await res.body();
@@ -108,6 +108,11 @@ const hash = data => crypto.createHash('sha256').update(data).digest('hex');
       await page.locator('#catalog-grid .vehicle-card').first().waitFor({ timeout: 15000 });
       await page.locator('#brand-filter').selectOption('subaru');
       if ((await page.locator('#catalog-title').textContent()).toLowerCase().includes('subaru')) ok(`${width}px: Modellfilter funktioniert`); else fail(`${width}px: Modellfilter funktioniert nicht`);
+      await page.goto(base + '/subaru-forester.html', { waitUntil: 'domcontentloaded', timeout: 30000 });
+      const title = page.locator('.model-document strong', { hasText: 'Subaru Forester · Zubehör Preisliste' });
+      await title.waitFor({ timeout: 15000 });
+      if (await title.textContent() === 'Subaru Forester · Zubehör Preisliste') ok(`${width}px: korrigierter Dokumenttitel sichtbar`);
+      else fail(`${width}px: Dokumenttitel nicht korrekt`);
     } catch (error) { fail(`${width}px: Browserprüfung abgebrochen (${error.name})`); }
     if (errors.size) fail(`${width}px: JavaScript-Fehler aufgetreten`);
     if (failedLocal.size) warn(`${width}px: HTTP-Fehler bei lokalen Ressourcen: ${[...failedLocal].join(', ')}`);
