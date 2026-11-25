@@ -104,10 +104,18 @@ export default {
     if (String(env.CUSTOMER_CONFIRMATION || "").toLowerCase() === "true") {
       const requestTypeLabel = inquiryLabel;
       const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : type === "project" ? "Ihre Anfrage zum Thema " + interest : "Ihre Nachricht an Automobile Rosenkranz";
-      const summaryValue = type === "test_drive" ? vehicle : type === "project" ? interest : "";
-      const vehicleSummary = summaryValue
-        ? "<tr><td style=\"padding:10px 0;color:#666;border-bottom:1px solid #dedbd7\">" + (type === "test_drive" ? "Wunschfahrzeug" : "Thema") + "</td><td align=\"right\" style=\"padding:10px 0;color:#151515;font-weight:700;border-bottom:1px solid #dedbd7\">" + escapeHtml(summaryValue) + "</td></tr>"
-        : "";
+      const customerFields = [
+        ["Anliegen", requestTypeLabel], ["Name", name], ["E-Mail", email],
+        ...(phone ? [["Telefon", phone]] : []),
+        ...(vehicle ? [["Wunschfahrzeug", vehicle]] : []),
+        ...(interest ? [["Thema", interest]] : []),
+        ...(message ? [["Nachricht", message]] : [])
+      ];
+      const customerRows = customerFields.map(([label, value]) =>
+        '<tr><td style="padding:10px 10px 10px 0;color:#666;border-bottom:1px solid #dedbd7;vertical-align:top">' + escapeHtml(label) +
+        '</td><td style="padding:10px 0;color:#151515;font-weight:600;border-bottom:1px solid #dedbd7;overflow-wrap:anywhere">' +
+        escapeHtml(value).replace(/\r\n|\r|\n/g, '<br>') + '</td></tr>'
+      ).join('');
       const customerHtml = `<!doctype html>
 <html lang="de">
   <head>
@@ -125,20 +133,19 @@ export default {
               <a href="https://www.automobile-rosenkranz.de/" style="display:inline-block;text-decoration:none">
                 <img src="https://klasphilipp-private.github.io/rosenkranz/assets/logo-header.png" width="220" alt="Automobile Rosenkranz" style="display:block;width:220px;max-width:100%;height:auto;border:0">
               </a>
-              <p style="margin:12px 0 0;color:#c9c9c9;font-size:11px;line-height:1.4;letter-spacing:2px;text-transform:uppercase">Qualität bewegt seit 1992</p>
+              <p style="margin:12px 0 0;color:#c9c9c9;font-size:11px;line-height:1.4;letter-spacing:2px">Mit uns zum Ziel. Seit 1992.</p>
             </td>
           </tr>
           <tr>
             <td style="padding:36px 32px 28px">
               <p style="margin:0 0 10px;color:#c60805;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase">Eingangsbestätigung</p>
               <h1 style="margin:0 0 18px;color:#151515;font-size:30px;line-height:1.2;font-weight:700">Vielen Dank, ${escapeHtml(name)}.</h1>
-              <p style="margin:0 0 22px;color:#4d4d4d;font-size:16px;line-height:1.7">${escapeHtml(requestDescription)} ist bei uns eingegangen. Unser Team meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.</p>
+              <p style="margin:0 0 22px;color:#4d4d4d;font-size:16px;line-height:1.7">${escapeHtml(requestDescription)} ist bei uns eingegangen. Unser Team meldet sich schnellstmöglich persönlich bei Ihnen.</p>
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background-color:#f4f3f1;border-left:3px solid #c60805">
                 <tr><td style="padding:15px 18px">
                   <p style="margin:0 0 10px;color:#c60805;font-size:11px;line-height:1.4;font-weight:700;letter-spacing:1.5px;text-transform:uppercase">Ihre Anfrage</p>
                   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                    <tr><td style="padding:10px 0;color:#666;border-bottom:1px solid #dedbd7">Anliegen</td><td align="right" style="padding:10px 0;color:#151515;font-weight:700;border-bottom:1px solid #dedbd7">${escapeHtml(requestTypeLabel)}</td></tr>
-                    ${vehicleSummary}
+                    ${customerRows}
                   </table>
                 </td></tr>
               </table>
@@ -164,11 +171,9 @@ export default {
         "Guten Tag " + name + ",",
         "",
         "vielen Dank. " + requestDescription + " ist bei uns eingegangen.",
-        "Unser Team meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.",
+        "Unser Team meldet sich schnellstmöglich persönlich bei Ihnen.",
         "",
-        "Anliegen: " + requestTypeLabel,
-        ...(type === "test_drive" ? ["Wunschfahrzeug: " + vehicle] : []),
-        ...(type === "project" ? ["Thema: " + interest] : []),
+        ...customerFields.map(([label, value]) => label + ": " + value),
         "",
         "Freundliche Grüße",
         "Ihr Team von Automobile Rosenkranz",

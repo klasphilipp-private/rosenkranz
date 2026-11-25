@@ -38,7 +38,7 @@ Für Personen ohne verfügbares Foto werden derzeit neutrale Platzhalter angezei
 Die Anbindung und End-to-End-Prüfung von Formularen und E-Mail-Versand gehören zum separaten Cloudflare-/Resend-Paket. Die Vorschauhinweise auf den betreffenden Formularen dürfen erst entfallen, wenn das jeweilige Formular in der Zielumgebung tatsächlich funktioniert. Siehe `workers/forms/README.md`.
 
 - Für die Abnahme: Wer erhält die internen Testanfragen, und welche kontrollierte Testadresse soll die Eingangsbestätigung erhalten?
-- Sollen die Zusagen zur Rückmeldung innerhalb von 48 Stunden auch an Wochenenden und Feiertagen gelten oder nur an Werktagen?
+- Die Bestätigungs-E-Mail kündigt eine schnellstmögliche Rückmeldung an; eine feste Frist wird nicht zugesagt.
 
 ## 7. Vor dem Livegang
 
