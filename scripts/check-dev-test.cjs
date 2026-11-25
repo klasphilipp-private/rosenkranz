@@ -113,6 +113,17 @@ const hash = data => crypto.createHash('sha256').update(data).digest('hex');
       await title.waitFor({ timeout: 15000 });
       if (await title.textContent() === 'Subaru Forester · Zubehör Preisliste') ok(`${width}px: korrigierter Dokumenttitel sichtbar`);
       else fail(`${width}px: Dokumenttitel nicht korrekt`);
+      await page.goto(base + '/index.html?modell=c3#probefahrt', { waitUntil: 'domcontentloaded', timeout: 30000 });
+      await page.waitForFunction(() => document.querySelector('#vehicle')?.value === 'Citroën C3', null, { timeout: 15000 });
+      await page.waitForTimeout(1200);
+      const anchorTop = await page.locator('#probefahrt').evaluate(element => element.getBoundingClientRect().top);
+      if (anchorTop >= 0 && anchorTop <= 160) ok(`${width}px: Probefahrtlink führt direkt zum vorausgewählten Formular`);
+      else fail(`${width}px: Probefahrtformular nicht im sichtbaren Bereich`);
+      if (width === 390) {
+        const logoWidth = await page.locator('.site-header .logo').evaluate(element => element.getBoundingClientRect().width);
+        if (Math.abs(logoWidth - 200) <= 1) ok('Mobiles Logo mit 200 px dargestellt');
+        else fail(`Mobiles Logo hat ${Math.round(logoWidth)} px`);
+      }
     } catch (error) { fail(`${width}px: Browserprüfung abgebrochen (${error.name})`); }
     if (errors.size) fail(`${width}px: JavaScript-Fehler aufgetreten`);
     if (failedLocal.size) warn(`${width}px: HTTP-Fehler bei lokalen Ressourcen: ${[...failedLocal].join(', ')}`);
