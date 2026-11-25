@@ -70,6 +70,8 @@ def verify_remote_files(sftp, manifest: dict) -> None:
             raise RuntimeError(f"Remote release file differs: {name}")
         digest = hashlib.sha256()
         with sftp.open(name, "rb") as file:
+            if metadata["bytes"] >= 1024 * 1024:
+                file.prefetch(file_size=metadata["bytes"], max_concurrent_requests=16)
             while chunk := file.read(1024 * 1024):
                 digest.update(chunk)
         if digest.hexdigest() != metadata["sha256"]:
