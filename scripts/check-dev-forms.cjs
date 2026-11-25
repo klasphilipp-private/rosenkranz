@@ -42,5 +42,5 @@ if (!username || !password) { console.error('DEV_TEST credentials missing.'); pr
     console.log('OK: ' + label + ' – interne E-Mail und Bestätigung vom Versanddienst angenommen');
   }
   await browser.close();
-  console.log('Alle vier DEV_TEST-Formulare wurden getestet; gekennzeichnete Testnachrichten gingen an das Autohauspostfach.');
+  console.log('Alle vier DEV_TEST-Formulare wurden getestet; der Versanddienst hat die gekennzeichneten Testnachrichten angenommen. Die Zustellung im Postfach ist separat zu prüfen.');
 })().catch(error => { console.error('Formulartest fehlgeschlagen: ' + error.message.replace(/https?:\/\/\S+/g, '[URL]')); process.exit(1); });
