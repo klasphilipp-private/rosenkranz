@@ -16,6 +16,8 @@ Statische, WordPress-freie Designvorschau. Einstieg: `index.html`; aktuelle Ange
 
 `header.html` ist die einzige Vorlage für Header, Navigation und Schnellzugriffe. Seiten enthalten nur noch den leeren Mount-Punkt `#shared-header`; `site-shell.js` lädt und initialisiert die gemeinsame Vorlage. `footer.html` wird entsprechend über `footer.js` eingebunden. Änderungen an Menüeinträgen, Kontaktleisten oder Footer-Inhalten erfolgen daher jeweils an der Vorlage, nicht auf den einzelnen Seiten. Auch neu erzeugte Angebotsdetailseiten verwenden diese gemeinsamen Vorlagen.
 
+DEV_TEST erhält beim IONOS-Upload zusätzlich den verwalteten Block aus `deploy/dev-test-hardening.htaccess` in der bestehenden `.htaccess`. Der Workflow erhält den vorhandenen Passwortschutz, setzt Regeln für sensible und ausführbare Dateitypen und prüft nach der Änderung erneut HTTP 401 ohne Anmeldung. Für eine reine Aktualisierung der Regeln gibt es den Workflow-Modus `hardening`. Die Regeln ersetzen keine serverseitige Formularvalidierung; diese liegt im Cloudflare Worker.
+
 ## Mobile.de-Bestand
 
 `scripts/sync-mobile-inventory.py` liest alle Ergebnisseiten der offiziellen mobile.de Search API aus, erstellt Angebotsdetailseiten und aktualisiert `inventory.json`. Der Workflow synchronisiert den Bestand stündlich und schließt Anzeigen ohne Fahrzeugfoto sowie exakte Dubletten aus. Zugangsdaten gehören ausschließlich in GitHub Actions Secrets, nie in HTML oder Git. Siehe [offizielle API-Übersicht](https://services.mobile.de/manual/index.html) und [Search-API-Dokumentation](https://services.mobile.de/docs/search-api.html).

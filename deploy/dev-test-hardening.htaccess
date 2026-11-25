@@ -1,0 +1,12 @@
+# Only static website files are expected in DEV_TEST. Keep the existing
+# IONOS Basic Auth directives outside this managed block.
+<FilesMatch "(?i)(?:^\.|\.(?:php[0-9]?|phtml|phar|cgi|pl|py|sh|asp|aspx|jsp|sql|sqlite|ini|conf|ya?ml|toml|env|log|pem|key|bak|old|orig|save)$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
