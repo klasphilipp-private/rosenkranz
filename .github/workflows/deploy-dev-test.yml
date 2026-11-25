@@ -5,7 +5,7 @@ on:
       mode:
         description: SFTP prüfen oder Website hochladen
         type: choice
-        options: [check, upload, hardening, webcheck, formscheck]
+        options: [check, upload, restamp, hardening, webcheck, formscheck]
         default: check
 permissions:
   contents: read
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main' && (inputs.mode == 'check' || inputs.mode == 'upload' || inputs.mode == 'hardening')
+    if: github.ref == 'refs/heads/main' && (inputs.mode == 'check' || inputs.mode == 'upload' || inputs.mode == 'restamp' || inputs.mode == 'hardening')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -44,6 +44,7 @@ jobs:
           import paramiko
           from scripts.htaccess_hardening import merge
           from scripts.release_files import manifest_bytes, public_files, release_manifest, verify_remote_files
+          import json
 
           target = "/Web-Relaunch-2026/DEV_TEST"
           files = public_files(Path("."), include_maintenance=True)
@@ -82,8 +83,16 @@ jobs:
                   print(f"Connected. DEV_TEST entries: {len(sftp.listdir('.'))}", flush=True)
                   if os.environ["MODE"] == "check":
                       raise SystemExit(0)
-                  if os.environ["MODE"] not in {"upload", "hardening"}:
+                  if os.environ["MODE"] not in {"upload", "restamp", "hardening"}:
                       raise SystemExit("Unknown deployment mode.")
+
+                  if os.environ["MODE"] == "restamp":
+                      with sftp.open(".rosenkranz-release.json", "rb") as entry:
+                          prior = json.load(entry)
+                      if prior.get("files") != manifest["files"] or prior.get("contentDigest") != manifest["contentDigest"]:
+                          raise SystemExit("Public files changed; use upload instead of restamp.")
+                      verify_remote_files(sftp, manifest)
+                      print("Unchanged DEV_TEST files verified for the new release commit.")
 
                   if os.environ["MODE"] == "upload":
                       directories = sorted({parent.as_posix() for path in files for parent in path.parents} - {"."})
@@ -165,7 +174,7 @@ jobs:
                           sftp.posix_rename(temporary, ".htaccess")
                           raise SystemExit("DEV_TEST security check failed; original .htaccess restored.")
                       print("DEV_TEST hardening installed; password protection still active.")
-                  if os.environ["MODE"] == "upload":
+                  if os.environ["MODE"] in {"upload", "restamp"}:
                       marker = ".rosenkranz-release.json"
                       temporary = f"{marker}.{os.environ['GITHUB_RUN_ID']}.tmp"
                       try:
