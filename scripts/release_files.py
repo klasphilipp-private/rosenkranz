@@ -1,0 +1,78 @@
+"""Single allowlist and checksums for the Rosenkranz website releases."""
+
+import hashlib
+import json
+import stat
+import subprocess
+from pathlib import Path
+
+
+PUBLIC_TYPES = {
+    ".html", ".css", ".js", ".mjs", ".png", ".jpg", ".jpeg",
+    ".gif", ".webp", ".avif", ".svg", ".ico", ".woff", ".woff2",
+    ".ttf", ".mp4", ".webm", ".pdf",
+}
+PUBLIC_DATA = {
+    "models.json", "inventory.json", "google-reviews.json",
+    "forms-config.json", "robots.txt", "sitemap.xml",
+}
+EXCLUDED_ROOTS = {"scripts", "docs", "tests", "deploy", "workers"}
+
+
+def public_files(source: Path, *, include_maintenance: bool) -> list[Path]:
+    source = source.resolve()
+    names = subprocess.check_output(["git", "-C", str(source), "ls-files", "-z"]).decode().split("\0")
+    files = []
+    for name in names:
+        if not name:
+            continue
+        path = Path(name)
+        if any(part.startswith(".") for part in path.parts) or path.parts[0] in EXCLUDED_ROOTS:
+            continue
+        if not include_maintenance and path.parts[0] == "wartung":
+            continue
+        absolute = source / path
+        if absolute.is_file() and not absolute.is_symlink() and (
+            path.suffix.lower() in PUBLIC_TYPES or name in PUBLIC_DATA
+        ):
+            files.append(path)
+    if Path("index.html") not in files or Path("forms-config.json") not in files:
+        raise ValueError("Website entry point or form configuration missing")
+    return sorted(files)
+
+
+def release_manifest(source: Path, files: list[Path], sha: str) -> dict:
+    if len(sha) != 40 or any(char not in "0123456789abcdef" for char in sha):
+        raise ValueError("Expected a full lowercase Git commit SHA")
+    entries = {}
+    for path in files:
+        digest = hashlib.sha256()
+        with (source / path).open("rb") as file:
+            while chunk := file.read(1024 * 1024):
+                digest.update(chunk)
+        entries[path.as_posix()] = {"sha256": digest.hexdigest(), "bytes": (source / path).stat().st_size}
+    manifest = {"schemaVersion": 1, "sourceCommit": sha, "files": entries}
+    manifest["contentDigest"] = hashlib.sha256(
+        json.dumps(entries, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+    return manifest
+
+
+def manifest_bytes(manifest: dict) -> bytes:
+    return (json.dumps(manifest, sort_keys=True, separators=(",", ":")) + "\n").encode()
+
+
+def verify_remote_files(sftp, manifest: dict) -> None:
+    """Check every served file, not only SFTP upload size or the entry page."""
+    for count, (name, metadata) in enumerate(manifest["files"].items(), 1):
+        info = sftp.lstat(name)
+        if not stat.S_ISREG(info.st_mode) or info.st_size != metadata["bytes"]:
+            raise RuntimeError(f"Remote release file differs: {name}")
+        digest = hashlib.sha256()
+        with sftp.open(name, "rb") as file:
+            while chunk := file.read(1024 * 1024):
+                digest.update(chunk)
+        if digest.hexdigest() != metadata["sha256"]:
+            raise RuntimeError(f"Remote release checksum differs: {name}")
+        if count % 50 == 0:
+            print(f"Verified {count}/{len(manifest['files'])} release files", flush=True)

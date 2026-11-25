@@ -8,6 +8,8 @@ from pathlib import Path
 from urllib.parse import urljoin
 import xml.etree.ElementTree as ET
 
+from release_files import public_files
+
 PREVIEW_ORIGIN = "https://klasphilipp-private.github.io/rosenkranz"
 NOINDEX_TEMPLATES = {"fahrzeug.html", "modell.html"}
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -97,14 +99,23 @@ def main():
     if not (source / "index.html").is_file():
         raise SystemExit(f"Source does not look like the Rosenkranz site: {source}")
 
-    shutil.copytree(
-        source,
-        output,
-        ignore=shutil.ignore_patterns(".git", ".github", "__pycache__", "dist-production", "scripts", "SEO-IMPLEMENTIERUNG.md", "README.md"),
-    )
+    files = public_files(source, include_maintenance=False)
+    inventory = json.loads((source / "inventory.json").read_text(encoding="utf-8"))
+    active_offers = {
+        Path(vehicle["detailPath"].strip("/") + "/index.html")
+        for vehicle in inventory.get("vehicles", []) if vehicle.get("detailPath")
+    }
+    for relative in files:
+        if relative.parts[0] == "angebote" and relative.suffix == ".html" and relative not in active_offers:
+            continue
+        destination = output / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source / relative, destination)
     changed = 0
     for page in output.rglob("*.html"):
         relative = page.relative_to(output)
+        if relative.as_posix() in {"header.html", "footer.html"}:
+            continue
         page.write_text(prepare_page(page, relative, base_url), encoding="utf-8")
         changed += 1
     offers = update_sitemap(output, base_url)

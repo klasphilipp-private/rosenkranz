@@ -18,6 +18,8 @@ Statische, WordPress-freie Designvorschau. Einstieg: `index.html`; aktuelle Ange
 
 DEV_TEST erhält beim IONOS-Upload zusätzlich den verwalteten Block aus `deploy/dev-test-hardening.htaccess` in der bestehenden `.htaccess`. Der Workflow erhält den vorhandenen Passwortschutz, setzt Regeln für sensible und ausführbare Dateitypen und prüft nach der Änderung erneut HTTP 401 ohne Anmeldung. Für eine reine Aktualisierung der Regeln gibt es den Workflow-Modus `hardening`. Die Regeln ersetzen keine serverseitige Formularvalidierung; diese liegt im Cloudflare Worker.
 
+Der Freigabeweg von DEV_TEST zu PROD und seine noch offenen IONOS-Voraussetzungen stehen in `docs/release-process.md`. Die Produktionsvorbereitung ist ein reiner Prüf- und Paketierungsschritt; sie veröffentlicht keine Dateien auf der Live-Domain.
+
 ## Mobile.de-Bestand
 
 `scripts/sync-mobile-inventory.py` liest alle Ergebnisseiten der offiziellen mobile.de Search API aus, erstellt Angebotsdetailseiten und aktualisiert `inventory.json`. Der Workflow synchronisiert den Bestand stündlich und schließt Anzeigen ohne Fahrzeugfoto sowie exakte Dubletten aus. Zugangsdaten gehören ausschließlich in GitHub Actions Secrets, nie in HTML oder Git. Siehe [offizielle API-Übersicht](https://services.mobile.de/manual/index.html) und [Search-API-Dokumentation](https://services.mobile.de/docs/search-api.html).
