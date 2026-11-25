@@ -415,3 +415,4 @@
 /* Mobile brand and direct access to the test-drive form. */
 @media(max-width:720px){.site-header .logo{width:200px;max-width:calc(100vw - 145px)}}
 #probefahrt{scroll-margin-top:10px}
+.turnstile-widget{margin:16px 0;min-height:65px;grid-column:1/-1;max-width:100%;overflow:hidden}

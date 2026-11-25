@@ -3,6 +3,8 @@
     "https://klasphilipp-private.github.io": "https://rosenkranz-forms-staging.rough-hill-9dd9.workers.dev/submit",
     "https://test1.automobile-rosenkranz.de": "https://rosenkranz-forms-staging.rough-hill-9dd9.workers.dev/submit",
     "https://automobile-rosenkranz.de": "https://rosenkranz-forms-production.rough-hill-9dd9.workers.dev/submit",
-    "https://www.automobile-rosenkranz.de": "https://rosenkranz-forms-production.rough-hill-9dd9.workers.dev/submit"
-  }
+    "https://www.automobile-rosenkranz.de": "https://rosenkranz-forms-production.rough-hill-9dd9.workers.dev/submit",
+    "https://prd-prev.automobile-rosenkranz.de": "https://rosenkranz-forms-production.rough-hill-9dd9.workers.dev/submit"
+  },
+  "turnstileSiteKeys": {}
 }

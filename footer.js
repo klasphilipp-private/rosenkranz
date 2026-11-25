@@ -16,7 +16,7 @@ fetch(new URL('footer.html?v=20261124-reviews', appBase)).then(response => {
   document.querySelector('#shared-footer').replaceChildren(...holder.childNodes);
   if (location.hash === '#kontakt') requestAnimationFrame(() => document.querySelector('#kontakt')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   const formClient = document.createElement('script');
-  formClient.src = new URL('forms.js?v=20261125-all-forms', appBase).href;
+  formClient.src = new URL('forms.js?v=20261125-turnstile', appBase).href;
   document.head.append(formClient);
   return fetch(new URL('google-reviews.json?v=latest', appBase), { cache: 'no-store' });
 }).then(response => response?.ok ? response.json() : null).then(data => {
