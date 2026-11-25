@@ -9,7 +9,7 @@ if (!username || !password) { console.error('DEV_TEST credentials missing.'); pr
   const context = await browser.newContext({ httpCredentials: { username, password, origin: base }, viewport: { width: 390, height: 900 } });
   await context.route('**/*', route => {
     const url = new URL(route.request().url());
-    if (url.origin === base || url.href.startsWith(endpoint) || url.hostname === 'challenges.cloudflare.com') return route.continue();
+    if (url.origin === base || url.href.startsWith(endpoint) || url.hostname === 'challenges.cloudflare.com' || url.hostname.endsWith('.challenges.cloudflare.com')) return route.continue();
     return route.abort();
   });
   const page = await context.newPage();
