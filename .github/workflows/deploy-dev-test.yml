@@ -16,7 +16,7 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main' && (inputs.mode == 'check' || inputs.mode == 'upload' || inputs.mode == 'hardening')
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,7 +36,6 @@ jobs:
           import errno
           import os
           import stat
-          import subprocess
           import tempfile
           import urllib.error
           import urllib.request
@@ -44,31 +43,12 @@ jobs:
 
           import paramiko
           from scripts.htaccess_hardening import merge
+          from scripts.release_files import manifest_bytes, public_files, release_manifest, verify_remote_files
 
           target = "/Web-Relaunch-2026/DEV_TEST"
-          public_types = {
-              ".html", ".css", ".js", ".mjs", ".png", ".jpg", ".jpeg",
-              ".gif", ".webp", ".avif", ".svg", ".ico", ".woff", ".woff2",
-              ".ttf", ".mp4", ".webm", ".pdf",
-          }
-          public_data = {"models.json", "inventory.json", "google-reviews.json", "forms-config.json", "robots.txt", "sitemap.xml"}
-          paths = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
-          files = []
-          for name in paths:
-              path = Path(name)
-              if not name or any(part.startswith(".") for part in path.parts):
-                  continue
-              if path.parts[0] in {"scripts", "docs", "tests", "deploy", "workers"}:
-                  continue
-              if path.is_file() and not path.is_symlink() and (
-                  path.suffix.lower() in public_types or name in public_data
-              ):
-                  files.append(path)
-          if Path("index.html") not in files:
-              raise SystemExit("Website entry point missing from upload.")
+          files = public_files(Path("."), include_maintenance=True)
+          manifest = release_manifest(Path("."), files, os.environ["GITHUB_SHA"])
           print(f"Target: {target}. Website files: {len(files)}", flush=True)
-          for path in files:
-              print(path.as_posix())
 
           for variable in ("SFTP_HOST", "SFTP_KNOWN_HOSTS", "SFTP_USER", "SFTP_PASSWORD"):
               if not os.environ[variable].strip():
@@ -134,6 +114,7 @@ jobs:
                       with sftp.open("index.html", "rb") as entry:
                           if entry.read() != Path("index.html").read_bytes():
                               raise SystemExit("Remote index.html differs from source.")
+                      verify_remote_files(sftp, manifest)
                       print("DEV_TEST upload complete. index.html verified.")
 
                   try:
@@ -184,6 +165,22 @@ jobs:
                           sftp.posix_rename(temporary, ".htaccess")
                           raise SystemExit("DEV_TEST security check failed; original .htaccess restored.")
                       print("DEV_TEST hardening installed; password protection still active.")
+                  if os.environ["MODE"] == "upload":
+                      marker = ".rosenkranz-release.json"
+                      temporary = f"{marker}.{os.environ['GITHUB_RUN_ID']}.tmp"
+                      try:
+                          with sftp.open(temporary, "wb") as entry:
+                              entry.write(manifest_bytes(manifest))
+                          sftp.posix_rename(temporary, marker)
+                      finally:
+                          try:
+                              sftp.remove(temporary)
+                          except FileNotFoundError:
+                              pass
+                      with sftp.open(marker, "rb") as entry:
+                          if entry.read() != manifest_bytes(manifest):
+                              raise SystemExit("DEV_TEST release marker differs from source.")
+                      print(f"DEV_TEST release marker: {manifest['sourceCommit']} / {manifest['contentDigest']}")
           PY
 
   webcheck:
