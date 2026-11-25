@@ -1,4 +1,5 @@
 import os
+import socket
 import tempfile
 import unittest
 import urllib.error
@@ -48,6 +49,14 @@ class PreviewBindingTests(unittest.TestCase):
             failure = urllib.error.HTTPError("https://example.invalid", 404, "Not Found", {}, None)
             with patch("urllib.request.urlopen", side_effect=failure):
                 with self.assertRaisesRegex(RuntimeError, "HTTP 404"):
+                    check_binding(LocalSftp(directory), "probe.txt", b"content")
+            self.assertFalse((Path(directory) / "probe.txt").exists())
+
+    def test_dns_failure_reports_clear_error_and_removes_probe(self):
+        with tempfile.TemporaryDirectory() as directory:
+            failure = urllib.error.URLError(socket.gaierror(-2, "Name or service not known"))
+            with patch("urllib.request.urlopen", side_effect=failure):
+                with self.assertRaisesRegex(RuntimeError, "does not resolve in DNS"):
                     check_binding(LocalSftp(directory), "probe.txt", b"content")
             self.assertFalse((Path(directory) / "probe.txt").exists())
 
