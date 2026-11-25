@@ -4,7 +4,7 @@ import stat
 import unittest
 from pathlib import Path
 
-from scripts.release_files import manifest_bytes, public_files, release_manifest, verify_remote_files
+from scripts.release_files import file_delta, manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,6 +42,12 @@ class ReleaseFilesTests(unittest.TestCase):
 
         with self.assertRaisesRegex(RuntimeError, "checksum differs"):
             verify_remote_files(Remote(), manifest)
+
+    def test_delta_selects_only_changed_and_removed_files(self):
+        previous = {"files": {"a.css": {"sha256": "old"}, "b.js": {"sha256": "same"}, "gone.html": {"sha256": "old"}}}
+        current = {"files": {"a.css": {"sha256": "new"}, "b.js": {"sha256": "same"}, "new.webp": {"sha256": "new"}}}
+        self.assertEqual(file_delta(previous, current), (["a.css", "new.webp"], ["gone.html"]))
+        self.assertEqual(set(selected_manifest(current, ["a.css"])["files"]), {"a.css"})
 
 
 if __name__ == "__main__":

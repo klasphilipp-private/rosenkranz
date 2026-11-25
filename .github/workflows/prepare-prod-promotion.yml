@@ -7,6 +7,11 @@ on:
         description: Vollständiger 40-stelliger Git-Commit des auf DEV_TEST abgenommenen Standes
         required: true
         type: string
+      verify_all:
+        description: Optionaler vollständiger SFTP-Hash-Audit aller Dateien (langsam)
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -34,9 +39,10 @@ jobs:
           test "$(git rev-parse HEAD)" = "$APPROVED_SHA"
           git merge-base --is-ancestor "$APPROVED_SHA" origin/main
       - run: python -m pip install 'paramiko>=3.5,<5'
-      - name: Verify password-protected DEV_TEST matches approved commit byte-for-byte
+      - name: Verify approved DEV_TEST marker and critical files
         env:
           APPROVED_SHA: ${{ inputs.approved_sha }}
+          FULL_REMOTE_VERIFY: ${{ inputs.verify_all && '1' || '0' }}
           SFTP_HOST: home273863182.1and1-data.host
           SFTP_PORT: '22'
           SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}

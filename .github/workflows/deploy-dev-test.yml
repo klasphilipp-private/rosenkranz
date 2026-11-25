@@ -43,7 +43,7 @@ jobs:
 
           import paramiko
           from scripts.htaccess_hardening import merge
-          from scripts.release_files import manifest_bytes, public_files, release_manifest, verify_remote_files
+          from scripts.release_files import file_delta, manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
           import json
 
           target = "/Web-Relaunch-2026/DEV_TEST"
@@ -86,16 +86,25 @@ jobs:
                   if os.environ["MODE"] not in {"upload", "restamp", "hardening"}:
                       raise SystemExit("Unknown deployment mode.")
 
+                  prior = None
+                  if os.environ["MODE"] in {"upload", "restamp"}:
+                      try:
+                          with sftp.open(".rosenkranz-release.json", "rb") as entry:
+                              prior = json.load(entry)
+                      except FileNotFoundError:
+                          if os.environ["MODE"] == "restamp" or "index.html" in sftp.listdir("."):
+                              raise SystemExit("Existing DEV_TEST release marker missing; refusing incremental deployment.")
+
                   if os.environ["MODE"] == "restamp":
-                      with sftp.open(".rosenkranz-release.json", "rb") as entry:
-                          prior = json.load(entry)
                       if prior.get("files") != manifest["files"] or prior.get("contentDigest") != manifest["contentDigest"]:
                           raise SystemExit("Public files changed; use upload instead of restamp.")
-                      verify_remote_files(sftp, manifest)
-                      print("Unchanged DEV_TEST files verified for the new release commit.")
+                      verify_remote_files(sftp, selected_manifest(manifest, ["index.html", "forms-config.json"]))
+                      print("Unchanged DEV_TEST release marker and critical files verified.")
 
                   if os.environ["MODE"] == "upload":
-                      directories = sorted({parent.as_posix() for path in files for parent in path.parents} - {"."})
+                      changed, removed = file_delta(prior, manifest)
+                      print(f"DEV_TEST delta: {len(changed)} changed, {len(removed)} removed, {len(files) - len(changed)} unchanged.", flush=True)
+                      directories = sorted({parent.as_posix() for name in changed for parent in Path(name).parents} - {"."}, key=lambda name: (name.count("/"), name))
                       for directory in directories:
                           remote = directory
                           try:
@@ -108,8 +117,8 @@ jobs:
                           if not stat.S_ISDIR(attributes.st_mode):
                               raise SystemExit(f"Expected directory: {directory}")
 
-                      for path in files:
-                          remote = path.as_posix()
+                      for remote in changed:
+                          path = Path(remote)
                           try:
                               attributes = sftp.lstat(remote)
                           except OSError as error:
@@ -118,13 +127,24 @@ jobs:
                           else:
                               if not stat.S_ISREG(attributes.st_mode):
                                   raise SystemExit(f"Expected regular file: {path}")
-                          sftp.put(str(path), remote, confirm=True)
-                          print(f"Uploaded {path}", flush=True)
+                          temporary = f"{path.parent.as_posix()}/.codex-{os.environ['GITHUB_RUN_ID']}-{path.name}.tmp"
+                          try:
+                              sftp.put(str(path), temporary, confirm=True)
+                              sftp.posix_rename(temporary, remote)
+                          finally:
+                              try:
+                                  sftp.remove(temporary)
+                              except FileNotFoundError:
+                                  pass
+                          print(f"Uploaded {remote}", flush=True)
                       with sftp.open("index.html", "rb") as entry:
                           if entry.read() != Path("index.html").read_bytes():
                               raise SystemExit("Remote index.html differs from source.")
-                      verify_remote_files(sftp, manifest)
-                      print("DEV_TEST upload complete. index.html verified.")
+                      verify_remote_files(sftp, selected_manifest(manifest, changed))
+                      for remote in removed:
+                          sftp.remove(remote)
+                          print(f"Removed {remote}", flush=True)
+                      print(f"DEV_TEST delta complete: {len(changed)} uploaded and verified; index.html verified.")
 
                   try:
                       attributes = sftp.lstat(".htaccess")

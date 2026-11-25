@@ -62,8 +62,23 @@ def manifest_bytes(manifest: dict) -> bytes:
     return (json.dumps(manifest, sort_keys=True, separators=(",", ":")) + "\n").encode()
 
 
+def file_delta(previous: dict | None, current: dict) -> tuple[list[str], list[str]]:
+    """Compare recorded checksums; unchanged files need no SFTP transfer."""
+    old = previous.get("files", {}) if previous else {}
+    new = current["files"]
+    return (
+        sorted(name for name, metadata in new.items() if old.get(name) != metadata),
+        sorted(set(old) - set(new)),
+    )
+
+
+def selected_manifest(manifest: dict, names: list[str]) -> dict:
+    """Use the existing byte verification for only the uploaded files."""
+    return {**manifest, "files": {name: manifest["files"][name] for name in names}}
+
+
 def verify_remote_files(sftp, manifest: dict) -> None:
-    """Check every served file, not only SFTP upload size or the entry page."""
+    """Check every file listed in the supplied (possibly selected) manifest."""
     for count, (name, metadata) in enumerate(manifest["files"].items(), 1):
         info = sftp.lstat(name)
         if not stat.S_ISREG(info.st_mode) or info.st_size != metadata["bytes"]:

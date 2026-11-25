@@ -28,6 +28,10 @@ def check_binding(sftp, marker, content, user="", password=""):
                 anonymous_status, anonymous_headers = response.status, response.headers
         except urllib.error.HTTPError as error:
             anonymous_status, anonymous_headers = error.code, error.headers
+        except urllib.error.URLError as error:
+            if isinstance(error.reason, socket.gaierror):
+                raise RuntimeError("PROD preview hostname does not resolve in DNS; SFTP-to-domain binding is unverified") from None
+            raise RuntimeError(f"PROD preview network or TLS request failed ({type(error.reason).__name__})") from None
         print(
             f"Anonymous preview: HTTP {anonymous_status}; "
             f"noindex header: {'yes' if 'noindex' in anonymous_headers.get('X-Robots-Tag', '').lower() else 'no'}.",

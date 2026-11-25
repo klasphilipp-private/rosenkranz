@@ -30,6 +30,7 @@ class PreviewBindingTests(unittest.TestCase):
 
             class Response:
                 status = 200
+                headers = {}
 
                 def __enter__(self):
                     return self
