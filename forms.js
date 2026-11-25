@@ -14,12 +14,13 @@
   function loadTurnstile() {
     if (!turnstileLoader) turnstileLoader = new Promise((resolve, reject) => {
       const script = document.createElement('script');
+      const timeout = setTimeout(() => reject(new Error('Turnstile timeout')), 12000);
       script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
       script.async = true;
-      script.onload = () => window.turnstile ? resolve(window.turnstile) : reject(new Error('Turnstile unavailable'));
-      script.onerror = () => reject(new Error('Turnstile unavailable'));
+      script.onload = () => { clearTimeout(timeout); window.turnstile ? resolve(window.turnstile) : reject(new Error('Turnstile unavailable')); };
+      script.onerror = () => { clearTimeout(timeout); reject(new Error('Turnstile unavailable')); };
       document.head.append(script);
-    });
+    }).catch(error => { turnstileLoader = null; throw error; });
     return turnstileLoader;
   }
   function formType(form) {
@@ -37,7 +38,7 @@
         form.querySelector('[type="submit"]')?.before(container);
         return turnstile.render(container, { sitekey: siteKey, action: formType(form), theme: 'dark' });
       })();
-      widgets.set(form, setup);
+      widgets.set(form, setup.catch(error => { widgets.delete(form); form.querySelector('.turnstile-widget')?.remove(); throw error; }));
     }
     return widgets.get(form);
   }
