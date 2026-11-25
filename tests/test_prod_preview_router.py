@@ -11,7 +11,9 @@ class ProdPreviewRouterTests(unittest.TestCase):
         release = "a" * 40
         rules = router(release)
         self.assertIn(f"__releases/{release}/$1".encode(), rules)
-        self.assertIn(b"RewriteRule ^__releases/ - [L]", rules)
+        self.assertIn(b"RewriteBase /", rules)
+        self.assertIn(b"RewriteRule ^__releases/ - [END]", rules)
+        self.assertIn(f"RewriteRule ^(.*)$ __releases/{release}/$1 [END]".encode(), rules)
         self.assertNotIn(b"noindex", rules)
         self.assertNotIn(b"AuthType", rules)
 
