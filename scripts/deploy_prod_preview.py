@@ -76,7 +76,7 @@ def replace_access(sftp, data):
 def http_bytes(path):
     request = urllib.request.Request(PREVIEW + path, headers={"Cache-Control": "no-store"})
     with urllib.request.urlopen(request, timeout=30) as response:
-        return response.status, response.headers, response.read()
+        return response.status, response.headers, response.read(), response.geturl()
 
 
 def main():
@@ -130,14 +130,23 @@ def main():
                 try:
                     with sftp.open(f"__releases/{probe}/{probe_file}", "wb") as file:
                         file.write(b"rosenkranz-rewrite-ok")
+                    with sftp.open(f"__releases/{probe}/index.html", "wb") as file:
+                        file.write(b"rosenkranz-root-ok")
                     replace_access(sftp, configured(previous, probe))
-                    status, _, body = http_bytes("/" + probe_file)
+                    status, _, body, _ = http_bytes("/" + probe_file)
                     if status != 200 or body != b"rosenkranz-rewrite-ok":
                         raise RuntimeError("IONOS did not serve the release router correctly")
+                    status, _, body, final_url = http_bytes("/")
+                    if status != 200 or body != b"rosenkranz-root-ok" or final_url.rstrip("/") != PREVIEW:
+                        raise RuntimeError("IONOS did not serve the release root correctly")
                     print("IONOS release router probe passed; temporary router will be removed.", flush=True)
                 finally:
                     replace_access(sftp, previous)
-                    sftp.remove(f"__releases/{probe}/{probe_file}")
+                    for name in (probe_file, "index.html"):
+                        try:
+                            sftp.remove(f"__releases/{probe}/{name}")
+                        except FileNotFoundError:
+                            pass
                     sftp.rmdir(f"__releases/{probe}")
 
             release = f"__releases/{SHA}"
@@ -160,16 +169,19 @@ def main():
 
             try:
                 replace_access(sftp, configured(previous, SHA))
-                status, headers, index = http_bytes("/index.html")
+                status, headers, index, _ = http_bytes("/index.html")
                 if status != 200 or index != (ROOT / "index.html").read_bytes():
                     raise RuntimeError("PROD preview index does not match the approved package")
                 if "noindex" in headers.get("X-Robots-Tag", "").lower():
                     raise RuntimeError("PROD preview unexpectedly sends a noindex header")
+                status, _, home, final_url = http_bytes("/")
+                if status != 200 or home != index or final_url.rstrip("/") != PREVIEW:
+                    raise RuntimeError("PROD preview homepage does not serve the approved package")
                 representative = next((path.as_posix() for path in files if len(path.parts) == 3 and path.parts[0] == "angebote" and path.name == "index.html"), None)
                 for name in ("modelle.html", "robots.txt", "forms-config.json", representative):
                     if name is None:
                         continue
-                    status, _, body = http_bytes("/" + name)
+                    status, _, body, _ = http_bytes("/" + name)
                     if status != 200 or body != (ROOT / name).read_bytes():
                         raise RuntimeError(f"PROD preview {name} does not match the approved package")
                 temporary = f".rosenkranz-prod-release.json.{os.environ['GITHUB_RUN_ID']}.tmp"
