@@ -9,7 +9,7 @@ import tempfile
 import urllib.error
 import urllib.request
 
-PREVIEW = "https://prd-prv.automobile-rosenkranz.de"
+PREVIEW = "https://prd-prev.automobile-rosenkranz.de"
 
 
 def check_binding(sftp, marker, content, user="", password=""):
