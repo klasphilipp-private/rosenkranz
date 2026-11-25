@@ -5,7 +5,7 @@ on:
       mode:
         description: SFTP prüfen oder Website hochladen
         type: choice
-        options: [check, upload, webcheck, formscheck]
+        options: [check, upload, hardening, webcheck, formscheck]
         default: check
 permissions:
   contents: read
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main' && (inputs.mode == 'check' || inputs.mode == 'upload')
+    if: github.ref == 'refs/heads/main' && (inputs.mode == 'check' || inputs.mode == 'upload' || inputs.mode == 'hardening')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -22,6 +22,7 @@ jobs:
         with:
           persist-credentials: false
       - run: python -m pip install 'paramiko>=3.5,<5'
+      - run: python -m unittest discover -s tests -p 'test_htaccess_hardening.py'
       - name: Verify destination or upload website
         env:
           MODE: ${{ inputs.mode }}
@@ -37,9 +38,12 @@ jobs:
           import stat
           import subprocess
           import tempfile
+          import urllib.error
+          import urllib.request
           from pathlib import Path
 
           import paramiko
+          from scripts.htaccess_hardening import merge
 
           target = "/Web-Relaunch-2026/DEV_TEST"
           public_types = {
@@ -98,38 +102,88 @@ jobs:
                   print(f"Connected. DEV_TEST entries: {len(sftp.listdir('.'))}", flush=True)
                   if os.environ["MODE"] == "check":
                       raise SystemExit(0)
-                  if os.environ["MODE"] != "upload":
+                  if os.environ["MODE"] not in {"upload", "hardening"}:
                       raise SystemExit("Unknown deployment mode.")
 
-                  directories = sorted({parent.as_posix() for path in files for parent in path.parents} - {"."})
-                  for directory in directories:
-                      remote = directory
-                      try:
-                          attributes = sftp.lstat(remote)
-                      except OSError as error:
-                          if error.errno != errno.ENOENT:
-                              raise
-                          sftp.mkdir(remote)
-                          attributes = sftp.lstat(remote)
-                      if not stat.S_ISDIR(attributes.st_mode):
-                          raise SystemExit(f"Expected directory: {directory}")
+                  if os.environ["MODE"] == "upload":
+                      directories = sorted({parent.as_posix() for path in files for parent in path.parents} - {"."})
+                      for directory in directories:
+                          remote = directory
+                          try:
+                              attributes = sftp.lstat(remote)
+                          except OSError as error:
+                              if error.errno != errno.ENOENT:
+                                  raise
+                              sftp.mkdir(remote)
+                              attributes = sftp.lstat(remote)
+                          if not stat.S_ISDIR(attributes.st_mode):
+                              raise SystemExit(f"Expected directory: {directory}")
 
-                  for path in files:
-                      remote = path.as_posix()
+                      for path in files:
+                          remote = path.as_posix()
+                          try:
+                              attributes = sftp.lstat(remote)
+                          except OSError as error:
+                              if error.errno != errno.ENOENT:
+                                  raise
+                          else:
+                              if not stat.S_ISREG(attributes.st_mode):
+                                  raise SystemExit(f"Expected regular file: {path}")
+                          sftp.put(str(path), remote, confirm=True)
+                          print(f"Uploaded {path}", flush=True)
+                      with sftp.open("index.html", "rb") as entry:
+                          if entry.read() != Path("index.html").read_bytes():
+                              raise SystemExit("Remote index.html differs from source.")
+                      print("DEV_TEST upload complete. index.html verified.")
+
+                  try:
+                      attributes = sftp.lstat(".htaccess")
+                  except OSError as error:
+                      if error.errno != errno.ENOENT:
+                          raise
+                      original = None
+                  else:
+                      if not stat.S_ISREG(attributes.st_mode):
+                          raise SystemExit("Existing .htaccess is not a regular file.")
+                      with sftp.open(".htaccess", "rb") as entry:
+                          original = entry.read()
+                  if original is None:
+                      raise SystemExit("DEV_TEST .htaccess missing; refusing to replace or guess password protection.")
+
+                  url = "https://test1.automobile-rosenkranz.de/"
+                  def anonymous_response():
                       try:
-                          attributes = sftp.lstat(remote)
-                      except OSError as error:
-                          if error.errno != errno.ENOENT:
-                              raise
-                      else:
-                          if not stat.S_ISREG(attributes.st_mode):
-                              raise SystemExit(f"Expected regular file: {path}")
-                      sftp.put(str(path), remote, confirm=True)
-                      print(f"Uploaded {path}", flush=True)
-                  with sftp.open("index.html", "rb") as entry:
-                      if entry.read() != Path("index.html").read_bytes():
-                          raise SystemExit("Remote index.html differs from source.")
-                  print("DEV_TEST upload complete. index.html verified.")
+                          with urllib.request.urlopen(url, timeout=20) as response:
+                              return response.status, response.headers
+                      except urllib.error.HTTPError as error:
+                          return error.code, error.headers
+
+                  if anonymous_response()[0] != 401:
+                      raise SystemExit("DEV_TEST password protection is not active; refusing .htaccess change.")
+                  updated = merge(original)
+                  if updated == original:
+                      print("DEV_TEST hardening already current.")
+                  else:
+                      temporary = f".htaccess.codex-{os.environ['GITHUB_RUN_ID']}.tmp"
+                      try:
+                          with sftp.open(temporary, "wb") as entry:
+                              entry.write(updated)
+                          sftp.posix_rename(temporary, ".htaccess")
+                      finally:
+                          try:
+                              sftp.remove(temporary)
+                          except FileNotFoundError:
+                              pass
+                      try:
+                          protected = anonymous_response()[0] == 401
+                      except Exception:
+                          protected = False
+                      if not protected:
+                          with sftp.open(temporary, "wb") as entry:
+                              entry.write(original)
+                          sftp.posix_rename(temporary, ".htaccess")
+                          raise SystemExit("DEV_TEST security check failed; original .htaccess restored.")
+                      print("DEV_TEST hardening installed; password protection still active.")
           PY
 
   webcheck:
