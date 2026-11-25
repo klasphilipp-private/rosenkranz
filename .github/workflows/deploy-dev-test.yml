@@ -5,7 +5,7 @@ on:
       mode:
         description: SFTP prüfen oder Website hochladen
         type: choice
-        options: [check, upload, webcheck]
+        options: [check, upload, webcheck, formscheck]
         default: check
 permissions:
   contents: read
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/main' && inputs.mode != 'webcheck'
+    if: github.ref == 'refs/heads/main' && (inputs.mode == 'check' || inputs.mode == 'upload')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -150,3 +150,22 @@ jobs:
           DEV_TEST_USER: ${{ secrets.DEV_TEST_USER }}
           DEV_TEST_PASSWORD: ${{ secrets.DEV_TEST_PASSWORD }}
         run: node scripts/check-dev-test.cjs
+
+  formscheck:
+    if: inputs.mode == 'formscheck'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - name: Send clearly marked DEV_TEST form inquiries
+        env:
+          DEV_TEST_USER: ${{ secrets.DEV_TEST_USER }}
+          DEV_TEST_PASSWORD: ${{ secrets.DEV_TEST_PASSWORD }}
+        run: node scripts/check-dev-forms.cjs
