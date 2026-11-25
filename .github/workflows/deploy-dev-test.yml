@@ -47,7 +47,7 @@ jobs:
               ".gif", ".webp", ".avif", ".svg", ".ico", ".woff", ".woff2",
               ".ttf", ".mp4", ".webm", ".pdf",
           }
-          public_data = {"models.json", "inventory.json", "google-reviews.json", "robots.txt", "sitemap.xml"}
+          public_data = {"models.json", "inventory.json", "google-reviews.json", "forms-config.json", "robots.txt", "sitemap.xml"}
           paths = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
           files = []
           for name in paths:

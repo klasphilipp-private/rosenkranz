@@ -22,6 +22,15 @@ export default {
       return json({ ok: false, message: "Expected JSON" }, 415, cors);
     }
 
+    const clientIp = request.headers.get("CF-Connecting-IP");
+    if (!env.FORM_RATE_LIMITER || !clientIp) return json({ ok: false, message: "Formularversand ist vorübergehend nicht verfügbar." }, 503, cors);
+    try {
+      const limit = await env.FORM_RATE_LIMITER.limit({ key: clientIp });
+      if (!limit.success) return json({ ok: false, message: "Bitte versuchen Sie es später erneut." }, 429, cors);
+    } catch {
+      return json({ ok: false, message: "Formularversand ist vorübergehend nicht verfügbar." }, 503, cors);
+    }
+
     let raw;
     try {
       raw = await request.text();
@@ -34,30 +43,34 @@ export default {
     try { data = JSON.parse(raw); } catch { return json({ ok: false, message: "Invalid request" }, 400, cors); }
     if (!data || typeof data !== "object" || Array.isArray(data)) return json({ ok: false, message: "Invalid request" }, 400, cors);
     if (String(data.company || "").trim()) return json({ ok: true, customerConfirmationSent: false }, 202, cors);
-    const type = data.type === "test_drive" ? "test_drive" : data.type === "contact" ? "contact" : "";
+    const type = ["test_drive", "contact", "project"].includes(data.type) ? data.type : "";
     const name = bounded(data.name, 120);
     const email = bounded(data.email, 254);
     const phone = bounded(data.phone, 50);
     const vehicle = bounded(data.vehicle, 160);
+    const interest = bounded(data.interest, 160);
+    const source = bounded(data.source, 200);
     const message = bounded(data.message, 5000);
     const accepted = data.privacyAccepted === true || data.privacyAccepted === "true";
-    if (!type || name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !accepted || (type === "test_drive" && !vehicle) || (type === "contact" && !message)) {
+    if (!type || name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !accepted || (type === "test_drive" && !vehicle) || (type === "project" && !interest) || (type === "contact" && !message)) {
       return json({ ok: false, message: "Bitte prüfen Sie die Pflichtfelder und Datenschutzhinweise." }, 400, cors);
     }
     if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.INTERNAL_RECIPIENT) {
       return json({ ok: false, message: "Formularversand ist noch nicht vollständig eingerichtet." }, 503, cors);
     }
 
-    const inquiryLabel = type === "test_drive" ? "Probefahrtanfrage" : "Kontaktanfrage";
+    const inquiryLabel = type === "test_drive" ? "Probefahrtanfrage" : type === "project" ? "Projektanfrage" : "Kontaktanfrage";
     const subject = type === "test_drive"
       ? "Probefahrtanfrage: " + cleanHeader(vehicle)
-      : "Kontaktanfrage über die Website";
+      : type === "project" ? "Projektanfrage: " + cleanHeader(interest) : "Kontaktanfrage über die Website";
     const fields = [
       ["Anfrageart", inquiryLabel],
       ["Name", name],
       ["E-Mail", email],
       ["Telefon", phone || "Keine Angabe"],
       ["Wunschfahrzeug", vehicle || "Keine Angabe"],
+      ["Thema", interest || "Keine Angabe"],
+      ["Seite", source || "Keine Angabe"],
       ["Nachricht", message || "Keine Angabe"]
     ];
     const inquiry = {
@@ -69,6 +82,8 @@ export default {
       email,
       phone: phone || "",
       vehicle: vehicle || "",
+      interest,
+      source,
       message
     };
     const inquiryJson = JSON.stringify(inquiry, null, 2);
@@ -87,10 +102,11 @@ export default {
 
     let customerConfirmationSent = false;
     if (String(env.CUSTOMER_CONFIRMATION || "").toLowerCase() === "true") {
-      const requestTypeLabel = type === "test_drive" ? "Probefahrtanfrage" : "Kontaktanfrage";
-      const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : "Ihre Nachricht an Automobile Rosenkranz";
-      const vehicleSummary = type === "test_drive"
-        ? "<tr><td style=\"padding:10px 0;color:#666;border-bottom:1px solid #dedbd7\">Wunschfahrzeug</td><td align=\"right\" style=\"padding:10px 0;color:#151515;font-weight:700;border-bottom:1px solid #dedbd7\">" + escapeHtml(vehicle) + "</td></tr>"
+      const requestTypeLabel = inquiryLabel;
+      const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : type === "project" ? "Ihre Anfrage zum Thema " + interest : "Ihre Nachricht an Automobile Rosenkranz";
+      const summaryValue = type === "test_drive" ? vehicle : type === "project" ? interest : "";
+      const vehicleSummary = summaryValue
+        ? "<tr><td style=\"padding:10px 0;color:#666;border-bottom:1px solid #dedbd7\">" + (type === "test_drive" ? "Wunschfahrzeug" : "Thema") + "</td><td align=\"right\" style=\"padding:10px 0;color:#151515;font-weight:700;border-bottom:1px solid #dedbd7\">" + escapeHtml(summaryValue) + "</td></tr>"
         : "";
       const customerHtml = `<!doctype html>
 <html lang="de">
@@ -116,7 +132,7 @@ export default {
             <td style="padding:36px 32px 28px">
               <p style="margin:0 0 10px;color:#c60805;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase">Eingangsbestätigung</p>
               <h1 style="margin:0 0 18px;color:#151515;font-size:30px;line-height:1.2;font-weight:700">Vielen Dank, ${escapeHtml(name)}.</h1>
-              <p style="margin:0 0 22px;color:#4d4d4d;font-size:16px;line-height:1.7">${escapeHtml(requestDescription)} ist bei uns eingegangen. Unser Team meldet sich schnellstmöglich persönlich bei Ihnen.</p>
+              <p style="margin:0 0 22px;color:#4d4d4d;font-size:16px;line-height:1.7">${escapeHtml(requestDescription)} ist bei uns eingegangen. Unser Team meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.</p>
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;background-color:#f4f3f1;border-left:3px solid #c60805">
                 <tr><td style="padding:15px 18px">
                   <p style="margin:0 0 10px;color:#c60805;font-size:11px;line-height:1.4;font-weight:700;letter-spacing:1.5px;text-transform:uppercase">Ihre Anfrage</p>
@@ -148,10 +164,11 @@ export default {
         "Guten Tag " + name + ",",
         "",
         "vielen Dank. " + requestDescription + " ist bei uns eingegangen.",
-        "Unser Team meldet sich schnellstmöglich persönlich bei Ihnen.",
+        "Unser Team meldet sich innerhalb von 48 Stunden persönlich bei Ihnen.",
         "",
         "Anliegen: " + requestTypeLabel,
         ...(type === "test_drive" ? ["Wunschfahrzeug: " + vehicle] : []),
+        ...(type === "project" ? ["Thema: " + interest] : []),
         "",
         "Freundliche Grüße",
         "Ihr Team von Automobile Rosenkranz",

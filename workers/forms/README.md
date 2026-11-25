@@ -1,18 +1,20 @@
-# Rosenkranz form service
+# Rosenkranz-Formularservice
 
-The Worker accepts contact and test-drive inquiries, sends an internal HTML email through Resend, and can send a customer confirmation only in the production environment. It does not store form submissions. The request is validated and HTML-escaped before email delivery.
+Kontakt-, Probefahrt-, Camping-/Tuning- und VANDERER-Anfragen verwenden denselben Cloudflare-Worker-Code. Er validiert Eingaben, begrenzt Anfragen pro IP und sendet eine HTML-/Text-E-Mail mit JSON-Daten an `anfragen@automobile-rosenkranz.de` sowie eine Eingangsbestätigung an die anfragende Person. Der Worker speichert Anfragen nicht dauerhaft. Ein Fehler bei der Bestätigung wird getrennt vom erfolgreichen Eingang der Anfrage gemeldet.
 
-## One-time account setup
+## Umgebungen
 
-1. In Resend, verify `automobile-rosenkranz.de`. Add the exact DNS records Resend provides in IONOS. Keep IONOS MX records for incoming mail; do not create duplicate SPF records.
-2. Create a Cloudflare API token with Workers Scripts edit and account settings read access. Do not put it in the repository or chat.
-3. In GitHub repository Settings → Secrets and variables → Actions, add `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `RESEND_API_KEY`. Do not place these values in the repository or chat. The staging workflow uploads the Resend key to the Worker as an encrypted secret.
-4. Run Actions → Deploy Rosenkranz forms Worker → Run workflow. This workflow deploys staging only. The staging origin is the public GitHub Pages preview, email notifications go to `anfragen@automobile-rosenkranz.de`, and a confirmation is sent to the address entered in the form. Use a mailbox you control for tests.
-5. Copy the deployed staging Worker URL and add `/submit`. Put that URL as the `endpoint` value in the root `forms-config.json`, then publish. The form UI will remain in setup mode until that endpoint is configured.
-6. Submit test inquiries using a mailbox you control. Confirm the internal notification (including its JSON block) arrives at `anfragen@` and the confirmation arrives at the test mailbox.
+- `staging`: GitHub-Vorschau und `https://test1.automobile-rosenkranz.de`.
+- `production`: `https://automobile-rosenkranz.de` und `https://www.automobile-rosenkranz.de`.
 
-The production configuration is prepared but is not deployed by this workflow. Before production, switch the website to IONOS, add an IONOS-specific origin to the Worker, enable the production Resend secret and customer confirmation, configure edge rate limiting, then run a separately reviewed production deployment.
+`forms-config.json` ordnet jede Origin ausdrücklich ihrem Worker zu; unbekannte Origins erhalten keinen Endpunkt. Der IONOS-DEV_TEST-Workflow lädt die Konfiguration mit hoch. Das Produktivdeployment muss dieselbe Datei mit bereitstellen.
 
-## Offen: Vorschauhinweise auf Formularen
+## Einrichtung und Deployment
 
-Auf Camping & Tuning und VANDERER zeigen Projektformulare derzeit den Hinweis, dass Eingaben nur in der Vorschau angezeigt und nicht versendet oder gespeichert werden. Vor der Verwendung in DEV_TEST und PROD müssen diese Formulare an den jeweiligen Worker angeschlossen und Ende zu Ende geprüft werden. Erst wenn der tatsächliche Versand funktioniert, den Vorschauhinweis für die jeweilige Umgebung entfernen und eine passende Erfolgs- und Fehlermeldung anzeigen. Die bestehende Vorschau darf keine erfolgreiche Übermittlung behaupten.
+1. `automobile-rosenkranz.de` bei Resend verifizieren und die zugewiesenen DNS-Einträge bei IONOS einrichten. Bestehende MX-Einträge für eingehende E-Mails erhalten; SPF-Einträge nicht doppelt anlegen.
+2. Die GitHub-Actions-Secrets `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` und `RESEND_API_KEY` bereitstellen. Keine Zugangsdaten im Repository oder Chat ablegen.
+3. Workflow **Deploy Rosenkranz forms Worker** manuell mit `target=staging` oder `target=production` ausführen. Der Produktiv-Worker kann nur von `main` deployt werden. Beide Worker verwenden denselben Code, getrennte Origins und getrennte Ratenlimits.
+4. Website auf der jeweiligen Umgebung bereitstellen. Mit einer kontrollierten E-Mail-Adresse je Formulartyp testen, ob interne HTML-/JSON-Mail und Eingangsbestätigung eingehen. Die API-Annahme allein bestätigt keine Zustellung im Postfach.
+5. Vor dem Livegang Datenschutzhinweise und die Verwendung von Cloudflare und Resend fachlich prüfen. Bestehende Vorschauumgebungen nicht mit Produktivdaten testen.
+
+Lokal: `node tests/forms-worker.test.mjs`. Der Test simuliert Resend und sendet keine E-Mails.
