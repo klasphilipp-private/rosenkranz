@@ -1,375 +1,375 @@
 window.RosenkranzModelDocuments = {
   "citroen-ami.html": [
     {
-      "name": "Citroën ami · Preisliste",
+      "name": "Citroën Ami · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_ami_preisliste.pdf"
     }
   ],
   "citroen-c3.html": [
     {
-      "name": "Citroën c3 · Preisliste",
+      "name": "Citroën C3 / ë-C3 · Preisliste",
       "date": "11/2026",
       "path": "assets/dokumente/citroen/2026_11_citroen_c3_preisliste.pdf"
     }
   ],
   "citroen-c3-aircross.html": [
     {
-      "name": "Citroën c3 aircross · Preisliste",
+      "name": "Citroën C3 Aircross / ë-C3 Aircross · Preisliste",
       "date": "09/2026",
       "path": "assets/dokumente/citroen/2026_09_citroen_c3-aircross_preisliste.pdf"
     }
   ],
   "citroen-c4.html": [
     {
-      "name": "Citroën c4 · Preisliste",
+      "name": "Citroën C4 / ë-C4 · Preisliste",
       "date": "11/2026",
       "path": "assets/dokumente/citroen/2026_11_citroen_c4_preisliste.pdf"
     }
   ],
   "citroen-c4-x.html": [
     {
-      "name": "Citroën c4 x · Preisliste",
+      "name": "Citroën C4 X / ë-C4 X · Preisliste",
       "date": "11/2026",
       "path": "assets/dokumente/citroen/2026_11_citroen_c4-x_preisliste.pdf"
     }
   ],
   "citroen-c5-aircross.html": [
     {
-      "name": "Citroën c5 aircross · Preisliste",
+      "name": "Citroën C5 Aircross · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_c5-aircross_preisliste.pdf"
     }
   ],
   "citroen-berlingo.html": [
     {
-      "name": "Citroën berlingo mpv · Preisliste",
+      "name": "Citroën Berlingo MPV · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_berlingo-mpv_preisliste.pdf"
     },
     {
-      "name": "Citroën berlingo · Preisliste",
+      "name": "Citroën Berlingo / ë-Berlingo · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_berlingo_preisliste.pdf"
     }
   ],
   "citroen-spacetourer.html": [
     {
-      "name": "Citroën spacetourer jumpy kombi · Preisliste",
+      "name": "Citroën SpaceTourer / Jumpy Kombi · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_spacetourer-jumpy-kombi_preisliste.pdf"
     }
   ],
   "citroen-holidays.html": [
     {
-      "name": "Citroën holidays · Preisliste",
+      "name": "Citroën Holidays · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_holidays_preisliste.pdf"
     }
   ],
   "citroen-e-c3-van.html": [
     {
-      "name": "Citroën e c3 van · Preisliste",
+      "name": "Citroën ë-C3 Van · Preisliste",
       "date": "11/2026",
       "path": "assets/dokumente/citroen/2026_11_citroen_e-c3-van_preisliste.pdf"
     }
   ],
   "citroen-berlingo-kastenwagen.html": [
     {
-      "name": "Citroën berlingo kastenwagen · Preisliste",
+      "name": "Citroën Berlingo / ë-Berlingo Kastenwagen und Doppelkabine · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_berlingo-kastenwagen_preisliste.pdf"
     }
   ],
   "citroen-jumpy.html": [
     {
-      "name": "Citroën jumpy kastenwagen · Preisliste",
+      "name": "Citroën Jumpy / ë-Jumpy Kastenwagen · Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/citroen/2026_10_citroen_jumpy-kastenwagen_preisliste.pdf"
     }
   ],
   "citroen-jumper.html": [
     {
-      "name": "Citroën e jumper kastenwagen · Preisliste",
+      "name": "Citroën ë-Jumper Kastenwagen · Preisliste",
       "date": "06/2026",
       "path": "assets/dokumente/citroen/2026_06_citroen_e-jumper-kastenwagen_preisliste.pdf"
     },
     {
-      "name": "Citroën e jumper pritsche kipper leichtbaukoffer fahrgestell · Preisliste",
+      "name": "Citroën ë-Jumper Pritschenwagen / Kipper / Leichtbaukoffer / Fahrgestell · Preisliste",
       "date": "06/2026",
       "path": "assets/dokumente/citroen/2026_06_citroen_e-jumper-pritsche-kipper-leichtbaukoffer-fahrgestell_preisliste.pdf"
     },
     {
-      "name": "Citroën jumper kastenwagen · Preisliste",
+      "name": "Citroën Jumper Kastenwagen · Preisliste",
       "date": "07/2026",
       "path": "assets/dokumente/citroen/2026_07_citroen_jumper-kastenwagen_preisliste.pdf"
     },
     {
-      "name": "Citroën jumper pritsche kipper leichtbaukoffer fahrgestell · Preisliste",
+      "name": "Citroën Jumper Pritschenwagen / Kipper / Leichtbaukoffer / Fahrgestell · Preisliste",
       "date": "07/2026",
       "path": "assets/dokumente/citroen/2026_07_citroen_jumper-pritsche-kipper-leichtbaukoffer-fahrgestell_preisliste.pdf"
     }
   ],
   "subaru-forester.html": [
     {
-      "name": "Subaru forester · ZubehörProspekt",
+      "name": "Subaru Forester · Zubehör Prospekt",
       "date": "12/2024",
       "path": "assets/dokumente/subaru/2024_12_subaru_forester_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru forester · ZubehörPreisliste",
+      "name": "Subaru Forester · Zubehör Preisliste",
       "date": "05/2025",
       "path": "assets/dokumente/subaru/2025_05_subaru_forester_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru forester · Prospekt",
+      "name": "Subaru Forester · Prospekt",
       "date": "10/2025",
       "path": "assets/dokumente/subaru/2025_10_subaru_forester_prospekt.pdf"
     },
     {
-      "name": "Subaru forester · Preisliste",
+      "name": "Subaru Forester · Preisliste",
       "date": "11/2025",
       "path": "assets/dokumente/subaru/2025_11_subaru_forester_preisliste.pdf"
     },
     {
-      "name": "Subaru forester exclusive cross · Prospekt",
+      "name": "Subaru Forester Exclusive Cross · Prospekt",
       "date": "04/2026",
       "path": "assets/dokumente/subaru/2026_04_subaru_forester-exclusive-cross_prospekt.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     }
   ],
   "subaru-crosstrek.html": [
     {
-      "name": "Subaru crosstrek impreza · ZubehörProspekt",
+      "name": "Subaru Crosstrek / Impreza · Zubehör Prospekt",
       "date": "05/2024",
       "path": "assets/dokumente/subaru/2024_05_subaru_crosstrek-impreza_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru crosstrek impreza · ZubehörPreisliste",
+      "name": "Subaru Crosstrek / Impreza · Zubehör Preisliste",
       "date": "03/2025",
       "path": "assets/dokumente/subaru/2025_03_subaru_crosstrek-impreza_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru crosstrek · Prospekt",
+      "name": "Subaru Crosstrek · Prospekt",
       "date": "11/2025",
       "path": "assets/dokumente/subaru/2025_11_subaru_crosstrek_prospekt.pdf"
     },
     {
-      "name": "Subaru crosstrek · Preisliste",
+      "name": "Subaru Crosstrek · Preisliste",
       "date": "01/2026",
       "path": "assets/dokumente/subaru/2026_01_subaru_crosstrek_preisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     }
   ],
   "subaru-impreza.html": [
     {
-      "name": "Subaru crosstrek impreza · ZubehörProspekt",
+      "name": "Subaru Crosstrek / Impreza · Zubehör Prospekt",
       "date": "05/2024",
       "path": "assets/dokumente/subaru/2024_05_subaru_crosstrek-impreza_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru crosstrek impreza · ZubehörPreisliste",
+      "name": "Subaru Crosstrek / Impreza · Zubehör Preisliste",
       "date": "03/2025",
       "path": "assets/dokumente/subaru/2025_03_subaru_crosstrek-impreza_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru impreza · Prospekt",
+      "name": "Subaru Impreza · Prospekt",
       "date": "11/2025",
       "path": "assets/dokumente/subaru/2025_11_subaru_impreza_prospekt.pdf"
     },
     {
-      "name": "Subaru impreza · Preisliste",
+      "name": "Subaru Impreza · Preisliste",
       "date": "01/2026",
       "path": "assets/dokumente/subaru/2026_01_subaru_impreza_preisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     }
   ],
   "subaru-outback.html": [
     {
-      "name": "Subaru outback · ZubehörProspekt",
+      "name": "Subaru Outback · Zubehör Prospekt",
       "date": "05/2024",
       "path": "assets/dokumente/subaru/2024_05_subaru_outback_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru outback · Prospekt",
+      "name": "Subaru Outback · Prospekt",
       "date": "10/2024",
       "path": "assets/dokumente/subaru/2024_10_subaru_outback_prospekt.pdf"
     },
     {
-      "name": "Subaru outback · ZubehörPreisliste",
+      "name": "Subaru Outback · Zubehör Preisliste",
       "date": "11/2024",
       "path": "assets/dokumente/subaru/2024_11_subaru_outback_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru outback · Preisliste",
+      "name": "Subaru Outback · Preisliste",
       "date": "03/2025",
       "path": "assets/dokumente/subaru/2025_03_subaru_outback_preisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     }
   ],
   "subaru-solterra.html": [
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru solterra · Prospekt",
+      "name": "Subaru Solterra · Prospekt",
       "date": "05/2026",
       "path": "assets/dokumente/subaru/2026_05_subaru_solterra_prospekt.pdf"
     },
     {
-      "name": "Subaru solterra · ZubehörProspekt",
+      "name": "Subaru Solterra · Zubehör Prospekt",
       "date": "05/2026",
       "path": "assets/dokumente/subaru/2026_05_subaru_solterra_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru solterra · Preisliste",
+      "name": "Subaru Solterra · Preisliste",
       "date": "08/2026",
       "path": "assets/dokumente/subaru/2026_08_subaru_solterra_preisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru solterra · ZubehörPreisliste",
+      "name": "Subaru Solterra · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_solterra_zubehoerpreisliste.pdf"
     }
   ],
   "subaru-uncharted.html": [
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru uncharted · Prospekt",
+      "name": "Subaru Uncharted · Prospekt",
       "date": "05/2026",
       "path": "assets/dokumente/subaru/2026_05_subaru_uncharted_prospekt.pdf"
     },
     {
-      "name": "Subaru uncharted · ZubehörProspekt",
+      "name": "Subaru Uncharted · Zubehör Prospekt",
       "date": "06/2026",
       "path": "assets/dokumente/subaru/2026_06_subaru_uncharted_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru uncharted · Preisliste",
+      "name": "Subaru Uncharted · Preisliste",
       "date": "08/2026",
       "path": "assets/dokumente/subaru/2026_08_subaru_uncharted_preisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru uncharted · ZubehörPreisliste",
+      "name": "Subaru Uncharted · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_uncharted_zubehoerpreisliste.pdf"
     }
   ],
   "subaru-e-outback.html": [
     {
-      "name": "Subaru alle modelle · ZubehörProspekt",
+      "name": "Subaru alle Modelle · Zubehör Prospekt",
       "date": "07/2025",
       "path": "assets/dokumente/subaru/2025_07_subaru_alle-modelle_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru e outback · Prospekt",
+      "name": "Subaru E-Outback · Prospekt",
       "date": "08/2026",
       "path": "assets/dokumente/subaru/2026_08_subaru_e-outback_prospekt.pdf"
     },
     {
-      "name": "Subaru e outback · ZubehörProspekt",
+      "name": "Subaru E-Outback · Zubehör Prospekt",
       "date": "08/2026",
       "path": "assets/dokumente/subaru/2026_08_subaru_e-outback_zubehoerprospekt.pdf"
     },
     {
-      "name": "Subaru e outback · Preisliste",
+      "name": "Subaru E-Outback · Preisliste",
       "date": "09/2026",
       "path": "assets/dokumente/subaru/2026_09_subaru_e-outback_preisliste.pdf"
     },
     {
-      "name": "Subaru alle modelle · Räderprogramm",
+      "name": "Subaru alle Modelle · Räderprogramm",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_raederprogramm.pdf"
     },
     {
-      "name": "Subaru alle modelle · ZubehörPreisliste",
+      "name": "Subaru alle Modelle · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_alle-modelle_zubehoerpreisliste.pdf"
     },
     {
-      "name": "Subaru e outback · ZubehörPreisliste",
+      "name": "Subaru E-Outback · Zubehör Preisliste",
       "date": "10/2026",
       "path": "assets/dokumente/subaru/2026_10_subaru_e-outback_zubehoerpreisliste.pdf"
     }

@@ -14,5 +14,5 @@ document.querySelector('.model-page-hero .next')?.addEventListener('click',()=>s
 
 // Eine gemeinsame Dokumentliste hält Preislisten und Prospekte auf allen Modellseiten konsistent.
 const documentsScript = document.createElement('script');
-documentsScript.src = 'model-documents-data.js?v=20261124';
+documentsScript.src = 'model-documents-data.js?v=20261125-titel';
 document.head.append(documentsScript);
