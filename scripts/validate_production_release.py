@@ -12,8 +12,10 @@ if (root / "wartung").exists():
 for forbidden in ("workers", "scripts", "tests", "deploy", ".git", ".github"):
     if (root / forbidden).exists():
         raise SystemExit(f"Non-public directory in production package: {forbidden}")
-if "https://www.automobile-rosenkranz.de/sitemap.xml" not in (root / "robots.txt").read_text():
+if "https://automobile-rosenkranz.de/sitemap.xml" not in (root / "robots.txt").read_text():
     raise SystemExit("Production robots.txt points to another sitemap")
+if "https://www.automobile-rosenkranz.de/" in (root / "sitemap.xml").read_text():
+    raise SystemExit("Production sitemap still points to www rather than the approved apex domain")
 config = json.loads((root / "forms-config.json").read_text())
 for origin in ("https://automobile-rosenkranz.de", "https://www.automobile-rosenkranz.de", "https://prd-prev.automobile-rosenkranz.de"):
     if "rosenkranz-forms-production" not in config["endpoints"].get(origin, ""):
@@ -36,6 +38,8 @@ for page in root.rglob("*.html"):
         continue
     if len(re.findall(r'<link rel="canonical"', head)) != 1:
         raise SystemExit(f"Canonical missing or duplicated: {relative}")
+    if '<link rel="canonical" href="https://automobile-rosenkranz.de/' not in head:
+        raise SystemExit(f"Canonical does not use the approved apex domain: {relative}")
     if 'name="robots" content="index,follow"' not in head:
         raise SystemExit(f"Production page not indexable: {relative}")
     checked += 1

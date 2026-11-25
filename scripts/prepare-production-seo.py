@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 from release_files import public_files
 
 PREVIEW_ORIGIN = "https://klasphilipp-private.github.io/rosenkranz"
+OLD_LIVE_ORIGIN = "https://www.automobile-rosenkranz.de"
 NOINDEX_TEMPLATES = {"fahrzeug.html", "modell.html"}
 SITEMAP_NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
@@ -26,7 +27,7 @@ def canonical_path(relative_path):
 
 def prepare_page(path, relative_path, base_url):
     html = path.read_text(encoding="utf-8")
-    html = html.replace(PREVIEW_ORIGIN, base_url.rstrip("/"))
+    html = html.replace(PREVIEW_ORIGIN, base_url.rstrip("/")).replace(OLD_LIVE_ORIGIN, base_url.rstrip("/"))
     canonical = urljoin(base_url, canonical_path(relative_path))
     head_end = html.lower().find("</head>")
     if head_end < 0:
@@ -72,6 +73,9 @@ def update_sitemap(output_root, base_url):
     for item in list(root):
         loc = item.find(loc_tag)
         value = loc.text if loc is not None and loc.text else ""
+        if value.startswith(OLD_LIVE_ORIGIN + "/"):
+            value = base_url.rstrip("/") + value[len(OLD_LIVE_ORIGIN):]
+            loc.text = value
         if value.startswith(base_url.rstrip("/") + "/angebote/") and value not in active_urls:
             root.remove(item)
 
@@ -88,7 +92,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--output", type=Path, default=None)
-    parser.add_argument("--base-url", default="https://www.automobile-rosenkranz.de/")
+    parser.add_argument("--base-url", default="https://automobile-rosenkranz.de/")
     args = parser.parse_args()
 
     source = args.source.resolve()
@@ -119,6 +123,8 @@ def main():
         page.write_text(prepare_page(page, relative, base_url), encoding="utf-8")
         changed += 1
     offers = update_sitemap(output, base_url)
+    robots = output / "robots.txt"
+    robots.write_text(re.sub(r"^Sitemap:.*$", f"Sitemap: {base_url}sitemap.xml", robots.read_text(), flags=re.M))
     print(f"Production copy ready: {output}; processed {changed} HTML pages; {offers} active vehicle URLs in sitemap.")
 
 
