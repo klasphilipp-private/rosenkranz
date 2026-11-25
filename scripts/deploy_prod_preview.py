@@ -26,8 +26,9 @@ def router(sha):
         raise ValueError("Invalid release identifier")
     return f"""# BEGIN ROSENKRANZ RELEASE ROUTER
 RewriteEngine On
-RewriteRule ^__releases/ - [L]
-RewriteRule ^(.*)$ __releases/{sha}/$1 [L]
+RewriteBase /
+RewriteRule ^__releases/ - [END]
+RewriteRule ^(.*)$ __releases/{sha}/$1 [END]
 <FilesMatch \"(?i)(?:^\\.|\\.(?:php[0-9]?|phtml|phar|cgi|pl|py|sh|asp|aspx|jsp|sql|sqlite|ini|conf|ya?ml|toml|env|log|pem|key|bak|old|orig|save)$)\">
     Require all denied
 </FilesMatch>
@@ -113,7 +114,10 @@ def main():
                 previous = None
             first_release = previous is None
             if first_release and entries:
-                raise RuntimeError("PROD preview directory is not empty; refusing first release")
+                # A failed, reversible first-release probe can leave this empty
+                # parent directory. Never adopt any other existing contents.
+                if entries != {"__releases"} or sftp.listdir("__releases"):
+                    raise RuntimeError("PROD preview directory is not empty; refusing first release")
             if not first_release:
                 if START not in previous or ".rosenkranz-prod-release.json" not in entries:
                     raise RuntimeError("Existing PROD release is not managed by this workflow")
