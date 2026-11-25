@@ -411,3 +411,7 @@
 .offer-energy strong,.vehicle-energy strong{font-weight:600}
 .vehicle-energy{margin:28px 0;padding:22px;background:#242424;border-left:3px solid var(--red);color:#eee;font-size:16px;line-height:1.6}
 .vehicle-energy h2{font-size:22px;margin:0 0 10px;color:#fff}
+
+/* Mobile brand and direct access to the test-drive form. */
+@media(max-width:720px){.site-header .logo{width:200px;max-width:calc(100vw - 145px)}}
+#probefahrt{scroll-margin-top:10px}

@@ -7,7 +7,7 @@ const env = { ALLOWED_ORIGINS: origin, RESEND_API_KEY: 'test-key', FROM_EMAIL: '
 const requests = [];
 globalThis.fetch = async (_, options) => { requests.push(JSON.parse(options.body)); return new Response('{}', { status: 200 }); };
 const send = (data, override = {}) => worker.fetch(new Request('https://worker.test/submit', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json', 'CF-Connecting-IP': '192.0.2.10' }, body: JSON.stringify(data) }), { ...env, ...override });
-const base = { name: '<Test>', email: 'person@example.test', message: 'Hallo', privacyAccepted: true };
+const base = { name: '<Test>', email: 'person@example.test', phone: '01234 56789', message: 'Hallo\n<b>Test</b>', privacyAccepted: true };
 for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive', vehicle: 'Citroën C3' }, { ...base, type: 'project', interest: 'VANDERER One' }]) {
   requests.length = 0;
   const response = await send(data);
@@ -17,7 +17,16 @@ for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive',
   assert.equal(requests[0].to[0], env.INTERNAL_RECIPIENT);
   assert.match(requests[0].text, /schemaVersion/);
   assert.ok(!requests[0].html.includes('<Test>'));
-  assert.match(requests[1].html, /48 Stunden/);
+  assert.match(requests[1].html, /Mit uns zum Ziel\. Seit 1992\./);
+  assert.match(requests[1].html, /schnellstmöglich/);
+  assert.doesNotMatch(requests[1].html, /48 Stunden/);
+  assert.match(requests[1].html, /&lt;Test&gt;/);
+  assert.match(requests[1].html, /Hallo<br>&lt;b&gt;Test&lt;\/b&gt;/);
+  assert.match(requests[1].text, /Name: <Test>/);
+  assert.match(requests[1].text, /E-Mail: person@example\.test/);
+  assert.match(requests[1].text, /Telefon: 01234 56789/);
+  assert.match(requests[1].text, /Nachricht: Hallo\n<b>Test<\/b>/);
+  if (data.vehicle) assert.match(requests[1].text, /Citroën C3/);
   if (data.interest) assert.match(requests[1].text, /VANDERER One/);
 }
 requests.length = 0;
