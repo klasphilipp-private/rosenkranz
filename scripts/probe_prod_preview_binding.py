@@ -22,6 +22,18 @@ def check_binding(sftp, marker, content, user="", password=""):
             if file.read() != content:
                 raise RuntimeError("SFTP read-back differs from probe content")
 
+        anonymous = urllib.request.Request(f"{PREVIEW}/{marker}", headers={"Cache-Control": "no-store"})
+        try:
+            with urllib.request.urlopen(anonymous, timeout=25) as response:
+                anonymous_status, anonymous_headers = response.status, response.headers
+        except urllib.error.HTTPError as error:
+            anonymous_status, anonymous_headers = error.code, error.headers
+        print(
+            f"Anonymous preview: HTTP {anonymous_status}; "
+            f"noindex header: {'yes' if 'noindex' in anonymous_headers.get('X-Robots-Tag', '').lower() else 'no'}.",
+            flush=True,
+        )
+
         request = urllib.request.Request(f"{PREVIEW}/{marker}", headers={"Cache-Control": "no-store"})
         if user:
             credentials = base64.b64encode(f"{user}:{password}".encode()).decode()
