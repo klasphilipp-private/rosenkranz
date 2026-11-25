@@ -32,12 +32,6 @@ document.querySelectorAll('[data-photo]').forEach(button=>button.addEventListene
 imageDialog?.querySelector('.dialog-close').addEventListener('click',()=>imageDialog.close());
 imageDialog?.addEventListener('click',event=>{if(event.target===imageDialog)imageDialog.close()});
 
-document.querySelectorAll('.project-form').forEach(form=>form.addEventListener('submit',event=>{
-  event.preventDefault();
-  const topic=form.querySelector('[name=interest]').value;
-  const name=form.querySelector('[name=name]').value.trim();
-  form.querySelector('.form-result').textContent=`${name}, Ihre Anfrage zum Thema „${topic}“ ist in der Vorschau vorbereitet. Es wurde nichts versendet. Für eine echte Anfrage erreichen Sie uns über die angegebenen Kontaktdaten.`;
-}));
 
 const campingCarousel=document.querySelector('.camping-carousel');
 if(campingCarousel){

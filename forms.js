@@ -5,8 +5,9 @@
     .then(response => response.ok ? response.json() : { endpoint: '' })
     .catch(() => ({ endpoint: '' }))
     .then(config => {
-      if (String(config.endpoint || '').trim()) document.querySelectorAll('[data-form-pending-notice]').forEach(notice => { notice.hidden = true; });
-      return config;
+      const endpoint = config.endpoints?.[location.origin] || '';
+      if (endpoint) document.querySelectorAll('[data-form-pending-notice]').forEach(notice => { notice.hidden = true; });
+      return { endpoint };
     });
 
   function setFormStatus(status, message, kind = 'info') {
@@ -26,7 +27,7 @@
 
   document.addEventListener('submit', async event => {
     const form = event.target;
-    if (!(form instanceof HTMLFormElement) || !form.matches('#contact-form, #test-form')) return;
+    if (!(form instanceof HTMLFormElement) || !form.matches('#contact-form, #test-form, .project-form')) return;
     event.preventDefault();
 
     const status = form.querySelector('.form-status');
@@ -45,11 +46,13 @@
     setFormStatus(status, 'Ihre Anfrage wird sicher übermittelt …');
     const values = Object.fromEntries(new FormData(form));
     const payload = {
-      type: form.id === 'test-form' ? 'test_drive' : 'contact',
+      type: form.id === 'test-form' ? 'test_drive' : form.classList.contains('project-form') ? 'project' : 'contact',
       name: String(values.name || '').trim(),
       email: String(values.email || '').trim(),
       phone: String(values.phone || '').trim(),
       vehicle: String(values.vehicle || '').trim(),
+      interest: String(values.interest || '').trim(),
+      source: location.pathname,
       message: String(values.message || '').trim(),
       privacyAccepted: values.privacyAccepted === 'true',
       company: String(values.company || '').trim()

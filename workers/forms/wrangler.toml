@@ -8,11 +8,16 @@ name = "rosenkranz-forms-staging"
 workers_dev = true
 
 [env.staging.vars]
-ALLOWED_ORIGINS = "https://klasphilipp-private.github.io"
+ALLOWED_ORIGINS = "https://klasphilipp-private.github.io,https://test1.automobile-rosenkranz.de"
 INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
 FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
 REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
 CUSTOMER_CONFIRMATION = "true"
+
+[[env.staging.ratelimits]]
+name = "FORM_RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }
 
 [env.production]
 name = "rosenkranz-forms-production"
@@ -24,3 +29,8 @@ INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
 FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
 REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
 CUSTOMER_CONFIRMATION = "true"
+
+[[env.production.ratelimits]]
+name = "FORM_RATE_LIMITER"
+namespace_id = "1002"
+simple = { limit = 5, period = 60 }
