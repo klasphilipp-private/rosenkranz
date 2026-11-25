@@ -31,7 +31,10 @@ def main():
         ("nested-base", f"RewriteEngine On\nRewriteBase /\nRewriteRule ^{public_file}$ __releases/{probe}/marker.txt [L]\n".encode(), "/" + public_file),
         ("nested-absolute", f"RewriteEngine On\nRewriteRule ^{public_file}$ /__releases/{probe}/marker.txt [END]\n".encode(), "/" + public_file),
         ("catchall-END", f"RewriteEngine On\nRewriteRule ^__releases/ - [END]\nRewriteRule ^(.*)$ __releases/{probe}/$1 [END]\n".encode(), "/marker.txt"),
+        ("catchall-base-END", f"RewriteEngine On\nRewriteBase /\nRewriteRule ^__releases/ - [END]\nRewriteRule ^(.*)$ __releases/{probe}/$1 [END]\n".encode(), "/marker.txt"),
+        ("catchall-absolute-END", f"RewriteEngine On\nRewriteRule ^__releases/ - [END]\nRewriteRule ^(.*)$ /__releases/{probe}/$1 [END]\n".encode(), "/marker.txt"),
         ("release-router", router(probe), "/marker.txt"),
+        ("router-base-END", router(probe).replace(b"RewriteEngine On\n", b"RewriteEngine On\nRewriteBase /\n").replace(b"[L]", b"[END]"), "/marker.txt"),
     ]
     with tempfile.NamedTemporaryFile(mode="w") as known, paramiko.SSHClient() as ssh:
         known.write(os.environ["IONOS_SFTP_KNOWN_HOSTS"].rstrip() + "\n")
@@ -58,6 +61,8 @@ def main():
                     file.write(content)
                 with sftp.open(f"__releases/{probe}/{public_file}", "wb") as file:
                     file.write(content)
+                with sftp.open(f"__releases/{probe}/index.html", "wb") as file:
+                    file.write(content)
                 with sftp.open(root_target, "wb") as file:
                     file.write(content)
                 for name, path in (("root", "/" + root_target), ("nested", f"/__releases/{probe}/marker.txt")):
@@ -67,10 +72,13 @@ def main():
                     replace_access(sftp, rules)
                     status, body = request(path)
                     print(f"Rewrite candidate {name}: HTTP {status}, expected content: {body == content}", flush=True)
+                    if name in {"catchall-base-END", "catchall-absolute-END", "router-base-END"}:
+                        home_status, home_body = request("/")
+                        print(f"Rewrite homepage {name}: HTTP {home_status}, expected content: {home_body == content}", flush=True)
             finally:
                 replace_access(sftp, previous)
                 sftp.remove(root_target)
-                for name in ("marker.txt", public_file):
+                for name in ("marker.txt", public_file, "index.html"):
                     sftp.remove(f"__releases/{probe}/{name}")
                 sftp.rmdir(f"__releases/{probe}")
 
