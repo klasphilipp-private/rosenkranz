@@ -25,17 +25,34 @@ jobs:
           node-version: 22
       - name: Test form validation and mail handling
         run: node tests/forms-worker.test.mjs
+      - name: Verify public widget configuration
+        env:
+          TARGET: ${{ inputs.target }}
+        run: |
+          python - <<'PY'
+          import json, os
+          config = json.load(open('forms-config.json'))
+          origins = {
+              'staging': ['https://klasphilipp-private.github.io', 'https://test1.automobile-rosenkranz.de'],
+              'production': ['https://automobile-rosenkranz.de', 'https://www.automobile-rosenkranz.de', 'https://prd-prev.automobile-rosenkranz.de'],
+          }[os.environ['TARGET']]
+          for origin in origins:
+              if not config.get('turnstileSiteKeys', {}).get(origin):
+                  raise SystemExit(f'Missing Turnstile site key for {origin}')
+          PY
       - name: Publish Worker
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          TURNSTILE_SECRET: ${{ inputs.target == 'staging' && secrets.TURNSTILE_STAGING_SECRET || secrets.TURNSTILE_PRODUCTION_SECRET }}
           TARGET: ${{ inputs.target }}
         run: |
           case "$TARGET" in staging|production) ;; *) echo 'Invalid target'; exit 1;; esac
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$RESEND_API_KEY" ]; then
-            echo '::error::Add CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, and RESEND_API_KEY to GitHub Actions secrets.'
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ] || [ -z "$RESEND_API_KEY" ] || [ -z "$TURNSTILE_SECRET" ]; then
+            echo '::error::Cloudflare, Resend and the target-specific TURNSTILE_*_SECRET must be configured.'
             exit 1
           fi
-          npx --yes wrangler@4 deploy --config workers/forms/wrangler.toml --env "$TARGET"
           printf '%s' "$RESEND_API_KEY" | npx --yes wrangler@4 secret put RESEND_API_KEY --config workers/forms/wrangler.toml --env "$TARGET"
+          printf '%s' "$TURNSTILE_SECRET" | npx --yes wrangler@4 secret put TURNSTILE_SECRET --config workers/forms/wrangler.toml --env "$TARGET"
+          npx --yes wrangler@4 deploy --config workers/forms/wrangler.toml --env "$TARGET"

@@ -53,9 +53,12 @@ const hash = data => crypto.createHash('sha256').update(data).digest('hex');
   }
   ok(`${checkedImages} neue Galeriebilder auf Erreichbarkeit geprüft`);
   const formConfig = await api.get(base + '/forms-config.json', { timeout: 15000 });
-  if (formConfig.status() === 404) warn('Formularkonfiguration fehlt auf DEV_TEST; Versand nicht getestet');
-  else if (formConfig.status() !== 200) warn(`Formularkonfiguration: HTTP ${formConfig.status()}; Versand nicht getestet`);
-  else warn('Formularkonfiguration vorhanden; Versand und Zulassung der DEV_TEST-Origin nicht geprüft');
+  if (formConfig.status() !== 200) fail(`Formularkonfiguration: HTTP ${formConfig.status()}`);
+  else {
+    const config = await formConfig.json();
+    if (config.turnstileSiteKeys?.[base] && config.endpoints?.[base]?.includes('rosenkranz-forms-staging')) ok('Formularendpunkt und Turnstile Site Key für DEV_TEST vorhanden');
+    else fail('Formularendpunkt oder Turnstile Site Key für DEV_TEST fehlt');
+  }
   await api.dispose();
   const browser = await chromium.launch({ headless: true });
   for (const width of [390, 1440]) {

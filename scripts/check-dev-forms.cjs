@@ -9,7 +9,7 @@ if (!username || !password) { console.error('DEV_TEST credentials missing.'); pr
   const context = await browser.newContext({ httpCredentials: { username, password, origin: base }, viewport: { width: 390, height: 900 } });
   await context.route('**/*', route => {
     const url = new URL(route.request().url());
-    if (url.origin === base || url.href.startsWith(endpoint)) return route.continue();
+    if (url.origin === base || url.href.startsWith(endpoint) || url.hostname === 'challenges.cloudflare.com') return route.continue();
     return route.abort();
   });
   const page = await context.newPage();
@@ -32,6 +32,14 @@ if (!username || !password) { console.error('DEV_TEST credentials missing.'); pr
     const uncheckedValid = await form.evaluate(f => f.checkValidity());
     if (uncheckedValid) throw new Error(label + ': Datenschutzhinweis lässt sich ohne Bestätigung absenden');
     await form.locator('[name="privacyAccepted"]').check();
+    try {
+      await page.waitForFunction(selector => {
+        const token = document.querySelector(selector)?.querySelector('[name="cf-turnstile-response"]');
+        return token && token.value.length > 0;
+      }, selector, { timeout: 25000 });
+    } catch {
+      throw new Error(label + ': Turnstile konnte im automatisierten Browser nicht gelöst werden; bitte den Formularversand manuell im Browser prüfen');
+    }
     const [response] = await Promise.all([
       page.waitForResponse(r => r.url() === endpoint && r.request().method() === 'POST', { timeout: 30000 }),
       form.locator('[type="submit"]').click()

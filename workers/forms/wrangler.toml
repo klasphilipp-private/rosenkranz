@@ -24,7 +24,7 @@ name = "rosenkranz-forms-production"
 workers_dev = true
 
 [env.production.vars]
-ALLOWED_ORIGINS = "https://automobile-rosenkranz.de,https://www.automobile-rosenkranz.de"
+ALLOWED_ORIGINS = "https://automobile-rosenkranz.de,https://www.automobile-rosenkranz.de,https://prd-prev.automobile-rosenkranz.de"
 INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
 FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
 REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"

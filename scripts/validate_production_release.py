@@ -15,9 +15,11 @@ for forbidden in ("workers", "scripts", "tests", "deploy", ".git", ".github"):
 if "https://www.automobile-rosenkranz.de/sitemap.xml" not in (root / "robots.txt").read_text():
     raise SystemExit("Production robots.txt points to another sitemap")
 config = json.loads((root / "forms-config.json").read_text())
-for origin in ("https://automobile-rosenkranz.de", "https://www.automobile-rosenkranz.de"):
+for origin in ("https://automobile-rosenkranz.de", "https://www.automobile-rosenkranz.de", "https://prd-prev.automobile-rosenkranz.de"):
     if "rosenkranz-forms-production" not in config["endpoints"].get(origin, ""):
         raise SystemExit(f"Production form endpoint missing for {origin}")
+    if not config.get("turnstileSiteKeys", {}).get(origin):
+        raise SystemExit(f"Production Turnstile site key missing for {origin}")
 
 checked = 0
 for page in root.rglob("*.html"):

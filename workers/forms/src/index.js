@@ -55,6 +55,23 @@ export default {
     if (!type || name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !accepted || (type === "test_drive" && !vehicle) || (type === "project" && !interest) || (type === "contact" && !message)) {
       return json({ ok: false, message: "Bitte prüfen Sie die Pflichtfelder und Datenschutzhinweise." }, 400, cors);
     }
+    if (!env.TURNSTILE_SECRET) {
+      return json({ ok: false, message: "Formularversand ist vorübergehend nicht verfügbar." }, 503, cors);
+    }
+    const turnstileToken = bounded(data.turnstileToken, 2048);
+    if (!turnstileToken) return json({ ok: false, message: "Bitte bestätigen Sie die Sicherheitsprüfung." }, 400, cors);
+    try {
+      const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        body: new URLSearchParams({ secret: env.TURNSTILE_SECRET, response: turnstileToken, remoteip: clientIp })
+      });
+      const result = await verification.json();
+      if (!verification.ok || result.success !== true || result.hostname !== new URL(origin).hostname || result.action !== type) {
+        return json({ ok: false, message: "Die Sicherheitsprüfung ist abgelaufen oder fehlgeschlagen. Bitte versuchen Sie es erneut." }, 400, cors);
+      }
+    } catch {
+      return json({ ok: false, message: "Die Sicherheitsprüfung ist gerade nicht verfügbar. Bitte versuchen Sie es später erneut." }, 503, cors);
+    }
     if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.INTERNAL_RECIPIENT) {
       return json({ ok: false, message: "Formularversand ist noch nicht vollständig eingerichtet." }, 503, cors);
     }
