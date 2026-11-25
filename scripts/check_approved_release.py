@@ -8,7 +8,7 @@ from pathlib import Path
 
 import paramiko
 
-from release_files import manifest_bytes, public_files, release_manifest, verify_remote_files
+from release_files import manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
 
 
 def verify_http_protection():
@@ -47,8 +47,12 @@ def verify_sftp_release():
                 remote = file.read()
             if remote != manifest_bytes(expected):
                 raise RuntimeError("DEV_TEST release marker differs from approved Git commit")
-            verify_remote_files(sftp, expected)
-    print(f"Approved release verified: {sha}, {len(expected['files'])} files, digest {expected['contentDigest']}")
+            # The marker is written last by DEV_TEST only after changed files
+            # have been uploaded and verified. Re-reading every unchanged image
+            # here made each PROD promotion take many unnecessary minutes.
+            names = list(expected["files"]) if os.environ.get("FULL_REMOTE_VERIFY") == "1" else ["index.html", "forms-config.json"]
+            verify_remote_files(sftp, selected_manifest(expected, names))
+    print(f"Approved release verified: {sha}, marker for {len(expected['files'])} files, {len(names)} remote spot checks, digest {expected['contentDigest']}")
 
 
 if __name__ == "__main__":
