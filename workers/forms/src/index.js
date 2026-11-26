@@ -43,16 +43,17 @@ export default {
     try { data = JSON.parse(raw); } catch { return json({ ok: false, message: "Invalid request" }, 400, cors); }
     if (!data || typeof data !== "object" || Array.isArray(data)) return json({ ok: false, message: "Invalid request" }, 400, cors);
     if (String(data.company || "").trim()) return json({ ok: true, customerConfirmationSent: false }, 202, cors);
-    const type = ["test_drive", "contact", "project"].includes(data.type) ? data.type : "";
+    const type = ["test_drive", "contact", "project", "vehicle_inquiry"].includes(data.type) ? data.type : "";
     const name = bounded(data.name, 120);
     const email = bounded(data.email, 254);
     const phone = bounded(data.phone, 50);
     const vehicle = bounded(data.vehicle, 160);
+    const vehicleId = bounded(data.vehicleId, 32);
     const interest = bounded(data.interest, 160);
     const source = bounded(data.source, 200);
     const message = bounded(data.message, 5000);
     const accepted = data.privacyAccepted === true || data.privacyAccepted === "true";
-    if (!type || name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !accepted || (type === "test_drive" && !vehicle) || (type === "project" && !interest) || (type === "contact" && !message)) {
+    if (!type || name.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !accepted || (type === "test_drive" && !vehicle) || (type === "project" && !interest) || (type === "contact" && !message) || (type === "vehicle_inquiry" && (!vehicle || !/^\d{6,20}$/.test(vehicleId) || !message || !/^\/(?:rosenkranz\/)?angebote\/[a-z0-9-]+-\d+\/$/.test(source) || !source.includes(`-${vehicleId}/`)))) {
       return json({ ok: false, message: "Bitte prüfen Sie die Pflichtfelder und Datenschutzhinweise." }, 400, cors);
     }
     if (!env.TURNSTILE_SECRET) {
@@ -76,16 +77,17 @@ export default {
       return json({ ok: false, message: "Formularversand ist noch nicht vollständig eingerichtet." }, 503, cors);
     }
 
-    const inquiryLabel = type === "test_drive" ? "Probefahrtanfrage" : type === "project" ? "Projektanfrage" : "Kontaktanfrage";
+    const inquiryLabel = type === "test_drive" ? "Probefahrtanfrage" : type === "project" ? "Projektanfrage" : type === "vehicle_inquiry" ? "Fahrzeuganfrage" : "Kontaktanfrage";
     const subject = type === "test_drive"
       ? "Probefahrtanfrage: " + cleanHeader(vehicle)
-      : type === "project" ? "Projektanfrage: " + cleanHeader(interest) : "Kontaktanfrage über die Website";
+      : type === "project" ? "Projektanfrage: " + cleanHeader(interest) : type === "vehicle_inquiry" ? "Fahrzeuganfrage: " + cleanHeader(vehicle) + " (ID " + vehicleId + ")" : "Kontaktanfrage über die Website";
     const fields = [
       ["Anfrageart", inquiryLabel],
       ["Name", name],
       ["E-Mail", email],
       ["Telefon", phone || "Keine Angabe"],
       ["Wunschfahrzeug", vehicle || "Keine Angabe"],
+      ...(vehicleId ? [["Angebots-ID", vehicleId]] : []),
       ["Thema", interest || "Keine Angabe"],
       ["Seite", source || "Keine Angabe"],
       ["Nachricht", message || "Keine Angabe"]
@@ -99,6 +101,7 @@ export default {
       email,
       phone: phone || "",
       vehicle: vehicle || "",
+      vehicleId: vehicleId || "",
       interest,
       source,
       message
@@ -120,11 +123,12 @@ export default {
     let customerConfirmationSent = false;
     if (String(env.CUSTOMER_CONFIRMATION || "").toLowerCase() === "true") {
       const requestTypeLabel = inquiryLabel;
-      const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : type === "project" ? "Ihre Anfrage zum Thema " + interest : "Ihre Nachricht an Automobile Rosenkranz";
+      const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : type === "project" ? "Ihre Anfrage zum Thema " + interest : type === "vehicle_inquiry" ? "Ihre Anfrage zum Fahrzeug " + vehicle + " (Angebots-ID " + vehicleId + ")" : "Ihre Nachricht an Automobile Rosenkranz";
       const customerFields = [
         ["Anliegen", requestTypeLabel], ["Name", name], ["E-Mail", email],
         ...(phone ? [["Telefon", phone]] : []),
         ...(vehicle ? [["Wunschfahrzeug", vehicle]] : []),
+        ...(vehicleId ? [["Angebots-ID", vehicleId]] : []),
         ...(interest ? [["Thema", interest]] : []),
         ...(message ? [["Nachricht", message]] : [])
       ];

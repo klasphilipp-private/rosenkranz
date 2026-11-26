@@ -18,7 +18,8 @@ const server = http.createServer(async (request, response) => {
     return;
   }
   const pathname = new URL(request.url, 'http://localhost').pathname;
-  const file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
+  let file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
+  if (file.startsWith(root + path.sep) && fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
   if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
     response.writeHead(404); response.end(); return;
   }
@@ -78,6 +79,23 @@ const server = http.createServer(async (request, response) => {
     await page.evaluate(() => { window.testToken = 'another-token'; window.testTurnstileOptions.callback(window.testToken); });
     await page.locator('#contact-status.is-error').waitFor();
     assert.equal(await page.locator('#contact-name').inputValue(), 'Zweiter Versuch', 'Fields remain on delivery failure');
+    const vehicle = JSON.parse(fs.readFileSync(path.join(root, 'inventory.json'), 'utf8')).vehicles[0];
+    await page.goto(`${origin}/${vehicle.detailPath}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(() => document.querySelector('.vehicle-inquiry-form [data-form-pending-notice]')?.hidden);
+    await page.locator('#vehicle-inquiry-name').fill('Max Muster');
+    await page.locator('#vehicle-inquiry-email').fill('max@example.invalid');
+    await page.locator('#vehicle-inquiry-message').fill('Ist dieses Fahrzeug noch verfügbar?');
+    await page.locator('.vehicle-inquiry-form [name="privacyAccepted"]').check({ force: true });
+    await page.evaluate(() => document.querySelector('.vehicle-inquiry-form').requestSubmit());
+    await page.locator('.vehicle-inquiry-form .turnstile-widget').waitFor();
+    assert.equal(await page.evaluate(() => window.testTurnstileOptions.action), 'vehicle_inquiry');
+    await page.evaluate(() => { window.testToken = 'vehicle-token'; window.testTurnstileOptions.callback(window.testToken); });
+    await page.locator('.vehicle-inquiry-form .form-status.is-success').waitFor();
+    assert.equal(requests.at(-1).vehicle, vehicle.title);
+    assert.equal(requests.at(-1).vehicleId, String(vehicle.id));
+    assert.equal(requests.at(-1).message, 'Ist dieses Fahrzeug noch verfügbar?');
+    assert.equal(await page.locator('#vehicle-inquiry-name').inputValue(), '');
+    assert.equal(await page.locator('.vehicle-inquiry-form [name="vehicleId"]').inputValue(), String(vehicle.id));
     console.log('Form client: verification starts on submit, one request, fields cleared.');
   } finally {
     await browser.close();

@@ -25,7 +25,7 @@
     return turnstileLoader;
   }
   function formType(form) {
-    return form.id === 'test-form' ? 'test_drive' : form.classList.contains('project-form') ? 'project' : 'contact';
+    return form.classList.contains('vehicle-inquiry-form') ? 'vehicle_inquiry' : form.id === 'test-form' ? 'test_drive' : form.classList.contains('project-form') ? 'project' : 'contact';
   }
   async function prepareTurnstile(form) {
     const { siteKey } = await configRequest;
@@ -91,7 +91,7 @@
 
   document.addEventListener('submit', async event => {
     const form = event.target;
-    if (!(form instanceof HTMLFormElement) || !form.matches('#contact-form, #test-form, .project-form')) return;
+    if (!(form instanceof HTMLFormElement) || !form.matches('#contact-form, #test-form, .project-form, .vehicle-inquiry-form')) return;
     event.preventDefault();
 
     const status = form.querySelector('.form-status');
@@ -118,6 +118,7 @@
         email: String(values.email || '').trim(),
         phone: String(values.phone || '').trim(),
         vehicle: String(values.vehicle || '').trim(),
+        vehicleId: String(values.vehicleId || '').trim(),
         interest: String(values.interest || '').trim(),
         source: location.pathname,
         message: String(values.message || '').trim(),

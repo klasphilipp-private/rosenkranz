@@ -18,7 +18,7 @@ globalThis.fetch = async (url, options) => {
 };
 const send = (data, override = {}) => worker.fetch(new Request('https://worker.test/submit', { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json', 'CF-Connecting-IP': '192.0.2.10' }, body: JSON.stringify(data) }), { ...env, ...override });
 const base = { name: '<Test>', email: 'person@example.test', phone: '01234 56789', message: 'Hallo\n<b>Test</b>', privacyAccepted: true, turnstileToken: 'valid-token' };
-for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive', vehicle: 'Citroën C3' }, { ...base, type: 'project', interest: 'VANDERER One' }]) {
+for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive', vehicle: 'Citroën C3' }, { ...base, type: 'project', interest: 'VANDERER One' }, { ...base, type: 'vehicle_inquiry', vehicle: 'Citroën C3 Aircross', vehicleId: '38676823732768', source: '/angebote/c3-aircross-38676823732768/' }]) {
   verifiedAction = data.type;
   requests.length = 0;
   const response = await send(data);
@@ -39,8 +39,17 @@ for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive',
   assert.match(requests[1].text, /Nachricht: Hallo\n<b>Test<\/b>/);
   if (data.vehicle) assert.match(requests[1].text, /Citroën C3/);
   if (data.interest) assert.match(requests[1].text, /VANDERER One/);
+  if (data.vehicleId) {
+    assert.match(requests[0].subject, /38676823732768/);
+    assert.equal(JSON.parse(requests[0].text.split('Anfrage als JSON:\n')[1]).vehicleId, data.vehicleId);
+    assert.match(requests[1].html, /38676823732768/);
+  }
 }
 requests.length = 0;
+verifiedAction = 'vehicle_inquiry';
+assert.equal((await send({ ...base, type: 'vehicle_inquiry', vehicle: 'Citroën C3', source: '/angebote/c3-38676823732768/' })).status, 400);
+assert.equal((await send({ ...base, type: 'vehicle_inquiry', vehicle: 'Citroën C3', vehicleId: '38676823732768', source: '/angebote/c3-11111111111111/' })).status, 400);
+verifiedAction = 'contact';
 assert.equal((await send({ ...base, type: 'contact', turnstileToken: '' })).status, 400);
 assert.equal((await send({ ...base, type: 'contact' }, { TURNSTILE_SECRET: '' })).status, 503);
 assert.equal(requests.length, 0);
@@ -62,4 +71,4 @@ globalThis.fetch = async (url, options) => {
 };
 const partial = await send({ ...base, type: 'contact' });
 assert.equal((await partial.json()).customerConfirmationSent, false);
-console.log('Worker: contact, test drive, project, validation, rate limit, CORS and confirmation errors passed.');
+console.log('Worker: contact, test drive, project, vehicle inquiry, validation, rate limit, CORS and confirmation errors passed.');
