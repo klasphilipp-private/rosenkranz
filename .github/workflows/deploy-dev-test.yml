@@ -133,6 +133,11 @@ jobs:
                               raise SystemExit("Automatic data deployment contains non-data files; manual approval required.")
                           if subprocess.run(["git", "merge-base", "--is-ancestor", prior.get("sourceCommit", ""), release_sha], check=False).returncode:
                               raise SystemExit("Automatic data deployment would move DEV_TEST backwards.")
+                          source_changes = subprocess.check_output(
+                              ["git", "diff", "--name-only", prior["sourceCommit"], release_sha], text=True
+                          ).splitlines()
+                          if not all(auto_data_file(name) for name in source_changes):
+                              raise SystemExit("Automatic data deployment includes unapproved source changes.")
                       print(f"DEV_TEST delta: {len(changed)} changed, {len(removed)} removed, {len(files) - len(changed)} unchanged.", flush=True)
                       directories = sorted({parent.as_posix() for name in changed for parent in Path(name).parents} - {"."}, key=lambda name: (name.count("/"), name))
                       for directory in directories:

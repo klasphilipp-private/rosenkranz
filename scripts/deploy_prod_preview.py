@@ -233,6 +233,11 @@ def main():
                     raise RuntimeError("Automatic PROD release contains non-data files; manual approval required")
                 if subprocess.run(["git", "merge-base", "--is-ancestor", prior.get("sourceCommit", ""), SHA], check=False).returncode:
                     raise RuntimeError("Automatic PROD data release would move backwards")
+                source_changes = subprocess.check_output(
+                    ["git", "diff", "--name-only", prior["sourceCommit"], SHA], text=True
+                ).splitlines()
+                if not all(auto_data_file(name) for name in source_changes):
+                    raise RuntimeError("Automatic PROD data release includes unapproved source changes")
             print(f"PROD delta: {len(changed)} changed, {len(deleted)} deleted, {len(files) - len(changed)} unchanged.", flush=True)
             release = f"__releases/{SHA}"
             existing_releases = set(sftp.listdir("__releases"))

@@ -65,6 +65,12 @@ def marker(username, password, remote_path):
     return result
 
 
+def only_generated_changes(base, sha):
+    result = subprocess.run(["git", "diff", "--name-only", base, sha], text=True,
+                            capture_output=True, check=True)
+    return all(auto_data_file(name) for name in result.stdout.splitlines())
+
+
 def main():
     sha = os.environ["SOURCE_SHA"]
     if len(sha) != 40 or any(char not in "0123456789abcdef" for char in sha):
@@ -75,6 +81,9 @@ def main():
         print("IONOS DEV_TEST and PROD already use the latest API snapshot.")
         return
     if dev["sourceCommit"] != sha:
+        if not only_generated_changes(dev["sourceCommit"], sha):
+            print("Automatic IONOS promotion paused: repository code awaits manual DEV_TEST approval.", flush=True)
+            return
         expected = release_manifest(Path.cwd(), public_files(Path.cwd(), include_maintenance=True), sha)
         changed, removed = file_delta(dev, expected)
         if not all(auto_data_file(name) for name in changed + removed):
@@ -87,6 +96,9 @@ def main():
            "-f", f"source_sha={sha}", "-f", "data_only=true")
         wait_for_run("deploy-dev-test.yml", f"DEV_TEST upload {sha}", started)
     if prod["sourceCommit"] != sha:
+        if not only_generated_changes(prod["sourceCommit"], sha):
+            print("Automatic IONOS promotion paused: repository code awaits manual PROD approval.", flush=True)
+            return
         started = datetime.now(timezone.utc)
         gh("workflow", "run", "deploy-prod-preview.yml", "--ref", "main", "-f", f"approved_sha={sha}",
            "-f", "data_only=true")
