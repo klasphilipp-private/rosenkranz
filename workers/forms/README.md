@@ -1,6 +1,6 @@
 # Rosenkranz-Formularservice
 
-Kontakt-, Probefahrt-, Camping-/Tuning- und VANDERER-Anfragen verwenden denselben Cloudflare-Worker-Code. Er validiert Eingaben, prüft Cloudflare Turnstile serverseitig einschließlich Hostname und Formularart, begrenzt Anfragen pro IP und sendet eine HTML-/Text-E-Mail mit JSON-Daten an `anfragen@automobile-rosenkranz.de` sowie eine Eingangsbestätigung an die anfragende Person. Der Worker speichert Anfragen nicht dauerhaft. Ein Fehler bei der Bestätigung wird getrennt vom erfolgreichen Eingang der Anfrage gemeldet.
+Kontakt-, Probefahrt-, Camping-/Tuning- VANDERER- und Fahrzeugangebots-Anfragen verwenden denselben Cloudflare-Worker-Code. Er validiert Eingaben, prüft Cloudflare Turnstile serverseitig einschließlich Hostname und Formularart, begrenzt Anfragen pro IP und sendet eine HTML-/Text-E-Mail mit JSON-Daten an `anfragen@automobile-rosenkranz.de` sowie eine Eingangsbestätigung an die anfragende Person. Der Worker speichert Anfragen nicht dauerhaft. Ein Fehler bei der Bestätigung wird getrennt vom erfolgreichen Eingang der Anfrage gemeldet.
 
 ## Umgebungen
 
