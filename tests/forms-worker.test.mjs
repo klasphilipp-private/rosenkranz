@@ -29,6 +29,9 @@ for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive',
   assert.match(requests[0].text, /schemaVersion/);
   assert.ok(!requests[0].html.includes('<Test>'));
   assert.match(requests[1].html, /Mit uns zum Ziel\. Seit 1992\./);
+  assert.match(requests[1].html, /https:\/\/automobile-rosenkranz\.de\/assets\/logo-header\.png/);
+  assert.match(requests[1].html, /https:\/\/automobile-rosenkranz\.de\/datenschutz\//);
+  assert.doesNotMatch(requests[1].html, /klasphilipp-private\.github\.io/);
   assert.match(requests[1].html, /schnellstmöglich/);
   assert.doesNotMatch(requests[1].html, /48 Stunden/);
   assert.match(requests[1].html, /&lt;Test&gt;/);
@@ -45,6 +48,11 @@ for (const data of [{ ...base, type: 'contact' }, { ...base, type: 'test_drive',
     assert.match(requests[1].html, /38676823732768/);
   }
 }
+requests.length = 0;
+verifiedAction = 'contact';
+const stagingMail = await send({ ...base, type: 'contact' }, { SITE_URL: 'https://klasphilipp-private.github.io/rosenkranz' });
+assert.equal(stagingMail.status, 200);
+assert.match(requests[1].html, /https:\/\/klasphilipp-private\.github\.io\/rosenkranz\/datenschutz\//);
 requests.length = 0;
 verifiedAction = 'vehicle_inquiry';
 assert.equal((await send({ ...base, type: 'vehicle_inquiry', vehicle: 'Citroën C3', source: '/angebote/c3-38676823732768/' })).status, 400);

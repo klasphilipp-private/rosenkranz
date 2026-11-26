@@ -13,6 +13,7 @@ INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
 FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
 REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
 CUSTOMER_CONFIRMATION = "true"
+SITE_URL = "https://klasphilipp-private.github.io/rosenkranz"
 
 [[env.staging.ratelimits]]
 name = "FORM_RATE_LIMITER"
@@ -29,6 +30,7 @@ INTERNAL_RECIPIENT = "anfragen@automobile-rosenkranz.de"
 FROM_EMAIL = "Automobile Rosenkranz <anfragen@automobile-rosenkranz.de>"
 REPLY_TO_EMAIL = "info@automobile-rosenkranz.de"
 CUSTOMER_CONFIRMATION = "true"
+SITE_URL = "https://automobile-rosenkranz.de"
 
 [[env.production.ratelimits]]
 name = "FORM_RATE_LIMITER"

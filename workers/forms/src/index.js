@@ -122,6 +122,7 @@ export default {
 
     let customerConfirmationSent = false;
     if (String(env.CUSTOMER_CONFIRMATION || "").toLowerCase() === "true") {
+      const siteUrl = String(env.SITE_URL || "https://automobile-rosenkranz.de").replace(/\/+$/, "");
       const requestTypeLabel = inquiryLabel;
       const requestDescription = type === "test_drive" ? "Ihre Probefahrtanfrage für " + vehicle : type === "project" ? "Ihre Anfrage zum Thema " + interest : type === "vehicle_inquiry" ? "Ihre Anfrage zum Fahrzeug " + vehicle + " (Angebots-ID " + vehicleId + ")" : "Ihre Nachricht an Automobile Rosenkranz";
       const customerFields = [
@@ -151,8 +152,8 @@ export default {
         <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;background-color:#ffffff">
           <tr>
             <td style="padding:26px 32px 22px;background-color:#151515;border-bottom:4px solid #c60805">
-              <a href="https://www.automobile-rosenkranz.de/" style="display:inline-block;text-decoration:none">
-                <img src="https://klasphilipp-private.github.io/rosenkranz/assets/logo-header.png" width="220" alt="Automobile Rosenkranz" style="display:block;width:220px;max-width:100%;height:auto;border:0">
+              <a href="${siteUrl}/" style="display:inline-block;text-decoration:none">
+                <img src="${siteUrl}/assets/logo-header.png" width="220" alt="Automobile Rosenkranz" style="display:block;width:220px;max-width:100%;height:auto;border:0">
               </a>
               <p style="margin:12px 0 0;color:#c9c9c9;font-size:11px;line-height:1.4;letter-spacing:2px">Mit uns zum Ziel. Seit 1992.</p>
             </td>
@@ -180,7 +181,7 @@ export default {
               <p style="margin:0 0 12px;font-size:14px;line-height:1.65">Holthoffstraße 124<br>45659 Recklinghausen</p>
               <p style="margin:0 0 8px;font-size:14px;line-height:1.7"><a href="tel:+49236191490" style="color:#ffffff;text-decoration:underline;text-decoration-color:#c60805">02361 / 9149-0</a><br><a href="mailto:info@automobile-rosenkranz.de" style="color:#ffffff;text-decoration:underline;text-decoration-color:#c60805">info@automobile-rosenkranz.de</a></p>
               <p style="margin:12px 0 0;color:#a9a9a9;font-size:12px;line-height:1.6">Verkauf: Mo–Fr 08:00–18:30 · Sa 09:00–14:00<br>Service: Mo–Fr 08:00–16:45 · Sa 09:00–14:00</p>
-              <p style="margin:18px 0 0;padding-top:14px;border-top:1px solid #393939;color:#929292;font-size:11px;line-height:1.6">Automobile Rosenkranz · Qualität bewegt seit 1992<br><a href="https://klasphilipp-private.github.io/rosenkranz/impressum/" style="color:#d2d2d2;text-decoration:underline">Impressum</a> &nbsp;·&nbsp; <a href="https://klasphilipp-private.github.io/rosenkranz/datenschutz/" style="color:#d2d2d2;text-decoration:underline">Datenschutz</a></p>
+              <p style="margin:18px 0 0;padding-top:14px;border-top:1px solid #393939;color:#929292;font-size:11px;line-height:1.6">Automobile Rosenkranz · Qualität bewegt seit 1992<br><a href="${siteUrl}/impressum/" style="color:#d2d2d2;text-decoration:underline">Impressum</a> &nbsp;·&nbsp; <a href="${siteUrl}/datenschutz/" style="color:#d2d2d2;text-decoration:underline">Datenschutz</a></p>
             </td>
           </tr>
         </table>
