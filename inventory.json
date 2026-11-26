@@ -1,7 +1,7 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-26T05:54:42.614152+00:00",
+  "updated": "2026-11-26T16:54:41.948640+00:00",
   "apiTotal": 34,
   "vehiclesWithImages": 34,
   "exactDuplicatesRemoved": 0,
@@ -2882,7 +2882,7 @@
     },
     {
       "id": "54269980681344",
-      "modificationDate": "2026-11-17T17:02:56+01:00",
+      "modificationDate": "2026-11-26T16:21:38+01:00",
       "title": "Citroën Berlingo XL PT130  \"Rollstuhl-Umbau\"",
       "price": "37.770 €",
       "priceAmount": 37770.0,
@@ -2976,7 +2976,7 @@
     },
     {
       "id": "55659259370272",
-      "modificationDate": "2026-11-17T16:10:19+01:00",
+      "modificationDate": "2026-11-26T15:32:37+01:00",
       "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
       "price": "31.770 €",
       "priceAmount": 31770.0,
@@ -3092,7 +3092,7 @@
     },
     {
       "id": "55660025029728",
-      "modificationDate": "2026-11-17T16:10:43+01:00",
+      "modificationDate": "2026-11-26T15:32:40+01:00",
       "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
       "price": "31.770 €",
       "priceAmount": 31770.0,
@@ -3206,7 +3206,7 @@
     },
     {
       "id": "55660813464672",
-      "modificationDate": "2026-11-26T01:24:30+01:00",
+      "modificationDate": "2026-11-26T15:32:43+01:00",
       "title": "Citroën Berlingo M HDi130 Max | PDach - Navi - AHK",
       "price": "27.920 €",
       "priceAmount": 27920.0,
@@ -3321,7 +3321,7 @@
     },
     {
       "id": "58147895083328",
-      "modificationDate": "2026-11-25T16:39:53+01:00",
+      "modificationDate": "2026-11-26T13:15:47+01:00",
       "title": "Subaru Forester 2.0 ie 100 kW AWD Active",
       "price": "38.460 €",
       "priceAmount": 38460.0,
@@ -3419,7 +3419,7 @@
     },
     {
       "id": "58152147387808",
-      "modificationDate": "2026-11-26T01:24:30+01:00",
+      "modificationDate": "2026-11-26T13:15:10+01:00",
       "title": "Subaru Forester 2.0 ie 100 kW AWD Exclusive",
       "price": "39.950 €",
       "priceAmount": 39950.0,
