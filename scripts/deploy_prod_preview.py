@@ -80,6 +80,12 @@ def router(sha, *, base=None, sources=None, deleted=()):
 # approved commit: {sha}
 RewriteEngine On
 RewriteBase /
+# Consolidate the public hostname and enforce TLS without changing the preview host.
+RewriteCond %{{HTTP_HOST}} ^www\\.automobile-rosenkranz\\.de$ [NC]
+RewriteRule ^ https://automobile-rosenkranz.de%{{REQUEST_URI}} [R=301,L,NE]
+RewriteCond %{{HTTP_HOST}} ^automobile-rosenkranz\\.de$ [NC]
+RewriteCond %{{HTTPS}} !=on
+RewriteRule ^ https://automobile-rosenkranz.de%{{REQUEST_URI}} [R=301,L,NE]
 RewriteRule ^__releases/ - [END]
 {overrides}RewriteRule ^(.*)$ __releases/{base}/$1 [END]
 <FilesMatch \"(?i)(?:^\\.|\\.(?:php[0-9]?|phtml|phar|cgi|pl|py|sh|asp|aspx|jsp|sql|sqlite|ini|conf|ya?ml|toml|env|log|pem|key|bak|old|orig|save)$)\">
