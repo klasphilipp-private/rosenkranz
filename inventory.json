@@ -1,13 +1,14 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-26T05:00:20.046468+00:00",
+  "updated": "2026-11-26T05:54:42.614152+00:00",
   "apiTotal": 34,
   "vehiclesWithImages": 34,
   "exactDuplicatesRemoved": 0,
   "vehicles": [
     {
       "id": "374815118",
+      "modificationDate": "2026-11-17T21:54:33+01:00",
       "title": "Citroën eC4 136 Shine | ACC - Nav - LED - RCam -",
       "price": "30.690 €",
       "priceAmount": 30690.0,
@@ -109,6 +110,7 @@
     },
     {
       "id": "38676823732768",
+      "modificationDate": "2026-11-17T20:11:20+01:00",
       "title": "Citroën C3 Aircross Shine Pack",
       "price": "18.900 €",
       "priceAmount": 18900.0,
@@ -235,6 +237,7 @@
     },
     {
       "id": "395616079",
+      "modificationDate": "2026-11-17T21:51:31+01:00",
       "title": "Subaru New_Crosstrek Subaru Crosstreck 2.0ie Comfort",
       "price": "36.290 €",
       "priceAmount": 36290.0,
@@ -342,6 +345,7 @@
     },
     {
       "id": "40805707469152",
+      "modificationDate": "2026-11-17T19:58:33+01:00",
       "title": "Subaru Forester 2.0ie Lineartronic Comfort",
       "price": "24.990 €",
       "priceAmount": 24990.0,
@@ -449,6 +453,7 @@
     },
     {
       "id": "41642220093632",
+      "modificationDate": "2026-11-17T20:04:35+01:00",
       "title": "Subaru Outback 2.5i Exclusive Cross Lineartronic",
       "price": "25.200 €",
       "priceAmount": 25200.0,
@@ -557,6 +562,7 @@
     },
     {
       "id": "433197523",
+      "modificationDate": "2026-11-17T21:39:34+01:00",
       "title": "Citroën C3 Aircross PureTech 110 Stop&Start PLUS",
       "price": "17.790 €",
       "priceAmount": 17790.0,
@@ -664,6 +670,7 @@
     },
     {
       "id": "435838689",
+      "modificationDate": "2026-11-17T21:42:55+01:00",
       "title": "Subaru Outback Platinum | Nav - RCam - SD",
       "price": "47.780 €",
       "priceAmount": 47780.0,
@@ -768,6 +775,7 @@
     },
     {
       "id": "43611663290176",
+      "modificationDate": "2026-11-17T19:50:24+01:00",
       "title": "Citroën C3 Aircross PT130  Max | Nav - RCam - SH",
       "price": "20.440 €",
       "priceAmount": 20440.0,
@@ -881,6 +889,7 @@
     },
     {
       "id": "438306766",
+      "modificationDate": "2026-11-17T21:50:47+01:00",
       "title": "Citroën C3 Turbo 100 MAX | Navi - RCam - DAB - TMP",
       "price": "18.350 €",
       "priceAmount": 18350.0,
@@ -991,6 +1000,7 @@
     },
     {
       "id": "44145244284352",
+      "modificationDate": "2026-11-17T19:39:03+01:00",
       "title": "Citroën Berlingo VANDERER ONE inkl. Aufstelldach 100PS HDi",
       "price": "55.595 €",
       "priceAmount": 55595.0,
@@ -1110,6 +1120,7 @@
     },
     {
       "id": "445612020",
+      "modificationDate": "2026-11-17T21:30:24+01:00",
       "title": "Citroën C5 Aircross [>>NEU<< ]Hybrid 145 ë-DCS6 MAX",
       "price": "42.800 €",
       "priceAmount": 42800.0,
@@ -1224,6 +1235,7 @@
     },
     {
       "id": "448355737",
+      "modificationDate": "2026-11-17T21:20:10+01:00",
       "title": "Citroën C4 Shine 130PS -  Automatik, Vollausstattung",
       "price": "18.800 €",
       "priceAmount": 18800.0,
@@ -1316,6 +1328,7 @@
     },
     {
       "id": "448364234",
+      "modificationDate": "2026-11-17T21:38:17+01:00",
       "title": "Citroën C3 Aircross Shine 110PS - Kältepaket",
       "price": "17.900 €",
       "priceAmount": 17900.0,
@@ -1399,6 +1412,7 @@
     },
     {
       "id": "451746928",
+      "modificationDate": "2026-04-01T13:39:49+02:00",
       "title": "Citroën Jumper DoKa Pritsche L3 HDI140 | AHK - LED",
       "price": "41.412 €",
       "priceAmount": 41412.0,
@@ -1477,6 +1491,7 @@
     },
     {
       "id": "451961815",
+      "modificationDate": "2026-04-04T00:19:49+02:00",
       "title": "Citroën Jumper DoKa Pritsche L3 HDI180 AT  | AHK - NAV",
       "price": "44.982 €",
       "priceAmount": 44982.0,
@@ -1555,6 +1570,7 @@
     },
     {
       "id": "452434461",
+      "modificationDate": "2026-11-17T21:27:19+01:00",
       "title": "Ford F 150 F150 Raptor - LuxuryPaket, Glasdach, Performance",
       "price": "69.615 €",
       "priceAmount": 69615.0,
@@ -1652,6 +1668,7 @@
     },
     {
       "id": "453269663",
+      "modificationDate": "2026-11-17T21:21:17+01:00",
       "title": "Citroën C5 Aircross Hybird 145 ë-Series | PanoDach",
       "price": "30.580 €",
       "priceAmount": 30580.0,
@@ -1754,6 +1771,7 @@
     },
     {
       "id": "453407479",
+      "modificationDate": "2026-11-17T21:05:50+01:00",
       "title": "Citroën C3 Shine",
       "price": "12.600 €",
       "priceAmount": 12600.0,
@@ -1835,6 +1853,7 @@
     },
     {
       "id": "453461824",
+      "modificationDate": "2026-11-17T21:09:54+01:00",
       "title": "Citroën C4 Lim. Shine",
       "price": "25.700 €",
       "priceAmount": 25700.0,
@@ -1916,6 +1935,7 @@
     },
     {
       "id": "456701980",
+      "modificationDate": "2026-11-17T20:52:28+01:00",
       "title": "Citroën C3 PT110  Max | RCam - Nav - TMP - LED",
       "price": "17.700 €",
       "priceAmount": 17700.0,
@@ -2011,6 +2031,7 @@
     },
     {
       "id": "457844804",
+      "modificationDate": "2026-11-20T15:27:05+01:00",
       "title": "Subaru Forester 2.0 ie Exclusive Hybrid",
       "price": "39.950 €",
       "priceAmount": 39950.0,
@@ -2121,6 +2142,7 @@
     },
     {
       "id": "457935838",
+      "modificationDate": "2026-11-17T20:48:57+01:00",
       "title": "Subaru Forester 2.0ie Platinum Hybrid",
       "price": "42.660 €",
       "priceAmount": 42660.0,
@@ -2245,6 +2267,7 @@
     },
     {
       "id": "459126825",
+      "modificationDate": "2026-11-17T20:38:21+01:00",
       "title": "Subaru Forester 2.0 ie AWD Active Hybrid",
       "price": "41.960 €",
       "priceAmount": 41960.0,
@@ -2355,6 +2378,7 @@
     },
     {
       "id": "461821618",
+      "modificationDate": "2026-11-17T20:17:39+01:00",
       "title": "Citroën C4 Hybrid 136 Max | Winter-Pak. - RCam - Nav",
       "price": "19.990 €",
       "priceAmount": 19990.0,
@@ -2471,6 +2495,7 @@
     },
     {
       "id": "462163164",
+      "modificationDate": "2026-11-20T15:37:14+01:00",
       "title": "Subaru Forester 2.0 ie Hybrid Trend",
       "price": "35.550 €",
       "priceAmount": 35550.0,
@@ -2564,6 +2589,7 @@
     },
     {
       "id": "462227296",
+      "modificationDate": "2026-11-20T15:56:54+01:00",
       "title": "Subaru Forester 2.0 ie Hybrid Trend",
       "price": "35.750 €",
       "priceAmount": 35750.0,
@@ -2656,6 +2682,7 @@
     },
     {
       "id": "462246003",
+      "modificationDate": "2026-11-20T15:45:53+01:00",
       "title": "Subaru Forester 2.0 ie Exclusive",
       "price": "39.950 €",
       "priceAmount": 39950.0,
@@ -2747,6 +2774,7 @@
     },
     {
       "id": "49838028642656",
+      "modificationDate": "2026-11-17T18:34:50+01:00",
       "title": "Citroën E-C4 FeelPack | RCam - TW - SH - Nav - Headup",
       "price": "17.990 €",
       "priceAmount": 17990.0,
@@ -2854,6 +2882,7 @@
     },
     {
       "id": "54269980681344",
+      "modificationDate": "2026-11-17T17:02:56+01:00",
       "title": "Citroën Berlingo XL PT130  \"Rollstuhl-Umbau\"",
       "price": "37.770 €",
       "priceAmount": 37770.0,
@@ -2947,6 +2976,7 @@
     },
     {
       "id": "55659259370272",
+      "modificationDate": "2026-11-17T16:10:19+01:00",
       "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
       "price": "31.770 €",
       "priceAmount": 31770.0,
@@ -3062,6 +3092,7 @@
     },
     {
       "id": "55660025029728",
+      "modificationDate": "2026-11-17T16:10:43+01:00",
       "title": "Citroën Berlingo M HDI130  Max | PDach - AHK - Nav",
       "price": "31.770 €",
       "priceAmount": 31770.0,
@@ -3175,6 +3206,7 @@
     },
     {
       "id": "55660813464672",
+      "modificationDate": "2026-11-26T01:24:30+01:00",
       "title": "Citroën Berlingo M HDi130 Max | PDach - Navi - AHK",
       "price": "27.920 €",
       "priceAmount": 27920.0,
@@ -3289,6 +3321,7 @@
     },
     {
       "id": "58147895083328",
+      "modificationDate": "2026-11-25T16:39:53+01:00",
       "title": "Subaru Forester 2.0 ie 100 kW AWD Active",
       "price": "38.460 €",
       "priceAmount": 38460.0,
@@ -3386,6 +3419,7 @@
     },
     {
       "id": "58152147387808",
+      "modificationDate": "2026-11-26T01:24:30+01:00",
       "title": "Subaru Forester 2.0 ie 100 kW AWD Exclusive",
       "price": "39.950 €",
       "priceAmount": 39950.0,
