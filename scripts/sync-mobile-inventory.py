@@ -261,7 +261,7 @@ def detail_page(vehicle):
 <body><div id="shared-header"></div>
 <main><section class="vehicle-detail"><div class="wrap"><a class="vehicle-back" href="{prefix}angebote.html">← Zur Angebotsübersicht</a><div class="vehicle-detail-layout"><div><div class="vehicle-gallery"><div class="vehicle-gallery-track" aria-label="Fahrzeugbilder">{gallery}</div><div class="vehicle-gallery-controls"><button type="button" class="vehicle-gallery-prev" aria-label="Vorheriges Bild">←</button><span class="vehicle-gallery-count">1 / {len(images)}</span><button type="button" class="vehicle-gallery-next" aria-label="Nächstes Bild">→</button></div></div><p class="vehicle-gallery-hint">Bilder nach rechts oder links wischen</p></div><div class="vehicle-summary"><span class="eyebrow">{esc(vehicle.get('make'))} · Fahrzeugangebot</span><h1>{esc(vehicle['title'])}</h1><p class="vehicle-price">{esc(vehicle['price'])}</p><p class="vehicle-location">Automobile Rosenkranz · Recklinghausen</p><a class="btn btn-red" href="{prefix}index.html#kontakt">Beratung zu diesem Fahrzeug anfragen</a><a class="vehicle-phone" href="tel:+49236191490">Oder direkt anrufen: 02361 / 9149-0</a></div></div>
 {energy_section}<section class="vehicle-facts"><h2>Fahrzeugdetails</h2><dl>{spec_html}</dl></section>{f'<section class="vehicle-description"><h2>Beschreibung</h2>{description}</section>' if description else ''}<p class="notice">Angaben ohne Gewähr. Verfügbarkeit, Ausstattung und Preis können sich ändern. Bitte lassen Sie sich die Details von unserem Verkaufsteam bestätigen.</p></div></section></main><div id="shared-footer"></div>
-<script src="{prefix}consent.js?v=20261025-1"></script><script src="{prefix}site-shell.js?v=20261104-shared-1"></script><script src="{prefix}footer.js?v=20261125-all-forms"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
+<script src="{prefix}consent.js?v=20261025-1"></script><script src="{prefix}site-shell.js?v=20261104-shared-1"></script><script src="{prefix}footer.js?v=20261125-submit-flow"></script><script>const track=document.querySelector('.vehicle-gallery-track'),count=document.querySelector('.vehicle-gallery-count'),slides=[...document.querySelectorAll('.vehicle-gallery-slide')];let pos=0;function go(n){{pos=(n+slides.length)%slides.length;track.scrollTo({{left:slides[pos].offsetLeft-track.offsetLeft,behavior:'smooth'}});count.textContent=`${{pos+1}} / ${{slides.length}}`}}document.querySelector('.vehicle-gallery-prev').onclick=()=>go(pos-1);document.querySelector('.vehicle-gallery-next').onclick=()=>go(pos+1);track.addEventListener('scroll',()=>{{const i=Math.round(track.scrollLeft/track.clientWidth);if(i!==pos){{pos=i;count.textContent=`${{pos+1}} / ${{slides.length}}`}}}});</script></body></html>'''
 
 
 def fetch_page(username, password, page):
@@ -313,6 +313,9 @@ def main():
     if not username or not password:
         raise SystemExit("Set MOBILE_API_USERNAME and MOBILE_API_PASSWORD as GitHub Actions secrets.")
 
+    previous = json.loads(DESTINATION.read_text(encoding="utf-8")) if DESTINATION.exists() else {}
+    old_vehicles = {str(vehicle.get("id")): vehicle for vehicle in previous.get("vehicles", []) if isinstance(vehicle, dict)}
+
     first = fetch_page(username, password, 1)
     page_count = int(first.get("maxPages") or 1)
     api_total = int(first.get("total") or 0)
@@ -322,11 +325,21 @@ def main():
         if int(result.get("currentPage") or page) != page:
             raise RuntimeError(f"mobile.de returned unexpected page {result.get('currentPage')}; snapshot preserved.")
         ads.extend(result["ads"])
+    ad_ids = [str(ad.get("mobileAdId") or "") for ad in ads]
+    if len(ads) < api_total or len(set(ad_ids)) < api_total or not all(ad_ids):
+        raise RuntimeError(f"mobile.de returned an incomplete or overlapping page set ({len(set(ad_ids))}/{api_total}); existing snapshot preserved.")
 
     vehicles = []
     detail_responses = 0
+    reused_details = 0
     for ad in ads:
         ad_id = str(ad.get("mobileAdId") or "")
+        modified = str(ad.get("modificationDate") or "")
+        cached = old_vehicles.get(ad_id)
+        if modified and cached and cached.get("modificationDate") == modified:
+            vehicles.append(cached)
+            reused_details += 1
+            continue
         if ad_id:
             detail = fetch_ad_detail(username, password, ad_id)
             if detail:
@@ -371,6 +384,7 @@ def main():
         slug = detail_slug(make, model, raw_description, ad_id)
         vehicles.append({
             "id": ad_id,
+            "modificationDate": modified,
             "title": title,
             "price": price_text(ad),
             "priceAmount": raw_price,
@@ -413,11 +427,8 @@ def main():
     duplicate_count = len(vehicles) - len(unique_vehicles)
     vehicles = unique_vehicles
 
-    if not vehicles:
+    if not vehicles and api_total:
         raise RuntimeError("mobile.de returned no offers with images; existing snapshot was preserved.")
-    if len(ads) < api_total:
-        raise RuntimeError(f"Only {len(ads)} of {api_total} API records were received; existing snapshot was preserved.")
-
     payload = {
         "source": ENDPOINT,
         "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
@@ -427,6 +438,8 @@ def main():
         "exactDuplicatesRemoved": duplicate_count,
         "vehicles": vehicles,
     }
+    if all(previous.get(key) == payload[key] for key in ("apiTotal", "vehiclesWithImages", "exactDuplicatesRemoved", "vehicles")):
+        payload["updated"] = previous["updated"]
     DESTINATION.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=DESTINATION.parent, delete=False) as temporary:
         json.dump(payload, temporary, ensure_ascii=False, indent=2)
@@ -448,7 +461,7 @@ def main():
     for vehicle in vehicles:
         count = len(vehicle["images"])
         image_counts[count] = image_counts.get(count, 0) + 1
-    print(f"Updated inventory with {len(vehicles)} vehicles with photos (API reports {api_total} active ads; removed {duplicate_count} exact duplicate records); fetched {detail_responses} full ads; gallery image counts: {image_counts}.")
+    print(f"Checked inventory: {len(vehicles)} vehicles with photos, {reused_details} unchanged details reused, {detail_responses} full ads fetched (API reports {api_total} active ads; removed {duplicate_count} exact duplicate records); gallery image counts: {image_counts}.")
 
 
 if __name__ == "__main__":

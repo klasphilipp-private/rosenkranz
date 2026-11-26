@@ -4,7 +4,7 @@ import stat
 import unittest
 from pathlib import Path
 
-from scripts.release_files import file_delta, manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
+from scripts.release_files import auto_data_file, file_delta, manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +48,12 @@ class ReleaseFilesTests(unittest.TestCase):
         current = {"files": {"a.css": {"sha256": "new"}, "b.js": {"sha256": "same"}, "new.webp": {"sha256": "new"}}}
         self.assertEqual(file_delta(previous, current), (["a.css", "new.webp"], ["gone.html"]))
         self.assertEqual(set(selected_manifest(current, ["a.css"])["files"]), {"a.css"})
+
+    def test_automatic_promotion_rejects_layout_and_form_changes(self):
+        for name in ("inventory.json", "google-reviews.json", "sitemap.xml", "angebote/c3-123/index.html"):
+            self.assertTrue(auto_data_file(name))
+        for name in ("forms.js", "index.html", "header.html", "assets/logo-header.png", "angebote.html"):
+            self.assertFalse(auto_data_file(name))
 
 
 if __name__ == "__main__":

@@ -1,4 +1,5 @@
 name: Deploy Rosenkranz DEV_TEST
+run-name: DEV_TEST ${{ inputs.mode }} ${{ inputs.source_sha || github.sha }}
 on:
   workflow_dispatch:
     inputs:
@@ -7,6 +8,15 @@ on:
         type: choice
         options: [check, upload, restamp, hardening, webcheck, formscheck]
         default: check
+      source_sha:
+        description: Optionaler vollständiger Commit für automatisch freigegebene API-Daten
+        required: false
+        type: string
+      data_only:
+        description: Nur generierte Fahrzeug- und Bewertungsdaten zulassen
+        required: false
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -20,12 +30,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.source_sha || github.sha }}
+          fetch-depth: 0
           persist-credentials: false
+      - name: Verify selected commit
+        env:
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          if [ -n "$SOURCE_SHA" ]; then
+            [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 1
+            test "$(git rev-parse HEAD)" = "$SOURCE_SHA"
+            git merge-base --is-ancestor "$SOURCE_SHA" origin/main
+          fi
       - run: python -m pip install 'paramiko>=3.5,<5'
       - run: python -m unittest discover -s tests -p 'test_htaccess_hardening.py'
       - name: Verify destination or upload website
         env:
           MODE: ${{ inputs.mode }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          DATA_ONLY: ${{ inputs.data_only }}
           SFTP_HOST: home273863182.1and1-data.host
           SFTP_PORT: "22"
           SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}
@@ -43,12 +66,14 @@ jobs:
 
           import paramiko
           from scripts.htaccess_hardening import merge
-          from scripts.release_files import file_delta, manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
+          from scripts.release_files import auto_data_file, file_delta, manifest_bytes, public_files, release_manifest, selected_manifest, verify_remote_files
           import json
+          import subprocess
 
           target = "/Web-Relaunch-2026/DEV_TEST"
           files = public_files(Path("."), include_maintenance=True)
-          manifest = release_manifest(Path("."), files, os.environ["GITHUB_SHA"])
+          release_sha = os.environ["SOURCE_SHA"] or os.environ["GITHUB_SHA"]
+          manifest = release_manifest(Path("."), files, release_sha)
           print(f"Target: {target}. Website files: {len(files)}", flush=True)
 
           for variable in ("SFTP_HOST", "SFTP_KNOWN_HOSTS", "SFTP_USER", "SFTP_PASSWORD"):
@@ -103,6 +128,11 @@ jobs:
 
                   if os.environ["MODE"] == "upload":
                       changed, removed = file_delta(prior, manifest)
+                      if os.environ["DATA_ONLY"] == "true":
+                          if not prior or not all(auto_data_file(name) for name in changed + removed):
+                              raise SystemExit("Automatic data deployment contains non-data files; manual approval required.")
+                          if subprocess.run(["git", "merge-base", "--is-ancestor", prior.get("sourceCommit", ""), release_sha], check=False).returncode:
+                              raise SystemExit("Automatic data deployment would move DEV_TEST backwards.")
                       print(f"DEV_TEST delta: {len(changed)} changed, {len(removed)} removed, {len(files) - len(changed)} unchanged.", flush=True)
                       directories = sorted({parent.as_posix() for name in changed for parent in Path(name).parents} - {"."}, key=lambda name: (name.count("/"), name))
                       for directory in directories:
@@ -225,6 +255,7 @@ jobs:
           node-version: '22'
       - run: npm install --no-save playwright@1.55.0
       - run: npx playwright install --with-deps chromium
+      - run: node tests/forms-client.test.cjs
       - name: Check protected DEV_TEST website
         env:
           DEV_TEST_USER: ${{ secrets.DEV_TEST_USER }}

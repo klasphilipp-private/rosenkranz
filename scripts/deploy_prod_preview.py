@@ -8,12 +8,13 @@ previous routing file is restored; old release folders remain for rollback.
 import json
 import os
 import re
+import subprocess
 import tempfile
 import urllib.error
 import urllib.request
 from pathlib import Path
 
-from release_files import file_delta, manifest_bytes, release_manifest, selected_manifest, verify_remote_files
+from release_files import auto_data_file, file_delta, manifest_bytes, release_manifest, selected_manifest, verify_remote_files
 
 
 PREVIEW = "https://prd-prev.automobile-rosenkranz.de"
@@ -226,6 +227,12 @@ def main():
                     sftp.rmdir(f"__releases/{probe}")
 
             base, sources, deleted, changed = release_plan(prior if not first_release else None, manifest, SHA)
+            if os.environ.get("AUTO_DATA_ONLY") == "true":
+                newly_removed = file_delta(prior, manifest)[1]
+                if first_release or not all(auto_data_file(name) for name in changed + newly_removed):
+                    raise RuntimeError("Automatic PROD release contains non-data files; manual approval required")
+                if subprocess.run(["git", "merge-base", "--is-ancestor", prior.get("sourceCommit", ""), SHA], check=False).returncode:
+                    raise RuntimeError("Automatic PROD data release would move backwards")
             print(f"PROD delta: {len(changed)} changed, {len(deleted)} deleted, {len(files) - len(changed)} unchanged.", flush=True)
             release = f"__releases/{SHA}"
             existing_releases = set(sftp.listdir("__releases"))
