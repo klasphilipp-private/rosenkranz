@@ -1,0 +1,9 @@
+# mobile.de Bestandsabgleich
+
+Quelle: [offizielle Search-API-Dokumentation](https://services.mobile.de/manual/search-api.html) und [Ad-Stream-Dokumentation](https://services.mobile.de/manual/ad-stream.html), geprüft am 26.11.2026.
+
+- Der Search-Endpunkt `/search-api/search` liefert paginierte, aktuell sichtbare Inserate. `page.size` darf bis 100 sein; der derzeitige Händlerbestand passt auf eine Seite. `imageCount.min=1` schließt Inserate ohne Bilder aus. Die API-Zugangsdaten begrenzen die sichtbaren Händler laut Dokumentation gegebenenfalls bereits serverseitig.
+- Der Suchtreffer enthält `mobileAdId` und `modificationDate`. Die vollständigen Details kommen über `/search-api/ad/{id}`. Der Abgleich liest deshalb die **gesamte aktive Liste**, lädt aber Details nur für neue oder geänderte IDs nach. Fehlende IDs werden aus dem Website-Bestand entfernt. `modificationTime.min` allein wäre für Löschungen unzureichend.
+- Eine unvollständige oder überlappende Pagination, HTTP-Fehler oder ungültige Antworten lassen den letzten gültigen Snapshot bestehen. Zeigt die gültige Händlerantwort tatsächlich null aktive Inserate, werden die Angebotsseiten entfernt.
+- Der Ad-Stream kann Änderungen und Löschungen per WebSocket melden. Er benötigt laut mobile.de gesonderte Freischaltung, eine dauerhafte Verbindung und Reconnect-Logik; historische Ereignisse werden nur 24 Stunden vorgehalten. Für den kleinen Bestand und GitHub Actions bleibt der vollständige periodische Search-Abgleich die einfachere, kontrollierbare Lösung.
+- GitHub Actions `schedule` ist eine Best-Effort-Zeitsteuerung. Der Workflow läuft zusätzlich manuell per `workflow_dispatch`; fehlgeschlagene Abgleiche und Promotionen sind in Actions sichtbar. Für eine harte Aktualitätsgarantie wäre später ein externer Scheduler mit Monitoring nötig.

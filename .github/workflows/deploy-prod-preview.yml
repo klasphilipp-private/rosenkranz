@@ -1,4 +1,5 @@
 name: Publish approved Rosenkranz PROD release
+run-name: PROD ${{ inputs.approved_sha }}
 
 on:
   workflow_dispatch:
@@ -7,6 +8,11 @@ on:
         description: Vollständiger DEV_TEST-Release-Commit (40 Zeichen)
         required: true
         type: string
+      data_only:
+        description: Nur API-generierte Fahrzeug- und Bewertungsdaten automatisch veröffentlichen
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -51,6 +57,7 @@ jobs:
         env:
           APPROVED_SHA: ${{ inputs.approved_sha }}
           PROD_BUILD_DIR: ${{ runner.temp }}/rosenkranz-production
+          AUTO_DATA_ONLY: ${{ inputs.data_only }}
           IONOS_SFTP_HOST: ${{ secrets.IONOS_SFTP_HOST }}
           IONOS_SFTP_PORT: ${{ secrets.IONOS_SFTP_PORT }}
           IONOS_SFTP_KNOWN_HOSTS: ${{ vars.IONOS_SFTP_KNOWN_HOSTS || secrets.IONOS_SFTP_KNOWN_HOSTS }}

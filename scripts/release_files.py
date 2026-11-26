@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import re
 import stat
 import subprocess
 from pathlib import Path
@@ -17,6 +18,12 @@ PUBLIC_DATA = {
     "forms-config.json", "robots.txt", "sitemap.xml",
 }
 EXCLUDED_ROOTS = {"scripts", "docs", "tests", "deploy", "workers"}
+AUTO_DATA_FILES = {"inventory.json", "google-reviews.json", "sitemap.xml"}
+
+
+def auto_data_file(name: str) -> bool:
+    """Only these generated public files may bypass manual content approval."""
+    return name in AUTO_DATA_FILES or bool(re.fullmatch(r"angebote/[a-z0-9-]+/index\.html", name))
 
 
 def public_files(source: Path, *, include_maintenance: bool) -> list[Path]:
