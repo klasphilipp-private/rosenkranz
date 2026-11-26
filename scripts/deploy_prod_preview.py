@@ -17,7 +17,8 @@ from pathlib import Path
 from release_files import auto_data_file, file_delta, manifest_bytes, release_manifest, selected_manifest, verify_remote_files
 
 
-PREVIEW = "https://prd-prev.automobile-rosenkranz.de"
+# The former preview hostname no longer resolves after the public domain went live.
+VERIFY_URL = "https://automobile-rosenkranz.de"
 START = b"# BEGIN ROSENKRANZ RELEASE ROUTER"
 END = b"# END ROSENKRANZ RELEASE ROUTER"
 
@@ -134,7 +135,7 @@ def replace_access(sftp, data):
 
 
 def http_bytes(path):
-    request = urllib.request.Request(PREVIEW + path, headers={"Cache-Control": "no-store"})
+    request = urllib.request.Request(VERIFY_URL + path, headers={"Cache-Control": "no-store"})
     with urllib.request.urlopen(request, timeout=30) as response:
         return response.status, response.headers, response.read(), response.geturl()
 
@@ -220,7 +221,7 @@ def main():
                     if status != 200 or body != b"rosenkranz-rewrite-ok":
                         raise RuntimeError("IONOS did not serve the release router correctly")
                     status, _, body, final_url = http_bytes("/")
-                    if status != 200 or body != b"rosenkranz-root-ok" or final_url.rstrip("/") != PREVIEW:
+                    if status != 200 or body != b"rosenkranz-root-ok" or final_url.rstrip("/") != VERIFY_URL:
                         raise RuntimeError("IONOS did not serve the release root correctly")
                     print("IONOS release router probe passed; temporary router will be removed.", flush=True)
                 finally:
@@ -280,7 +281,7 @@ def main():
                 if "noindex" in headers.get("X-Robots-Tag", "").lower():
                     raise RuntimeError("PROD preview unexpectedly sends a noindex header")
                 status, _, home, final_url = http_bytes("/")
-                if status != 200 or home != index or final_url.rstrip("/") != PREVIEW:
+                if status != 200 or home != index or final_url.rstrip("/") != VERIFY_URL:
                     raise RuntimeError("PROD preview homepage does not serve the approved package")
                 representative = next((path.as_posix() for path in files if len(path.parts) == 3 and path.parts[0] == "angebote" and path.name == "index.html"), None)
                 for name in ("modelle.html", "robots.txt", "forms-config.json", representative):
