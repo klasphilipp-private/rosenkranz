@@ -39,6 +39,9 @@
 .legal-copy h3{font-size:19px;margin:28px 0 8px;color:#fff}
 .legal-copy p{margin:0 0 17px}
 .legal-copy a,.team-source a{color:#ff7772;text-decoration:underline;text-underline-offset:3px}
+.legal-copy .legal-credit{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:20px 0 24px}
+.legal-credit a{display:inline-flex;background:#fff;padding:4px;line-height:0}
+.legal-credit img{display:block;width:190px;height:auto}
 .legal-copy .legal-source{border-top:1px solid #444;padding-top:22px;margin-top:45px;color:#aaa;font-size:13px}
 .about-hero{background:#111;padding:55px 0 65px}
 .about-page-intro{display:grid;grid-template-columns:.88fr 1.12fr;gap:55px;align-items:start}
