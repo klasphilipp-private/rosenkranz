@@ -1,14 +1,14 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-26T16:54:41.948640+00:00",
+  "updated": "2026-11-27T01:01:02.087024+00:00",
   "apiTotal": 34,
   "vehiclesWithImages": 34,
   "exactDuplicatesRemoved": 0,
   "vehicles": [
     {
       "id": "374815118",
-      "modificationDate": "2026-11-17T21:54:33+01:00",
+      "modificationDate": "2026-11-26T21:36:40+01:00",
       "title": "Citroën eC4 136 Shine | ACC - Nav - LED - RCam -",
       "price": "30.690 €",
       "priceAmount": 30690.0,
@@ -110,7 +110,7 @@
     },
     {
       "id": "38676823732768",
-      "modificationDate": "2026-11-17T20:11:20+01:00",
+      "modificationDate": "2026-11-26T19:36:49+01:00",
       "title": "Citroën C3 Aircross Shine Pack",
       "price": "18.900 €",
       "priceAmount": 18900.0,
@@ -237,7 +237,7 @@
     },
     {
       "id": "395616079",
-      "modificationDate": "2026-11-17T21:51:31+01:00",
+      "modificationDate": "2026-11-26T21:35:21+01:00",
       "title": "Subaru New_Crosstrek Subaru Crosstreck 2.0ie Comfort",
       "price": "36.290 €",
       "priceAmount": 36290.0,
@@ -345,7 +345,7 @@
     },
     {
       "id": "40805707469152",
-      "modificationDate": "2026-11-17T19:58:33+01:00",
+      "modificationDate": "2026-11-26T19:26:21+01:00",
       "title": "Subaru Forester 2.0ie Lineartronic Comfort",
       "price": "24.990 €",
       "priceAmount": 24990.0,
@@ -453,7 +453,7 @@
     },
     {
       "id": "41642220093632",
-      "modificationDate": "2026-11-17T20:04:35+01:00",
+      "modificationDate": "2026-11-26T19:22:13+01:00",
       "title": "Subaru Outback 2.5i Exclusive Cross Lineartronic",
       "price": "25.200 €",
       "priceAmount": 25200.0,
@@ -562,7 +562,7 @@
     },
     {
       "id": "433197523",
-      "modificationDate": "2026-11-17T21:39:34+01:00",
+      "modificationDate": "2026-11-26T21:26:25+01:00",
       "title": "Citroën C3 Aircross PureTech 110 Stop&Start PLUS",
       "price": "17.790 €",
       "priceAmount": 17790.0,
@@ -670,7 +670,7 @@
     },
     {
       "id": "435838689",
-      "modificationDate": "2026-11-17T21:42:55+01:00",
+      "modificationDate": "2026-11-26T21:24:33+01:00",
       "title": "Subaru Outback Platinum | Nav - RCam - SD",
       "price": "47.780 €",
       "priceAmount": 47780.0,
@@ -775,7 +775,7 @@
     },
     {
       "id": "43611663290176",
-      "modificationDate": "2026-11-17T19:50:24+01:00",
+      "modificationDate": "2026-11-26T19:06:23+01:00",
       "title": "Citroën C3 Aircross PT130  Max | Nav - RCam - SH",
       "price": "20.440 €",
       "priceAmount": 20440.0,
@@ -889,7 +889,7 @@
     },
     {
       "id": "438306766",
-      "modificationDate": "2026-11-17T21:50:47+01:00",
+      "modificationDate": "2026-11-26T21:21:29+01:00",
       "title": "Citroën C3 Turbo 100 MAX | Navi - RCam - DAB - TMP",
       "price": "18.350 €",
       "priceAmount": 18350.0,
@@ -1000,7 +1000,7 @@
     },
     {
       "id": "44145244284352",
-      "modificationDate": "2026-11-17T19:39:03+01:00",
+      "modificationDate": "2026-11-26T19:03:38+01:00",
       "title": "Citroën Berlingo VANDERER ONE inkl. Aufstelldach 100PS HDi",
       "price": "55.595 €",
       "priceAmount": 55595.0,
@@ -1120,7 +1120,7 @@
     },
     {
       "id": "445612020",
-      "modificationDate": "2026-11-17T21:30:24+01:00",
+      "modificationDate": "2026-11-26T21:08:50+01:00",
       "title": "Citroën C5 Aircross [>>NEU<< ]Hybrid 145 ë-DCS6 MAX",
       "price": "42.800 €",
       "priceAmount": 42800.0,
@@ -1235,7 +1235,7 @@
     },
     {
       "id": "448355737",
-      "modificationDate": "2026-11-17T21:20:10+01:00",
+      "modificationDate": "2026-11-26T21:03:10+01:00",
       "title": "Citroën C4 Shine 130PS -  Automatik, Vollausstattung",
       "price": "18.800 €",
       "priceAmount": 18800.0,
@@ -1328,7 +1328,7 @@
     },
     {
       "id": "448364234",
-      "modificationDate": "2026-11-17T21:38:17+01:00",
+      "modificationDate": "2026-11-26T21:03:10+01:00",
       "title": "Citroën C3 Aircross Shine 110PS - Kältepaket",
       "price": "17.900 €",
       "priceAmount": 17900.0,
@@ -1570,7 +1570,7 @@
     },
     {
       "id": "452434461",
-      "modificationDate": "2026-11-17T21:27:19+01:00",
+      "modificationDate": "2026-11-26T20:49:16+01:00",
       "title": "Ford F 150 F150 Raptor - LuxuryPaket, Glasdach, Performance",
       "price": "69.615 €",
       "priceAmount": 69615.0,
@@ -1668,7 +1668,7 @@
     },
     {
       "id": "453269663",
-      "modificationDate": "2026-11-17T21:21:17+01:00",
+      "modificationDate": "2026-11-26T20:46:02+01:00",
       "title": "Citroën C5 Aircross Hybird 145 ë-Series | PanoDach",
       "price": "30.580 €",
       "priceAmount": 30580.0,
@@ -1771,7 +1771,7 @@
     },
     {
       "id": "453407479",
-      "modificationDate": "2026-11-17T21:05:50+01:00",
+      "modificationDate": "2026-11-26T20:45:16+01:00",
       "title": "Citroën C3 Shine",
       "price": "12.600 €",
       "priceAmount": 12600.0,
@@ -1853,7 +1853,7 @@
     },
     {
       "id": "453461824",
-      "modificationDate": "2026-11-17T21:09:54+01:00",
+      "modificationDate": "2026-11-26T20:45:06+01:00",
       "title": "Citroën C4 Lim. Shine",
       "price": "25.700 €",
       "priceAmount": 25700.0,
@@ -1935,7 +1935,7 @@
     },
     {
       "id": "456701980",
-      "modificationDate": "2026-11-17T20:52:28+01:00",
+      "modificationDate": "2026-11-26T20:28:46+01:00",
       "title": "Citroën C3 PT110  Max | RCam - Nav - TMP - LED",
       "price": "17.700 €",
       "priceAmount": 17700.0,
@@ -2031,7 +2031,7 @@
     },
     {
       "id": "457844804",
-      "modificationDate": "2026-11-20T15:27:05+01:00",
+      "modificationDate": "2026-11-26T20:22:04+01:00",
       "title": "Subaru Forester 2.0 ie Exclusive Hybrid",
       "price": "39.950 €",
       "priceAmount": 39950.0,
@@ -2142,7 +2142,7 @@
     },
     {
       "id": "457935838",
-      "modificationDate": "2026-11-17T20:48:57+01:00",
+      "modificationDate": "2026-11-26T20:21:22+01:00",
       "title": "Subaru Forester 2.0ie Platinum Hybrid",
       "price": "42.660 €",
       "priceAmount": 42660.0,
@@ -2267,7 +2267,7 @@
     },
     {
       "id": "459126825",
-      "modificationDate": "2026-11-17T20:38:21+01:00",
+      "modificationDate": "2026-11-26T20:12:27+01:00",
       "title": "Subaru Forester 2.0 ie AWD Active Hybrid",
       "price": "41.960 €",
       "priceAmount": 41960.0,
@@ -2378,7 +2378,7 @@
     },
     {
       "id": "461821618",
-      "modificationDate": "2026-11-17T20:17:39+01:00",
+      "modificationDate": "2026-11-26T19:45:30+01:00",
       "title": "Citroën C4 Hybrid 136 Max | Winter-Pak. - RCam - Nav",
       "price": "19.990 €",
       "priceAmount": 19990.0,
@@ -2495,7 +2495,7 @@
     },
     {
       "id": "462163164",
-      "modificationDate": "2026-11-20T15:37:14+01:00",
+      "modificationDate": "2026-11-26T19:42:11+01:00",
       "title": "Subaru Forester 2.0 ie Hybrid Trend",
       "price": "35.550 €",
       "priceAmount": 35550.0,
@@ -2589,7 +2589,7 @@
     },
     {
       "id": "462227296",
-      "modificationDate": "2026-11-20T15:56:54+01:00",
+      "modificationDate": "2026-11-26T19:41:08+01:00",
       "title": "Subaru Forester 2.0 ie Hybrid Trend",
       "price": "35.750 €",
       "priceAmount": 35750.0,
@@ -2682,7 +2682,7 @@
     },
     {
       "id": "462246003",
-      "modificationDate": "2026-11-20T15:45:53+01:00",
+      "modificationDate": "2026-11-26T19:40:47+01:00",
       "title": "Subaru Forester 2.0 ie Exclusive",
       "price": "39.950 €",
       "priceAmount": 39950.0,
@@ -2774,7 +2774,7 @@
     },
     {
       "id": "49838028642656",
-      "modificationDate": "2026-11-17T18:34:50+01:00",
+      "modificationDate": "2026-11-26T17:54:49+01:00",
       "title": "Citroën E-C4 FeelPack | RCam - TW - SH - Nav - Headup",
       "price": "17.990 €",
       "priceAmount": 17990.0,
