@@ -1,9 +1,9 @@
 {
   "source": "https://services.mobile.de/search-api/search",
   "dealerProfile": "https://home.mobile.de/AUTOMOBILE-ROSENKRANZ",
-  "updated": "2026-11-27T01:01:02.087024+00:00",
-  "apiTotal": 34,
-  "vehiclesWithImages": 34,
+  "updated": "2026-11-28T18:30:05.235467+00:00",
+  "apiTotal": 35,
+  "vehiclesWithImages": 35,
   "exactDuplicatesRemoved": 0,
   "vehicles": [
     {
@@ -2882,10 +2882,10 @@
     },
     {
       "id": "54269980681344",
-      "modificationDate": "2026-11-26T16:21:38+01:00",
+      "modificationDate": "2026-11-28T14:07:38+01:00",
       "title": "Citroën Berlingo XL PT130  \"Rollstuhl-Umbau\"",
-      "price": "37.770 €",
-      "priceAmount": 37770.0,
+      "price": "36.600 €",
+      "priceAmount": 36600.0,
       "image": "https://img.classistatic.de/api/v1/mo-prod/images/cc/cc6467d8-d780-4e64-ba23-f4939184dc11?rule=mo-1024.jpg",
       "images": [
         "https://img.classistatic.de/api/v1/mo-prod/images/cc/cc6467d8-d780-4e64-ba23-f4939184dc11?rule=mo-1024.jpg",
@@ -3514,6 +3514,100 @@
         }
       ],
       "detailPath": "angebote/forester-forester-2-0-ie-100-kw-awd-exclusive-58152147387808/"
+    },
+    {
+      "id": "58664863951136",
+      "modificationDate": "2026-11-28T14:53:08+01:00",
+      "title": "Subaru BRZ Sport - STI Paket - Checkheft - Garantie",
+      "price": "36.300 €",
+      "priceAmount": 36300.0,
+      "image": "https://img.classistatic.de/api/v1/mo-prod/images/ea/ea031ce7-e8fe-4fe8-8e33-0c63b214568f?rule=mo-1024.jpg",
+      "images": [
+        "https://img.classistatic.de/api/v1/mo-prod/images/ea/ea031ce7-e8fe-4fe8-8e33-0c63b214568f?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c2/c20d021a-4305-4f15-9b6a-c91599b40333?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c0/c0eada3e-9ff5-4275-a297-75acf6a1af98?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/c0/c07db2d5-f9ae-4dd6-aea5-233388a76670?rule=mo-1024.jpg",
+        "https://img.classistatic.de/api/v1/mo-prod/images/5e/5e6ff096-d1d3-47a1-830c-83504616ca56?rule=mo-1024.jpg"
+      ],
+      "url": "https://suchen.mobile.de/auto-inserat/subaru-brz-sport-sti-paket-checkheft-garantie-recklinghausen/58664863951136.html?source=api",
+      "vehicleClass": "Car",
+      "make": "Subaru",
+      "model": "BRZ",
+      "modelDescription": "BRZ Sport - STI Paket - Checkheft - Garantie",
+      "mileage": 6490,
+      "fuel": "PETROL",
+      "gearbox": "MANUAL_GEAR",
+      "driveType": "REAR",
+      "firstRegistration": "202305",
+      "category": "SportsCar",
+      "condition": "USED",
+      "power": 172,
+      "energyDetails": [
+        {
+          "label": "Kraftstoffverbrauch kombiniert",
+          "value": "9,5 l/100 km"
+        },
+        {
+          "label": "CO₂-Emissionen kombiniert",
+          "value": "217 g/km"
+        }
+      ],
+      "description": "Subaru BRZ 2.4i Sport | STI-Paket | 6-Gang | Ice Silver Metallic Dieser BRZ in Ice Silver Metallic trägt das komplette STI-Anbauteile-Paket. Der 234 PS starke Boxermotor, das manuelle 6-Gang-Getriebe und der Heckantrieb sorgen für ein direktes Fahrgefühl. -  - Sonderausstattung & Zubehör - STI-Frontspoilerlippe am unteren Rand des vorderen Stoßfängers, STI-Seitenspoilersatz entlang der Schweller auf Fahrer- und Beifahrerseite, STI-Heckspoilereckensatz mit Ansätzen links und rechts am hinteren Stoßfänger, Metallic-Lackierung in Ice Silver Metallic -  - Antrieb & Fahrwerk - 2,4-Liter-Vierzylinder-Boxermotor mit 172 kW (234 PS) und 250 Nm bei 3.700 U/min, Torsen-Sperrdifferenzial an der Hinterachse für mehr Traktion beim Herausbeschleunigen aus Kurven, Fahrdynamikregelung mit wählbarem TRACK-Modus, Innenbelüftete Scheibenbremsen vorn und hinten -  - Komfort & Innenraum - Beheizbare Sportsitze vorn in schwarzem Leder und Ultrasuede mit roten Kontrastnähten, Zwei-Zonen-Klimaautomatik mit getrennter Temperaturwahl für Fahrer und Beifahrer, Schlüsselloser Zugang und Motorstart per Knopfdruck, Multifunktions-Lederlenkrad und Aluminium-Pedale, Vier Sitzplätze und umklappbare Rücksitzlehne für längeres Gepäck -  - Multimedia & Konnektivität - Digitales 7-Zoll-Cockpit mit zentralem Drehzahlmesser und Schaltanzeige, Subaru STARLINK mit 8-Zoll-Display, Apple CarPlay und Android Auto, Digitalradio DAB+, Bluetooth-Freisprecheinrichtung und zwei USB-Anschlüsse, Sechs Lautsprecher und Audiobedienung am Lenkrad - Assistenz & Sicherheit - Rückfahrkamera und Querverkehrwarner für das rückwärtige Ausparken, Totwinkel- und Spurwechselassistent, Tempomat und Berganfahrhilfe, Reifendruckkontrolle mit Einzelanzeige -  - Exterieur & Licht - 18-Zoll-Leichtmetallfelgen, LED-Scheinwerfer mit dynamischem Kurvenlicht, In die Kofferraumklappe integrierter Heckspoiler, Elektrisch anklappbare und beheizbare Außenspiegel -  - Unsere Leistungen Finanzierung, Leasing, Inzahlungnahme und Kreditablösung sind nach individueller Prüfung möglich. Gerne unterstützen wir Sie außerdem bei Versicherung, Garantie und Zulassung sowie mit passendem Zubehör und individuellen Fahrzeuganpassungen. -  - Neugierig geworden? Vereinbaren Sie jetzt Ihre persönliche Besichtigung oder Probefahrt unter 02361 9149-0. Wir beraten Sie persönlich, transparent und unkompliziert und nehmen uns gerne Zeit für Ihre Fragen. Ihr Verkaufsteam von Automobile Rosenkranz freut sich auf Ihren Besuch! - Hinweis: -  Die Angaben in diesem Inserat basieren auf den verfügbaren Fahrzeug-, FIN- und DAT-Daten sowie den uns vorliegenden Informationen. Trotz sorgfältiger Aufbereitung können Daten- und Übertragungsfehler nicht vollständig ausgeschlossen werden. Bitte prüfen Sie die für Ihre Kaufentscheidung wesentlichen Ausstattungsmerkmale direkt am Fahrzeug. Irrtümer, Änderungen und Zwischenverkauf vorbehalten.",
+      "details": [
+        {
+          "label": "Erstzulassung",
+          "value": "05/2023"
+        },
+        {
+          "label": "Kilometerstand",
+          "value": "6.490 km"
+        },
+        {
+          "label": "Leistung",
+          "value": "172 kW"
+        },
+        {
+          "label": "Getriebe",
+          "value": "Schaltgetriebe"
+        },
+        {
+          "label": "Kraftstoff",
+          "value": "Benzin"
+        },
+        {
+          "label": "Antrieb",
+          "value": "Heckantrieb"
+        },
+        {
+          "label": "Fahrzeugklasse",
+          "value": "SportsCar"
+        },
+        {
+          "label": "Zustand",
+          "value": "Gebrauchtfahrzeug"
+        },
+        {
+          "label": "Hubraum",
+          "value": 2387
+        },
+        {
+          "label": "Türen",
+          "value": "2/3"
+        },
+        {
+          "label": "Sitzplätze",
+          "value": 4
+        },
+        {
+          "label": "Außenfarbe",
+          "value": "Silber"
+        },
+        {
+          "label": "Schadstoffklasse",
+          "value": "Euro 6D"
+        }
+      ],
+      "detailPath": "angebote/brz-brz-sport-sti-paket-checkheft-garantie-58664863951136/"
     }
   ]
 }
